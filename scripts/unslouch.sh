@@ -1,29 +1,58 @@
 #!/bin/sh
 # unslouch — stretch nudges while your coding agent works.
 # Subcommands (wired via hooks.json):
-#   start  (UserPromptSubmit) — mark turn start
-#   check  (PostToolUse)      — nudge if the agent has been working long enough
-#   stop   (Stop)             — clear turn state
+#   start  (UserPromptSubmit) — mark turn start, reset stale sitting debt
+#   check  (PostToolUse)      — accumulate agent-active time, nudge when due
+#   stop   (Stop)             — close out the turn's accounting
 #
-# Config (env):
-#   UNSLOUCH_FIRST_MIN   minutes of agent work before the first nudge (default 3)
-#   UNSLOUCH_REPEAT_MIN  minutes between nudges within one long turn (default 5)
-#   UNSLOUCH_LINK        link shown in the nudge footer
+# Nudge fires only when ALL of:
+#   - the current turn has been running >= UNSLOUCH_MIN_TURN seconds
+#     (you are actually waiting on the agent right now)
+#   - accumulated agent-active time since your last nudge >= UNSLOUCH_MIN_ACTIVE
+#     (you have genuinely been sitting through agent work — one big turn
+#      or several medium ones both count)
+#   - at least UNSLOUCH_COOLDOWN seconds passed since the last nudge
+# A break away from the keyboard longer than 45 min resets the debt.
+#
+# Config (env, all in seconds):
+#   UNSLOUCH_MIN_TURN    current turn must be at least this long (default 120)
+#   UNSLOUCH_MIN_ACTIVE  agent-active time since last nudge (default 300)
+#   UNSLOUCH_COOLDOWN    min gap between nudges (default 900)
 #   UNSLOUCH_DISABLE     set to anything to turn nudges off
 
 STATE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/unslouch"
 mkdir -p "$STATE_DIR" 2>/dev/null
 
-LINK="${UNSLOUCH_LINK:-https://github.com/Eliasjunit/unslouch}"
-FIRST_MIN="${UNSLOUCH_FIRST_MIN:-3}"
-REPEAT_MIN="${UNSLOUCH_REPEAT_MIN:-5}"
-COOLDOWN_SEC=120 # min gap between nudges across turns/sessions
+MIN_TURN="${UNSLOUCH_MIN_TURN:-120}"
+MIN_ACTIVE="${UNSLOUCH_MIN_ACTIVE:-300}"
+COOLDOWN="${UNSLOUCH_COOLDOWN:-900}"
+IDLE_RESET=2700 # away >45 min => sitting debt is stale
 
 # session_id sits near the top of the hook payload; don't slurp huge tool outputs
 SID=$(head -c 4096 | sed -n 's/.*"session_id"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p')
 [ -z "$SID" ] && SID="global"
 TURN_FILE="$STATE_DIR/turn-$SID"
-COUNT_FILE="$STATE_DIR/count-$SID"
+SEEN_FILE="$STATE_DIR/seen-$SID"
+ACTIVE_FILE="$STATE_DIR/active"
+
+readnum() { # readnum <file> <default>
+  VAL=$(cat "$1" 2>/dev/null)
+  case "$VAL" in ''|*[!0-9]*) VAL="$2" ;; esac
+  echo "$VAL"
+}
+
+# add in-turn time elapsed since we last counted into the global active total
+accumulate() {
+  [ -f "$TURN_FILE" ] || return 0
+  TURN_START=$(readnum "$TURN_FILE" "$NOW")
+  SEEN=$(readnum "$SEEN_FILE" "$TURN_START")
+  DELTA=$((NOW - SEEN))
+  [ "$DELTA" -lt 0 ] && DELTA=0
+  ACTIVE=$(( $(readnum "$ACTIVE_FILE" 0) + DELTA ))
+  echo "$ACTIVE" > "$ACTIVE_FILE"
+  echo "$NOW" > "$SEEN_FILE"
+  echo "$NOW" > "$STATE_DIR/last-activity"
+}
 
 exercise() {
   case $1 in
@@ -43,40 +72,46 @@ exercise() {
 }
 EX_COUNT=12
 
+NOW=$(date +%s)
+
 case "$1" in
   start)
-    date +%s > "$TURN_FILE"
-    rm -f "$COUNT_FILE"
+    LAST_ACT=$(readnum "$STATE_DIR/last-activity" 0)
+    if [ $((NOW - LAST_ACT)) -gt "$IDLE_RESET" ]; then
+      echo 0 > "$ACTIVE_FILE"
+    fi
+    echo "$NOW" > "$TURN_FILE"
+    echo "$NOW" > "$SEEN_FILE"
+    echo "$NOW" > "$STATE_DIR/last-activity"
     ;;
 
   check)
     [ -n "$UNSLOUCH_DISABLE" ] && exit 0
     [ -f "$TURN_FILE" ] || exit 0
-    START=$(cat "$TURN_FILE" 2>/dev/null)
-    [ -z "$START" ] && exit 0
-    NOW=$(date +%s)
-    ELAPSED=$((NOW - START))
+    accumulate
 
-    NUDGES=$(cat "$COUNT_FILE" 2>/dev/null || echo 0)
-    DUE=$((FIRST_MIN * 60 + NUDGES * REPEAT_MIN * 60))
-    [ "$ELAPSED" -lt "$DUE" ] && exit 0
+    TURN_ELAPSED=$((NOW - TURN_START))
+    [ "$TURN_ELAPSED" -lt "$MIN_TURN" ] && exit 0
 
-    LAST=$(cat "$STATE_DIR/last-nudge" 2>/dev/null || echo 0)
-    [ $((NOW - LAST)) -lt "$COOLDOWN_SEC" ] && exit 0
+    LAST_NUDGE=$(readnum "$STATE_DIR/last-nudge" 0)
+    [ $((NOW - LAST_NUDGE)) -lt "$COOLDOWN" ] && exit 0
 
-    IDX=$(cat "$STATE_DIR/idx" 2>/dev/null || echo 0)
+    [ "$ACTIVE" -lt "$MIN_ACTIVE" ] && exit 0
+
+    IDX=$(readnum "$STATE_DIR/idx" 0)
     EX=$(exercise "$IDX")
     echo $(( (IDX + 1) % EX_COUNT )) > "$STATE_DIR/idx"
-    echo $((NUDGES + 1)) > "$COUNT_FILE"
     echo "$NOW" > "$STATE_DIR/last-nudge"
+    echo 0 > "$ACTIVE_FILE"
 
-    MIN=$((ELAPSED / 60))
-    printf '{"suppressOutput":true,"systemMessage":"🧘 unslouch » Agent has been at it for %s min. Meanwhile, you: %s  ·  %s"}\n' \
-      "$MIN" "$EX" "$LINK"
+    MIN=$((ACTIVE / 60))
+    printf '{"suppressOutput":true,"systemMessage":"🧘 unslouch » ~%s min of agent time since your last break. You: %s"}\n' \
+      "$MIN" "$EX"
     ;;
 
   stop)
-    rm -f "$TURN_FILE" "$COUNT_FILE"
+    accumulate
+    rm -f "$TURN_FILE" "$SEEN_FILE"
     ;;
 esac
 exit 0
