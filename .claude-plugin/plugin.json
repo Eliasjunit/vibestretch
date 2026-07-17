@@ -9,5 +9,6 @@
   "homepage": "https://github.com/Eliasjunit/unslouch",
   "repository": "https://github.com/Eliasjunit/unslouch",
   "license": "MIT",
-  "keywords": ["health", "posture", "eyes", "breaks", "hooks", "wellness"]
+  "keywords": ["health", "posture", "eyes", "breaks", "hooks", "wellness"],
+  "hooks": "./hooks/hooks.json"
 }
