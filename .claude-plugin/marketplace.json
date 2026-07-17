@@ -1,0 +1,14 @@
+{
+  "name": "unslouch",
+  "owner": {
+    "name": "Junit",
+    "url": "https://github.com/Eliasjunit"
+  },
+  "plugins": [
+    {
+      "name": "unslouch",
+      "source": "./",
+      "description": "Stretch, move and rest your eyes while your coding agent works — friendly nudges on long-running turns."
+    }
+  ]
+}
