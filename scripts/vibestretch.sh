@@ -20,6 +20,7 @@
 #   VIBESTRETCH_COOLDOWN    min gap between nudges (default 900)
 #   VIBESTRETCH_DISABLE     set to anything to turn nudges off
 #   VIBESTRETCH_NOTIFY      0 = no desktop notification, terminal text only
+#   VIBESTRETCH_SOUND       0 = no sound with the nudge
 
 STATE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/vibestretch"
 mkdir -p "$STATE_DIR" 2>/dev/null
@@ -89,6 +90,18 @@ notify() { # notify <exercise>  -> JSON fragment, possibly empty
   esac
 }
 
+# Sound is the channel that works when you are not looking at any screen —
+# the pattern every Claude Code notification recipe converges on. System
+# sound via the OS player, zero deps; backgrounded so the hook never waits.
+sound() {
+  [ "${VIBESTRETCH_SOUND:-1}" = "0" ] && return 0
+  if [ -x /usr/bin/afplay ]; then
+    /usr/bin/afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 &
+  elif command -v paplay >/dev/null 2>&1; then
+    paplay /usr/share/sounds/freedesktop/stereo/complete.oga >/dev/null 2>&1 &
+  fi
+}
+
 NOW=$(date +%s)
 
 case "$1" in
@@ -125,6 +138,7 @@ case "$1" in
     # must be one clean line; the durable copy is the desktop notification, which
     # stays in the notification center after the toast is gone.
     MIN=$((ACTIVE / 60))
+    sound
     printf '{"suppressOutput":true,"systemMessage":"🧘 vibestretch · ~%s min of agent time since your last break » %s"%s}\n' \
       "$MIN" "$EX" "$(notify "$EX")"
     ;;

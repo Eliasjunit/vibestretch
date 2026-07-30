@@ -9,15 +9,21 @@ Some tools sell that attention window to advertisers. vibestretch gives it back 
 🧘 vibestretch · ~7 min of agent time since your last break » Slow neck rolls — 5 each direction.
 ```
 
-The nudge shows briefly in the session, and on terminals that support it
-(Warp, Ghostty, iTerm2, WezTerm, kitty) it also arrives as a desktop
-notification — that copy waits in your notification center for when you look
-up, because a line of text loses when you've already looked away.
-`VIBESTRETCH_NOTIFY=0` turns the desktop part off.
+The nudge reaches you three ways, because you're rarely looking at the right
+spot when it fires:
 
-> Tip: banners auto-dismiss in ~5 seconds. If you want the nudge to stay on
-> screen until you act on it, switch your terminal's notification style to
-> **Alerts** (macOS: System Settings → Notifications → your terminal).
+- a line in the session — for when you're watching the agent work
+- a soft system sound — for when you're not looking at any screen at all
+- a desktop notification (Warp, Ghostty, iTerm2, WezTerm, kitty) — it also
+  waits in your notification center for whenever you look up
+
+All out of the box, nothing to configure. `VIBESTRETCH_SOUND=0` mutes the
+sound, `VIBESTRETCH_NOTIFY=0` drops the desktop part.
+
+> Tip: if you want the banner itself to stay on screen until dismissed, set
+> your terminal's notification style to **Alerts** (macOS: System Settings →
+> Notifications → your terminal). Optional — the notification center copy is
+> there either way.
 
 A one-line nudge — a stretch, a micro-workout, or an eye exercise (20-20-20 and friends) —
 lands in the session only when you've genuinely been sitting through agent work.
@@ -58,7 +64,8 @@ Environment variables (all optional, all in seconds):
 | `VIBESTRETCH_MIN_ACTIVE` | `300` | Accumulated agent time since your last break |
 | `VIBESTRETCH_COOLDOWN` | `900` | Minimum gap between nudges |
 | `VIBESTRETCH_DISABLE` | unset | Set to anything to mute nudges |
-| `VIBESTRETCH_NOTIFY` | `1` | Set to `0` for terminal text only, no desktop notification |
+| `VIBESTRETCH_NOTIFY` | `1` | Set to `0` to drop the desktop notification |
+| `VIBESTRETCH_SOUND` | `1` | Set to `0` to mute the sound |
 
 Running Claude Code headlessly (`claude -p` from a script, cron, or a bot)? Set
 `VIBESTRETCH_DISABLE=1` in that environment. Otherwise those unattended sessions
