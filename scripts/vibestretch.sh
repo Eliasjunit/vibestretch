@@ -77,16 +77,16 @@ EX_COUNT=12
 # A line of text loses to a desktop notification when you have looked away.
 # Only terminals known to support the sequence get one; the rest stay silent
 # rather than risk stray bytes. Opt out entirely with VIBESTRETCH_NOTIFY=0.
-notify() { # notify <exercise>  -> JSON fragment, possibly empty
+notify() { # notify <exercise> <minutes>  -> JSON fragment, possibly empty
   [ "${VIBESTRETCH_NOTIFY:-1}" = "0" ] && return 0
   BODY=$(printf '%s' "$1" | tr ';' ',') # ; separates OSC fields
   case "${TERM_PROGRAM:-}:${TERM:-}" in
     *Warp*|*ghostty*|*Ghostty*)
-      printf ',"terminalSequence":"\\u001b]777;notify;vibestretch;%s\\u0007"' "$BODY" ;;
+      printf ',"terminalSequence":"\\u001b]777;notify;🧘 %s min sitting — time to move;%s\\u0007"' "$2" "$BODY" ;;
     *iTerm*|*WezTerm*)
-      printf ',"terminalSequence":"\\u001b]9;vibestretch: %s\\u0007"' "$BODY" ;;
+      printf ',"terminalSequence":"\\u001b]9;🧘 %s\\u0007"' "$BODY" ;;
     *kitty*)
-      printf ',"terminalSequence":"\\u001b]99;;%s\\u0007"' "$BODY" ;;
+      printf ',"terminalSequence":"\\u001b]99;;🧘 %s\\u0007"' "$BODY" ;;
   esac
 }
 
@@ -138,12 +138,15 @@ case "$1" in
     echo 0 > "$ACTIVE_FILE"
 
     # systemMessage renders as a short-lived toast in current Claude Code, so it
-    # must be one clean line; the durable copy is the desktop notification, which
-    # stays in the notification center after the toast is gone.
+    # must be one clean line, exercise first — that's what the eye must catch
+    # before it fades. Durable copies: the desktop notification (stays in the
+    # notification center) and the state files below, which any status line can
+    # render (the plugin can't draw there itself — the bottom bar is the user's).
     MIN=$((ACTIVE / 60))
+    printf '%s\n' "$EX" > "$STATE_DIR/current"
     sound
-    printf '{"suppressOutput":true,"systemMessage":"🧘 vibestretch · ~%s min of agent time since your last break » %s"%s}\n' \
-      "$MIN" "$EX" "$(notify "$EX")"
+    printf '{"suppressOutput":true,"systemMessage":"🧘 %s · vibestretch · %s min sitting"%s}\n' \
+      "$EX" "$MIN" "$(notify "$EX" "$MIN")"
     ;;
 
   stop)

@@ -6,7 +6,7 @@ Your agent grinds for minutes at a time. You sit there, slouched, not blinking.
 Some tools sell that attention window to advertisers. vibestretch gives it back to your spine:
 
 ```
-🧘 vibestretch · ~7 min of agent time since your last break » Slow neck rolls — 5 each direction.
+🧘 Slow neck rolls — 5 each direction. · vibestretch · 7 min sitting
 ```
 
 The nudge reaches you three ways, because you're rarely looking at the right
@@ -88,6 +88,29 @@ desktop notification. Terminals that aren't known to support the sequence get
 nothing rather than stray bytes.
 
 State lives in `~/.cache/vibestretch/`. Exercises rotate so you don't get squats twice in a row.
+
+## Show it in your status line
+
+The in-session notice is transient by platform design, and plugins can't draw
+in the status line — that bar belongs to you. So vibestretch does the next best
+thing: it keeps its state in plain files, and your own status line command can
+render them however you like:
+
+| File in `~/.cache/vibestretch/` | Meaning |
+|---|---|
+| `current` | text of the latest exercise |
+| `last-nudge` | unix time the latest nudge fired |
+| `active` | seconds of agent time you've sat through since your last break |
+
+For example, to show the exercise for 5 minutes after each nudge, add to your
+status line script:
+
+```sh
+VS="${XDG_CACHE_HOME:-$HOME/.cache}/vibestretch"
+if [ -f "$VS/last-nudge" ] && [ $(( $(date +%s) - $(cat "$VS/last-nudge") )) -lt 300 ]; then
+  printf ' | 🧘 %s' "$(cat "$VS/current")"
+fi
+```
 
 ## Roadmap
 
