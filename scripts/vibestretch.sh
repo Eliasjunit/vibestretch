@@ -73,14 +73,6 @@ exercise() {
 }
 EX_COUNT=12
 
-# The nudge lands mid-stream, right after some tool's output, so it needs air
-# around it or the eye slides past. \n here are JSON escapes, not real newlines.
-RULE="────────────────────────────────────────────"
-message() { # message <minutes> <exercise>
-  printf '\\n  %s\\n  🧘  vibestretch · %s min of agent time since your last break\\n      %s\\n  %s\\n' \
-    "$RULE" "$1" "$2" "$RULE"
-}
-
 # A line of text loses to a desktop notification when you have looked away.
 # Only terminals known to support the sequence get one; the rest stay silent
 # rather than risk stray bytes. Opt out entirely with VIBESTRETCH_NOTIFY=0.
@@ -129,9 +121,12 @@ case "$1" in
     echo "$NOW" > "$STATE_DIR/last-nudge"
     echo 0 > "$ACTIVE_FILE"
 
+    # systemMessage renders as a short-lived toast in current Claude Code, so it
+    # must be one clean line; the durable copy is the desktop notification, which
+    # stays in the notification center after the toast is gone.
     MIN=$((ACTIVE / 60))
-    printf '{"suppressOutput":true,"systemMessage":"%s"%s}\n' \
-      "$(message "$MIN" "$EX")" "$(notify "$EX")"
+    printf '{"suppressOutput":true,"systemMessage":"🧘 vibestretch · ~%s min of agent time since your last break » %s"%s}\n' \
+      "$MIN" "$EX" "$(notify "$EX")"
     ;;
 
   stop)

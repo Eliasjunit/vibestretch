@@ -6,15 +6,14 @@ Your agent grinds for minutes at a time. You sit there, slouched, not blinking.
 Some tools sell that attention window to advertisers. vibestretch gives it back to your spine:
 
 ```
-  ────────────────────────────────────────────
-  🧘  vibestretch · 7 min of agent time since your last break
-      Slow neck rolls — 5 each direction.
-  ────────────────────────────────────────────
+🧘 vibestretch · ~7 min of agent time since your last break » Slow neck rolls — 5 each direction.
 ```
 
-On terminals that support it (Warp, Ghostty, iTerm2, WezTerm, kitty) the same
-nudge also arrives as a desktop notification — a line of text loses when you've
-already looked away. `VIBESTRETCH_NOTIFY=0` turns that off and keeps the text.
+The nudge shows briefly in the session, and on terminals that support it
+(Warp, Ghostty, iTerm2, WezTerm, kitty) it also arrives as a desktop
+notification — that copy waits in your notification center for when you look
+up, because a line of text loses when you've already looked away.
+`VIBESTRETCH_NOTIFY=0` turns the desktop part off.
 
 A one-line nudge — a stretch, a micro-workout, or an eye exercise (20-20-20 and friends) —
 lands in the session only when you've genuinely been sitting through agent work.
@@ -70,9 +69,10 @@ Three [Claude Code hooks](https://docs.claude.com/en/docs/claude-code/hooks):
 - `PostToolUse` accumulates agent-active time between tool calls and emits a nudge when due
 - `Stop` closes out the turn's accounting
 
-The nudge is a `systemMessage` (shown to you, never added to the model's context)
-plus an optional `terminalSequence` carrying the desktop notification. Terminals
-that aren't known to support the sequence get nothing rather than stray bytes.
+The nudge is a `systemMessage` (a brief in-session notice shown to you, never
+added to the model's context) plus an optional `terminalSequence` carrying the
+desktop notification. Terminals that aren't known to support the sequence get
+nothing rather than stray bytes.
 
 State lives in `~/.cache/vibestretch/`. Exercises rotate so you don't get squats twice in a row.
 
