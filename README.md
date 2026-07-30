@@ -13,7 +13,8 @@ The nudge reaches you three ways, because you're rarely looking at the right
 spot when it fires:
 
 - a line in the session — for when you're watching the agent work
-- a soft system sound — for when you're not looking at any screen at all
+- a soft chime of its own (bundled, nothing system-sounding) — for when you're
+  not looking at any screen at all
 - a desktop notification (Warp, Ghostty, iTerm2, WezTerm, kitty) — it also
   waits in your notification center for whenever you look up
 
@@ -37,7 +38,8 @@ Short tasks, fast models, quick back-and-forth: silence.
 ```
 
 That's it. No dependencies, no daemon, no telemetry, no ads, no links in your terminal —
-a single POSIX shell script wired into Claude Code hooks. Nothing ever leaves your machine.
+a single POSIX shell script (plus one chime.wav) wired into Claude Code hooks.
+Nothing ever leaves your machine.
 
 ## When it nudges
 

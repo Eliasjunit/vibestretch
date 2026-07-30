@@ -91,14 +91,17 @@ notify() { # notify <exercise>  -> JSON fragment, possibly empty
 }
 
 # Sound is the channel that works when you are not looking at any screen —
-# the pattern every Claude Code notification recipe converges on. System
-# sound via the OS player, zero deps; backgrounded so the hook never waits.
+# the pattern every Claude Code notification recipe converges on. The chime is
+# our own (bundled wav, nothing system-sounding), played by the OS player —
+# still zero deps. Backgrounded so the hook never waits.
 sound() {
   [ "${VIBESTRETCH_SOUND:-1}" = "0" ] && return 0
+  SND="${CLAUDE_PLUGIN_ROOT:-$(dirname -- "$0")/..}/sounds/nudge.wav"
+  [ -f "$SND" ] || return 0
   if [ -x /usr/bin/afplay ]; then
-    /usr/bin/afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 &
+    /usr/bin/afplay "$SND" >/dev/null 2>&1 &
   elif command -v paplay >/dev/null 2>&1; then
-    paplay /usr/share/sounds/freedesktop/stereo/complete.oga >/dev/null 2>&1 &
+    paplay "$SND" >/dev/null 2>&1 &
   fi
 }
 
