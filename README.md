@@ -15,6 +15,10 @@ notification — that copy waits in your notification center for when you look
 up, because a line of text loses when you've already looked away.
 `VIBESTRETCH_NOTIFY=0` turns the desktop part off.
 
+> Tip: banners auto-dismiss in ~5 seconds. If you want the nudge to stay on
+> screen until you act on it, switch your terminal's notification style to
+> **Alerts** (macOS: System Settings → Notifications → your terminal).
+
 A one-line nudge — a stretch, a micro-workout, or an eye exercise (20-20-20 and friends) —
 lands in the session only when you've genuinely been sitting through agent work.
 Short tasks, fast models, quick back-and-forth: silence.
