@@ -9,6 +9,5 @@
   "homepage": "https://github.com/Eliasjunit/vibestretch",
   "repository": "https://github.com/Eliasjunit/vibestretch",
   "license": "MIT",
-  "keywords": ["health", "posture", "eyes", "breaks", "hooks", "wellness"],
-  "hooks": "./hooks/hooks.json"
+  "keywords": ["health", "posture", "eyes", "breaks", "hooks", "wellness"]
 }
