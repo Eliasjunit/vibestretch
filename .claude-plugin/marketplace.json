@@ -1,5 +1,5 @@
 {
-  "name": "unslouch",
+  "name": "vibestretch",
   "description": "Stretch nudges while your coding agent works — take care of your spine and eyes during long agent turns.",
   "owner": {
     "name": "Junit",
@@ -7,7 +7,7 @@
   },
   "plugins": [
     {
-      "name": "unslouch",
+      "name": "vibestretch",
       "source": "./",
       "description": "Stretch, move and rest your eyes while your coding agent works — friendly nudges on long-running turns."
     }

@@ -1,31 +1,31 @@
 #!/bin/sh
-# unslouch — stretch nudges while your coding agent works.
+# vibestretch — stretch nudges while your coding agent works.
 # Subcommands (wired via hooks.json):
 #   start  (UserPromptSubmit) — mark turn start, reset stale sitting debt
 #   check  (PostToolUse)      — accumulate agent-active time, nudge when due
 #   stop   (Stop)             — close out the turn's accounting
 #
 # Nudge fires only when ALL of:
-#   - the current turn has been running >= UNSLOUCH_MIN_TURN seconds
+#   - the current turn has been running >= VIBESTRETCH_MIN_TURN seconds
 #     (you are actually waiting on the agent right now)
-#   - accumulated agent-active time since your last nudge >= UNSLOUCH_MIN_ACTIVE
+#   - accumulated agent-active time since your last nudge >= VIBESTRETCH_MIN_ACTIVE
 #     (you have genuinely been sitting through agent work — one big turn
 #      or several medium ones both count)
-#   - at least UNSLOUCH_COOLDOWN seconds passed since the last nudge
+#   - at least VIBESTRETCH_COOLDOWN seconds passed since the last nudge
 # A break away from the keyboard longer than 45 min resets the debt.
 #
 # Config (env, all in seconds):
-#   UNSLOUCH_MIN_TURN    current turn must be at least this long (default 120)
-#   UNSLOUCH_MIN_ACTIVE  agent-active time since last nudge (default 300)
-#   UNSLOUCH_COOLDOWN    min gap between nudges (default 900)
-#   UNSLOUCH_DISABLE     set to anything to turn nudges off
+#   VIBESTRETCH_MIN_TURN    current turn must be at least this long (default 120)
+#   VIBESTRETCH_MIN_ACTIVE  agent-active time since last nudge (default 300)
+#   VIBESTRETCH_COOLDOWN    min gap between nudges (default 900)
+#   VIBESTRETCH_DISABLE     set to anything to turn nudges off
 
-STATE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/unslouch"
+STATE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/vibestretch"
 mkdir -p "$STATE_DIR" 2>/dev/null
 
-MIN_TURN="${UNSLOUCH_MIN_TURN:-120}"
-MIN_ACTIVE="${UNSLOUCH_MIN_ACTIVE:-300}"
-COOLDOWN="${UNSLOUCH_COOLDOWN:-900}"
+MIN_TURN="${VIBESTRETCH_MIN_TURN:-120}"
+MIN_ACTIVE="${VIBESTRETCH_MIN_ACTIVE:-300}"
+COOLDOWN="${VIBESTRETCH_COOLDOWN:-900}"
 IDLE_RESET=2700 # away >45 min => sitting debt is stale
 
 # session_id sits near the top of the hook payload; don't slurp huge tool outputs
@@ -63,7 +63,7 @@ exercise() {
     4)  echo "Wrist circles, 10 each way. Your tendons will thank you." ;;
     5)  echo "Blink 20 times, slowly. Screens murder your blink rate." ;;
     6)  echo "Shoulder blade squeezes x10 — pinch, hold 3s, release." ;;
-    7)  echo "Unslouch: ears over shoulders, shoulders over hips. Hold it." ;;
+    7)  echo "Posture check: ears over shoulders, shoulders over hips. Hold it." ;;
     8)  echo "Stand up and walk to a window. Bonus points: open it." ;;
     9)  echo "Rub your palms warm, cup them over closed eyes for 20s." ;;
     10) echo "Hip circles, 8 each way. Nobody is watching." ;;
@@ -86,7 +86,7 @@ case "$1" in
     ;;
 
   check)
-    [ -n "$UNSLOUCH_DISABLE" ] && exit 0
+    [ -n "$VIBESTRETCH_DISABLE" ] && exit 0
     [ -f "$TURN_FILE" ] || exit 0
     accumulate
 
@@ -105,7 +105,7 @@ case "$1" in
     echo 0 > "$ACTIVE_FILE"
 
     MIN=$((ACTIVE / 60))
-    printf '{"suppressOutput":true,"systemMessage":"🧘 unslouch » ~%s min of agent time since your last break. You: %s"}\n' \
+    printf '{"suppressOutput":true,"systemMessage":"🧘 vibestretch » ~%s min of agent time since your last break. You: %s"}\n' \
       "$MIN" "$EX"
     ;;
 

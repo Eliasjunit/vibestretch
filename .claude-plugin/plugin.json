@@ -1,13 +1,13 @@
 {
-  "name": "unslouch",
+  "name": "vibestretch",
   "description": "Stretch, move and rest your eyes while your coding agent works — friendly nudges on long-running turns.",
   "version": "0.2.0",
   "author": {
     "name": "Junit",
     "url": "https://github.com/Eliasjunit"
   },
-  "homepage": "https://github.com/Eliasjunit/unslouch",
-  "repository": "https://github.com/Eliasjunit/unslouch",
+  "homepage": "https://github.com/Eliasjunit/vibestretch",
+  "repository": "https://github.com/Eliasjunit/vibestretch",
   "license": "MIT",
   "keywords": ["health", "posture", "eyes", "breaks", "hooks", "wellness"],
   "hooks": "./hooks/hooks.json"

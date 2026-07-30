@@ -1,12 +1,12 @@
-# 🧘 unslouch
+# 🧘 vibestretch
 
 Stretch nudges in your terminal while your coding agent works.
 
 Your agent grinds for minutes at a time. You sit there, slouched, not blinking.
-Some tools sell that attention window to advertisers. unslouch gives it back to your spine:
+Some tools sell that attention window to advertisers. vibestretch gives it back to your spine:
 
 ```
-🧘 unslouch » ~7 min of agent time since your last break. You: slow neck rolls — 5 each direction.
+🧘 vibestretch » ~7 min of agent time since your last break. You: slow neck rolls — 5 each direction.
 ```
 
 A one-line nudge — a stretch, a micro-workout, or an eye exercise (20-20-20 and friends) —
@@ -16,8 +16,8 @@ Short tasks, fast models, quick back-and-forth: silence.
 ## Install (Claude Code)
 
 ```
-/plugin marketplace add Junit/unslouch
-/plugin install unslouch@unslouch
+/plugin marketplace add Junit/vibestretch
+/plugin install vibestretch@vibestretch
 ```
 
 That's it. No dependencies, no daemon, no telemetry, no ads, no links in your terminal —
@@ -25,7 +25,7 @@ a single POSIX shell script wired into Claude Code hooks. Nothing ever leaves yo
 
 ## When it nudges
 
-unslouch tracks your sitting debt: how much agent-active time you've sat through
+vibestretch tracks your sitting debt: how much agent-active time you've sat through
 since your last break. A nudge fires only when all three are true:
 
 1. The current turn has been running for a while — you're actually waiting right now
@@ -35,7 +35,7 @@ since your last break. A nudge fires only when all three are true:
 3. The last nudge wasn't recent (default: 15 min cooldown).
 
 Step away from the keyboard for 45+ minutes and the debt resets — you already had
-your break. This makes unslouch model-agnostic by construction: fast models finish
+your break. This makes vibestretch model-agnostic by construction: fast models finish
 turns before thresholds hit, so there's nothing to mute.
 
 ## Configure
@@ -44,10 +44,10 @@ Environment variables (all optional, all in seconds):
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `UNSLOUCH_MIN_TURN` | `120` | Current turn must run at least this long |
-| `UNSLOUCH_MIN_ACTIVE` | `300` | Accumulated agent time since your last break |
-| `UNSLOUCH_COOLDOWN` | `900` | Minimum gap between nudges |
-| `UNSLOUCH_DISABLE` | unset | Set to anything to mute nudges |
+| `VIBESTRETCH_MIN_TURN` | `120` | Current turn must run at least this long |
+| `VIBESTRETCH_MIN_ACTIVE` | `300` | Accumulated agent time since your last break |
+| `VIBESTRETCH_COOLDOWN` | `900` | Minimum gap between nudges |
+| `VIBESTRETCH_DISABLE` | unset | Set to anything to mute nudges |
 
 ## How it works
 
@@ -57,7 +57,7 @@ Three [Claude Code hooks](https://docs.claude.com/en/docs/claude-code/hooks):
 - `PostToolUse` accumulates agent-active time between tool calls and emits a nudge when due
 - `Stop` closes out the turn's accounting
 
-State lives in `~/.cache/unslouch/`. Exercises rotate so you don't get squats twice in a row.
+State lives in `~/.cache/vibestretch/`. Exercises rotate so you don't get squats twice in a row.
 
 ## Roadmap
 

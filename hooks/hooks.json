@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/unslouch.sh\" start"
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/vibestretch.sh\" start"
           }
         ]
       }
@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/unslouch.sh\" check"
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/vibestretch.sh\" check"
           }
         ]
       }
@@ -26,7 +26,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/unslouch.sh\" stop"
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/vibestretch.sh\" stop"
           }
         ]
       }
