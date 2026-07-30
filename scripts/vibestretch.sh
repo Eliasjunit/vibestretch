@@ -19,6 +19,7 @@
 #   VIBESTRETCH_MIN_ACTIVE  agent-active time since last nudge (default 300)
 #   VIBESTRETCH_COOLDOWN    min gap between nudges (default 900)
 #   VIBESTRETCH_DISABLE     set to anything to turn nudges off
+#   VIBESTRETCH_NOTIFY      0 = no desktop notification, terminal text only
 
 STATE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/vibestretch"
 mkdir -p "$STATE_DIR" 2>/dev/null
@@ -72,6 +73,30 @@ exercise() {
 }
 EX_COUNT=12
 
+# The nudge lands mid-stream, right after some tool's output, so it needs air
+# around it or the eye slides past. \n here are JSON escapes, not real newlines.
+RULE="────────────────────────────────────────────"
+message() { # message <minutes> <exercise>
+  printf '\\n  %s\\n  🧘  vibestretch · %s min of agent time since your last break\\n      %s\\n  %s\\n' \
+    "$RULE" "$1" "$2" "$RULE"
+}
+
+# A line of text loses to a desktop notification when you have looked away.
+# Only terminals known to support the sequence get one; the rest stay silent
+# rather than risk stray bytes. Opt out entirely with VIBESTRETCH_NOTIFY=0.
+notify() { # notify <exercise>  -> JSON fragment, possibly empty
+  [ "${VIBESTRETCH_NOTIFY:-1}" = "0" ] && return 0
+  BODY=$(printf '%s' "$1" | tr ';' ',') # ; separates OSC fields
+  case "${TERM_PROGRAM:-}:${TERM:-}" in
+    *Warp*|*ghostty*|*Ghostty*)
+      printf ',"terminalSequence":"\\u001b]777;notify;vibestretch;%s\\u0007"' "$BODY" ;;
+    *iTerm*|*WezTerm*)
+      printf ',"terminalSequence":"\\u001b]9;vibestretch: %s\\u0007"' "$BODY" ;;
+    *kitty*)
+      printf ',"terminalSequence":"\\u001b]99;;%s\\u0007"' "$BODY" ;;
+  esac
+}
+
 NOW=$(date +%s)
 
 case "$1" in
@@ -105,8 +130,8 @@ case "$1" in
     echo 0 > "$ACTIVE_FILE"
 
     MIN=$((ACTIVE / 60))
-    printf '{"suppressOutput":true,"systemMessage":"🧘 vibestretch » ~%s min of agent time since your last break. You: %s"}\n' \
-      "$MIN" "$EX"
+    printf '{"suppressOutput":true,"systemMessage":"%s"%s}\n' \
+      "$(message "$MIN" "$EX")" "$(notify "$EX")"
     ;;
 
   stop)

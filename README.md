@@ -6,8 +6,15 @@ Your agent grinds for minutes at a time. You sit there, slouched, not blinking.
 Some tools sell that attention window to advertisers. vibestretch gives it back to your spine:
 
 ```
-🧘 vibestretch » ~7 min of agent time since your last break. You: slow neck rolls — 5 each direction.
+  ────────────────────────────────────────────
+  🧘  vibestretch · 7 min of agent time since your last break
+      Slow neck rolls — 5 each direction.
+  ────────────────────────────────────────────
 ```
+
+On terminals that support it (Warp, Ghostty, iTerm2, WezTerm, kitty) the same
+nudge also arrives as a desktop notification — a line of text loses when you've
+already looked away. `VIBESTRETCH_NOTIFY=0` turns that off and keeps the text.
 
 A one-line nudge — a stretch, a micro-workout, or an eye exercise (20-20-20 and friends) —
 lands in the session only when you've genuinely been sitting through agent work.
@@ -48,6 +55,12 @@ Environment variables (all optional, all in seconds):
 | `VIBESTRETCH_MIN_ACTIVE` | `300` | Accumulated agent time since your last break |
 | `VIBESTRETCH_COOLDOWN` | `900` | Minimum gap between nudges |
 | `VIBESTRETCH_DISABLE` | unset | Set to anything to mute nudges |
+| `VIBESTRETCH_NOTIFY` | `1` | Set to `0` for terminal text only, no desktop notification |
+
+Running Claude Code headlessly (`claude -p` from a script, cron, or a bot)? Set
+`VIBESTRETCH_DISABLE=1` in that environment. Otherwise those unattended sessions
+count as sitting time you never actually sat through, and spend the nudge you
+should have gotten at your desk.
 
 ## How it works
 
@@ -56,6 +69,10 @@ Three [Claude Code hooks](https://docs.claude.com/en/docs/claude-code/hooks):
 - `UserPromptSubmit` marks the moment the agent starts working
 - `PostToolUse` accumulates agent-active time between tool calls and emits a nudge when due
 - `Stop` closes out the turn's accounting
+
+The nudge is a `systemMessage` (shown to you, never added to the model's context)
+plus an optional `terminalSequence` carrying the desktop notification. Terminals
+that aren't known to support the sequence get nothing rather than stray bytes.
 
 State lives in `~/.cache/vibestretch/`. Exercises rotate so you don't get squats twice in a row.
 
