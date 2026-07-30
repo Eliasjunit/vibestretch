@@ -23,7 +23,7 @@ Short tasks, fast models, quick back-and-forth: silence.
 ## Install (Claude Code)
 
 ```
-/plugin marketplace add Junit/vibestretch
+/plugin marketplace add Eliasjunit/vibestretch
 /plugin install vibestretch@vibestretch
 ```
 
