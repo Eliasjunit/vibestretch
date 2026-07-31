@@ -38,7 +38,7 @@ Short tasks, fast models, quick back-and-forth: silence.
 ```
 
 That's it. No dependencies, no daemon, no telemetry, no ads, no links in your terminal —
-a single POSIX shell script (plus one chime.wav) wired into Claude Code hooks.
+a few small POSIX shell scripts (plus one chime.wav) wired into Claude Code hooks.
 Nothing ever leaves your machine.
 
 ## When it nudges
@@ -100,28 +100,19 @@ best thing, one command:
 ```
 
 It backs up your settings, wraps your existing status line command (or installs
-a minimal one if you have none), and appends the nudge segment: the exercise in
-green for 5 minutes after each nudge, then a quiet `🧘 12m sitting` counter.
-Undo: restore `~/.claude/settings.json.vibestretch-backup`.
+a minimal one if you have none), and adds the nudge segment: the exercise in
+green for 5 minutes after each nudge, and a quiet `🧘 12m sitting` counter
+whenever 2+ minutes of fresh debt have built up. Run it again after a plugin
+update to refresh the helpers; undo with `/vibestretch:statusline off`. If you
+ever uninstall the plugin, run `off` first — uninstalling alone would leave the
+segment configured but frozen.
 
-Prefer wiring it yourself? The state is plain files, render them however you
-like:
-
-| File in `~/.cache/vibestretch/` | Meaning |
-|---|---|
-| `current` | text of the latest exercise |
-| `last-nudge` | unix time the latest nudge fired |
-| `active` | seconds of agent time you've sat through since your last break |
-
-For example, to show the exercise for 5 minutes after each nudge, add to your
-status line script:
-
-```sh
-VS="${XDG_CACHE_HOME:-$HOME/.cache}/vibestretch"
-if [ -f "$VS/last-nudge" ] && [ $(( $(date +%s) - $(cat "$VS/last-nudge") )) -lt 300 ]; then
-  printf ' | 🧘 %s' "$(cat "$VS/current")"
-fi
-```
+Prefer wiring it yourself? The state is plain files
+(`~/.cache/vibestretch/`: `current` — latest exercise text, `last-nudge` —
+unix time it fired, `active` — seconds of sitting debt). Rather than parsing
+them by hand, copy `scripts/statusline-segment.sh` somewhere stable and call
+it from your status line command — it handles the edge cases (empty files,
+mute, staleness) that a quick snippet won't.
 
 ## Roadmap
 
