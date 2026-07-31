@@ -43,16 +43,23 @@ readnum() { # readnum <file> <default>
   echo "$VAL"
 }
 
-# add in-turn time elapsed since we last counted into the global active total
+# Add in-turn time elapsed since we last counted into the global active total.
+# The debt is per-HUMAN wall-clock ("at least one agent was working"), not the
+# sum over sessions: with several windows running in parallel, each check only
+# counts time nobody has counted yet (seen-global), or three busy agents would
+# turn 5 real minutes into 15.
 accumulate() {
   [ -f "$TURN_FILE" ] || return 0
   TURN_START=$(readnum "$TURN_FILE" "$NOW")
   SEEN=$(readnum "$SEEN_FILE" "$TURN_START")
+  GSEEN=$(readnum "$STATE_DIR/seen-global" 0)
+  [ "$GSEEN" -gt "$SEEN" ] && SEEN=$GSEEN
   DELTA=$((NOW - SEEN))
   [ "$DELTA" -lt 0 ] && DELTA=0
   ACTIVE=$(( $(readnum "$ACTIVE_FILE" 0) + DELTA ))
   echo "$ACTIVE" > "$ACTIVE_FILE"
   echo "$NOW" > "$SEEN_FILE"
+  echo "$NOW" > "$STATE_DIR/seen-global"
   echo "$NOW" > "$STATE_DIR/last-activity"
 }
 
@@ -107,6 +114,12 @@ sound() {
 
 NOW=$(date +%s)
 
+# A disabled session must not touch the accounting at all. Guarding only the
+# nudge (check) is not enough: start/stop from disabled headless runs would
+# still pump the sitting debt and keep refreshing last-activity, so the
+# 45-minute idle reset could never fire.
+[ -n "$VIBESTRETCH_DISABLE" ] && exit 0
+
 case "$1" in
   start)
     LAST_ACT=$(readnum "$STATE_DIR/last-activity" 0)
@@ -119,7 +132,6 @@ case "$1" in
     ;;
 
   check)
-    [ -n "$VIBESTRETCH_DISABLE" ] && exit 0
     [ -f "$TURN_FILE" ] || exit 0
     accumulate
 
