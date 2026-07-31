@@ -92,9 +92,20 @@ State lives in `~/.cache/vibestretch/`. Exercises rotate so you don't get squats
 ## Show it in your status line
 
 The in-session notice is transient by platform design, and plugins can't draw
-in the status line — that bar belongs to you. So vibestretch does the next best
-thing: it keeps its state in plain files, and your own status line command can
-render them however you like:
+in the status line — that bar belongs to you. So vibestretch offers the next
+best thing, one command:
+
+```
+/vibestretch:statusline
+```
+
+It backs up your settings, wraps your existing status line command (or installs
+a minimal one if you have none), and appends the nudge segment: the exercise in
+green for 5 minutes after each nudge, then a quiet `🧘 12m sitting` counter.
+Undo: restore `~/.claude/settings.json.vibestretch-backup`.
+
+Prefer wiring it yourself? The state is plain files, render them however you
+like:
 
 | File in `~/.cache/vibestretch/` | Meaning |
 |---|---|
