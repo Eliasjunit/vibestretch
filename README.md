@@ -2,6 +2,8 @@
 
 Stretch nudges in your terminal while your coding agent works.
 
+![vibestretch nudges you to stretch while Claude Code works](assets/demo.gif)
+
 Your agent grinds for minutes at a time. You sit there, slouched, not blinking.
 Some tools sell that attention window to advertisers. vibestretch gives it back to your spine:
 
