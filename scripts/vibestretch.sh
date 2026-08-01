@@ -179,9 +179,9 @@ case "$1" in
     echo "$NOW" > "$STATE_DIR/last-nudge"
     echo 0 > "$ACTIVE_FILE"
 
-    # systemMessage renders as a short-lived toast in current Claude Code, so it
-    # must be one clean line, exercise first — that's what the eye must catch
-    # before it fades. Durable copies: the desktop notification (stays in the
+    # systemMessage renders as one transcript line pinned to the tool the hook
+    # fired after (older builds showed a fading toast), so it must be one clean
+    # line, exercise first. Durable copies: the desktop notification (stays in the
     # notification center) and the state files below, which any status line can
     # render (the plugin can't draw there itself — the bottom bar is the user's).
     MIN=$((ACTIVE / 60))
