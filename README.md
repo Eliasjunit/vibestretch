@@ -11,22 +11,29 @@ Some tools sell that attention window to advertisers. vibestretch gives it back 
 🧘 Slow neck rolls — 5 each direction. · vibestretch · 7 min sitting
 ```
 
-The nudge reaches you three ways, because you're rarely looking at the right
+The nudge reaches you several ways, because you're rarely looking at the right
 spot when it fires:
 
 - a line in the session — for when you're watching the agent work
 - a soft chime of its own (bundled, nothing system-sounding) — for when you're
   not looking at any screen at all
-- a desktop notification (Warp, Ghostty, iTerm2, WezTerm, kitty) — it also
-  waits in your notification center for whenever you look up
+- your terminal's tab title, which starts saying `🧘 time to move` — this is
+  the one that's still there when you come back from another app
+- a notification banner (Warp, Ghostty, iTerm2, WezTerm, kitty) — for the
+  moment it fires, see the note below
 
 All out of the box, nothing to configure. `VIBESTRETCH_SOUND=0` mutes the
-sound, `VIBESTRETCH_NOTIFY=0` drops the desktop part.
+sound, `VIBESTRETCH_NOTIFY=0` drops both the tab title and the banner.
 
-> Tip: if you want the banner itself to stay on screen until dismissed, set
-> your terminal's notification style to **Alerts** (macOS: System Settings →
-> Notifications → your terminal). Optional — the notification center copy is
-> there either way.
+> **About that banner.** What your terminal does with the notification sequence
+> is its own call: some post a real OS notification that waits in the
+> notification center, others (Warp) draw their own banner inside the window —
+> which you never see if you're looking at another app, and which is gone by
+> the time you come back. Either way it's a moment, not a record, so
+> vibestretch doesn't lean on it: the chime catches you while you're away and
+> the tab title is still there when you return. On macOS, terminals that post
+> real notifications can be set to **Alerts** (System Settings → Notifications)
+> so the banner waits for you instead of fading.
 
 A one-line nudge — a stretch, a micro-workout, or an eye exercise (20-20-20 and friends) —
 lands in the session only when you've genuinely been sitting through agent work.

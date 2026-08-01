@@ -110,19 +110,30 @@ exercise() {
 EX_COUNT=12
 
 # A line of text loses to a desktop notification when you have looked away.
-# Only terminals known to support the sequence get one; the rest stay silent
-# rather than risk stray bytes. Opt out entirely with VIBESTRETCH_NOTIFY=0.
+#
+# The tab title leads because it is the only channel that PERSISTS. What the
+# notify sequence buys you is terminal-dependent and always transient: some
+# terminals post a real OS notification, others (Warp) draw their own banner
+# inside the window — which you never see if you are in another app, and which
+# is gone by the time you come back. That was the report that started this: the
+# chime was heard from another app, and the terminal held nothing on return.
+# A title just sits on the tab until the next nudge, and needs no notification
+# permission from anyone. The notify sequence still rides along where supported,
+# appended to the same string — Claude Code accepts several allowlisted
+# sequences at once. Opt out of both with VIBESTRETCH_NOTIFY=0.
 notify() { # notify <exercise> <minutes>  -> JSON fragment, possibly empty
   [ "${VIBESTRETCH_NOTIFY:-1}" = "0" ] && return 0
   BODY=$(printf '%s' "$1" | tr ';' ',') # ; separates OSC fields
+  SEQ=$(printf '\\u001b]2;🧘 time to move — %s min sitting\\u0007' "$2")
   case "${TERM_PROGRAM:-}:${TERM:-}" in
     *Warp*|*ghostty*|*Ghostty*)
-      printf ',"terminalSequence":"\\u001b]777;notify;🧘 %s min sitting — time to move;%s\\u0007"' "$2" "$BODY" ;;
+      SEQ="$SEQ$(printf '\\u001b]777;notify;🧘 %s min sitting — time to move;%s\\u0007' "$2" "$BODY")" ;;
     *iTerm*|*WezTerm*)
-      printf ',"terminalSequence":"\\u001b]9;🧘 %s\\u0007"' "$BODY" ;;
+      SEQ="$SEQ$(printf '\\u001b]9;🧘 %s\\u0007' "$BODY")" ;;
     *kitty*)
-      printf ',"terminalSequence":"\\u001b]99;;🧘 %s\\u0007"' "$BODY" ;;
+      SEQ="$SEQ$(printf '\\u001b]99;;🧘 %s\\u0007' "$BODY")" ;;
   esac
+  printf ',"terminalSequence":"%s"' "$SEQ"
 }
 
 # Sound is the channel that works when you are not looking at any screen —
