@@ -13,11 +13,18 @@
 #      or several medium ones both count)
 #   - at least VIBESTRETCH_COOLDOWN seconds passed since the last nudge
 # A break away from the keyboard longer than 45 min resets the debt.
+# Time when nobody touches the machine is never counted at all (macOS: the
+# system's keyboard/mouse idle clock; elsewhere this guard degrades to the
+# 45-minute reset above) — an overnight agent run is the agent's time, not
+# your sitting.
 #
 # Config (env, all in seconds):
 #   VIBESTRETCH_MIN_TURN    current turn must be at least this long (default 120)
 #   VIBESTRETCH_MIN_ACTIVE  agent-active time since last nudge (default 300)
 #   VIBESTRETCH_COOLDOWN    min gap between nudges (default 900)
+#   VIBESTRETCH_AWAY        no keyboard/mouse input for this long = you are
+#                           away: no debt, no nudges (default 300, 0 = off;
+#                           detection is macOS-only)
 #   VIBESTRETCH_DISABLE     set to anything to turn nudges off
 #   VIBESTRETCH_NOTIFY      0 = no desktop notification, terminal text only
 #   VIBESTRETCH_SOUND       0 = no sound with the nudge
@@ -30,9 +37,11 @@ MIN_ACTIVE="${VIBESTRETCH_MIN_ACTIVE:-300}"
 COOLDOWN="${VIBESTRETCH_COOLDOWN:-900}"
 IDLE_RESET=2700 # away >45 min => sitting debt is stale
 
-# session_id sits near the top of the hook payload; don't slurp huge tool outputs
+# session_id sits near the top of the hook payload; don't slurp huge tool outputs.
+# No session_id — no accounting: a shared fallback id would pool unrelated
+# runs into one eternal "turn" (and collide with the seen-global file).
 SID=$(head -c 4096 | sed -n 's/.*"session_id"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p')
-[ -z "$SID" ] && SID="global"
+[ -z "$SID" ] && exit 0
 TURN_FILE="$STATE_DIR/turn-$SID"
 SEEN_FILE="$STATE_DIR/seen-$SID"
 ACTIVE_FILE="$STATE_DIR/active"
@@ -43,6 +52,17 @@ readnum() { # readnum <file> <default>
   echo "$VAL"
 }
 
+# Seconds since the last keyboard/mouse input, from the OS. Empty when the
+# machine can't tell us (non-macOS) — then we assume the human is present.
+HID_IDLE=$(ioreg -c IOHIDSystem 2>/dev/null | awk '/HIDIdleTime/ {print int($NF/1000000000); exit}')
+AWAY_AFTER="${VIBESTRETCH_AWAY:-300}"
+
+away() { # true when the human has not touched the machine for AWAY_AFTER+
+  [ "$AWAY_AFTER" = "0" ] && return 1
+  case "$HID_IDLE" in ''|*[!0-9]*) return 1 ;; esac
+  [ "$HID_IDLE" -ge "$AWAY_AFTER" ]
+}
+
 # Add in-turn time elapsed since we last counted into the global active total.
 # The debt is per-HUMAN wall-clock ("at least one agent was working"), not the
 # sum over sessions: with several windows running in parallel, each check only
@@ -51,6 +71,14 @@ readnum() { # readnum <file> <default>
 accumulate() {
   [ -f "$TURN_FILE" ] || return 0
   TURN_START=$(readnum "$TURN_FILE" "$NOW")
+  if away; then
+    # The human is not at the machine: an unattended agent run is not sitting.
+    # Advance the seen marks so this stretch is never counted later, but leave
+    # last-activity alone — the 45-minute burn must see the real absence.
+    echo "$NOW" > "$SEEN_FILE"
+    echo "$NOW" > "$STATE_DIR/seen-global"
+    return 1
+  fi
   SEEN=$(readnum "$SEEN_FILE" "$TURN_START")
   GSEEN=$(readnum "$STATE_DIR/seen-global" 0)
   [ "$GSEEN" -gt "$SEEN" ] && SEEN=$GSEEN
@@ -133,7 +161,9 @@ case "$1" in
 
   check)
     [ -f "$TURN_FILE" ] || exit 0
-    accumulate
+    # away: no debt grows and no nudge fires into an empty chair (a 3 a.m.
+    # chime for an overnight agent run is the opposite of the product)
+    accumulate || exit 0
 
     TURN_ELAPSED=$((NOW - TURN_START))
     [ "$TURN_ELAPSED" -lt "$MIN_TURN" ] && exit 0
@@ -162,7 +192,7 @@ case "$1" in
     ;;
 
   stop)
-    accumulate
+    accumulate || :
     rm -f "$TURN_FILE" "$SEEN_FILE"
     ;;
 esac

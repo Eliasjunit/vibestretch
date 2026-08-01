@@ -55,7 +55,11 @@ since your last break. A nudge fires only when all three are true:
 3. The last nudge wasn't recent (default: 15 min cooldown).
 
 Step away from the keyboard for 45+ minutes and the debt resets — you already had
-your break. This makes vibestretch model-agnostic by construction: fast models finish
+your break. And time when nobody touches the machine is never counted at all: on
+macOS the hooks read the system keyboard/mouse idle clock, so an agent grinding
+overnight builds no "sitting" debt and never chimes at an empty chair. (On Linux
+there's no portable idle clock, so this guard degrades to the 45-minute reset.)
+This makes vibestretch model-agnostic by construction: fast models finish
 turns before thresholds hit, so there's nothing to mute.
 
 ## Configure
@@ -67,6 +71,7 @@ Environment variables (all optional, all in seconds):
 | `VIBESTRETCH_MIN_TURN` | `120` | Current turn must run at least this long |
 | `VIBESTRETCH_MIN_ACTIVE` | `300` | Accumulated agent time since your last break |
 | `VIBESTRETCH_COOLDOWN` | `900` | Minimum gap between nudges |
+| `VIBESTRETCH_AWAY` | `300` | No keyboard/mouse for this long = you're away: no debt, no nudges (macOS-only detection; `0` disables the guard) |
 | `VIBESTRETCH_DISABLE` | unset | Set to anything to mute nudges |
 | `VIBESTRETCH_NOTIFY` | `1` | Set to `0` to drop the desktop notification |
 | `VIBESTRETCH_SOUND` | `1` | Set to `0` to mute the sound |
