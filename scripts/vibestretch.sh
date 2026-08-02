@@ -111,29 +111,30 @@ EX_COUNT=12
 
 # A line of text loses to a desktop notification when you have looked away.
 #
-# The tab title leads because it is the only channel that PERSISTS. What the
-# notify sequence buys you is terminal-dependent and always transient: some
-# terminals post a real OS notification, others (Warp) draw their own banner
-# inside the window — which you never see if you are in another app, and which
-# is gone by the time you come back. That was the report that started this: the
-# chime was heard from another app, and the terminal held nothing on return.
-# A title just sits on the tab until the next nudge, and needs no notification
-# permission from anyone. The notify sequence still rides along where supported,
-# appended to the same string — Claude Code accepts several allowlisted
-# sequences at once. Opt out of both with VIBESTRETCH_NOTIFY=0.
+# What this buys you is terminal-dependent and always transient: some terminals
+# post a real OS notification, others (Warp) draw their own banner inside the
+# window — which you never see if you are in another app, and which is gone by
+# the time you come back. So it is a bonus, never the plan: the chime catches
+# you while you are away and the status line is still there when you return.
+#
+# The tab title is NOT a channel here, though it looks like free real estate:
+# Claude Code rewrites the title itself on every turn, so a nudge badge parked
+# there is gone within seconds (tried it in 0.4.2, reverted here — the tab was
+# showing a fragment of the conversation, not the badge). Two writers, one
+# resource, and the host wins.
+#
+# Opt out with VIBESTRETCH_NOTIFY=0.
 notify() { # notify <exercise> <minutes>  -> JSON fragment, possibly empty
   [ "${VIBESTRETCH_NOTIFY:-1}" = "0" ] && return 0
   BODY=$(printf '%s' "$1" | tr ';' ',') # ; separates OSC fields
-  SEQ=$(printf '\\u001b]2;🧘 time to move\\u0007')
   case "${TERM_PROGRAM:-}:${TERM:-}" in
     *Warp*|*ghostty*|*Ghostty*)
-      SEQ="$SEQ$(printf '\\u001b]777;notify;🧘 time to move — %s min of agent time;%s\\u0007' "$2" "$BODY")" ;;
+      printf ',"terminalSequence":"\\u001b]777;notify;🧘 time to move — %s min of agent time;%s\\u0007"' "$2" "$BODY" ;;
     *iTerm*|*WezTerm*)
-      SEQ="$SEQ$(printf '\\u001b]9;🧘 %s\\u0007' "$BODY")" ;;
+      printf ',"terminalSequence":"\\u001b]9;🧘 %s\\u0007"' "$BODY" ;;
     *kitty*)
-      SEQ="$SEQ$(printf '\\u001b]99;;🧘 %s\\u0007' "$BODY")" ;;
+      printf ',"terminalSequence":"\\u001b]99;;🧘 %s\\u0007"' "$BODY" ;;
   esac
-  printf ',"terminalSequence":"%s"' "$SEQ"
 }
 
 # Sound is the channel that works when you are not looking at any screen —
@@ -168,16 +169,6 @@ case "$1" in
     echo "$NOW" > "$TURN_FILE"
     echo "$NOW" > "$SEEN_FILE"
     echo "$NOW" > "$STATE_DIR/last-activity"
-    # You are typing, so you are back and the badge has been read: hand the tab
-    # title back to the terminal. Titles have no expiry of their own — left
-    # alone, "time to move" would still be sitting there tomorrow morning,
-    # which is exactly the kind of stale claim this plugin refuses to make.
-    # Per session: only the tab that was marked gets cleared, and only by its
-    # own window.
-    if [ -f "$STATE_DIR/title-$SID" ]; then
-      rm -f "$STATE_DIR/title-$SID"
-      printf '{"suppressOutput":true,"terminalSequence":"\\u001b]2;\\u0007"}\n'
-    fi
     ;;
 
   check)
@@ -202,16 +193,14 @@ case "$1" in
 
     # systemMessage renders as one transcript line pinned to the tool the hook
     # fired after (older builds showed a fading toast), so it must be one clean
-    # line, exercise first. Durable copies: the tab title (cleared at your next
-    # prompt) and the state files below, which any status line can render (the
-    # plugin can't draw there itself — the bottom bar is the user's).
+    # line, exercise first. The durable copy is the state below, which any status
+    # line can render (the plugin can't draw there itself — the bottom bar is the
+    # user's, and it is the one place a nudge survives being looked away from).
     MIN=$((ACTIVE / 60))
     printf '%s\n' "$EX" > "$STATE_DIR/current"
     sound
-    SEQ=$(notify "$EX" "$MIN")
-    [ -n "$SEQ" ] && : > "$STATE_DIR/title-$SID" # tab marked; clear on next prompt
     printf '{"suppressOutput":true,"systemMessage":"🧘 %s · vibestretch · %s min of agent time"%s}\n' \
-      "$EX" "$MIN" "$SEQ"
+      "$EX" "$MIN" "$(notify "$EX" "$MIN")"
     ;;
 
   stop)

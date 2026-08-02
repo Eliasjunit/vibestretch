@@ -17,24 +17,27 @@ spot when it fires:
 - a line in the session — for when you're watching the agent work
 - a soft chime of its own (bundled, nothing system-sounding) — for when you're
   not looking at any screen at all
-- your terminal's tab title, which starts saying `🧘 time to move` — this is
-  the one that's still there when you come back from another app, and it hands
-  the title back the moment you type your next prompt
 - a notification banner (Warp, Ghostty, iTerm2, WezTerm, kitty) — for the
   moment it fires, see the note below
+- your status line, if you run [`/vibestretch:statusline`](#show-it-in-your-status-line)
+  — the one channel that's still there when you come back from another app
 
 All out of the box, nothing to configure. `VIBESTRETCH_SOUND=0` mutes the
-sound, `VIBESTRETCH_NOTIFY=0` drops both the tab title and the banner.
+sound, `VIBESTRETCH_NOTIFY=0` drops the banner.
 
 > **About that banner.** What your terminal does with the notification sequence
 > is its own call: some post a real OS notification that waits in the
 > notification center, others (Warp) draw their own banner inside the window —
 > which you never see if you're looking at another app, and which is gone by
 > the time you come back. Either way it's a moment, not a record, so
-> vibestretch doesn't lean on it: the chime catches you while you're away and
-> the tab title is still there when you return. On macOS, terminals that post
-> real notifications can be set to **Alerts** (System Settings → Notifications)
-> so the banner waits for you instead of fading.
+> vibestretch doesn't lean on it: the chime catches you while you're away, and
+> the status line is what's still saying it when you return. On macOS,
+> terminals that post real notifications can be set to **Alerts** (System
+> Settings → Notifications) so the banner waits instead of fading.
+>
+> The terminal's tab title would be the obvious place for a badge, and it isn't
+> available: Claude Code rewrites the title itself every turn, so anything a
+> plugin parks there is gone in seconds. Tried in 0.4.2, removed in 0.4.5.
 
 A one-line nudge — a stretch, a micro-workout, or an eye exercise (20-20-20 and friends) —
 lands in the session only when you've genuinely been sitting through agent work.
