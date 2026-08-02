@@ -1,6 +1,6 @@
 #!/bin/sh
 # vibestretch status line segment. Prints the active nudge for 5 minutes after
-# it fires (bold green), then the sitting-debt counter from 2 minutes of debt
+# it fires (bold green), then the agent-time counter from 2 minutes of debt
 # (dim), else nothing. Reads plugin state only — safe to call from any
 # statusLine command.
 #
@@ -36,5 +36,5 @@ IDLE=$((NOW - LA))
 { [ "$IDLE" -lt 0 ] || [ "$IDLE" -gt 2700 ]; } && exit 0  # away 45+ min: debt is stale
 
 ACT=$(num "$VS/active")
-[ "$ACT" -ge 120 ] && printf '\033[2m🧘 %sm sitting\033[0m' $((ACT / 60))
+[ "$ACT" -ge 120 ] && printf '\033[2m🧘 %sm agent time\033[0m' $((ACT / 60))
 exit 0

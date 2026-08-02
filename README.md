@@ -8,7 +8,7 @@ Your agent grinds for minutes at a time. You sit there, slouched, not blinking.
 Some tools sell that attention window to advertisers. vibestretch gives it back to your spine:
 
 ```
-🧘 Slow neck rolls — 5 each direction. · vibestretch · 7 min sitting
+🧘 Slow neck rolls — 5 each direction. · vibestretch · 7 min of agent time
 ```
 
 The nudge reaches you several ways, because you're rarely looking at the right
@@ -53,8 +53,12 @@ Nothing ever leaves your machine.
 
 ## When it nudges
 
-vibestretch tracks your sitting debt: how much agent-active time you've sat through
-since your last break. A nudge fires only when all three are true:
+vibestretch counts one thing only: **agent time** — the minutes an agent turn was
+in flight while you were at the machine, added up since your last nudge. That is
+not how long you have been at your desk, and the counter never claims to be: an
+hour of reading and typing with quick turns in between adds almost nothing. What
+it measures is the time the agent kept you waiting. A nudge fires only when all
+three are true:
 
 1. The current turn has been running for a while — you're actually waiting right now
    (default: 2+ min).
@@ -116,7 +120,7 @@ best thing, one command:
 
 It backs up your settings, wraps your existing status line command (or installs
 a minimal one if you have none), and adds the nudge segment: the exercise in
-green for 5 minutes after each nudge, and a quiet `🧘 12m sitting` counter
+green for 5 minutes after each nudge, and a quiet `🧘 12m agent time` counter
 whenever 2+ minutes of fresh debt have built up. Run it again after a plugin
 update to refresh the helpers; undo with `/vibestretch:statusline off`. If you
 ever uninstall the plugin, run `off` first — uninstalling alone would leave the

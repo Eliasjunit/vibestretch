@@ -41,9 +41,9 @@ elif [ -z "$OUT" ]; then
   printf '%s\n' "$SEG"
 else
   # June's composition call: the exercise leads the line, the quiet counter
-  # trails it. "sitting" is our own literal from statusline-segment.sh.
+  # trails it. "agent time" is our own literal from statusline-segment.sh.
   case "$SEG" in
-    *sitting*) printf '%s | %s\n' "$OUT" "$SEG" ;;
+    *"agent time"*) printf '%s | %s\n' "$OUT" "$SEG" ;;
     *)         printf '%s | %s\n' "$SEG" "$OUT" ;;
   esac
 fi

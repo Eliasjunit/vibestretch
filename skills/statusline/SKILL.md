@@ -84,7 +84,7 @@ If the user invoked this skill with the argument `off` (`$ARGUMENTS` contains
 8. **Report.** Tell the user:
    - what the status line command was and what it is now;
    - the segment shows the exercise for 5 minutes after each nudge, then a
-     quiet `🧘 Nm sitting` counter once 2+ minutes of agent time have
+     quiet `🧘 Nm agent time` counter once 2+ minutes of agent time have
      accumulated, and nothing when there's no debt or after 45 min away;
    - undo: `/vibestretch:statusline off`, or put the old command back by
      hand (the full-file backup, if one was made, also works but rolls back

@@ -124,10 +124,10 @@ EX_COUNT=12
 notify() { # notify <exercise> <minutes>  -> JSON fragment, possibly empty
   [ "${VIBESTRETCH_NOTIFY:-1}" = "0" ] && return 0
   BODY=$(printf '%s' "$1" | tr ';' ',') # ; separates OSC fields
-  SEQ=$(printf '\\u001b]2;🧘 time to move — %s min sitting\\u0007' "$2")
+  SEQ=$(printf '\\u001b]2;🧘 time to move\\u0007')
   case "${TERM_PROGRAM:-}:${TERM:-}" in
     *Warp*|*ghostty*|*Ghostty*)
-      SEQ="$SEQ$(printf '\\u001b]777;notify;🧘 %s min sitting — time to move;%s\\u0007' "$2" "$BODY")" ;;
+      SEQ="$SEQ$(printf '\\u001b]777;notify;🧘 time to move — %s min of agent time;%s\\u0007' "$2" "$BODY")" ;;
     *iTerm*|*WezTerm*)
       SEQ="$SEQ$(printf '\\u001b]9;🧘 %s\\u0007' "$BODY")" ;;
     *kitty*)
@@ -210,7 +210,7 @@ case "$1" in
     sound
     SEQ=$(notify "$EX" "$MIN")
     [ -n "$SEQ" ] && : > "$STATE_DIR/title-$SID" # tab marked; clear on next prompt
-    printf '{"suppressOutput":true,"systemMessage":"🧘 %s · vibestretch · %s min sitting"%s}\n' \
+    printf '{"suppressOutput":true,"systemMessage":"🧘 %s · vibestretch · %s min of agent time"%s}\n' \
       "$EX" "$MIN" "$SEQ"
     ;;
 
