@@ -168,6 +168,16 @@ case "$1" in
     echo "$NOW" > "$TURN_FILE"
     echo "$NOW" > "$SEEN_FILE"
     echo "$NOW" > "$STATE_DIR/last-activity"
+    # You are typing, so you are back and the badge has been read: hand the tab
+    # title back to the terminal. Titles have no expiry of their own — left
+    # alone, "time to move" would still be sitting there tomorrow morning,
+    # which is exactly the kind of stale claim this plugin refuses to make.
+    # Per session: only the tab that was marked gets cleared, and only by its
+    # own window.
+    if [ -f "$STATE_DIR/title-$SID" ]; then
+      rm -f "$STATE_DIR/title-$SID"
+      printf '{"suppressOutput":true,"terminalSequence":"\\u001b]2;\\u0007"}\n'
+    fi
     ;;
 
   check)
@@ -192,14 +202,16 @@ case "$1" in
 
     # systemMessage renders as one transcript line pinned to the tool the hook
     # fired after (older builds showed a fading toast), so it must be one clean
-    # line, exercise first. Durable copies: the desktop notification (stays in the
-    # notification center) and the state files below, which any status line can
-    # render (the plugin can't draw there itself — the bottom bar is the user's).
+    # line, exercise first. Durable copies: the tab title (cleared at your next
+    # prompt) and the state files below, which any status line can render (the
+    # plugin can't draw there itself — the bottom bar is the user's).
     MIN=$((ACTIVE / 60))
     printf '%s\n' "$EX" > "$STATE_DIR/current"
     sound
+    SEQ=$(notify "$EX" "$MIN")
+    [ -n "$SEQ" ] && : > "$STATE_DIR/title-$SID" # tab marked; clear on next prompt
     printf '{"suppressOutput":true,"systemMessage":"🧘 %s · vibestretch · %s min sitting"%s}\n' \
-      "$EX" "$MIN" "$(notify "$EX" "$MIN")"
+      "$EX" "$MIN" "$SEQ"
     ;;
 
   stop)

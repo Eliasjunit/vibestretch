@@ -18,7 +18,8 @@ spot when it fires:
 - a soft chime of its own (bundled, nothing system-sounding) — for when you're
   not looking at any screen at all
 - your terminal's tab title, which starts saying `🧘 time to move` — this is
-  the one that's still there when you come back from another app
+  the one that's still there when you come back from another app, and it hands
+  the title back the moment you type your next prompt
 - a notification banner (Warp, Ghostty, iTerm2, WezTerm, kitty) — for the
   moment it fires, see the note below
 
