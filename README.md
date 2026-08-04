@@ -72,7 +72,7 @@ three are true:
 Step away from the keyboard for 45+ minutes and the debt resets — you already had
 your break. And time when nobody touches the machine is never counted at all: on
 macOS the hooks read the system keyboard/mouse idle clock, so an agent grinding
-overnight builds no "sitting" debt and never chimes at an empty chair. (On Linux
+overnight adds no agent time and never chimes at an empty chair. (On Linux
 there's no portable idle clock, so this guard degrades to the 45-minute reset.)
 This makes vibestretch model-agnostic by construction: fast models finish
 turns before thresholds hit, so there's nothing to mute.
@@ -131,7 +131,8 @@ segment configured but frozen.
 
 Prefer wiring it yourself? The state is plain files
 (`~/.cache/vibestretch/`: `current` — latest exercise text, `last-nudge` —
-unix time it fired, `active` — seconds of sitting debt). Rather than parsing
+unix time it fired, `active` — seconds of agent time since the last nudge).
+Rather than parsing
 them by hand, copy `scripts/statusline-segment.sh` somewhere stable and call
 it from your status line command — it handles the edge cases (empty files,
 mute, staleness) that a quick snippet won't.
