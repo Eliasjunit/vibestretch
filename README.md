@@ -113,6 +113,10 @@ nothing rather than stray bytes.
 
 State lives in `~/.cache/vibestretch/`. Exercises rotate so you don't get squats twice in a row.
 
+`sh tests/run.sh` checks the part that matters — that the plugin never claims
+time you didn't spend waiting. The system idle clock is stubbed, so "you left
+for 90 minutes" is a variable and every case is deterministic.
+
 ## Show it in your status line
 
 The in-session notice is transient by platform design, and plugins can't draw
