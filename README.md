@@ -54,6 +54,32 @@ That's it. No dependencies, no daemon, no telemetry, no ads, no links in your te
 a few small POSIX shell scripts (plus one chime.wav) wired into Claude Code hooks.
 Nothing ever leaves your machine.
 
+## Install (Codex CLI)
+
+Codex has no plugin marketplace, so it's a clone and a config file:
+
+```
+git clone https://github.com/Eliasjunit/vibestretch ~/.codex/vibestretch
+cp ~/.codex/vibestretch/hooks/codex-hooks.json ~/.codex/hooks.json
+```
+
+Already have a `~/.codex/hooks.json`? Merge the three entries from ours into it
+rather than overwriting yours. Codex asks you to trust a new hook config the
+first time it runs — that prompt is expected.
+
+What differs from Claude Code: you get the line in the session and the chime,
+but no notification banner. Codex parses hook output strictly and drops the
+whole object if it contains a field it doesn't know, and it has no field for a
+terminal sequence — so sending one would cost you the nudge itself. There's no
+status line segment either; that bar isn't scriptable in Codex.
+
+The debt is shared between the two CLIs, deliberately: an hour of waiting is an
+hour of waiting whichever agent kept you in the chair.
+
+Built against Codex's published hook schemas (hooks landed in v0.114) and
+validated against them, but not yet dogfooded on a live Codex install — if your
+build behaves differently, an issue with the output would be welcome.
+
 ## When it nudges
 
 vibestretch counts one thing only: **agent time** — the minutes an agent turn was
@@ -145,7 +171,7 @@ mute, staleness) that a quick snippet won't.
 
 ## Roadmap
 
-- [ ] OpenAI Codex CLI support
+- [x] OpenAI Codex CLI support
 - [ ] Gemini CLI support
 - [ ] Your own exercise list
 

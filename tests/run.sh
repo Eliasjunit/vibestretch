@@ -80,6 +80,30 @@ VIBESTRETCH_MIN_ACTIVE=999999 check 0 >/dev/null
 ok "debt untouched without an idle clock" "$(awk '$1>=780 {print "kept"}' "$VS/active")" "kept"
 ok "no away mark without an idle clock" "$([ -f "$VS/away-touch" ] && echo yes || echo no)" "no"
 
+echo "case 6: host-specific output (Codex drops any object with unknown fields)"
+cat > "$BIN/ioreg" <<'EOF'
+#!/bin/sh
+echo "    \"HIDIdleTime\" = ${IDLE_STUB:-0}000000000"
+EOF
+chmod +x "$BIN/ioreg"
+nudge() { # nudge <host> — force the thresholds so a nudge is guaranteed
+  # NOTIFY is muted globally in this file to keep the other cases quiet; this
+  # case is precisely about the banner, so it is turned back on here.
+  reset_state 780
+  printf '%s' "$PAYLOAD" | IDLE_STUB=2 TERM_PROGRAM=WarpTerminal VIBESTRETCH_NOTIFY=1 \
+    VIBESTRETCH_MIN_TURN=10 VIBESTRETCH_MIN_ACTIVE=60 VIBESTRETCH_COOLDOWN=0 \
+    sh "$SCRIPT" check ${1:+"$1"}
+}
+CLAUDE_OUT=$(nudge)
+CODEX_OUT=$(nudge codex)
+ok "claude host keeps the terminal banner" "$(printf '%s' "$CLAUDE_OUT" | grep -c terminalSequence)" "1"
+ok "codex host drops the terminal banner" "$(printf '%s' "$CODEX_OUT" | grep -c terminalSequence)" "0"
+ok "codex host still nudges" "$(printf '%s' "$CODEX_OUT" | grep -c 'agent time')" "1"
+# Codex accepts exactly: continue, stopReason, suppressOutput, systemMessage
+ok "codex output has no field outside their schema" \
+  "$(printf '%s' "$CODEX_OUT" | tr ',' '\n' | grep -o '"[a-zA-Z]*":' | tr -d '":' \
+     | grep -vE '^(continue|stopReason|suppressOutput|systemMessage)$' | wc -l | tr -d ' ')" "0"
+
 rm -rf "$ROOT"
 echo
 echo "passed: $pass   failed: $fail"

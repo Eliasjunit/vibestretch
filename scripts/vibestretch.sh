@@ -150,6 +150,10 @@ EX_COUNT=12
 # Opt out with VIBESTRETCH_NOTIFY=0.
 notify() { # notify <exercise> <minutes>  -> JSON fragment, possibly empty
   [ "${VIBESTRETCH_NOTIFY:-1}" = "0" ] && return 0
+  # Codex parses hook output with deny_unknown_fields: one field it doesn't know
+  # and the WHOLE object is dropped — nudge and all. It has no terminalSequence,
+  # so on that host the banner is not "unsupported", it is actively harmful.
+  [ "$HOST" = "codex" ] && return 0
   BODY=$(printf '%s' "$1" | tr ';' ',') # ; separates OSC fields
   case "${TERM_PROGRAM:-}:${TERM:-}" in
     *Warp*|*ghostty*|*Ghostty*)
@@ -177,6 +181,12 @@ sound() {
 }
 
 NOW=$(date +%s)
+
+# Which agent CLI is calling us, passed as the second argument by that host's
+# hook config (see hooks/hooks.json and hooks/codex-hooks.json). Only the JSON
+# we are allowed to emit differs; the accounting is identical, and the debt is
+# shared — an hour of waiting is an hour of waiting whichever CLI kept you.
+HOST="${2:-claude}"
 
 # A disabled session must not touch the accounting at all. Guarding only the
 # nudge (check) is not enough: start/stop from disabled headless runs would
