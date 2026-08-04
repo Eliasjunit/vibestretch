@@ -12,7 +12,9 @@
 #     (you have genuinely been sitting through agent work — one big turn
 #      or several medium ones both count)
 #   - at least VIBESTRETCH_COOLDOWN seconds passed since the last nudge
-# A break away from the keyboard longer than 45 min resets the debt.
+# A break away from the keyboard longer than 45 min resets the debt — measured
+# from the OS input clock, so it burns on your return even if you never send a
+# prompt (coming back to a window where the agent kept working still counts).
 # Time when nobody touches the machine is never counted at all (macOS: the
 # system's keyboard/mouse idle clock; elsewhere this guard degrades to the
 # 45-minute reset above) — an overnight agent run is the agent's time, not
@@ -45,6 +47,7 @@ SID=$(head -c 4096 | sed -n 's/.*"session_id"[[:space:]]*:[[:space:]]*"\([^"]*\)
 TURN_FILE="$STATE_DIR/turn-$SID"
 SEEN_FILE="$STATE_DIR/seen-$SID"
 ACTIVE_FILE="$STATE_DIR/active"
+AWAY_FILE="$STATE_DIR/away-touch" # when you last touched the machine before leaving
 
 readnum() { # readnum <file> <default>
   VAL=$(cat "$1" 2>/dev/null)
@@ -75,9 +78,30 @@ accumulate() {
     # The human is not at the machine: an unattended agent run is not sitting.
     # Advance the seen marks so this stretch is never counted later, but leave
     # last-activity alone — the 45-minute burn must see the real absence.
+    # Also remember when they last touched the machine, so the break can be
+    # measured on their return (see below).
+    echo $((NOW - HID_IDLE)) > "$AWAY_FILE"
     echo "$NOW" > "$SEEN_FILE"
     echo "$NOW" > "$STATE_DIR/seen-global"
     return 1
+  fi
+
+  # Back at the machine. A long absence has to burn the debt HERE, not only in
+  # `start`: you can return to a window where the agent kept working on its own,
+  # and then the only hook that runs is PostToolUse. Waiting for your next
+  # prompt is worse than useless — the first check after your return refreshes
+  # last-activity, so `start` would no longer see any gap at all, and a debt you
+  # had already walked off would greet you the moment you sat down.
+  # The gap is measured from the OS input clock (last touch before leaving vs
+  # first touch after), which is the real break, not our own bookkeeping.
+  LEFT=$(readnum "$AWAY_FILE" 0)
+  if [ "$LEFT" -gt 0 ]; then
+    case "$HID_IDLE" in
+      ''|*[!0-9]*) BACK=$NOW ;;
+      *)           BACK=$((NOW - HID_IDLE)) ;;
+    esac
+    [ $((BACK - LEFT)) -ge "$IDLE_RESET" ] && echo 0 > "$ACTIVE_FILE"
+    rm -f "$AWAY_FILE"
   fi
   SEEN=$(readnum "$SEEN_FILE" "$TURN_START")
   GSEEN=$(readnum "$STATE_DIR/seen-global" 0)
@@ -166,6 +190,9 @@ case "$1" in
     if [ $((NOW - LAST_ACT)) -gt "$IDLE_RESET" ]; then
       echo 0 > "$ACTIVE_FILE"
     fi
+    # You are demonstrably here — typing this prompt. Whatever absence the
+    # away-mark recorded is over and already accounted for above.
+    rm -f "$AWAY_FILE"
     echo "$NOW" > "$TURN_FILE"
     echo "$NOW" > "$SEEN_FILE"
     echo "$NOW" > "$STATE_DIR/last-activity"

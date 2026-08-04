@@ -70,7 +70,9 @@ three are true:
 3. The last nudge wasn't recent (default: 15 min cooldown).
 
 Step away from the keyboard for 45+ minutes and the debt resets — you already had
-your break. And time when nobody touches the machine is never counted at all: on
+your break. That reset is measured against the system's input clock, not against
+anything the plugin bookkeeps, so it also fires when you come back to a window
+where the agent kept working on its own and you haven't typed a prompt yet. And time when nobody touches the machine is never counted at all: on
 macOS the hooks read the system keyboard/mouse idle clock, so an agent grinding
 overnight adds no agent time and never chimes at an empty chair. (On Linux
 there's no portable idle clock, so this guard degrades to the 45-minute reset.)
