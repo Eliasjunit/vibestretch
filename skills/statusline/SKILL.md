@@ -17,6 +17,10 @@ saving, and tell the user how to undo.
 If the user invoked this skill with the argument `off` (`$ARGUMENTS` contains
 "off"), jump to **Removal** at the bottom.
 
+Every `~/.claude/…` path below means *the user's Claude config directory*: check
+`$CLAUDE_CONFIG_DIR` first and use it when it is set, otherwise `~/.claude`.
+Writing to the wrong directory installs a status line nobody is running.
+
 ## Steps
 
 1. **Read the current config.** Open `~/.claude/settings.json` (it may not
