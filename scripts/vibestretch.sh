@@ -115,7 +115,24 @@ accumulate() {
   echo "$NOW" > "$STATE_DIR/last-activity"
 }
 
+# Your own list, one exercise per line; blank lines and #comments are skipped.
+# A file that exists but holds nothing usable falls back to the built-ins rather
+# than nudging you with an empty line.
+EX_FILE="${VIBESTRETCH_EXERCISES:-${XDG_CONFIG_HOME:-$HOME/.config}/vibestretch/exercises.txt}"
+custom_exercises() { awk 'NF && $0 !~ /^[[:space:]]*#/' "$EX_FILE" 2>/dev/null; }
+
 exercise() {
+  # EX_CUSTOM, not the file's mere existence: a file holding only comments is
+  # non-empty to the shell but has nothing to say, and printing that blank line
+  # as your nudge is worse than any built-in.
+  if [ "$EX_CUSTOM" = 1 ]; then
+    custom_exercises | sed -n "$(( $1 + 1 ))p"
+    return 0
+  fi
+  builtin_exercise "$1"
+}
+
+builtin_exercise() {
   case $1 in
     0)  echo "20-20-20: look at something 20 feet away for 20 seconds." ;;
     1)  echo "Stand up, reach for the ceiling, hold 15s. Then fold to your toes, 15s." ;;
@@ -132,6 +149,21 @@ exercise() {
   esac
 }
 EX_COUNT=12
+EX_CUSTOM=0
+if [ -s "$EX_FILE" ]; then
+  CUSTOM_COUNT=$(custom_exercises | wc -l | tr -d ' ')
+  if [ "$CUSTOM_COUNT" -gt 0 ]; then
+    EX_COUNT=$CUSTOM_COUNT
+    EX_CUSTOM=1
+  fi
+fi
+
+# Your exercises are your words, and they end up inside our JSON: a quote or a
+# backslash would otherwise produce output the host can't parse, i.e. no nudge
+# at all. Control characters are dropped for the same reason.
+json_escape() {
+  printf '%s' "$1" | tr -d '\000-\010\013\014\016-\037' | sed 's/\\/\\\\/g; s/"/\\"/g'
+}
 
 # A line of text loses to a desktop notification when you have looked away.
 #
@@ -157,7 +189,7 @@ notify() { # notify <exercise> <minutes>  -> JSON fragment, possibly empty
   # JSON only ("silence is mandatory"), so there is no channel to print an escape
   # sequence into either. Both get the line and the chime.
   [ "$HOST" = "claude" ] || return 0
-  BODY=$(printf '%s' "$1" | tr ';' ',') # ; separates OSC fields
+  BODY=$(json_escape "$(printf '%s' "$1" | tr ';' ',')") # ; separates OSC fields
   case "${TERM_PROGRAM:-}:${TERM:-}" in
     *Warp*|*ghostty*|*Ghostty*)
       printf ',"terminalSequence":"\\u001b]777;notify;🧘 time to move — %s min of agent time;%s\\u0007"' "$2" "$BODY" ;;
@@ -225,7 +257,9 @@ case "$1" in
 
     [ "$ACTIVE" -lt "$MIN_ACTIVE" ] && exit 0
 
-    IDX=$(readnum "$STATE_DIR/idx" 0)
+    # The stored index can outrun the list — you shorten your own exercises file
+    # between nudges and it would point past the end, printing nothing.
+    IDX=$(( $(readnum "$STATE_DIR/idx" 0) % EX_COUNT ))
     EX=$(exercise "$IDX")
     echo $(( (IDX + 1) % EX_COUNT )) > "$STATE_DIR/idx"
     echo "$NOW" > "$STATE_DIR/last-nudge"
@@ -240,7 +274,7 @@ case "$1" in
     printf '%s\n' "$EX" > "$STATE_DIR/current"
     sound
     printf '{"suppressOutput":true,"systemMessage":"🧘 %s · vibestretch · %s min of agent time"%s}\n' \
-      "$EX" "$MIN" "$(notify "$EX" "$MIN")"
+      "$(json_escape "$EX")" "$MIN" "$(notify "$EX" "$MIN")"
     ;;
 
   stop)

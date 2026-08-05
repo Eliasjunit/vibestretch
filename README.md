@@ -121,7 +121,9 @@ three are true:
 Step away from the keyboard for 45+ minutes and the debt resets — you already had
 your break. That reset is measured against the system's input clock, not against
 anything the plugin bookkeeps, so it also fires when you come back to a window
-where the agent kept working on its own and you haven't typed a prompt yet. And time when nobody touches the machine is never counted at all: on
+where the agent kept working on its own and you haven't typed a prompt yet.
+
+And time when nobody touches the machine is never counted at all: on
 macOS the hooks read the system keyboard/mouse idle clock, so an agent grinding
 overnight adds no agent time and never chimes at an empty chair. (On Linux
 there's no portable idle clock, so this guard degrades to the 45-minute reset.)
@@ -130,7 +132,7 @@ turns before thresholds hit, so there's nothing to mute.
 
 ## Configure
 
-Environment variables (all optional, all in seconds):
+Environment variables, all optional (the thresholds are in seconds):
 
 | Variable | Default | Meaning |
 |---|---|---|
@@ -141,11 +143,33 @@ Environment variables (all optional, all in seconds):
 | `VIBESTRETCH_DISABLE` | unset | Set to anything to mute nudges |
 | `VIBESTRETCH_NOTIFY` | `1` | Set to `0` to drop the desktop notification |
 | `VIBESTRETCH_SOUND` | `1` | Set to `0` to mute the sound |
+| `VIBESTRETCH_EXERCISES` | `~/.config/vibestretch/exercises.txt` | Path to your own exercise list (not seconds — a file path) |
 
 Running an agent headlessly (`claude -p`, `codex exec`, `gemini -p` from a
 script, cron, or a bot)? Set `VIBESTRETCH_DISABLE=1` in that environment. Otherwise those unattended sessions
 count as sitting time you never actually sat through, and spend the nudge you
 should have gotten at your desk.
+
+## Your own exercises
+
+Put one exercise per line in `~/.config/vibestretch/exercises.txt` and the
+built-in twelve step aside:
+
+```
+mkdir -p ~/.config/vibestretch
+cat > ~/.config/vibestretch/exercises.txt <<'EOF'
+# blank lines and comments are skipped
+Refill the water glass. Yes, now.
+Hang from the pull-up bar for 20 seconds.
+Look out the window and find something green.
+EOF
+```
+
+Point `VIBESTRETCH_EXERCISES` at another path if you'd rather keep the file
+elsewhere (per-project lists work fine that way). The rotation covers your list
+in order, so you don't get the same one twice in a row. A file that exists but
+contains nothing usable falls back to the built-ins rather than nudging you with
+a blank line — and quotes or backslashes in your text are safe to use.
 
 ## How it works
 
@@ -199,7 +223,7 @@ mute, staleness) that a quick snippet won't.
 
 - [x] OpenAI Codex CLI support
 - [x] Gemini CLI support
-- [ ] Your own exercise list
+- [x] Your own exercise list
 
 ## Who made this
 

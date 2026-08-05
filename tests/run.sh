@@ -110,6 +110,37 @@ ok "codex output has no field outside their schema" \
   "$(printf '%s' "$CODEX_OUT" | tr ',' '\n' | grep -o '"[a-zA-Z]*":' | tr -d '":' \
      | grep -vE '^(continue|stopReason|suppressOutput|systemMessage)$' | wc -l | tr -d ' ')" "0"
 
+echo "case 7: your own exercise list"
+EXFILE="$ROOT/exercises.txt"
+cat > "$EXFILE" <<'EOF'
+# my list — comments and blank lines are skipped
+
+Do the thing
+Say "hello" to the \ window
+EOF
+custom_nudge() { # custom_nudge [starting index] — reset_state wipes state, so the
+                 # rotation index is seeded explicitly rather than carried over
+  reset_state 780
+  [ -n "$1" ] && echo "$1" > "$VS/idx"
+  printf '%s' "$PAYLOAD" | IDLE_STUB=2 VIBESTRETCH_EXERCISES="$EXFILE" VIBESTRETCH_MIN_TURN=10 \
+    VIBESTRETCH_MIN_ACTIVE=60 VIBESTRETCH_COOLDOWN=0 sh "$SCRIPT" check
+}
+OUT1=$(custom_nudge 0)
+ok "custom exercise is used" "$(printf '%s' "$OUT1" | grep -c 'Do the thing')" "1"
+ok "built-ins are not used" "$(printf '%s' "$OUT1" | grep -c '20-20-20')" "0"
+ok "rotation stored for next time" "$(cat "$VS/idx")" "1"
+# the second line carries a quote and a backslash — the JSON has to survive it,
+# or the host drops the whole nudge
+OUT2=$(custom_nudge 1)
+ok "rotation advances" "$(printf '%s' "$OUT2" | grep -c 'hello')" "1"
+ok "quotes and backslashes stay valid JSON" \
+  "$(printf '%s' "$OUT2" | python3 -c 'import json,sys; json.loads(sys.stdin.read()); print("valid")' 2>/dev/null)" "valid"
+# an index left over from a longer list must not point past the end
+ok "stale index wraps instead of printing nothing" "$(custom_nudge 9 | grep -c 'systemMessage')" "1"
+# a file that exists but says nothing usable: non-empty to the shell, empty to us
+printf '# only comments\n\n' > "$EXFILE"
+ok "unusable file falls back to built-ins" "$(custom_nudge 0 | grep -c '20-20-20')" "1"
+
 rm -rf "$ROOT"
 echo
 echo "passed: $pass   failed: $fail"
