@@ -150,10 +150,13 @@ EX_COUNT=12
 # Opt out with VIBESTRETCH_NOTIFY=0.
 notify() { # notify <exercise> <minutes>  -> JSON fragment, possibly empty
   [ "${VIBESTRETCH_NOTIFY:-1}" = "0" ] && return 0
-  # Codex parses hook output with deny_unknown_fields: one field it doesn't know
-  # and the WHOLE object is dropped — nudge and all. It has no terminalSequence,
-  # so on that host the banner is not "unsupported", it is actively harmful.
-  [ "$HOST" = "codex" ] && return 0
+  # Only Claude Code carries a terminal sequence for us. Codex parses hook output
+  # with deny_unknown_fields — one field it doesn't know and the WHOLE object is
+  # dropped, nudge and all, so there the banner is not "unsupported" but actively
+  # harmful. Gemini ignores unknown fields harmlessly, but reserves stdout for
+  # JSON only ("silence is mandatory"), so there is no channel to print an escape
+  # sequence into either. Both get the line and the chime.
+  [ "$HOST" = "claude" ] || return 0
   BODY=$(printf '%s' "$1" | tr ';' ',') # ; separates OSC fields
   case "${TERM_PROGRAM:-}:${TERM:-}" in
     *Warp*|*ghostty*|*Ghostty*)

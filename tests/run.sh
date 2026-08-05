@@ -96,9 +96,15 @@ nudge() { # nudge <host> — force the thresholds so a nudge is guaranteed
 }
 CLAUDE_OUT=$(nudge)
 CODEX_OUT=$(nudge codex)
+GEMINI_OUT=$(nudge gemini)
 ok "claude host keeps the terminal banner" "$(printf '%s' "$CLAUDE_OUT" | grep -c terminalSequence)" "1"
 ok "codex host drops the terminal banner" "$(printf '%s' "$CODEX_OUT" | grep -c terminalSequence)" "0"
 ok "codex host still nudges" "$(printf '%s' "$CODEX_OUT" | grep -c 'agent time')" "1"
+ok "gemini host drops the terminal banner" "$(printf '%s' "$GEMINI_OUT" | grep -c terminalSequence)" "0"
+ok "gemini host still nudges" "$(printf '%s' "$GEMINI_OUT" | grep -c 'agent time')" "1"
+# An unknown host must degrade to the quiet, universally safe output rather than
+# guessing that a banner is welcome.
+ok "unknown host stays quiet" "$(printf '%s' "$(nudge someday-cli)" | grep -c terminalSequence)" "0"
 # Codex accepts exactly: continue, stopReason, suppressOutput, systemMessage
 ok "codex output has no field outside their schema" \
   "$(printf '%s' "$CODEX_OUT" | tr ',' '\n' | grep -o '"[a-zA-Z]*":' | tr -d '":' \

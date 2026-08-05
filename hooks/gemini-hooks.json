@@ -1,0 +1,44 @@
+{
+  "hooks": {
+    "BeforeAgent": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "vibestretch-start",
+            "description": "Mark the moment the agent starts working on your prompt.",
+            "command": "\"$HOME/.gemini/vibestretch/scripts/vibestretch.sh\" start gemini",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "AfterTool": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "name": "vibestretch-check",
+            "description": "Accumulate agent-wait time and nudge you to move when it is due.",
+            "command": "\"$HOME/.gemini/vibestretch/scripts/vibestretch.sh\" check gemini",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "AfterAgent": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "vibestretch-stop",
+            "description": "Close out this turn's accounting.",
+            "command": "\"$HOME/.gemini/vibestretch/scripts/vibestretch.sh\" stop gemini",
+            "timeout": 5000
+          }
+        ]
+      }
+    ]
+  }
+}

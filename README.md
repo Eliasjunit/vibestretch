@@ -73,11 +73,34 @@ whole object if it contains a field it doesn't know, and it has no field for a
 terminal sequence — so sending one would cost you the nudge itself. There's no
 status line segment either; that bar isn't scriptable in Codex.
 
-The debt is shared between the two CLIs, deliberately: an hour of waiting is an
-hour of waiting whichever agent kept you in the chair.
+The debt is shared across CLIs, deliberately: an hour of waiting is an hour of
+waiting whichever agent kept you in the chair.
 
-Built against Codex's published hook schemas (hooks landed in v0.114) and
-validated against them, but not yet dogfooded on a live Codex install — if your
+## Install (Gemini CLI)
+
+Hooks ship enabled since Gemini CLI v0.26. Clone, then merge our three entries
+into your settings:
+
+```
+git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch
+```
+
+Then copy the `hooks` object from `~/.gemini/vibestretch/hooks/gemini-hooks.json`
+into `~/.gemini/settings.json`. That file is your whole Gemini configuration, so
+merge rather than replace — with `jq` it's one line:
+
+```
+jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json > /tmp/s.json && mv /tmp/s.json ~/.gemini/settings.json
+```
+
+As with Codex: the line in the session and the chime, no notification banner —
+Gemini reserves a hook's stdout for JSON alone, so there's nowhere to print an
+escape sequence. `BeforeAgent`, `AfterTool` and `AfterAgent` map exactly onto
+the three moments the plugin cares about.
+
+Both non-Claude adapters are built against the published hook contracts —
+Codex's generated JSON schemas and Gemini's hooks reference — and validated
+against them, but neither has been dogfooded on a live install yet. If your
 build behaves differently, an issue with the output would be welcome.
 
 ## When it nudges
@@ -119,18 +142,21 @@ Environment variables (all optional, all in seconds):
 | `VIBESTRETCH_NOTIFY` | `1` | Set to `0` to drop the desktop notification |
 | `VIBESTRETCH_SOUND` | `1` | Set to `0` to mute the sound |
 
-Running Claude Code headlessly (`claude -p` from a script, cron, or a bot)? Set
-`VIBESTRETCH_DISABLE=1` in that environment. Otherwise those unattended sessions
+Running an agent headlessly (`claude -p`, `codex exec`, `gemini -p` from a
+script, cron, or a bot)? Set `VIBESTRETCH_DISABLE=1` in that environment. Otherwise those unattended sessions
 count as sitting time you never actually sat through, and spend the nudge you
 should have gotten at your desk.
 
 ## How it works
 
-Three [Claude Code hooks](https://docs.claude.com/en/docs/claude-code/hooks):
+Three [hooks](https://docs.claude.com/en/docs/claude-code/hooks), one per moment
+that matters:
 
-- `UserPromptSubmit` marks the moment the agent starts working
-- `PostToolUse` accumulates agent-active time between tool calls and emits a nudge when due
-- `Stop` closes out the turn's accounting
+| Moment | Claude Code | Codex | Gemini |
+|---|---|---|---|
+| the agent starts working on your prompt | `UserPromptSubmit` | `UserPromptSubmit` | `BeforeAgent` |
+| a tool finished — accumulate wait, nudge if due | `PostToolUse` | `PostToolUse` | `AfterTool` |
+| the turn is over — close the accounting | `Stop` | `Stop` | `AfterAgent` |
 
 The nudge is a `systemMessage` (a brief in-session notice shown to you, never
 added to the model's context) plus an optional `terminalSequence` carrying the
@@ -172,7 +198,7 @@ mute, staleness) that a quick snippet won't.
 ## Roadmap
 
 - [x] OpenAI Codex CLI support
-- [ ] Gemini CLI support
+- [x] Gemini CLI support
 - [ ] Your own exercise list
 
 ## Who made this
