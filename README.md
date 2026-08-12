@@ -5,7 +5,7 @@ Stretch nudges in your terminal while your coding agent works.
 ![vibestretch nudges you to stretch while Claude Code works](assets/demo.gif)
 
 Your agent grinds for minutes at a time. You sit there, slouched, not blinking.
-Some tools sell that attention window to advertisers. vibestretch gives it back to your spine:
+That window is what ad-supported dev tools sell. vibestretch gives it back to your spine:
 
 ```
 🧘 Slow neck rolls — 5 each direction. · vibestretch · 7 min of agent time
@@ -18,26 +18,13 @@ spot when it fires:
 - a soft chime of its own (bundled, nothing system-sounding) — for when you're
   not looking at any screen at all
 - a notification banner (Warp, Ghostty, iTerm2, WezTerm, kitty) — for the
-  moment it fires, see the note below
+  moment it fires; what your terminal does with it varies, see
+  [How it works](#how-it-works)
 - your status line, if you run [`/vibestretch:statusline`](#show-it-in-your-status-line)
   — the one channel that's still there when you come back from another app
 
 All out of the box, nothing to configure. `VIBESTRETCH_SOUND=0` mutes the
 sound, `VIBESTRETCH_NOTIFY=0` drops the banner.
-
-> **About that banner.** What your terminal does with the notification sequence
-> is its own call: some post a real OS notification that waits in the
-> notification center, others (Warp) draw their own banner inside the window —
-> which you never see if you're looking at another app, and which is gone by
-> the time you come back. Either way it's a moment, not a record, so
-> vibestretch doesn't lean on it: the chime catches you while you're away, and
-> the status line is what's still saying it when you return. On macOS,
-> terminals that post real notifications can be set to **Alerts** (System
-> Settings → Notifications) so the banner waits instead of fading.
->
-> The terminal's tab title would be the obvious place for a badge, and it isn't
-> available: Claude Code rewrites the title itself every turn, so anything a
-> plugin parks there is gone in seconds. Tried in 0.4.2, removed in 0.4.5.
 
 A one-line nudge — a stretch, a micro-workout, or an eye exercise (20-20-20 and friends) —
 lands in the session only when you've genuinely been sitting through agent work.
@@ -186,6 +173,20 @@ The nudge is a `systemMessage` (a brief in-session notice shown to you, never
 added to the model's context) plus an optional `terminalSequence` carrying the
 desktop notification. Terminals that aren't known to support the sequence get
 nothing rather than stray bytes.
+
+What your terminal then does with that sequence is its own call: some post a
+real OS notification that waits in the notification center, others (Warp) draw
+their own banner inside the window — which you never see if you're looking at
+another app, and which is gone by the time you come back. Either way it's a
+moment, not a record, so vibestretch doesn't lean on it: the chime catches you
+while you're away, and the status line is what's still saying it when you
+return. On macOS, terminals that post real notifications can be set to
+**Alerts** (System Settings → Notifications) so the banner waits instead of
+fading.
+
+The terminal's tab title would be the obvious place for a badge, and it isn't
+available: Claude Code rewrites the title itself every turn, so anything a
+plugin parks there is gone in seconds. Tried in 0.4.2, removed in 0.4.5.
 
 State lives in `~/.cache/vibestretch/`. Exercises rotate so you don't get squats twice in a row.
 
