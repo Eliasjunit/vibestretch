@@ -219,15 +219,19 @@ them by hand, copy `scripts/statusline-segment.sh` somewhere stable and call
 it from your status line command — it handles the edge cases (empty files,
 mute, staleness) that a quick snippet won't.
 
-## Roadmap
+## Recently added
 
-- [x] OpenAI Codex CLI support
-- [x] Gemini CLI support
-- [x] Your own exercise list
+- OpenAI Codex CLI support (0.5.0)
+- Gemini CLI support (0.6.0)
+- Your own exercise list (0.7.0)
+
+Nothing else is planned right now — the thing does what it set out to do. If it
+misses something you'd actually use, open an issue.
 
 ## Who made this
 
-Built in public by [Junit](https://github.com/Eliasjunit) — solo founder shipping
-AI products (and trying not to fuse with the chair while agents write the code).
+Built in public by [Junit](https://github.com/Eliasjunit) — founder building AI
+products, apps and games (and trying not to fuse with the chair while the agents
+grind).
 
 MIT.
