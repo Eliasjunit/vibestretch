@@ -205,9 +205,10 @@ best thing, one command:
 ```
 
 It backs up your settings, wraps your existing status line command (or installs
-a minimal one if you have none), and adds the nudge segment: the exercise in
-green for 5 minutes after each nudge, and a quiet `🧘 12m agent time` counter
-whenever 2+ minutes of fresh debt have built up. Run it again after a plugin
+a minimal one if you have none), and adds the nudge segment: the exercise for 5
+minutes after each nudge, fading from bold green to dim as its time runs out,
+and a quiet `🧘 12m agent time` counter whenever 2+ minutes of fresh debt have
+built up. Run it again after a plugin
 update to refresh the helpers; undo with `/vibestretch:statusline off`. If you
 ever uninstall the plugin, run `off` first — uninstalling alone would leave the
 segment configured but frozen.

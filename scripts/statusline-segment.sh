@@ -27,7 +27,18 @@ if [ "$AGE" -ge 0 ] && [ "$AGE" -lt 300 ] && [ -s "$VS/current" ]; then
   # status line gets the first sentence only — the instruction; the flavor
   # tail lives in the toast and the notification, where there is room
   case "$EX" in *". "*) EX="${EX%%. *}." ;; esac
-  printf '\033[1;32m🧘 %s\033[0m' "$EX"
+  # Fade as the five minutes run out, rather than pulse: the bar is redrawn
+  # when the conversation moves, not on a timer, so anything that has to
+  # alternate freezes mid-blink exactly while you sit still and read it. A
+  # one-way fade survives sparse redraws — you just see fewer steps.
+  if [ "$AGE" -lt 60 ]; then
+    SGR='1;32'   # first minute: bold green, this is the ask
+  elif [ "$AGE" -lt 180 ]; then
+    SGR='32'     # still standing, quieter
+  else
+    SGR='2;32'   # last two minutes: dim, about to go
+  fi
+  printf '\033[%sm🧘 %s\033[0m' "$SGR" "$EX"
   exit 0
 fi
 
