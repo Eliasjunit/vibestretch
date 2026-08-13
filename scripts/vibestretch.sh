@@ -246,7 +246,7 @@ case "$1" in
   check)
     [ -f "$TURN_FILE" ] || exit 0
     # away: no debt grows and no nudge fires into an empty chair (a 3 a.m.
-    # chime for an overnight agent run is the opposite of the product)
+    # chime for an overnight agent run is the opposite of the point)
     accumulate || exit 0
 
     TURN_ELAPSED=$((NOW - TURN_START))
