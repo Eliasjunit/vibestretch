@@ -11,6 +11,13 @@ That window is what ad-supported dev tools sell. vibestretch gives it back to yo
 🧘 Slow neck rolls — 5 each direction. · vibestretch · 7 min of agent time
 ```
 
+**It isn't a break timer.** A timer runs on a schedule and lands whenever it
+lands — usually mid-thought, which is why most people end up turning them off.
+vibestretch has no schedule. It counts exactly one thing: the minutes an agent
+turn kept you waiting at the machine. It speaks inside that wait and nowhere
+else, so a day of quick turns says nothing at all, and there is nothing to
+snooze because it never interrupts you in the first place.
+
 The nudge reaches you several ways, because you're rarely looking at the right
 spot when it fires:
 
@@ -26,9 +33,9 @@ spot when it fires:
 All out of the box, nothing to configure. `VIBESTRETCH_SOUND=0` mutes the
 sound, `VIBESTRETCH_NOTIFY=0` drops the banner.
 
-A one-line nudge — a stretch, a micro-workout, or an eye exercise (20-20-20 and friends) —
-lands in the session only when you've genuinely been sitting through agent work.
-Short tasks, fast models, quick back-and-forth: silence.
+Twelve exercises ship with it — stretches, micro-workouts, and eye breaks
+(20-20-20 and friends) — rotating so you never get the same one twice in a row.
+Swap them for [your own list](#your-own-exercises) if you'd rather.
 
 ## Install (Claude Code)
 
