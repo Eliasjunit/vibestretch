@@ -1,7 +1,7 @@
 {
   "name": "vibestretch",
   "description": "Stretch, move and rest your eyes while your coding agent works — friendly nudges on long-running turns.",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "author": {
     "name": "Junit",
     "url": "https://github.com/Eliasjunit"

@@ -105,6 +105,19 @@ ok "gemini host still nudges" "$(printf '%s' "$GEMINI_OUT" | grep -c 'agent time
 # An unknown host must degrade to the quiet, universally safe output rather than
 # guessing that a banner is welcome.
 ok "unknown host stays quiet" "$(printf '%s' "$(nudge someday-cli)" | grep -c terminalSequence)" "0"
+# VS Code's terminal has no notifications of its own but swallows unknown OSC
+# quietly, and the extensions people add for that gap listen for the 777 form.
+VSCODE_OUT=$(reset_state 780; printf '%s' "$PAYLOAD" | IDLE_STUB=2 TERM_PROGRAM=vscode \
+  VIBESTRETCH_NOTIFY=1 VIBESTRETCH_MIN_TURN=10 VIBESTRETCH_MIN_ACTIVE=60 \
+  VIBESTRETCH_COOLDOWN=0 sh "$SCRIPT" check)
+ok "vscode terminal gets the 777 banner" "$(printf '%s' "$VSCODE_OUT" | grep -c '777;notify')" "1"
+# An unrecognised terminal is still sent nothing at all — stray bytes in someone
+# else's session are worse than a missing banner.
+UNKNOWN_TERM=$(reset_state 780; printf '%s' "$PAYLOAD" | IDLE_STUB=2 TERM_PROGRAM=SomeTerm \
+  VIBESTRETCH_NOTIFY=1 VIBESTRETCH_MIN_TURN=10 VIBESTRETCH_MIN_ACTIVE=60 \
+  VIBESTRETCH_COOLDOWN=0 sh "$SCRIPT" check)
+ok "unknown terminal gets no sequence" "$(printf '%s' "$UNKNOWN_TERM" | grep -c terminalSequence)" "0"
+ok "unknown terminal still nudges" "$(printf '%s' "$UNKNOWN_TERM" | grep -c 'agent time')" "1"
 # Codex accepts exactly: continue, stopReason, suppressOutput, systemMessage
 ok "codex output has no field outside their schema" \
   "$(printf '%s' "$CODEX_OUT" | tr ',' '\n' | grep -o '"[a-zA-Z]*":' | tr -d '":' \

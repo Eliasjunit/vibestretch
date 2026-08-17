@@ -191,7 +191,10 @@ notify() { # notify <exercise> <minutes>  -> JSON fragment, possibly empty
   [ "$HOST" = "claude" ] || return 0
   BODY=$(json_escape "$(printf '%s' "$1" | tr ';' ',')") # ; separates OSC fields
   case "${TERM_PROGRAM:-}:${TERM:-}" in
-    *Warp*|*ghostty*|*Ghostty*)
+    # VS Code (and its forks) drop unknown OSC silently rather than printing it,
+    # so this costs nothing where nothing listens — and the notifier extensions
+    # people install for exactly this gap read the 777 form below.
+    *Warp*|*ghostty*|*Ghostty*|*vscode*)
       printf ',"terminalSequence":"\\u001b]777;notify;🧘 time to move — %s min of agent time;%s\\u0007"' "$2" "$BODY" ;;
     *iTerm*|*WezTerm*)
       printf ',"terminalSequence":"\\u001b]9;🧘 %s\\u0007"' "$BODY" ;;

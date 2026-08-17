@@ -24,9 +24,9 @@ spot when it fires:
 - a line in the session — for when you're watching the agent work
 - a soft chime of its own (bundled, nothing system-sounding) — for when you're
   not looking at any screen at all
-- a notification banner (Warp, Ghostty, iTerm2, WezTerm, kitty) — for the
-  moment it fires; what your terminal does with it varies, see
-  [How it works](#how-it-works)
+- a notification banner (Warp, Ghostty, iTerm2, WezTerm, kitty; in VS Code only
+  if you add a notifier extension) — for the moment it fires; what your terminal
+  does with it varies, see [How it works](#how-it-works)
 - your status line, if you run [`/vibestretch:statusline`](#show-it-in-your-status-line)
   — the one channel that's still there when you come back from another app
 
@@ -191,6 +191,13 @@ return. On macOS, terminals that post real notifications can be set to
 **Alerts** (System Settings → Notifications) so the banner waits instead of
 fading.
 
+VS Code's integrated terminal — a common place to keep an agent running — is the
+one host where the banner is absent by default. It has no desktop notification
+of its own for these sequences and discards them without printing anything. The
+sequence is sent there anyway, in the form the notifier extensions for that gap
+read, so adding one turns the banner on; with none installed nothing is shown
+and nothing is broken. The line, the chime and the status line work as usual.
+
 The terminal's tab title would be the obvious place for a badge, and it isn't
 available: Claude Code rewrites the title itself every turn, so anything a
 plugin parks there is gone in seconds. Tried in 0.4.2, removed in 0.4.5.
@@ -233,6 +240,7 @@ mute, staleness) that a quick snippet won't.
 - OpenAI Codex CLI support (0.5.0)
 - Gemini CLI support (0.6.0)
 - Your own exercise list (0.7.0)
+- The banner now reaches VS Code, where a notifier extension can show it (0.7.1)
 
 Nothing else is planned right now — the thing does what it set out to do. If it
 misses something you'd actually use, open an issue.
