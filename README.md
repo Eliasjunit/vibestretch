@@ -196,7 +196,11 @@ one host where the banner is absent by default. It has no desktop notification
 of its own for these sequences and discards them without printing anything. The
 sequence is sent there anyway, in the form the notifier extensions for that gap
 read, so adding one turns the banner on; with none installed nothing is shown
-and nothing is broken. The line, the chime and the status line work as usual.
+and nothing is broken. Tested there with Terminal Notification, and worth
+knowing before you expect too much: the nudge arrives as a toast inside the VS
+Code window. A real macOS notification depends on that extension's own helper
+being granted permission, and macOS asks for it once. The line, the chime and
+the status line work as usual.
 
 The terminal's tab title would be the obvious place for a badge, and it isn't
 available: Claude Code rewrites the title itself every turn, so anything a
