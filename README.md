@@ -199,8 +199,16 @@ read, so adding one turns the banner on; with none installed nothing is shown
 and nothing is broken. Tested there with Terminal Notification, and worth
 knowing before you expect too much: the nudge arrives as a toast inside the VS
 Code window. A real macOS notification depends on that extension's own helper
-being granted permission, and macOS asks for it once. The line, the chime and
-the status line work as usual.
+being granted permission, and macOS asks for it once.
+
+VS Code has two surfaces, and they don't behave alike. In the integrated
+terminal everything else works — the line, the chime, the status line — except
+that Claude Code prefixes the line with the hook that produced it
+(`PostToolUse:Bash says: 🧘 …`) instead of showing it on its own. In the
+extension's chat panel neither the line nor the status line renders at all, so
+the chime is the only channel left: you hear that it's time to move, but not
+what to do. Both surfaces were checked on Claude Code 2.1.234. If you live in
+the panel, the terminal is where this plugin can actually say something.
 
 The terminal's tab title would be the obvious place for a badge, and it isn't
 available: Claude Code rewrites the title itself every turn, so anything a
