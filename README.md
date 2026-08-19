@@ -191,24 +191,23 @@ return. On macOS, terminals that post real notifications can be set to
 **Alerts** (System Settings → Notifications) so the banner waits instead of
 fading.
 
-VS Code's integrated terminal — a common place to keep an agent running — is the
-one host where the banner is absent by default. It has no desktop notification
-of its own for these sequences and discards them without printing anything. The
-sequence is sent there anyway, in the form the notifier extensions for that gap
-read, so adding one turns the banner on; with none installed nothing is shown
-and nothing is broken. Tested there with Terminal Notification, and worth
-knowing before you expect too much: the nudge arrives as a toast inside the VS
-Code window. A real macOS notification depends on that extension's own helper
-being granted permission, and macOS asks for it once.
+VS Code deserves its own paragraph, being a common place to keep an agent
+running, and it has two surfaces that don't behave alike. In the integrated
+terminal the line, the chime and the status line all work — except that Claude
+Code prefixes the line with the hook that produced it (`PostToolUse:Bash says:
+🧘 …`) instead of showing it on its own. In the extension's chat panel neither
+the line nor the status line renders at all, so the chime is the only channel
+left: you hear that it's time to move, but not what to do.
 
-VS Code has two surfaces, and they don't behave alike. In the integrated
-terminal everything else works — the line, the chime, the status line — except
-that Claude Code prefixes the line with the hook that produced it
-(`PostToolUse:Bash says: 🧘 …`) instead of showing it on its own. In the
-extension's chat panel neither the line nor the status line renders at all, so
-the chime is the only channel left: you hear that it's time to move, but not
-what to do. Both surfaces were checked on Claude Code 2.1.234. If you live in
-the panel, the terminal is where this plugin can actually say something.
+The banner is missing on both surfaces by default, and that part isn't Claude
+Code's doing — VS Code has no desktop notification of its own for these
+sequences and discards them without printing anything. We send it there anyway,
+in the form the notifier extensions for that gap read, so installing one turns
+the banner on. Tested with Terminal Notification: the nudge arrives as a toast
+inside the VS Code window, and a real macOS notification additionally needs that
+extension's helper to be granted permission, which macOS asks about once. With
+no extension installed nothing is shown and nothing is broken. All of this was
+checked on Claude Code 2.1.234.
 
 The terminal's tab title would be the obvious place for a badge, and it isn't
 available: Claude Code rewrites the title itself every turn, so anything a
