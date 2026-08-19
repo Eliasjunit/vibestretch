@@ -46,7 +46,9 @@ check 5400 >/dev/null              # agent works while he is out (90 min idle)
 ok "debt frozen while away" "$(cat "$VS/active")" "780"
 ok "away mark written" "$([ -f "$VS/away-touch" ] && echo yes || echo no)" "yes"
 OUT=$(check 3)                     # he touches the keyboard, next tool call fires
-ok "debt burned on return" "$(cat "$VS/active")" "0"
+# Not a bare "= 0": the two checks above are real calls seconds apart, so the
+# turn legitimately adds a second or two back. What must not survive is the 780.
+ok "debt burned on return" "$(awk '$1<10 {print "burned"}' "$VS/active")" "burned"
 ok "no nudge on return" "$(printf '%s' "$OUT" | grep -c systemMessage || true)" "0"
 ok "away mark cleared" "$([ -f "$VS/away-touch" ] && echo yes || echo no)" "no"
 
