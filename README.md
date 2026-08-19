@@ -191,6 +191,11 @@ return. On macOS, terminals that post real notifications can be set to
 **Alerts** (System Settings → Notifications) so the banner waits instead of
 fading.
 
+One consequence of having both channels: if your terminal plays its own sound
+for notifications — iTerm2 does out of the box — a nudge arrives as two sounds,
+ours and its. `VIBESTRETCH_SOUND=0` drops ours and leaves the one your terminal
+already makes.
+
 VS Code deserves its own paragraph, being a common place to keep an agent
 running, and it has two surfaces that don't behave alike. In the integrated
 terminal the line, the chime and the status line all work — except that Claude
