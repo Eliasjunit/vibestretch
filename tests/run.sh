@@ -120,10 +120,17 @@ UNKNOWN_TERM=$(reset_state 780; printf '%s' "$PAYLOAD" | IDLE_STUB=2 TERM_PROGRA
   VIBESTRETCH_COOLDOWN=0 sh "$SCRIPT" check)
 ok "unknown terminal gets no sequence" "$(printf '%s' "$UNKNOWN_TERM" | grep -c terminalSequence)" "0"
 ok "unknown terminal still nudges" "$(printf '%s' "$UNKNOWN_TERM" | grep -c 'agent time')" "1"
-# Codex accepts exactly: continue, stopReason, suppressOutput, systemMessage
+# suppressOutput is in Codex's published schema but its parser rejects a true:
+# the run is marked failed and an error line prints under every nudge (0.149.1,
+# found on a live run). Claude still needs it to keep the raw JSON out of the
+# transcript, so the field is Claude-only rather than gone.
+ok "codex output carries no suppressOutput" "$(printf '%s' "$CODEX_OUT" | grep -c suppressOutput)" "0"
+ok "gemini output carries no suppressOutput" "$(printf '%s' "$GEMINI_OUT" | grep -c suppressOutput)" "0"
+ok "claude output keeps suppressOutput" "$(printf '%s' "$CLAUDE_OUT" | grep -c suppressOutput)" "1"
+# What is left must still fall inside what Codex accepts.
 ok "codex output has no field outside their schema" \
   "$(printf '%s' "$CODEX_OUT" | tr ',' '\n' | grep -o '"[a-zA-Z]*":' | tr -d '":' \
-     | grep -vE '^(continue|stopReason|suppressOutput|systemMessage)$' | wc -l | tr -d ' ')" "0"
+     | grep -vE '^(continue|stopReason|systemMessage)$' | wc -l | tr -d ' ')" "0"
 
 echo "case 7: your own exercise list"
 EXFILE="$ROOT/exercises.txt"

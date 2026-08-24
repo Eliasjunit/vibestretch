@@ -92,10 +92,14 @@ Gemini reserves a hook's stdout for JSON alone, so there's nowhere to print an
 escape sequence. `BeforeAgent`, `AfterTool` and `AfterAgent` map exactly onto
 the three moments the plugin cares about.
 
-Both non-Claude adapters are built against the published hook contracts —
-Codex's generated JSON schemas and Gemini's hooks reference — and validated
-against them, but neither has been dogfooded on a live install yet. If your
-build behaves differently, an issue with the output would be welcome.
+Both non-Claude adapters were built against the published hook contracts —
+Codex's generated JSON schemas and Gemini's hooks reference — and have since
+been run on live installs: Codex CLI 0.149.1 and Gemini CLI 0.56.0 on macOS.
+That run found the one place a contract and its runtime disagree: Codex lists
+`suppressOutput` in its schema and rejects it in practice, marking the hook
+failed and printing an error under every nudge. The field is Claude Code's
+alone as of 0.7.2. If your build behaves differently, an issue with the output
+would be welcome.
 
 ## When it nudges
 
@@ -257,6 +261,7 @@ mute, staleness) that a quick snippet won't.
 - Gemini CLI support (0.6.0)
 - Your own exercise list (0.7.0)
 - The banner now reaches VS Code, where a notifier extension can show it (0.7.1)
+- Codex CLI no longer reports every nudge as a failed hook (0.7.2)
 
 Nothing else is planned right now — the thing does what it set out to do. If it
 misses something you'd actually use, open an issue.

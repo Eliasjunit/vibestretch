@@ -276,8 +276,15 @@ case "$1" in
     MIN=$((ACTIVE / 60))
     printf '%s\n' "$EX" > "$STATE_DIR/current"
     sound
-    printf '{"suppressOutput":true,"systemMessage":"🧘 %s · vibestretch · %s min of agent time"%s}\n' \
-      "$(json_escape "$EX")" "$MIN" "$(notify "$EX" "$MIN")"
+    # suppressOutput keeps the raw JSON out of Claude's transcript view, and it
+    # is Claude's alone: Codex lists the field in its published schema but its
+    # parser rejects a true, marks the whole run failed and prints
+    # "hook returned unsupported suppressOutput" under every nudge (seen live on
+    # 0.149.1). Nothing to suppress elsewhere anyway.
+    SUPPRESS=''
+    [ "$HOST" = "claude" ] && SUPPRESS='"suppressOutput":true,'
+    printf '{%s"systemMessage":"🧘 %s · vibestretch · %s min of agent time"%s}\n' \
+      "$SUPPRESS" "$(json_escape "$EX")" "$MIN" "$(notify "$EX" "$MIN")"
     ;;
 
   stop)
