@@ -55,9 +55,9 @@ codex plugin marketplace add Eliasjunit/vibestretch
 codex plugin add vibestretch@vibestretch
 ```
 
-Codex doesn't run a plugin's hooks until you have reviewed them. It says so
-when it starts; open `/hooks` and trust the three vibestretch entries. Until
-then the plugin is installed but silent.
+Codex doesn't run a plugin's hooks until you have reviewed them: open
+`/hooks` and trust the three vibestretch entries. Until then the plugin is
+installed but silent.
 
 Rather not use the plugin system? A clone and a config file do the same job:
 
