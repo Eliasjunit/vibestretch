@@ -50,7 +50,16 @@ Nothing ever leaves your machine.
 
 ## Install (Codex CLI)
 
-Codex has no plugin marketplace, so it's a clone and a config file:
+```
+codex plugin marketplace add Eliasjunit/vibestretch
+codex plugin add vibestretch@vibestretch
+```
+
+Codex doesn't run a plugin's hooks until you have reviewed them. It says so
+when it starts; open `/hooks` and trust the three vibestretch entries. Until
+then the plugin is installed but silent.
+
+Rather not use the plugin system? A clone and a config file do the same job:
 
 ```
 git clone https://github.com/Eliasjunit/vibestretch ~/.codex/vibestretch
@@ -59,7 +68,10 @@ cp ~/.codex/vibestretch/hooks/codex-hooks.json ~/.codex/hooks.json
 
 Already have a `~/.codex/hooks.json`? Merge the three entries from ours into it
 rather than overwriting yours. Codex asks you to trust a new hook config the
-first time it runs — that prompt is expected.
+first time it runs — that prompt is expected. Pick one of the two ways, not
+both: with the plugin and the hand-made entries in place, every hook runs
+twice. If you installed by hand before 0.8.0, remove our entries from
+`~/.codex/hooks.json` when you switch to the plugin.
 
 What differs from Claude Code: you get the line in the session and the chime,
 but no notification banner. Codex parses hook output strictly and drops the
@@ -262,6 +274,7 @@ mute, staleness) that a quick snippet won't.
 - Your own exercise list (0.7.0)
 - The banner now reaches VS Code, where a notifier extension can show it (0.7.1)
 - Codex CLI no longer reports every nudge as a failed hook (0.7.2)
+- Installs in Codex as a plugin (0.8.0)
 
 Nothing else is planned right now — the thing does what it set out to do. If it
 misses something you'd actually use, open an issue.
