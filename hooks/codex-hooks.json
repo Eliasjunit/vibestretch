@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"$HOME/.codex/vibestretch/scripts/vibestretch.sh\" start codex",
+            "command": "\"${PLUGIN_ROOT:-$HOME/.codex/vibestretch}/scripts/vibestretch.sh\" start codex",
             "async": true,
             "timeout": 5
           }
@@ -18,7 +18,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"$HOME/.codex/vibestretch/scripts/vibestretch.sh\" check codex",
+            "command": "\"${PLUGIN_ROOT:-$HOME/.codex/vibestretch}/scripts/vibestretch.sh\" check codex",
             "timeout": 5
           }
         ]
@@ -29,7 +29,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"$HOME/.codex/vibestretch/scripts/vibestretch.sh\" stop codex",
+            "command": "\"${PLUGIN_ROOT:-$HOME/.codex/vibestretch}/scripts/vibestretch.sh\" stop codex",
             "async": true,
             "timeout": 5
           }
