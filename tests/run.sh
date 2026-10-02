@@ -163,6 +163,34 @@ ok "stale index wraps instead of printing nothing" "$(custom_nudge 9 | grep -c '
 printf '# only comments\n\n' > "$EXFILE"
 ok "unusable file falls back to built-ins" "$(custom_nudge 0 | grep -c '20-20-20')" "1"
 
+echo "case 8: Codex plugin packaging"
+# Codex installs the repo itself as a plugin. A manifest it can't parse means no
+# install at all, and a hook command without the codex host argument gets
+# Claude's output, which Codex rejects (see case 6).
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
+parses() { python3 -c 'import json,sys; json.load(open(sys.argv[1])); print("valid")' "$REPO/$1" 2>/dev/null; }
+ok ".codex-plugin/plugin.json parses" "$(parses .codex-plugin/plugin.json)" "valid"
+ok "hooks/codex-hooks.json parses" "$(parses hooks/codex-hooks.json)" "valid"
+ok ".agents/plugins/marketplace.json parses" "$(parses .agents/plugins/marketplace.json)" "valid"
+ok "codex manifest loads the codex hook config" \
+  "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["hooks"])' "$REPO/.codex-plugin/plugin.json" 2>/dev/null)" \
+  "./hooks/codex-hooks.json"
+ok "both manifests carry the same version" \
+  "$(python3 -c 'import json,sys; print(len({json.load(open(f))["version"] for f in sys.argv[1:]}))' \
+     "$REPO/.claude-plugin/plugin.json" "$REPO/.codex-plugin/plugin.json" 2>/dev/null)" "1"
+CODEX_CMDS=$(python3 -c 'import json,sys
+for groups in json.load(open(sys.argv[1]))["hooks"].values():
+    for g in groups:
+        for h in g["hooks"]:
+            print(h["command"])' "$REPO/hooks/codex-hooks.json" 2>/dev/null)
+ok "codex hooks: three commands" "$(printf '%s\n' "$CODEX_CMDS" | grep -c .)" "3"
+ok "codex hooks: every command passes the codex host" \
+  "$(printf '%s\n' "$CODEX_CMDS" | grep -vc ' codex$' || true)" "0"
+# PLUGIN_ROOT is set for a plugin install; the fallback keeps the hand-made
+# install (a clone in ~/.codex/vibestretch) working from the same file.
+ok "codex hooks: every command falls back from PLUGIN_ROOT" \
+  "$(printf '%s\n' "$CODEX_CMDS" | grep -Fvc '"${PLUGIN_ROOT:-$HOME/.codex/vibestretch}/scripts/vibestretch.sh"' || true)" "0"
+
 rm -rf "$ROOT"
 echo
 echo "passed: $pass   failed: $fail"
