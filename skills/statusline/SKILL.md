@@ -1,4 +1,5 @@
 ---
+name: statusline
 description: Put the vibestretch nudge into the user's Claude Code status line
   (wraps their existing statusLine command or installs a minimal one), update a
   previous install, or remove it again with "off". Run on explicit user request
