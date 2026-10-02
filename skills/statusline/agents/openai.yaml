@@ -1,0 +1,5 @@
+# Codex reads this file; Claude Code ignores it. The status line skill is for
+# Claude Code only, so Codex should never pick it on its own, and keeping it
+# out of the implicit list also keeps it out of every Codex prompt.
+policy:
+  allow_implicit_invocation: false
