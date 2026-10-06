@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="es" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo añadir un recordatorio de pausas a Claude Code | vibestretch</title>
+<meta name="description" content="Instala vibestretch en Claude Code y recibe recordatorios de estiramientos y pausas visuales en turnos largos. Instalación, línea de estado, VS Code y ajustes.">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/es/claude-code-break-reminder/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/claude-code-break-reminder/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/claude-code-break-reminder/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/claude-code-break-reminder/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/claude-code-break-reminder/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/claude-code-break-reminder/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/claude-code-break-reminder/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/claude-code-break-reminder/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/claude-code-break-reminder/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/claude-code-break-reminder/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/claude-code-break-reminder/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/claude-code-break-reminder/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/claude-code-break-reminder/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/claude-code-break-reminder/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/claude-code-break-reminder/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/claude-code-break-reminder/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/claude-code-break-reminder/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/claude-code-break-reminder/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/claude-code-break-reminder/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/claude-code-break-reminder/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/claude-code-break-reminder/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/claude-code-break-reminder/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/claude-code-break-reminder/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/claude-code-break-reminder/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/claude-code-break-reminder/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/claude-code-break-reminder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="Cómo añadir un recordatorio de pausas a Claude Code | vibestretch">
+<meta property="og:description" content="Instala vibestretch en Claude Code y recibe recordatorios de estiramientos y pausas visuales en turnos largos. Instalación, línea de estado, VS Code y ajustes.">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/es/claude-code-break-reminder/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta property="og:locale:alternate" content="ms_MY">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch es un recordatorio de pausas y estiramientos gratuito para desarrolladores. Te avisa mientras Claude Code, Codex CLI o Gemini CLI trabajan.",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/es/claude-code-break-reminder/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/es/claude-code-break-reminder/",
+   "name": "Cómo añadir un recordatorio de pausas a Claude Code | vibestretch",
+   "description": "Instala vibestretch en Claude Code y recibe recordatorios de estiramientos y pausas visuales en turnos largos. Instalación, línea de estado, VS Code y ajustes.",
+   "inLanguage": "es",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/es/claude-code-break-reminder/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/es/claude-code-break-reminder/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/es/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Cómo añadir un recordatorio de pausas a Claude Code",
+     "item": "https://eliasjunit.github.io/vibestretch/es/claude-code-break-reminder/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/es/claude-code-break-reminder/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/es/claude-code-break-reminder/",
+   "inLanguage": "es",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "¿Cómo quito el segmento de la línea de estado?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ejecuta /vibestretch:statusline off. Hazlo antes de desinstalar el plugin, o el segmento seguirá configurado pero congelado."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿El aviso llega al modelo?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. El aviso es un systemMessage. Se te muestra a ti y nunca se añade al contexto del modelo."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "¿Por qué oigo dos sonidos?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Algunos terminales, como iTerm2, reproducen su propio sonido con las notificaciones. Define VIBESTRETCH_SOUND=0 para quedarte solo con el sonido del terminal."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../../es/"><img src="../../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>Idioma: Español</summary><ul><li><a href="../../claude-code-break-reminder/" hreflang="en" lang="en">English</a></li><li><a href="../../es/claude-code-break-reminder/" hreflang="es" lang="es" aria-current="true">Español</a></li><li><a href="../../pt-BR/claude-code-break-reminder/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../../fr/claude-code-break-reminder/" hreflang="fr" lang="fr">Français</a></li><li><a href="../../de/claude-code-break-reminder/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../../it/claude-code-break-reminder/" hreflang="it" lang="it">Italiano</a></li><li><a href="../../ru/claude-code-break-reminder/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../../uk/claude-code-break-reminder/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../pl/claude-code-break-reminder/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../../tr/claude-code-break-reminder/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../../nl/claude-code-break-reminder/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../../sv/claude-code-break-reminder/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../../da/claude-code-break-reminder/" hreflang="da" lang="da">Dansk</a></li><li><a href="../../nb/claude-code-break-reminder/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../../fi/claude-code-break-reminder/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../../cs/claude-code-break-reminder/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="../../ro/claude-code-break-reminder/" hreflang="ro" lang="ro">Română</a></li><li><a href="../../hu/claude-code-break-reminder/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../../el/claude-code-break-reminder/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../../ja/claude-code-break-reminder/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../../ko/claude-code-break-reminder/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../../zh-Hans/claude-code-break-reminder/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="../../zh-Hant/claude-code-break-reminder/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../../id/claude-code-break-reminder/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../../th/claude-code-break-reminder/" hreflang="th" lang="th">ไทย</a></li><li><a href="../../vi/claude-code-break-reminder/" hreflang="vi" lang="vi">Tiếng Việt</a></li><li><a href="../../ms/claude-code-break-reminder/" hreflang="ms" lang="ms">Bahasa Melayu</a></li><li><a href="../../hi/claude-code-break-reminder/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../../ar/claude-code-break-reminder/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../../he/claude-code-break-reminder/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="Páginas"><ul><li><a href="../../es/">Introducción</a></li><li><a href="../../es/stretch-breaks-ai-coding-agents/">Pausas mientras trabaja el agente</a></li><li><a href="../../es/20-20-20-eye-rule-developers/">Regla 20-20-20</a></li><li><a href="../../es/desk-stretches-programmers/">Estiramientos en el escritorio</a></li><li><a href="../../es/claude-code-break-reminder/" aria-current="page">Claude Code</a></li><li><a href="../../es/codex-cli-break-reminder/">Codex CLI</a></li><li><a href="../../es/gemini-cli-break-reminder/">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Ruta de navegación"><ol><li><a href="../../es/">vibestretch</a></li><li aria-current="page">Cómo añadir un recordatorio de pausas a Claude Code</li></ol></nav>
+<h1>Cómo añadir un recordatorio de pausas a Claude Code</h1>
+<p class="lead">vibestretch es un plugin de Claude Code. Usa tres hooks para detectar los turnos largos y recordarte que te muevas.</p>
+<h2>Instalación</h2>
+<p>Ejecuta estos dos comandos dentro de Claude Code:</p>
+<pre><code>/plugin marketplace add Eliasjunit/vibestretch
+/plugin install vibestretch@vibestretch</code></pre>
+<p>No tiene dependencias, ni daemon, ni telemetría. No hay nada más que configurar.</p>
+<h2>Dónde aparece el aviso</h2>
+<ul><li>Una línea en la sesión.</li><li>Un tono suave incluido.</li><li>Una notificación en Warp, Ghostty, iTerm2, WezTerm y kitty. En VS Code necesita una extensión de notificaciones.</li><li>Tu línea de estado, si la configuras.</li></ul>
+<h2>Añádelo a tu línea de estado</h2>
+<pre><code>/vibestretch:statusline</code></pre>
+<p>Este comando hace una copia de seguridad de tus ajustes y envuelve el comando de línea de estado que ya tengas. Si no tienes ninguno, instala uno mínimo. Después de un aviso, el ejercicio se queda ahí 5 minutos. Para deshacerlo, usa <code>/vibestretch:statusline off</code>. Ejecuta <code>off</code> antes de desinstalar el plugin.</p>
+<h2>VS Code</h2>
+<p>En el terminal integrado funcionan la línea, el tono y la línea de estado. En el panel de chat de la extensión solo te llega el tono. La notificación necesita una extensión de notificaciones en ambos casos. Esto se comprobó en Claude Code 2.1.234.</p>
+<h2>Ajustes</h2>
+<p>Todos los ajustes son variables de entorno opcionales. Los tiempos van en segundos.</p>
+<div class="table"><table><thead><tr><th>Variable</th><th>Valor por defecto</th><th>Significado</th></tr></thead><tbody><tr><td><code>VIBESTRETCH_MIN_TURN</code></td><td><code>120</code></td><td>El turno actual debe durar al menos este tiempo.</td></tr><tr><td><code>VIBESTRETCH_MIN_ACTIVE</code></td><td><code>300</code></td><td>Tiempo de agente necesario desde tu última pausa.</td></tr><tr><td><code>VIBESTRETCH_COOLDOWN</code></td><td><code>900</code></td><td>Intervalo mínimo entre avisos.</td></tr><tr><td><code>VIBESTRETCH_AWAY</code></td><td><code>300</code></td><td>Sin teclado ni ratón durante este tiempo, se considera que te has ido. Solo macOS. 0 desactiva esta comprobación.</td></tr><tr><td><code>VIBESTRETCH_DISABLE</code></td><td><code>unset</code></td><td>Asigna cualquier valor para silenciar los avisos.</td></tr><tr><td><code>VIBESTRETCH_NOTIFY</code></td><td><code>1</code></td><td>Pon 0 para quitar la notificación de escritorio.</td></tr><tr><td><code>VIBESTRETCH_SOUND</code></td><td><code>1</code></td><td>Pon 0 para silenciar el sonido.</td></tr><tr><td><code>VIBESTRETCH_EXERCISES</code></td><td><code>~/.config/vibestretch/exercises.txt</code></td><td>Ruta a tu propia lista de ejercicios.</td></tr></tbody></table></div>
+<p>¿Ejecutas Claude Code sin interfaz con <code>claude -p</code> desde un script? Define <code>VIBESTRETCH_DISABLE=1</code> allí.</p>
+<section class="faq" id="faq"><h2>Preguntas frecuentes</h2><dl><dt>¿Cómo quito el segmento de la línea de estado?</dt><dd>Ejecuta /vibestretch:statusline off. Hazlo antes de desinstalar el plugin, o el segmento seguirá configurado pero congelado.</dd><dt>¿El aviso llega al modelo?</dt><dd>No. El aviso es un systemMessage. Se te muestra a ti y nunca se añade al contexto del modelo.</dd><dt>¿Por qué oigo dos sonidos?</dt><dd>Algunos terminales, como iTerm2, reproducen su propio sonido con las notificaciones. Define VIBESTRETCH_SOUND=0 para quedarte solo con el sonido del terminal.</dd></dl></section>
+<section class="related"><h2>Sigue leyendo</h2><ul><li><a href="../../es/">Estírate mientras tu agente de código trabaja</a></li><li><a href="../../es/stretch-breaks-ai-coding-agents/">Pausas para estirarse mientras trabajan los agentes de IA</a></li><li><a href="../../es/20-20-20-eye-rule-developers/">La regla 20-20-20 para desarrolladores</a></li><li><a href="../../es/desk-stretches-programmers/">Estiramientos en el escritorio para programadores</a></li><li><a href="../../es/codex-cli-break-reminder/">Cómo añadir un recordatorio de pausas a Codex CLI</a></li><li><a href="../../es/gemini-cli-break-reminder/">Cómo añadir un recordatorio de pausas a Gemini CLI</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch es de código abierto con licencia MIT. Hecho por Junit. <a href="https://github.com/Eliasjunit/vibestretch">Código fuente en GitHub</a></p>
+</div></footer>
+</body>
+</html>

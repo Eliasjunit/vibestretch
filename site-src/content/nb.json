@@ -1,0 +1,471 @@
+{
+  "lang_name": "Norsk bokmål",
+  "ui": {
+    "skip": "Hopp til innholdet",
+    "nav_home": "Hjem",
+    "nav_label": "Sider",
+    "languages": "Språk",
+    "breadcrumb_home": "vibestretch",
+    "faq_title": "Ofte stilte spørsmål",
+    "related_title": "Les videre",
+    "source_link": "Kildekode på GitHub",
+    "footer_license": "vibestretch er åpen kildekode under MIT-lisensen.",
+    "footer_made": "Laget av Junit.",
+    "breadcrumb_label": "Brødsmulesti"
+  },
+  "pages": {
+    "index": {
+      "nav": "Oversikt",
+      "title": "vibestretch: tøyepåminnelse mens kodeagenten jobber",
+      "description": "vibestretch er en gratis pause- og tøyepåminnelse for utviklere. Den minner deg på å bevege deg mens Claude Code, Codex CLI eller Gemini CLI kjører en lang tur.",
+      "h1": "Tøy ut mens kodeagenten din jobber",
+      "lead": "vibestretch viser en kort tøyeøvelse, en mikroøkt eller en øyepause når en lang agenttur lar deg vente. Den fungerer med Claude Code, Codex CLI og Gemini CLI.",
+      "blocks": [
+        {
+          "code": "install_claude_cli"
+        },
+        {
+          "p": "Dette installerer utvidelsen i Claude Code. Sidene om [Codex CLI](@codex-cli-break-reminder) og [Gemini CLI](@gemini-cli-break-reminder) viser hvordan du installerer der."
+        },
+        {
+          "h2": "Slik ser en påminnelse ut"
+        },
+        {
+          "code": "nudge_example"
+        },
+        {
+          "p": "En linje dukker opp i økten. En myk lyd spilles. I terminaler som støtter det, vises også et varselbanner."
+        },
+        {
+          "h2": "Slik avgjør den når det er på tide"
+        },
+        {
+          "p": "vibestretch har ingen timeplan. Den teller én ting: minuttene en agenttur har latt deg vente ved maskinen. En påminnelse kommer bare når alle tre vilkårene er oppfylt:"
+        },
+        {
+          "ol": [
+            "Den gjeldende turen har kjørt i 2 minutter eller mer.",
+            "Agenttiden din siden forrige påminnelse er til sammen 5 minutter eller mer.",
+            "Forrige påminnelse var for minst 15 minutter siden."
+          ]
+        },
+        {
+          "p": "Raske turer utløser den aldri. En dag med korte turer gir ingen påminnelser i det hele tatt. Det er ingenting å utsette, fordi den bare sier fra mens du allerede venter. Les mer i [tøyepauser mens AI-kodeagenter kjører](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Dette får du"
+        },
+        {
+          "ul": [
+            "Tolv innebygde øvelser: tøying, mikroøkter og øyepauser som [20-20-20](@20-20-20-eye-rule-developers).",
+            "En rotasjon som aldri viser samme øvelse to ganger på rad.",
+            "Din egen liste med øvelser, hvis du heller vil det. Se [tøyeøvelser ved pulten for programmerere](@desk-stretches-programmers).",
+            "Et valgfritt felt i statuslinjen i Claude Code."
+          ]
+        },
+        {
+          "h2": "Personvern"
+        },
+        {
+          "p": "vibestretch består av noen få små POSIX-skallskript og én medfølgende lyd. Den gjør ingen nettverkskall. Den sender ingen telemetri. Den viser ingen reklame og legger ingen lenker i terminalen din. Den legger ingenting til i modellens kontekst. Tilstanden lagres i `~/.cache/vibestretch/`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Hva er vibestretch?",
+          "a": "vibestretch er en utvidelse for kodeagenter. Den minner deg på å tøye ut, bevege deg eller hvile øynene mens en lang agenttur lar deg vente."
+        },
+        {
+          "q": "Hvilke kodeagenter støttes?",
+          "a": "Claude Code, OpenAI Codex CLI og Gemini CLI. Alle tre bruker samme teller, så en time med venting telles én gang, uansett hvilken agent som holdt deg i stolen."
+        },
+        {
+          "q": "Er det en pausetimer?",
+          "a": "Nei. En timer går etter en timeplan. vibestretch teller bare tiden en agenttur har latt deg vente, og den minner deg bare på pauser i den ventetiden."
+        },
+        {
+          "q": "Sender den data noe sted?",
+          "a": "Nei. Den gjør ingen nettverkskall og sender ingen telemetri. Ingenting forlater maskinen din."
+        },
+        {
+          "q": "Hva koster det?",
+          "a": "Det er åpen kildekode under MIT-lisensen. Koden ligger på GitHub."
+        },
+        {
+          "q": "Hvordan slår jeg den av?",
+          "a": "Sett VIBESTRETCH_DISABLE til en hvilken som helst verdi for å slå av påminnelsene. VIBESTRETCH_SOUND=0 slår av lyden. VIBESTRETCH_NOTIFY=0 fjerner banneret."
+        }
+      ]
+    },
+    "stretch-breaks-ai-coding-agents": {
+      "nav": "Pauser under agentkjøringer",
+      "title": "Tøyepauser mens AI-kodeagenter kjører | vibestretch",
+      "description": "Bruk minuttene en kodeagent lar deg vente til en kort tøyepause. Slik teller vibestretch ventetiden, og slik avgjør den når du får en påminnelse.",
+      "h1": "Tøyepauser mens AI-kodeagenter kjører",
+      "lead": "En kodeagent kan jobbe i flere minutter om gangen. Du sitter og ser på. vibestretch gjør den ventetiden om til en kort pause.",
+      "blocks": [
+        {
+          "h2": "Derfor er ventetiden et godt øyeblikk"
+        },
+        {
+          "p": "Pausetimere går etter en timeplan. De slår ofte inn midt i en tankerekke, og mange ender med å skru dem av. Tiden når en agent jobber, er annerledes. Du venter jo uansett. En tøyeøvelse i det mellomrommet koster deg ikke noe fokus."
+        },
+        {
+          "h2": "Dette teller vibestretch"
+        },
+        {
+          "p": "Den teller agenttid: minuttene en agenttur kjørte mens du satt ved maskinen. Den legger dem sammen siden forrige påminnelse. Dette er ikke hvor lenge du har sittet ved pulten. En time med lesing og skriving med raske turer innimellom gir nesten ingenting."
+        },
+        {
+          "h2": "Når en påminnelse kommer"
+        },
+        {
+          "p": "Alle tre vilkårene må være oppfylt:"
+        },
+        {
+          "ol": [
+            "Den gjeldende turen har kjørt i minst 2 minutter.",
+            "Agenttiden siden forrige påminnelse er minst 5 minutter. Én stor oppgave eller flere mellomstore teller begge.",
+            "Forrige påminnelse var for minst 15 minutter siden."
+          ]
+        },
+        {
+          "p": "Du kan endre hver verdi med en miljøvariabel. Se [siden om Claude Code](@claude-code-break-reminder) for hele listen."
+        },
+        {
+          "h2": "Når du går fra maskinen"
+        },
+        {
+          "p": "Hvis du er borte fra tastaturet i 45 minutter eller mer, nullstilles gjelden. Du har allerede hatt pausen din. På macOS leser hookene systemets inaktivitetsklokke for tastatur og mus. Så en agent som jobber hele natten, legger ikke til agenttid og spiller aldri lyd for en tom stol. Linux har ingen portabel inaktivitetsklokke, så der gjelder bare nullstillingen etter 45 minutter."
+        },
+        {
+          "h2": "Hva påminnelsen ber deg gjøre"
+        },
+        {
+          "p": "Hver påminnelse er én øvelse fra en liste på tolv. De dekker tøying, mikroøkter og øyepauser. Se [tøyeøvelser ved pulten for programmerere](@desk-stretches-programmers) for hele listen."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Minner den meg på pauser under korte turer?",
+          "a": "Nei. En tur må kjøre i minst 2 minutter, og nok agenttid må samles opp, før en påminnelse kan komme."
+        },
+        {
+          "q": "Gir en rask modell færre påminnelser?",
+          "a": "Ja. Raske modeller blir ferdige med turene før grensene nås, så det er ingenting å slå av."
+        },
+        {
+          "q": "Hva med agenter som kjøres fra skript eller cron?",
+          "a": "Sett VIBESTRETCH_DISABLE=1 i det miljøet. Ellers telles økter uten tilsyn som tid du aldri satt gjennom."
+        }
+      ]
+    },
+    "20-20-20-eye-rule-developers": {
+      "nav": "20-20-20-regelen",
+      "title": "20-20-20-regelen for øynene for utviklere | vibestretch",
+      "description": "Øyepausen 20-20-20 og andre øyepauser i vibestretch, en påminnelse som kjører mens kodeagenten din jobber og du sitter foran skjermen.",
+      "h1": "20-20-20-regelen for øynene for utviklere",
+      "lead": "Lange agentturer betyr lange perioder foran skjermen. vibestretch har øyepauser i rotasjonen, og 20-20-20 er en av dem.",
+      "blocks": [
+        {
+          "h2": "20-20-20-pausen i vibestretch"
+        },
+        {
+          "p": "Slik lyder påminnelsen:"
+        },
+        {
+          "code": "nudge_202020"
+        },
+        {
+          "p": "Se på noe som er 20 fot unna. Fortsett å se i 20 sekunder. Gå så tilbake til agenten din."
+        },
+        {
+          "h2": "Andre øyepauser i listen"
+        },
+        {
+          "ul": [
+            "Blunk 20 ganger, sakte.",
+            "Gni håndflatene varme, og legg dem så som en skål over de lukkede øynene i 20 sekunder.",
+            "Reis deg og gå bort til et vindu."
+          ]
+        },
+        {
+          "h2": "Når den minner deg på det"
+        },
+        {
+          "p": "vibestretch går ikke etter klokka. Den minner deg på det mens en lang agenttur lar deg vente, som standard høyst én gang hvert 15. minutt. Øyepausene kommer opp som en del av rotasjonen med tolv øvelser. Les hvordan tidsberegningen fungerer i [tøyepauser mens AI-kodeagenter kjører](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Vil du bare ha øyepauser?"
+        },
+        {
+          "p": "Skriv din egen liste med bare de øyepausene du liker. Én øvelse per linje i `~/.config/vibestretch/exercises.txt`. Den innebygde listen brukes da ikke. Se [tøyeøvelser ved pulten for programmerere](@desk-stretches-programmers) for et eksempel."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Minner vibestretch meg på det hvert 20. minutt?",
+          "a": "Nei. Den har ingen fast timeplan. Den minner deg bare på det under lange agentturer, og standard ventetid mellom påminnelser er 15 minutter."
+        },
+        {
+          "q": "Kan jeg bare få øyepauser?",
+          "a": "Ja. Legg dine egne øvelser i ~/.config/vibestretch/exercises.txt, én per linje, så bruker vibestretch den listen i stedet for den innebygde."
+        }
+      ]
+    },
+    "desk-stretches-programmers": {
+      "nav": "Tøyeøvelser ved pulten",
+      "title": "Tøyeøvelser ved pulten for programmerere | vibestretch",
+      "description": "Tolv korte tøyeøvelser ved pulten, mikroøkter og øyepauser for programmerere, og hvordan du bytter dem ut med din egen liste i vibestretch.",
+      "h1": "Tøyeøvelser ved pulten for programmerere",
+      "lead": "vibestretch har tolv korte øvelser. Hver av dem passer inn i tiden en agenttur tar. De roterer, så du får aldri samme øvelse to ganger på rad.",
+      "blocks": [
+        {
+          "h2": "De tolv innebygde øvelsene"
+        },
+        {
+          "ol": [
+            "20-20-20: se på noe som er 20 fot unna i 20 sekunder.",
+            "Reis deg, strekk deg mot taket og hold i 15 sekunder. Bøy deg så ned mot tærne i 15 sekunder.",
+            "10 knebøy.",
+            "Rull nakken sakte, 5 ganger hver vei.",
+            "Håndleddssirkler, 10 hver vei.",
+            "Blunk 20 ganger, sakte.",
+            "Klem skulderbladene sammen 10 ganger: klem, hold i 3 sekunder, slipp.",
+            "Sjekk holdningen: ørene over skuldrene, skuldrene over hoftene. Hold den.",
+            "Reis deg og gå bort til et vindu. Åpne det hvis du kan.",
+            "Gni håndflatene varme, og legg dem så som en skål over lukkede øyne i 20 sekunder.",
+            "Hoftesirkler, 8 hver vei.",
+            "Ett 4-7-8-pust: inn i 4, hold i 7, ut i 8."
+          ]
+        },
+        {
+          "p": "Håndleddssirklene og holdningssjekken er med for deg som tenker på musesyke og holdning gjennom lange dager ved tastaturet. vibestretch er en påminnelse. Den stiller ingen diagnose og behandler ingenting."
+        },
+        {
+          "h2": "Bruk din egen liste"
+        },
+        {
+          "p": "Skriv én øvelse per linje i `~/.config/vibestretch/exercises.txt`. De tolv innebygde brukes da ikke. Tomme linjer og linjer som starter med # hoppes over."
+        },
+        {
+          "code": "custom_list"
+        },
+        {
+          "p": "Sett `VIBESTRETCH_EXERCISES` til en annen sti for å ha filen et annet sted. Lister per prosjekt fungerer på samme måte. Rotasjonen går gjennom listen din i rekkefølge. En fil uten noe brukbart innhold faller tilbake til den innebygde listen."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Hvor mange øvelser har vibestretch?",
+          "a": "Tolv: tøying, mikroøkter og øyepauser. De roterer, så samme øvelse kommer aldri to ganger på rad."
+        },
+        {
+          "q": "Kan jeg legge til egne tøyeøvelser?",
+          "a": "Ja. Skriv én per linje i ~/.config/vibestretch/exercises.txt. Anførselstegn og omvendte skråstreker i teksten er trygge å bruke."
+        }
+      ]
+    },
+    "claude-code-break-reminder": {
+      "nav": "Claude Code",
+      "title": "Slik legger du til en pausepåminnelse i Claude Code | vibestretch",
+      "description": "Installer vibestretch i Claude Code og få påminnelser om tøying og øyepauser under lange turer. Installasjon, statuslinje, VS Code og innstillinger.",
+      "h1": "Slik legger du til en pausepåminnelse i Claude Code",
+      "lead": "vibestretch er en utvidelse for Claude Code. Den bruker tre hooks for å merke lange turer og minne deg på å bevege deg.",
+      "blocks": [
+        {
+          "h2": "Installasjon"
+        },
+        {
+          "p": "Kjør disse to kommandoene i Claude Code:"
+        },
+        {
+          "code": "install_claude"
+        },
+        {
+          "p": "Det er ingen avhengigheter, ingen daemon og ingen telemetri. Ingenting annet å konfigurere."
+        },
+        {
+          "h2": "Hvor påminnelsen vises"
+        },
+        {
+          "ul": [
+            "En linje i økten.",
+            "En myk medfølgende lyd.",
+            "Et varselbanner i Warp, Ghostty, iTerm2, WezTerm og kitty. I VS Code krever det en varslingsutvidelse.",
+            "Statuslinjen din, hvis du setter den opp."
+          ]
+        },
+        {
+          "h2": "Legg den til i statuslinjen"
+        },
+        {
+          "code": "statusline"
+        },
+        {
+          "p": "Denne kommandoen tar sikkerhetskopi av innstillingene dine og legger seg rundt den eksisterende statuslinjekommandoen din. Har du ingen, installerer den en minimal. Etter en påminnelse blir øvelsen stående der i 5 minutter. Angre med `/vibestretch:statusline off`. Kjør `off` før du avinstallerer utvidelsen."
+        },
+        {
+          "h2": "VS Code"
+        },
+        {
+          "p": "I den integrerte terminalen fungerer linjen, lyden og statuslinjen. I chatpanelet til utvidelsen er det bare lyden som når fram. Banneret krever en varslingsutvidelse begge steder. Dette ble sjekket med Claude Code 2.1.234."
+        },
+        {
+          "h2": "Innstillinger"
+        },
+        {
+          "p": "Alle innstillinger er valgfrie miljøvariabler. Tider oppgis i sekunder."
+        },
+        {
+          "table": "settings"
+        },
+        {
+          "p": "Kjører du Claude Code headless med `claude -p` fra et skript? Sett `VIBESTRETCH_DISABLE=1` der."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Hvordan fjerner jeg feltet i statuslinjen?",
+          "a": "Kjør /vibestretch:statusline off. Gjør det før du avinstallerer utvidelsen, ellers blir feltet liggende i oppsettet og står stille."
+        },
+        {
+          "q": "Når påminnelsen fram til modellen?",
+          "a": "Nei. Påminnelsen er en systemMessage. Den vises for deg og legges aldri til i modellens kontekst."
+        },
+        {
+          "q": "Hvorfor hører jeg to lyder?",
+          "a": "Noen terminaler, som iTerm2, spiller sin egen lyd for varsler. Sett VIBESTRETCH_SOUND=0 for å beholde bare terminalens lyd."
+        }
+      ]
+    },
+    "codex-cli-break-reminder": {
+      "nav": "Codex CLI",
+      "title": "Slik legger du til en pausepåminnelse i Codex CLI | vibestretch",
+      "description": "Installer vibestretch i OpenAI Codex CLI som utvidelse eller for hånd. Få en tøyelinje og en lyd mens lange Codex-turer kjører.",
+      "h1": "Slik legger du til en pausepåminnelse i Codex CLI",
+      "lead": "vibestretch installeres i OpenAI Codex CLI fra utvidelsesmarkedet. Den viser en tøyelinje og spiller en lyd under lange turer.",
+      "blocks": [
+        {
+          "h2": "Installer som utvidelse"
+        },
+        {
+          "code": "install_codex"
+        },
+        {
+          "p": "Codex kjører ikke hookene til en utvidelse før du har gått gjennom dem. Åpne `/hooks` og godkjenn de tre oppføringene for vibestretch. Fram til da er utvidelsen installert, men stille."
+        },
+        {
+          "h2": "Installer for hånd"
+        },
+        {
+          "p": "En klone og en konfigurasjonsfil gjør samme jobben:"
+        },
+        {
+          "code": "install_codex_manual"
+        },
+        {
+          "p": "Har du allerede en `~/.codex/hooks.json`? Slå sammen de tre oppføringene fra vår fil med din. Ikke skriv over din. Codex ber deg godkjenne en ny hook-konfigurasjon første gang den kjører. Det spørsmålet er forventet."
+        },
+        {
+          "p": "Velg én måte. Hvis både utvidelsen og de manuelle oppføringene er på plass, kjører hver hook to ganger. Hvis du installerte for hånd før 0.8.0, fjern oppføringene våre fra `~/.codex/hooks.json` når du bytter til utvidelsen."
+        },
+        {
+          "h2": "Dette får du i Codex"
+        },
+        {
+          "p": "Du får linjen i økten og lyden. Det er ikke noe varselbanner, fordi Codex ikke har et utdatafelt i hooks for en terminalsekvens. Det er heller ikke noe felt i statuslinjen. Den linjen kan ikke skriptes i Codex."
+        },
+        {
+          "p": "Telleren deles med Claude Code og Gemini CLI. En time med venting telles én gang, uansett hvilken agent som holdt deg i stolen. Adapteren ble kjørt på en ekte installasjon av Codex CLI 0.149.1 på macOS."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Jeg har installert den, men ingenting skjer. Hvorfor?",
+          "a": "Codex kjører hookene til en utvidelse først når du har godkjent dem. Åpne /hooks og godkjenn de tre oppføringene for vibestretch."
+        },
+        {
+          "q": "Hver hook kjører to ganger. Hvorfor?",
+          "a": "Du har sannsynligvis både utvidelsen og manuelle oppføringer i ~/.codex/hooks.json. Behold bare den ene."
+        },
+        {
+          "q": "Kan jeg bruke den med codex exec?",
+          "a": "Sett VIBESTRETCH_DISABLE=1 i det miljøet. Kjøringer uten tilsyn bør ikke telle som tid du satt gjennom."
+        }
+      ]
+    },
+    "gemini-cli-break-reminder": {
+      "nav": "Gemini CLI",
+      "title": "Slik legger du til en pausepåminnelse i Gemini CLI | vibestretch",
+      "description": "Legg til vibestretch i Gemini CLI med tre hooks. Få en tøyelinje og en lyd under lange Gemini-turer. Steg for installasjon og sammenslåing.",
+      "h1": "Slik legger du til en pausepåminnelse i Gemini CLI",
+      "lead": "Gemini CLI har hatt hooks slått på som standard siden v0.26. vibestretch legger til tre av dem for å minne deg på å tøye ut under lange turer.",
+      "blocks": [
+        {
+          "h2": "Installasjon"
+        },
+        {
+          "p": "Klon repositoriet:"
+        },
+        {
+          "code": "install_gemini_clone"
+        },
+        {
+          "p": "Kopier så objektet `hooks` fra `~/.gemini/vibestretch/hooks/gemini-hooks.json` inn i `~/.gemini/settings.json`. Den filen inneholder hele Gemini-oppsettet ditt, så slå dem sammen. Ikke erstatt den. Med `jq` er det én linje:"
+        },
+        {
+          "code": "install_gemini_merge"
+        },
+        {
+          "h2": "Hvilke hooks den bruker"
+        },
+        {
+          "ul": [
+            "`BeforeAgent`: agenten begynner å jobbe med prompten din.",
+            "`AfterTool`: et verktøy er ferdig. Ventetid legges til, og en påminnelse kommer hvis det er på tide.",
+            "`AfterAgent`: turen er over. Regnskapet lukkes."
+          ]
+        },
+        {
+          "h2": "Dette får du i Gemini CLI"
+        },
+        {
+          "p": "Du får linjen i økten og lyden. Det er ikke noe varselbanner. Gemini reserverer stdout fra en hook for JSON alene, så det finnes ikke noe sted å skrive ut en escape-sekvens."
+        },
+        {
+          "p": "Adapteren ble kjørt på en ekte installasjon av Gemini CLI 0.56.0 på macOS. Telleren deles med Claude Code og Codex CLI."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Hvilken versjon av Gemini CLI trenger jeg?",
+          "a": "Hooks har vært slått på som standard siden Gemini CLI v0.26."
+        },
+        {
+          "q": "Skriver sammenslåingen over innstillingene mine?",
+          "a": "Kommandoen med jq slår sammen objektet hooks med den eksisterende settings.json. Ta sikkerhetskopi av filen først hvis du vil være på den sikre siden."
+        },
+        {
+          "q": "Kan jeg bruke den med gemini -p?",
+          "a": "Sett VIBESTRETCH_DISABLE=1 når du kjører Gemini fra et skript, cron eller en bot."
+        }
+      ]
+    }
+  },
+  "settings_rows": {
+    "VIBESTRETCH_MIN_TURN": "Den gjeldende turen må kjøre minst så lenge.",
+    "VIBESTRETCH_MIN_ACTIVE": "Agenttid som trengs siden forrige pause.",
+    "VIBESTRETCH_COOLDOWN": "Minste tid mellom påminnelser.",
+    "VIBESTRETCH_AWAY": "Så lenge uten tastatur eller mus betyr at du er borte. Bare macOS. 0 slår av sperren.",
+    "VIBESTRETCH_DISABLE": "Sett til en hvilken som helst verdi for å slå av påminnelser.",
+    "VIBESTRETCH_NOTIFY": "Sett til 0 for å fjerne skrivebordsvarselet.",
+    "VIBESTRETCH_SOUND": "Sett til 0 for å slå av lyden.",
+    "VIBESTRETCH_EXERCISES": "Sti til din egen liste med øvelser."
+  },
+  "settings_head": [
+    "Variabel",
+    "Standard",
+    "Betydning"
+  ]
+}

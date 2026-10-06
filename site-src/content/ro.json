@@ -1,0 +1,471 @@
+{
+  "lang_name": "Română",
+  "ui": {
+    "skip": "Sari la conținut",
+    "nav_home": "Acasă",
+    "nav_label": "Pagini",
+    "languages": "Limbă",
+    "breadcrumb_home": "vibestretch",
+    "faq_title": "Întrebări frecvente",
+    "related_title": "Citește în continuare",
+    "source_link": "Codul sursă pe GitHub",
+    "footer_license": "vibestretch este open source, sub licența MIT.",
+    "footer_made": "Creat de Junit.",
+    "breadcrumb_label": "Fir de navigare"
+  },
+  "pages": {
+    "index": {
+      "nav": "Prezentare",
+      "title": "vibestretch: memento de stretching cât lucrează agentul de cod",
+      "description": "vibestretch e un memento gratuit de stretching și pauze pentru programatori. Te îndeamnă să te miști cât Claude Code, Codex CLI sau Gemini CLI rulează mult.",
+      "h1": "Fă stretching cât lucrează agentul de cod",
+      "lead": "vibestretch îți arată un stretching scurt, un mini-antrenament sau o pauză pentru ochi cât timp o rundă lungă a agentului te ține în așteptare. Funcționează cu Claude Code, Codex CLI și Gemini CLI.",
+      "blocks": [
+        {
+          "code": "install_claude_cli"
+        },
+        {
+          "p": "Comanda instalează pluginul în Claude Code. Paginile pentru [Codex CLI](@codex-cli-break-reminder) și [Gemini CLI](@gemini-cli-break-reminder) arată pașii lor de instalare."
+        },
+        {
+          "h2": "Cum arată un memento"
+        },
+        {
+          "code": "nudge_example"
+        },
+        {
+          "p": "În sesiune apare o singură linie. Se aude un sunet discret. În terminalele care permit asta apare și o notificare."
+        },
+        {
+          "h2": "Cum decide când să te atenționeze"
+        },
+        {
+          "p": "vibestretch nu are un program fix. Numără un singur lucru: minutele în care o rundă a agentului te-a ținut în așteptare la calculator. Un memento apare doar când sunt îndeplinite toate trei condițiile:"
+        },
+        {
+          "ol": [
+            "Runda curentă rulează de cel puțin 2 minute.",
+            "Timpul de agent adunat de la ultimul memento ajunge la cel puțin 5 minute.",
+            "Ultimul memento a fost acum cel puțin 15 minute."
+          ]
+        },
+        {
+          "p": "Rundele rapide nu îl declanșează niciodată. O zi cu runde scurte trece fără niciun mesaj. Nu ai ce amâna, pentru că vorbește doar când oricum aștepți. Citește mai mult în [pauze de stretching cât rulează agenții AI de cod](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Ce primești"
+        },
+        {
+          "ul": [
+            "Douăsprezece exerciții incluse: stretching, mini-antrenamente și pauze pentru ochi precum [20-20-20](@20-20-20-eye-rule-developers).",
+            "O rotație care nu repetă niciodată același exercițiu de două ori la rând.",
+            "Propria ta listă de exerciții, dacă o preferi. Vezi [exerciții de stretching la birou pentru programatori](@desk-stretches-programmers).",
+            "Un segment opțional în linia de stare din Claude Code."
+          ]
+        },
+        {
+          "h2": "Confidențialitate"
+        },
+        {
+          "p": "vibestretch înseamnă câteva scripturi shell POSIX mici și un singur sunet inclus. Nu face apeluri în rețea. Nu trimite telemetrie. Nu afișează reclame și nu pune linkuri în terminal. Nu adaugă nimic în contextul modelului. Starea lui se află în `~/.cache/vibestretch/`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Ce este vibestretch?",
+          "a": "vibestretch este un plugin pentru agenții de programare. Îți amintește să faci stretching, să te miști sau să-ți odihnești ochii cât timp o rundă lungă a agentului te ține în așteptare."
+        },
+        {
+          "q": "Ce agenți de programare suportă?",
+          "a": "Claude Code, OpenAI Codex CLI și Gemini CLI. Toți trei folosesc același contor, așa că o oră de așteptare se numără o singură dată, indiferent ce agent te-a ținut pe scaun."
+        },
+        {
+          "q": "Este un cronometru pentru pauze?",
+          "a": "Nu. Un cronometru merge după un program. vibestretch numără doar timpul în care o rundă a agentului te-a ținut în așteptare și te atenționează doar în timpul acelei așteptări."
+        },
+        {
+          "q": "Trimite date undeva?",
+          "a": "Nu. Nu face apeluri în rețea și nu trimite telemetrie. Nimic nu părăsește calculatorul tău."
+        },
+        {
+          "q": "Cât costă?",
+          "a": "Este open source, sub licența MIT. Codul este pe GitHub."
+        },
+        {
+          "q": "Cum îl opresc?",
+          "a": "Setează VIBESTRETCH_DISABLE la orice valoare ca să oprești mementourile. VIBESTRETCH_SOUND=0 oprește sunetul. VIBESTRETCH_NOTIFY=0 renunță la notificare."
+        }
+      ]
+    },
+    "stretch-breaks-ai-coding-agents": {
+      "nav": "Pauze cât lucrează agentul",
+      "title": "Pauze de stretching cât rulează agenții AI de cod | vibestretch",
+      "description": "Folosește minutele în care agentul de cod te ține în așteptare pentru un stretching scurt. Cum numără vibestretch timpul de așteptare și când te atenționează.",
+      "h1": "Pauze de stretching cât rulează agenții AI de cod",
+      "lead": "Un agent de cod poate lucra minute în șir. Tu stai și te uiți. vibestretch transformă această așteptare într-o pauză scurtă.",
+      "blocks": [
+        {
+          "h2": "De ce așteptarea e un moment bun"
+        },
+        {
+          "p": "Cronometrele pentru pauze pornesc după un program. Adesea te prind în mijlocul unui gând, iar mulți ajung să le dezactiveze. Timpul în care agentul e ocupat e diferit. Oricum aștepți. Un stretching în acest interval nu te costă concentrarea."
+        },
+        {
+          "h2": "Ce numără vibestretch"
+        },
+        {
+          "p": "Numără timpul de agent: minutele în care o rundă a agentului a rulat cât erai la calculator. Le adună de la ultimul memento. Asta nu înseamnă cât timp ai stat la birou. O oră de citit și scris, cu runde rapide între ele, nu adaugă aproape nimic."
+        },
+        {
+          "h2": "Când apare un memento"
+        },
+        {
+          "p": "Toate trei condițiile trebuie îndeplinite:"
+        },
+        {
+          "ol": [
+            "Runda curentă rulează de cel puțin 2 minute.",
+            "Timpul de agent de la ultimul memento este de cel puțin 5 minute. Contează la fel o sarcină mare sau mai multe sarcini medii.",
+            "Ultimul memento a fost acum cel puțin 15 minute."
+          ]
+        },
+        {
+          "p": "Poți schimba fiecare valoare cu o variabilă de mediu. Vezi [pagina Claude Code](@claude-code-break-reminder) pentru lista completă."
+        },
+        {
+          "h2": "Când pleci de la calculator"
+        },
+        {
+          "p": "Dacă lipsești de la tastatură 45 de minute sau mai mult, datoria se resetează. Ai avut deja pauza. Pe macOS, hookurile citesc ceasul de inactivitate al tastaturii și mouse-ului din sistem. Astfel, un agent care lucrează peste noapte nu adaugă timp de agent și nu sună niciodată pentru un scaun gol. Linux nu are un ceas de inactivitate portabil, așa că acolo se aplică doar resetarea de 45 de minute."
+        },
+        {
+          "h2": "Ce îți cere mementoul"
+        },
+        {
+          "p": "Fiecare memento este un exercițiu dintr-o listă de douăsprezece. Lista cuprinde stretching, mini-antrenamente și pauze pentru ochi. Vezi [exerciții de stretching la birou pentru programatori](@desk-stretches-programmers) pentru lista completă."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Mă atenționează și în rundele scurte?",
+          "a": "Nu. O rundă trebuie să ruleze cel puțin 2 minute și trebuie să se adune suficient timp de agent înainte să apară un memento."
+        },
+        {
+          "q": "Un model rapid înseamnă mai puține mementouri?",
+          "a": "Da. Modelele rapide termină rundele înainte să fie atinse pragurile, așa că nu ai nimic de oprit."
+        },
+        {
+          "q": "Ce se întâmplă cu agenții rulați din scripturi sau cron?",
+          "a": "Setează VIBESTRETCH_DISABLE=1 în acel mediu. Altfel, sesiunile nesupravegheate se numără ca timp pe care nu l-ai petrecut niciodată așteptând."
+        }
+      ]
+    },
+    "20-20-20-eye-rule-developers": {
+      "nav": "Regula 20-20-20 pentru ochi",
+      "title": "Regula 20-20-20 pentru ochi, pentru programatori | vibestretch",
+      "description": "Pauza pentru ochi 20-20-20 și alte pauze pentru ochi incluse în vibestretch, un memento care rulează cât lucrează agentul tău de cod.",
+      "h1": "Regula 20-20-20 pentru ochi, pentru programatori",
+      "lead": "Rundele lungi ale agentului înseamnă mult timp cu privirea în ecran. vibestretch include pauze pentru ochi în rotație, iar 20-20-20 este una dintre ele.",
+      "blocks": [
+        {
+          "h2": "Pauza 20-20-20 în vibestretch"
+        },
+        {
+          "p": "Așa arată mementoul:"
+        },
+        {
+          "code": "nudge_202020"
+        },
+        {
+          "p": "Privește ceva aflat la 20 de picioare distanță. Continuă să privești 20 de secunde. Apoi revino la agent."
+        },
+        {
+          "h2": "Alte pauze pentru ochi din listă"
+        },
+        {
+          "ul": [
+            "Clipește de 20 de ori, încet.",
+            "Freacă-ți palmele până se încălzesc, apoi acoperă-ți cu ele ochii închiși timp de 20 de secunde.",
+            "Ridică-te și mergi până la o fereastră."
+          ]
+        },
+        {
+          "h2": "Când îți amintește"
+        },
+        {
+          "p": "vibestretch nu merge după ceas. Îți amintește cât o rundă lungă a agentului te ține în așteptare, implicit cel mult o dată la 15 minute. Pauzele pentru ochi apar ca parte a rotației de douăsprezece exerciții. Citește cum funcționează sincronizarea în [pauze de stretching cât rulează agenții AI de cod](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Vrei doar pauze pentru ochi?"
+        },
+        {
+          "p": "Scrie-ți propria listă doar cu pauzele pentru ochi care îți plac. Câte un exercițiu pe linie în `~/.config/vibestretch/exercises.txt`. Lista inclusă se retrage atunci. Vezi un exemplu în [exerciții de stretching la birou pentru programatori](@desk-stretches-programmers)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "vibestretch îmi amintește la fiecare 20 de minute?",
+          "a": "Nu. Nu are un program fix. Îți amintește doar în timpul rundelor lungi ale agentului, iar pauza implicită dintre mementouri este de 15 minute."
+        },
+        {
+          "q": "Pot primi doar pauze pentru ochi?",
+          "a": "Da. Pune-ți propriile exerciții în ~/.config/vibestretch/exercises.txt, câte unul pe linie, iar vibestretch folosește acea listă în locul celei incluse."
+        }
+      ]
+    },
+    "desk-stretches-programmers": {
+      "nav": "Stretching la birou",
+      "title": "Stretching la birou pentru programatori: lista vibestretch",
+      "description": "Douăsprezece exerciții scurte de stretching la birou, mini-antrenamente și pauze pentru ochi pentru programatori. Cum le înlocuiești cu lista ta în vibestretch.",
+      "h1": "Exerciții de stretching la birou pentru programatori",
+      "lead": "vibestretch vine cu douăsprezece exerciții scurte. Fiecare încape în timpul unei runde a agentului. Se rotesc, așa că nu primești niciodată același exercițiu de două ori la rând.",
+      "blocks": [
+        {
+          "h2": "Cele douăsprezece exerciții incluse"
+        },
+        {
+          "ol": [
+            "20-20-20: privește ceva aflat la 20 de picioare distanță timp de 20 de secunde.",
+            "Ridică-te, întinde-te spre tavan și menține 15 secunde. Apoi apleacă-te spre vârfurile picioarelor timp de 15 secunde.",
+            "10 genuflexiuni.",
+            "Rotiri lente ale gâtului, câte 5 în fiecare direcție.",
+            "Rotiri ale încheieturilor, câte 10 în fiecare sens.",
+            "Clipește de 20 de ori, încet.",
+            "Strânge omoplații de 10 ori: apropie-i, menține 3 secunde, relaxează.",
+            "Verificarea posturii: urechile deasupra umerilor, umerii deasupra șoldurilor. Menține poziția.",
+            "Ridică-te și mergi până la o fereastră. Deschide-o dacă poți.",
+            "Freacă-ți palmele până se încălzesc, apoi acoperă-ți cu ele ochii închiși timp de 20 de secunde.",
+            "Rotiri ale șoldurilor, câte 8 în fiecare sens.",
+            "O respirație 4-7-8: inspiră în 4 timpi, ține 7, expiră în 8."
+          ]
+        },
+        {
+          "p": "Rotirile încheieturilor și verificarea posturii sunt acolo pentru cei care se gândesc la RSI (leziuni prin suprasolicitare repetitivă) și la postură în zilele lungi la tastatură. vibestretch este un memento. Nu diagnostichează și nu tratează nimic."
+        },
+        {
+          "h2": "Folosește propria listă"
+        },
+        {
+          "p": "Scrie câte un exercițiu pe linie în `~/.config/vibestretch/exercises.txt`. Cele douăsprezece exerciții incluse se retrag atunci. Liniile goale și cele care încep cu # sunt ignorate."
+        },
+        {
+          "code": "custom_list"
+        },
+        {
+          "p": "Setează `VIBESTRETCH_EXERCISES` la altă cale dacă vrei să ții fișierul în alt loc. Așa funcționează și listele per proiect. Rotația parcurge lista ta în ordine. Dacă fișierul nu conține nimic utilizabil, se revine la lista inclusă."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Câte exerciții include vibestretch?",
+          "a": "Douăsprezece: stretching, mini-antrenamente și pauze pentru ochi. Se rotesc, așa că același exercițiu nu apare niciodată de două ori la rând."
+        },
+        {
+          "q": "Pot adăuga propriile exerciții de stretching?",
+          "a": "Da. Scrie câte unul pe linie în ~/.config/vibestretch/exercises.txt. Poți folosi fără grijă ghilimele și backslash-uri în text."
+        }
+      ]
+    },
+    "claude-code-break-reminder": {
+      "nav": "Claude Code",
+      "title": "Cum adaugi un memento pentru pauze în Claude Code | vibestretch",
+      "description": "Instalează vibestretch în Claude Code pentru mementouri de stretching și pauze pentru ochi în rundele lungi. Instalare, linie de stare, note VS Code și setări.",
+      "h1": "Cum adaugi un memento pentru pauze în Claude Code",
+      "lead": "vibestretch este un plugin pentru Claude Code. Folosește trei hookuri ca să observe rundele lungi și să te îndemne să te miști.",
+      "blocks": [
+        {
+          "h2": "Instalare"
+        },
+        {
+          "p": "Rulează aceste două comenzi în Claude Code:"
+        },
+        {
+          "code": "install_claude"
+        },
+        {
+          "p": "Nu are dependențe, nici daemon, nici telemetrie. Nu mai e nimic de configurat."
+        },
+        {
+          "h2": "Unde apare mementoul"
+        },
+        {
+          "ul": [
+            "O linie în sesiune.",
+            "Un sunet discret, inclus în plugin.",
+            "O notificare în Warp, Ghostty, iTerm2, WezTerm și kitty. În VS Code ai nevoie de o extensie pentru notificări.",
+            "Linia de stare, dacă o configurezi."
+          ]
+        },
+        {
+          "h2": "Adaugă-l în linia de stare"
+        },
+        {
+          "code": "statusline"
+        },
+        {
+          "p": "Comanda face o copie de rezervă a setărilor și învelește comanda ta existentă pentru linia de stare. Dacă nu ai una, instalează una minimă. După un memento, exercițiul rămâne acolo 5 minute. Anulezi cu `/vibestretch:statusline off`. Rulează `off` înainte să dezinstalezi pluginul."
+        },
+        {
+          "h2": "VS Code"
+        },
+        {
+          "p": "În terminalul integrat funcționează linia, sunetul și linia de stare. În panoul de chat al extensiei ajunge la tine doar sunetul. Notificarea are nevoie de o extensie pentru notificări în ambele locuri. Acest lucru a fost verificat pe Claude Code 2.1.234."
+        },
+        {
+          "h2": "Setări"
+        },
+        {
+          "p": "Toate setările sunt variabile de mediu opționale. Timpii sunt în secunde."
+        },
+        {
+          "table": "settings"
+        },
+        {
+          "p": "Rulezi Claude Code fără interfață, cu `claude -p`, dintr-un script? Setează acolo `VIBESTRETCH_DISABLE=1`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Cum elimin segmentul din linia de stare?",
+          "a": "Rulează /vibestretch:statusline off. Fă asta înainte să dezinstalezi pluginul, altfel segmentul rămâne configurat, dar înghețat."
+        },
+        {
+          "q": "Ajunge mementoul la model?",
+          "a": "Nu. Mementoul este un systemMessage. Îți este afișat ție și nu este adăugat niciodată în contextul modelului."
+        },
+        {
+          "q": "De ce aud două sunete?",
+          "a": "Unele terminale, precum iTerm2, redau propriul sunet pentru notificări. Setează VIBESTRETCH_SOUND=0 ca să rămână doar sunetul terminalului."
+        }
+      ]
+    },
+    "codex-cli-break-reminder": {
+      "nav": "Codex CLI",
+      "title": "Cum adaugi un memento pentru pauze în Codex CLI | vibestretch",
+      "description": "Instalează vibestretch în OpenAI Codex CLI ca plugin sau manual. Primești o linie de stretching și un sunet cât rulează rundele lungi Codex.",
+      "h1": "Cum adaugi un memento pentru pauze în Codex CLI",
+      "lead": "vibestretch se instalează în OpenAI Codex CLI din marketplace-ul de pluginuri. Afișează o linie de stretching și redă un sunet în rundele lungi.",
+      "blocks": [
+        {
+          "h2": "Instalare ca plugin"
+        },
+        {
+          "code": "install_codex"
+        },
+        {
+          "p": "Codex nu rulează hookurile unui plugin până nu le verifici. Deschide `/hooks` și marchează ca de încredere cele trei intrări vibestretch. Până atunci pluginul este instalat, dar tăcut."
+        },
+        {
+          "h2": "Instalare manuală"
+        },
+        {
+          "p": "O clonă și un fișier de configurare fac același lucru:"
+        },
+        {
+          "code": "install_codex_manual"
+        },
+        {
+          "p": "Ai deja un `~/.codex/hooks.json`? Adaugă în el cele trei intrări din fișierul nostru. Nu îl suprascrie pe al tău. Codex îți cere să aprobi o configurare nouă de hookuri la prima rulare. Această solicitare este normală."
+        },
+        {
+          "p": "Alege o singură metodă. Dacă ai și pluginul, și intrările adăugate manual, fiecare hook rulează de două ori. Dacă ai instalat manual înainte de 0.8.0, șterge intrările noastre din `~/.codex/hooks.json` când treci la plugin."
+        },
+        {
+          "h2": "Ce primești în Codex"
+        },
+        {
+          "p": "Primești linia în sesiune și sunetul. Nu există notificare, pentru că Codex nu are un câmp de ieșire pentru hookuri în care să trimiți o secvență de terminal. Nu există nici segment în linia de stare. Bara aceea nu poate fi controlată prin scripturi în Codex."
+        },
+        {
+          "p": "Contorul este comun cu Claude Code și Gemini CLI. O oră de așteptare se numără o singură dată, indiferent ce agent te-a ținut pe scaun. Adaptorul a fost rulat pe o instalare reală de Codex CLI 0.149.1 pe macOS."
+        }
+      ],
+      "faq": [
+        {
+          "q": "L-am instalat, dar nu se întâmplă nimic. De ce?",
+          "a": "Codex rulează hookurile unui plugin doar după ce le marchezi ca de încredere. Deschide /hooks și aprobă cele trei intrări vibestretch."
+        },
+        {
+          "q": "Fiecare hook rulează de două ori. De ce?",
+          "a": "Probabil ai atât pluginul, cât și intrări adăugate manual în ~/.codex/hooks.json. Păstrează doar una dintre variante."
+        },
+        {
+          "q": "Îl pot folosi cu codex exec?",
+          "a": "Setează VIBESTRETCH_DISABLE=1 în acel mediu. Rulările nesupravegheate nu ar trebui să se numere ca timp petrecut de tine în așteptare."
+        }
+      ]
+    },
+    "gemini-cli-break-reminder": {
+      "nav": "Gemini CLI",
+      "title": "Cum adaugi un memento pentru pauze în Gemini CLI | vibestretch",
+      "description": "Adaugă vibestretch în Gemini CLI cu trei hookuri. Primești o linie de stretching și un sunet în rundele lungi Gemini. Pașii de instalare și combinare.",
+      "h1": "Cum adaugi un memento pentru pauze în Gemini CLI",
+      "lead": "Gemini CLI vine cu hookurile activate începând cu v0.26. vibestretch adaugă trei dintre ele ca să-ți amintească de stretching în rundele lungi.",
+      "blocks": [
+        {
+          "h2": "Instalare"
+        },
+        {
+          "p": "Clonează depozitul:"
+        },
+        {
+          "code": "install_gemini_clone"
+        },
+        {
+          "p": "Apoi copiază obiectul `hooks` din `~/.gemini/vibestretch/hooks/gemini-hooks.json` în `~/.gemini/settings.json`. Acel fișier conține toată configurarea Gemini, așa că îmbină conținutul. Nu înlocui fișierul. Cu `jq` este o singură linie:"
+        },
+        {
+          "code": "install_gemini_merge"
+        },
+        {
+          "h2": "Ce hookuri folosește"
+        },
+        {
+          "ul": [
+            "`BeforeAgent`: agentul începe să lucreze la promptul tău.",
+            "`AfterTool`: un instrument și-a terminat treaba. Se adaugă timpul de așteptare și apare un memento dacă e momentul.",
+            "`AfterAgent`: runda s-a încheiat. Contabilizarea se închide."
+          ]
+        },
+        {
+          "h2": "Ce primești în Gemini CLI"
+        },
+        {
+          "p": "Primești linia în sesiune și sunetul. Nu există notificare. Gemini rezervă stdout-ul unui hook doar pentru JSON, așa că nu există unde să afișezi o secvență escape."
+        },
+        {
+          "p": "Adaptorul a fost rulat pe o instalare reală de Gemini CLI 0.56.0 pe macOS. Contorul este comun cu Claude Code și Codex CLI."
+        }
+      ],
+      "faq": [
+        {
+          "q": "De ce versiune de Gemini CLI am nevoie?",
+          "a": "Hookurile vin activate începând cu Gemini CLI v0.26."
+        },
+        {
+          "q": "Combinarea îmi suprascrie setările?",
+          "a": "Comanda jq îmbină obiectul hooks în settings.json-ul existent. Fă mai întâi o copie de rezervă a fișierului dacă vrei să fii sigur."
+        },
+        {
+          "q": "Îl pot folosi cu gemini -p?",
+          "a": "Setează VIBESTRETCH_DISABLE=1 când rulezi Gemini dintr-un script, din cron sau dintr-un bot."
+        }
+      ]
+    }
+  },
+  "settings_rows": {
+    "VIBESTRETCH_MIN_TURN": "Runda curentă trebuie să dureze cel puțin atât.",
+    "VIBESTRETCH_MIN_ACTIVE": "Timpul de agent necesar de la ultima pauză.",
+    "VIBESTRETCH_COOLDOWN": "Intervalul minim dintre mementouri.",
+    "VIBESTRETCH_AWAY": "Fără tastatură sau mouse atâta timp înseamnă că ești plecat. Doar pe macOS. 0 dezactivează această protecție.",
+    "VIBESTRETCH_DISABLE": "Setează orice valoare ca să oprești mementourile.",
+    "VIBESTRETCH_NOTIFY": "Setează 0 ca să renunți la notificarea pe desktop.",
+    "VIBESTRETCH_SOUND": "Setează 0 ca să oprești sunetul.",
+    "VIBESTRETCH_EXERCISES": "Calea către propria listă de exerciții."
+  },
+  "settings_head": [
+    "Variabilă",
+    "Implicit",
+    "Semnificație"
+  ]
+}

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ro" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cum adaugi un memento pentru pauze în Codex CLI | vibestretch</title>
+<meta name="description" content="Instalează vibestretch în OpenAI Codex CLI ca plugin sau manual. Primești o linie de stretching și un sunet cât rulează rundele lungi Codex.">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/ro/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/codex-cli-break-reminder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="Cum adaugi un memento pentru pauze în Codex CLI | vibestretch">
+<meta property="og:description" content="Instalează vibestretch în OpenAI Codex CLI ca plugin sau manual. Primești o linie de stretching și un sunet cât rulează rundele lungi Codex.">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/ro/codex-cli-break-reminder/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta property="og:locale:alternate" content="ms_MY">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch e un memento gratuit de stretching și pauze pentru programatori. Te îndeamnă să te miști cât Claude Code, Codex CLI sau Gemini CLI rulează mult.",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/ro/codex-cli-break-reminder/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/ro/codex-cli-break-reminder/",
+   "name": "Cum adaugi un memento pentru pauze în Codex CLI | vibestretch",
+   "description": "Instalează vibestretch în OpenAI Codex CLI ca plugin sau manual. Primești o linie de stretching și un sunet cât rulează rundele lungi Codex.",
+   "inLanguage": "ro",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/ro/codex-cli-break-reminder/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/ro/codex-cli-break-reminder/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/ro/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Cum adaugi un memento pentru pauze în Codex CLI",
+     "item": "https://eliasjunit.github.io/vibestretch/ro/codex-cli-break-reminder/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/ro/codex-cli-break-reminder/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/ro/codex-cli-break-reminder/",
+   "inLanguage": "ro",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "L-am instalat, dar nu se întâmplă nimic. De ce?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Codex rulează hookurile unui plugin doar după ce le marchezi ca de încredere. Deschide /hooks și aprobă cele trei intrări vibestretch."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Fiecare hook rulează de două ori. De ce?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Probabil ai atât pluginul, cât și intrări adăugate manual în ~/.codex/hooks.json. Păstrează doar una dintre variante."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Îl pot folosi cu codex exec?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Setează VIBESTRETCH_DISABLE=1 în acel mediu. Rulările nesupravegheate nu ar trebui să se numere ca timp petrecut de tine în așteptare."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Sari la conținut</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../../ro/"><img src="../../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>Limbă: Română</summary><ul><li><a href="../../codex-cli-break-reminder/" hreflang="en" lang="en">English</a></li><li><a href="../../es/codex-cli-break-reminder/" hreflang="es" lang="es">Español</a></li><li><a href="../../pt-BR/codex-cli-break-reminder/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../../fr/codex-cli-break-reminder/" hreflang="fr" lang="fr">Français</a></li><li><a href="../../de/codex-cli-break-reminder/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../../it/codex-cli-break-reminder/" hreflang="it" lang="it">Italiano</a></li><li><a href="../../ru/codex-cli-break-reminder/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../../uk/codex-cli-break-reminder/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../pl/codex-cli-break-reminder/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../../tr/codex-cli-break-reminder/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../../nl/codex-cli-break-reminder/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../../sv/codex-cli-break-reminder/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../../da/codex-cli-break-reminder/" hreflang="da" lang="da">Dansk</a></li><li><a href="../../nb/codex-cli-break-reminder/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../../fi/codex-cli-break-reminder/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../../cs/codex-cli-break-reminder/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="../../ro/codex-cli-break-reminder/" hreflang="ro" lang="ro" aria-current="true">Română</a></li><li><a href="../../hu/codex-cli-break-reminder/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../../el/codex-cli-break-reminder/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../../ja/codex-cli-break-reminder/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../../ko/codex-cli-break-reminder/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../../zh-Hans/codex-cli-break-reminder/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="../../zh-Hant/codex-cli-break-reminder/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../../id/codex-cli-break-reminder/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../../th/codex-cli-break-reminder/" hreflang="th" lang="th">ไทย</a></li><li><a href="../../vi/codex-cli-break-reminder/" hreflang="vi" lang="vi">Tiếng Việt</a></li><li><a href="../../ms/codex-cli-break-reminder/" hreflang="ms" lang="ms">Bahasa Melayu</a></li><li><a href="../../hi/codex-cli-break-reminder/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../../ar/codex-cli-break-reminder/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../../he/codex-cli-break-reminder/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="Pagini"><ul><li><a href="../../ro/">Prezentare</a></li><li><a href="../../ro/stretch-breaks-ai-coding-agents/">Pauze cât lucrează agentul</a></li><li><a href="../../ro/20-20-20-eye-rule-developers/">Regula 20-20-20 pentru ochi</a></li><li><a href="../../ro/desk-stretches-programmers/">Stretching la birou</a></li><li><a href="../../ro/claude-code-break-reminder/">Claude Code</a></li><li><a href="../../ro/codex-cli-break-reminder/" aria-current="page">Codex CLI</a></li><li><a href="../../ro/gemini-cli-break-reminder/">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Fir de navigare"><ol><li><a href="../../ro/">vibestretch</a></li><li aria-current="page">Cum adaugi un memento pentru pauze în Codex CLI</li></ol></nav>
+<h1>Cum adaugi un memento pentru pauze în Codex CLI</h1>
+<p class="lead">vibestretch se instalează în OpenAI Codex CLI din marketplace-ul de pluginuri. Afișează o linie de stretching și redă un sunet în rundele lungi.</p>
+<h2>Instalare ca plugin</h2>
+<pre><code>codex plugin marketplace add Eliasjunit/vibestretch
+codex plugin add vibestretch@vibestretch</code></pre>
+<p>Codex nu rulează hookurile unui plugin până nu le verifici. Deschide <code>/hooks</code> și marchează ca de încredere cele trei intrări vibestretch. Până atunci pluginul este instalat, dar tăcut.</p>
+<h2>Instalare manuală</h2>
+<p>O clonă și un fișier de configurare fac același lucru:</p>
+<pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.codex/vibestretch
+cp ~/.codex/vibestretch/hooks/codex-hooks.json ~/.codex/hooks.json</code></pre>
+<p>Ai deja un <code>~/.codex/hooks.json</code>? Adaugă în el cele trei intrări din fișierul nostru. Nu îl suprascrie pe al tău. Codex îți cere să aprobi o configurare nouă de hookuri la prima rulare. Această solicitare este normală.</p>
+<p>Alege o singură metodă. Dacă ai și pluginul, și intrările adăugate manual, fiecare hook rulează de două ori. Dacă ai instalat manual înainte de 0.8.0, șterge intrările noastre din <code>~/.codex/hooks.json</code> când treci la plugin.</p>
+<h2>Ce primești în Codex</h2>
+<p>Primești linia în sesiune și sunetul. Nu există notificare, pentru că Codex nu are un câmp de ieșire pentru hookuri în care să trimiți o secvență de terminal. Nu există nici segment în linia de stare. Bara aceea nu poate fi controlată prin scripturi în Codex.</p>
+<p>Contorul este comun cu Claude Code și Gemini CLI. O oră de așteptare se numără o singură dată, indiferent ce agent te-a ținut pe scaun. Adaptorul a fost rulat pe o instalare reală de Codex CLI 0.149.1 pe macOS.</p>
+<section class="faq" id="faq"><h2>Întrebări frecvente</h2><dl><dt>L-am instalat, dar nu se întâmplă nimic. De ce?</dt><dd>Codex rulează hookurile unui plugin doar după ce le marchezi ca de încredere. Deschide /hooks și aprobă cele trei intrări vibestretch.</dd><dt>Fiecare hook rulează de două ori. De ce?</dt><dd>Probabil ai atât pluginul, cât și intrări adăugate manual în ~/.codex/hooks.json. Păstrează doar una dintre variante.</dd><dt>Îl pot folosi cu codex exec?</dt><dd>Setează VIBESTRETCH_DISABLE=1 în acel mediu. Rulările nesupravegheate nu ar trebui să se numere ca timp petrecut de tine în așteptare.</dd></dl></section>
+<section class="related"><h2>Citește în continuare</h2><ul><li><a href="../../ro/">Fă stretching cât lucrează agentul de cod</a></li><li><a href="../../ro/stretch-breaks-ai-coding-agents/">Pauze de stretching cât rulează agenții AI de cod</a></li><li><a href="../../ro/20-20-20-eye-rule-developers/">Regula 20-20-20 pentru ochi, pentru programatori</a></li><li><a href="../../ro/desk-stretches-programmers/">Exerciții de stretching la birou pentru programatori</a></li><li><a href="../../ro/claude-code-break-reminder/">Cum adaugi un memento pentru pauze în Claude Code</a></li><li><a href="../../ro/gemini-cli-break-reminder/">Cum adaugi un memento pentru pauze în Gemini CLI</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch este open source, sub licența MIT. Creat de Junit. <a href="https://github.com/Eliasjunit/vibestretch">Codul sursă pe GitHub</a></p>
+</div></footer>
+</body>
+</html>

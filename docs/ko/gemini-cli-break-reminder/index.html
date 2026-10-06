@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemini CLI에 휴식 알림 추가하는 방법</title>
+<meta name="description" content="훅 세 개로 Gemini CLI에 vibestretch를 추가합니다. Gemini의 긴 턴 동안 스트레칭 안내 한 줄과 차임으로 알려 줍니다. 설치 및 병합 방법을 안내합니다.">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/ko/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/gemini-cli-break-reminder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="Gemini CLI에 휴식 알림 추가하는 방법">
+<meta property="og:description" content="훅 세 개로 Gemini CLI에 vibestretch를 추가합니다. Gemini의 긴 턴 동안 스트레칭 안내 한 줄과 차임으로 알려 줍니다. 설치 및 병합 방법을 안내합니다.">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/ko/gemini-cli-break-reminder/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta property="og:locale:alternate" content="ms_MY">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch는 개발자를 위한 무료 스트레칭 및 휴식 알림입니다. Claude Code, Codex CLI, Gemini CLI가 긴 턴을 실행하는 동안 몸을 움직이도록 알려 줍니다.",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/ko/gemini-cli-break-reminder/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/ko/gemini-cli-break-reminder/",
+   "name": "Gemini CLI에 휴식 알림 추가하는 방법",
+   "description": "훅 세 개로 Gemini CLI에 vibestretch를 추가합니다. Gemini의 긴 턴 동안 스트레칭 안내 한 줄과 차임으로 알려 줍니다. 설치 및 병합 방법을 안내합니다.",
+   "inLanguage": "ko",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/ko/gemini-cli-break-reminder/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/ko/gemini-cli-break-reminder/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/ko/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Gemini CLI에 휴식 알림 추가하는 방법",
+     "item": "https://eliasjunit.github.io/vibestretch/ko/gemini-cli-break-reminder/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/ko/gemini-cli-break-reminder/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/ko/gemini-cli-break-reminder/",
+   "inLanguage": "ko",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "어떤 Gemini CLI 버전이 필요한가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Gemini CLI v0.26부터 훅이 활성화된 상태로 제공됩니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "병합하면 기존 설정이 덮어써지나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "jq 명령은 hooks 객체를 기존 settings.json에 병합합니다. 안전하게 하려면 먼저 파일을 백업하세요."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "gemini -p에서도 쓸 수 있나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "스크립트, cron, 봇에서 Gemini를 실행할 때는 VIBESTRETCH_DISABLE=1을 설정하세요."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../../ko/"><img src="../../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>언어: 한국어</summary><ul><li><a href="../../gemini-cli-break-reminder/" hreflang="en" lang="en">English</a></li><li><a href="../../es/gemini-cli-break-reminder/" hreflang="es" lang="es">Español</a></li><li><a href="../../pt-BR/gemini-cli-break-reminder/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../../fr/gemini-cli-break-reminder/" hreflang="fr" lang="fr">Français</a></li><li><a href="../../de/gemini-cli-break-reminder/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../../it/gemini-cli-break-reminder/" hreflang="it" lang="it">Italiano</a></li><li><a href="../../ru/gemini-cli-break-reminder/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../../uk/gemini-cli-break-reminder/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../pl/gemini-cli-break-reminder/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../../tr/gemini-cli-break-reminder/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../../nl/gemini-cli-break-reminder/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../../sv/gemini-cli-break-reminder/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../../da/gemini-cli-break-reminder/" hreflang="da" lang="da">Dansk</a></li><li><a href="../../nb/gemini-cli-break-reminder/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../../fi/gemini-cli-break-reminder/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../../cs/gemini-cli-break-reminder/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="../../ro/gemini-cli-break-reminder/" hreflang="ro" lang="ro">Română</a></li><li><a href="../../hu/gemini-cli-break-reminder/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../../el/gemini-cli-break-reminder/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../../ja/gemini-cli-break-reminder/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../../ko/gemini-cli-break-reminder/" hreflang="ko" lang="ko" aria-current="true">한국어</a></li><li><a href="../../zh-Hans/gemini-cli-break-reminder/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="../../zh-Hant/gemini-cli-break-reminder/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../../id/gemini-cli-break-reminder/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../../th/gemini-cli-break-reminder/" hreflang="th" lang="th">ไทย</a></li><li><a href="../../vi/gemini-cli-break-reminder/" hreflang="vi" lang="vi">Tiếng Việt</a></li><li><a href="../../ms/gemini-cli-break-reminder/" hreflang="ms" lang="ms">Bahasa Melayu</a></li><li><a href="../../hi/gemini-cli-break-reminder/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../../ar/gemini-cli-break-reminder/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../../he/gemini-cli-break-reminder/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="페이지"><ul><li><a href="../../ko/">개요</a></li><li><a href="../../ko/stretch-breaks-ai-coding-agents/">에이전트 실행 중 휴식</a></li><li><a href="../../ko/20-20-20-eye-rule-developers/">20-20-20 규칙</a></li><li><a href="../../ko/desk-stretches-programmers/">책상 스트레칭</a></li><li><a href="../../ko/claude-code-break-reminder/">Claude Code</a></li><li><a href="../../ko/codex-cli-break-reminder/">Codex CLI</a></li><li><a href="../../ko/gemini-cli-break-reminder/" aria-current="page">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="이동 경로"><ol><li><a href="../../ko/">vibestretch</a></li><li aria-current="page">Gemini CLI에 휴식 알림 추가하는 방법</li></ol></nav>
+<h1>Gemini CLI에 휴식 알림 추가하는 방법</h1>
+<p class="lead">Gemini CLI는 v0.26부터 훅이 활성화된 상태로 제공됩니다. vibestretch는 여기에 훅 세 개를 추가해 긴 턴 동안 스트레칭하도록 알려 줍니다.</p>
+<h2>설치</h2>
+<p>저장소를 클론하세요.</p>
+<pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
+<p>그다음 <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code>의 <code>hooks</code> 객체를 <code>~/.gemini/settings.json</code>에 복사하세요. 이 파일에는 Gemini 설정 전체가 들어 있으므로 병합해야 합니다. 파일을 통째로 바꾸지 마세요. <code>jq</code>를 쓰면 한 줄이면 됩니다.</p>
+<pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<h2>사용하는 훅</h2>
+<ul><li><code>BeforeAgent</code>: 에이전트가 프롬프트 작업을 시작합니다.</li><li><code>AfterTool</code>: 도구 실행이 끝났습니다. 대기 시간이 더해지고, 조건이 맞으면 알림이 나옵니다.</li><li><code>AfterAgent</code>: 턴이 끝났습니다. 집계를 마감합니다.</li></ul>
+<h2>Gemini CLI에서 쓸 수 있는 기능</h2>
+<p>세션 안의 한 줄과 차임을 쓸 수 있습니다. 알림 배너는 없습니다. Gemini는 훅의 stdout을 JSON 전용으로 쓰기 때문에 이스케이프 시퀀스를 출력할 곳이 없습니다.</p>
+<p>이 어댑터는 macOS의 Gemini CLI 0.56.0 실제 설치 환경에서 실행해 보았습니다. 카운터는 Claude Code, Codex CLI와 공유됩니다.</p>
+<section class="faq" id="faq"><h2>자주 묻는 질문</h2><dl><dt>어떤 Gemini CLI 버전이 필요한가요?</dt><dd>Gemini CLI v0.26부터 훅이 활성화된 상태로 제공됩니다.</dd><dt>병합하면 기존 설정이 덮어써지나요?</dt><dd>jq 명령은 hooks 객체를 기존 settings.json에 병합합니다. 안전하게 하려면 먼저 파일을 백업하세요.</dd><dt>gemini -p에서도 쓸 수 있나요?</dt><dd>스크립트, cron, 봇에서 Gemini를 실행할 때는 VIBESTRETCH_DISABLE=1을 설정하세요.</dd></dl></section>
+<section class="related"><h2>다음 글</h2><ul><li><a href="../../ko/">코딩 에이전트가 일하는 동안 스트레칭하세요</a></li><li><a href="../../ko/stretch-breaks-ai-coding-agents/">AI 코딩 에이전트 실행 중 스트레칭 휴식</a></li><li><a href="../../ko/20-20-20-eye-rule-developers/">개발자를 위한 20-20-20 눈 규칙</a></li><li><a href="../../ko/desk-stretches-programmers/">개발자를 위한 책상 스트레칭</a></li><li><a href="../../ko/claude-code-break-reminder/">Claude Code에 휴식 알림 추가하는 방법</a></li><li><a href="../../ko/codex-cli-break-reminder/">Codex CLI에 휴식 알림 추가하는 방법</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch는 MIT 라이선스의 오픈 소스입니다. 만든 사람: Junit <a href="https://github.com/Eliasjunit/vibestretch">GitHub 소스 코드</a></p>
+</div></footer>
+</body>
+</html>

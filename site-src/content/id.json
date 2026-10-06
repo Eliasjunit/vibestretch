@@ -1,0 +1,471 @@
+{
+  "lang_name": "Bahasa Indonesia",
+  "ui": {
+    "skip": "Langsung ke konten",
+    "nav_home": "Beranda",
+    "nav_label": "Halaman",
+    "languages": "Bahasa",
+    "breadcrumb_home": "vibestretch",
+    "faq_title": "Tanya jawab",
+    "related_title": "Baca selanjutnya",
+    "source_link": "Kode sumber di GitHub",
+    "footer_license": "vibestretch adalah open source dengan lisensi MIT.",
+    "footer_made": "Dibuat oleh Junit.",
+    "breadcrumb_label": "Breadcrumb"
+  },
+  "pages": {
+    "index": {
+      "nav": "Ringkasan",
+      "title": "vibestretch: pengingat peregangan saat agen coding bekerja",
+      "description": "Pengingat peregangan dan istirahat gratis untuk developer. vibestretch mengajak Anda bergerak saat Claude Code, Codex CLI atau Gemini CLI berjalan lama.",
+      "h1": "Lakukan peregangan selagi agen coding bekerja",
+      "lead": "vibestretch menampilkan peregangan singkat, latihan mikro atau istirahat mata saat giliran agen yang panjang membuat Anda menunggu. Bisa dipakai dengan Claude Code, Codex CLI dan Gemini CLI.",
+      "blocks": [
+        {
+          "code": "install_claude_cli"
+        },
+        {
+          "p": "Perintah ini memasang plugin di Claude Code. Halaman [Codex CLI](@codex-cli-break-reminder) dan [Gemini CLI](@gemini-cli-break-reminder) menjelaskan cara pemasangannya."
+        },
+        {
+          "h2": "Seperti apa pengingatnya"
+        },
+        {
+          "code": "nudge_example"
+        },
+        {
+          "p": "Satu baris muncul di sesi. Bunyi lembut terdengar. Di terminal yang mendukung, banner notifikasi juga muncul."
+        },
+        {
+          "h2": "Kapan pengingat muncul"
+        },
+        {
+          "p": "vibestretch tidak punya jadwal. Ia hanya menghitung satu hal: berapa menit giliran agen membuat Anda menunggu di depan komputer. Pengingat hanya muncul jika ketiga syarat ini terpenuhi:"
+        },
+        {
+          "ol": [
+            "Giliran saat ini sudah berjalan 2 menit atau lebih.",
+            "Total waktu agen sejak pengingat terakhir mencapai 5 menit atau lebih.",
+            "Pengingat terakhir muncul paling tidak 15 menit yang lalu."
+          ]
+        },
+        {
+          "p": "Giliran yang cepat tidak pernah memicunya. Seharian penuh giliran pendek tidak menghasilkan pengingat sama sekali. Tidak ada yang perlu ditunda, karena ia hanya muncul saat Anda memang sedang menunggu. Baca selengkapnya di [istirahat peregangan saat agen coding AI berjalan](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Yang Anda dapatkan"
+        },
+        {
+          "ul": [
+            "Dua belas latihan bawaan: peregangan, latihan mikro dan istirahat mata seperti [20-20-20](@20-20-20-eye-rule-developers).",
+            "Rotasi yang tidak pernah mengulang latihan yang sama dua kali berturut-turut.",
+            "Daftar latihan Anda sendiri, jika Anda mau. Lihat [peregangan di meja untuk programmer](@desk-stretches-programmers).",
+            "Segmen status line opsional di Claude Code."
+          ]
+        },
+        {
+          "h2": "Privasi"
+        },
+        {
+          "p": "vibestretch terdiri dari beberapa skrip shell POSIX kecil dan satu file suara. Ia tidak melakukan panggilan jaringan. Ia tidak mengirim telemetri. Ia tidak menampilkan iklan dan tidak menaruh tautan di terminal Anda. Ia tidak menambahkan apa pun ke konteks model. Datanya disimpan di `~/.cache/vibestretch/`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Apa itu vibestretch?",
+          "a": "vibestretch adalah plugin untuk agen coding. Ia mengingatkan Anda untuk meregangkan badan, bergerak atau mengistirahatkan mata saat giliran agen yang panjang membuat Anda menunggu."
+        },
+        {
+          "q": "Agen coding apa saja yang didukung?",
+          "a": "Claude Code, OpenAI Codex CLI dan Gemini CLI. Ketiganya memakai penghitung yang sama, jadi satu jam menunggu hanya dihitung sekali, agen mana pun yang membuat Anda tetap duduk."
+        },
+        {
+          "q": "Apakah ini timer istirahat?",
+          "a": "Tidak. Timer berjalan sesuai jadwal. vibestretch hanya menghitung waktu saat giliran agen membuat Anda menunggu, dan hanya memberi pengingat selama waktu tunggu itu."
+        },
+        {
+          "q": "Apakah ia mengirim data ke mana pun?",
+          "a": "Tidak. Ia tidak melakukan panggilan jaringan dan tidak mengirim telemetri. Tidak ada yang keluar dari komputer Anda."
+        },
+        {
+          "q": "Berapa biayanya?",
+          "a": "vibestretch adalah open source dengan lisensi MIT. Kodenya ada di GitHub."
+        },
+        {
+          "q": "Bagaimana cara mematikannya?",
+          "a": "Isi VIBESTRETCH_DISABLE dengan nilai apa saja untuk mematikan pengingat. VIBESTRETCH_SOUND=0 mematikan suara. VIBESTRETCH_NOTIFY=0 menghilangkan banner."
+        }
+      ]
+    },
+    "stretch-breaks-ai-coding-agents": {
+      "nav": "Istirahat saat agen berjalan",
+      "title": "Istirahat peregangan saat agen coding AI berjalan | vibestretch",
+      "description": "Manfaatkan menit-menit menunggu agen coding untuk peregangan singkat. Cara vibestretch menghitung waktu tunggu agen dan kapan pengingat muncul.",
+      "h1": "Istirahat peregangan saat agen coding AI berjalan",
+      "lead": "Agen coding bisa bekerja selama beberapa menit sekaligus. Anda duduk dan menonton. vibestretch mengubah waktu tunggu itu menjadi istirahat singkat.",
+      "blocks": [
+        {
+          "h2": "Kenapa waktu tunggu adalah saat yang tepat"
+        },
+        {
+          "p": "Timer istirahat berbunyi sesuai jadwal. Sering kali ia muncul di tengah pikiran yang sedang berjalan, dan banyak orang akhirnya mematikannya. Waktu saat agen sibuk berbeda. Anda memang sedang menunggu. Peregangan di sela itu tidak mengganggu fokus Anda."
+        },
+        {
+          "h2": "Apa yang dihitung vibestretch"
+        },
+        {
+          "p": "Ia menghitung waktu agen: berapa menit giliran agen berjalan saat Anda ada di depan komputer. Waktu itu dijumlahkan sejak pengingat terakhir. Ini berbeda dengan lama Anda duduk di meja. Satu jam membaca dan mengetik dengan giliran cepat di sela-selanya hampir tidak menambah apa-apa."
+        },
+        {
+          "h2": "Kapan pengingat muncul"
+        },
+        {
+          "p": "Ketiga syarat ini harus terpenuhi:"
+        },
+        {
+          "ol": [
+            "Giliran saat ini sudah berjalan paling tidak 2 menit.",
+            "Waktu agen sejak pengingat terakhir paling tidak 5 menit. Satu tugas besar atau beberapa tugas sedang sama-sama dihitung.",
+            "Pengingat terakhir muncul paling tidak 15 menit yang lalu."
+          ]
+        },
+        {
+          "p": "Setiap angka bisa diubah dengan variabel lingkungan. Lihat [halaman Claude Code](@claude-code-break-reminder) untuk daftar lengkapnya."
+        },
+        {
+          "h2": "Saat Anda meninggalkan komputer"
+        },
+        {
+          "p": "Jika Anda jauh dari keyboard selama 45 menit atau lebih, hitungannya direset. Anda sudah beristirahat. Di macOS, hook membaca waktu idle keyboard dan mouse dari sistem. Jadi agen yang bekerja semalaman tidak menambah waktu agen dan tidak pernah berbunyi di depan kursi kosong. Linux tidak punya penghitung idle yang portabel, jadi di sana hanya reset 45 menit yang berlaku."
+        },
+        {
+          "h2": "Apa yang diminta pengingat"
+        },
+        {
+          "p": "Setiap pengingat berisi satu latihan dari daftar dua belas latihan. Isinya peregangan, latihan mikro dan istirahat mata. Lihat [peregangan di meja untuk programmer](@desk-stretches-programmers) untuk daftar lengkapnya."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Apakah pengingat muncul saat giliran pendek?",
+          "a": "Tidak. Giliran harus berjalan paling tidak 2 menit, dan waktu agen harus cukup terkumpul, sebelum pengingat bisa muncul."
+        },
+        {
+          "q": "Apakah model yang cepat berarti pengingat lebih jarang?",
+          "a": "Ya. Model yang cepat menyelesaikan giliran sebelum ambang batas tercapai, jadi tidak ada yang perlu dimatikan."
+        },
+        {
+          "q": "Bagaimana dengan agen yang dijalankan dari skrip atau cron?",
+          "a": "Atur VIBESTRETCH_DISABLE=1 di lingkungan tersebut. Jika tidak, sesi tanpa pengawasan akan dihitung sebagai waktu yang tidak pernah Anda jalani."
+        }
+      ]
+    },
+    "20-20-20-eye-rule-developers": {
+      "nav": "Aturan mata 20-20-20",
+      "title": "Aturan 20-20-20 untuk mata developer | vibestretch",
+      "description": "Istirahat mata 20-20-20 dan istirahat mata lain di vibestretch, pengingat yang berjalan saat agen coding Anda bekerja.",
+      "h1": "Aturan mata 20-20-20 untuk developer",
+      "lead": "Giliran agen yang panjang berarti menatap layar dalam waktu lama. vibestretch memasukkan istirahat mata ke dalam rotasinya, dan 20-20-20 adalah salah satunya.",
+      "blocks": [
+        {
+          "h2": "Istirahat 20-20-20 di vibestretch"
+        },
+        {
+          "p": "Begini bunyi pengingatnya:"
+        },
+        {
+          "code": "nudge_202020"
+        },
+        {
+          "p": "Lihat sesuatu yang berjarak 20 kaki. Tetap lihat selama 20 detik. Lalu kembali ke agen Anda."
+        },
+        {
+          "h2": "Istirahat mata lain dalam daftar"
+        },
+        {
+          "ul": [
+            "Berkedip 20 kali, pelan-pelan.",
+            "Gosok telapak tangan sampai hangat, lalu tutupkan ke mata yang terpejam selama 20 detik.",
+            "Berdiri dan berjalan ke jendela."
+          ]
+        },
+        {
+          "h2": "Kapan ia mengingatkan"
+        },
+        {
+          "p": "vibestretch tidak berjalan berdasarkan jam. Ia mengingatkan Anda saat giliran agen yang panjang membuat Anda menunggu, secara bawaan paling sering sekali setiap 15 menit. Istirahat mata muncul sebagai bagian dari rotasi dua belas latihan. Baca cara kerja waktunya di [istirahat peregangan saat agen coding AI berjalan](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Hanya ingin istirahat mata?"
+        },
+        {
+          "p": "Tulis daftar Anda sendiri yang hanya berisi istirahat mata yang Anda suka. Satu latihan per baris di `~/.config/vibestretch/exercises.txt`. Daftar bawaan lalu tidak dipakai. Lihat [peregangan di meja untuk programmer](@desk-stretches-programmers) untuk contohnya."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Apakah vibestretch mengingatkan setiap 20 menit?",
+          "a": "Tidak. Ia tidak punya jadwal tetap. Ia hanya mengingatkan saat giliran agen yang panjang, dan jeda bawaan antar pengingat adalah 15 menit."
+        },
+        {
+          "q": "Bisakah saya hanya mendapat istirahat mata?",
+          "a": "Bisa. Tulis latihan Anda sendiri di ~/.config/vibestretch/exercises.txt, satu per baris, dan vibestretch akan memakai daftar itu sebagai ganti daftar bawaan."
+        }
+      ]
+    },
+    "desk-stretches-programmers": {
+      "nav": "Peregangan di meja",
+      "title": "Peregangan di meja untuk programmer: daftar vibestretch",
+      "description": "Dua belas peregangan di meja, latihan mikro dan istirahat mata singkat untuk programmer, serta cara menggantinya dengan daftar Anda sendiri di vibestretch.",
+      "h1": "Peregangan di meja untuk programmer",
+      "lead": "vibestretch menyertakan dua belas latihan singkat. Masing-masing muat dalam waktu satu giliran agen. Latihannya bergiliran, jadi Anda tidak pernah mendapat latihan yang sama dua kali berturut-turut.",
+      "blocks": [
+        {
+          "h2": "Dua belas latihan bawaan"
+        },
+        {
+          "ol": [
+            "20-20-20: lihat sesuatu yang berjarak 20 kaki selama 20 detik.",
+            "Berdiri, raih langit-langit dan tahan 15 detik. Lalu bungkukkan badan ke arah jari kaki selama 15 detik.",
+            "10 kali squat.",
+            "Putar leher pelan-pelan, 5 kali ke tiap arah.",
+            "Putar pergelangan tangan, 10 kali ke tiap arah.",
+            "Berkedip 20 kali, pelan-pelan.",
+            "Rapatkan tulang belikat 10 kali: tekan, tahan 3 detik, lepaskan.",
+            "Cek postur: telinga sejajar bahu, bahu sejajar pinggul. Pertahankan.",
+            "Berdiri dan berjalan ke jendela. Buka jika bisa.",
+            "Gosok telapak tangan sampai hangat, lalu tutupkan ke mata yang terpejam selama 20 detik.",
+            "Putar pinggul, 8 kali ke tiap arah.",
+            "Satu napas 4-7-8: tarik selama 4, tahan selama 7, buang selama 8."
+          ]
+        },
+        {
+          "p": "Putaran pergelangan tangan dan cek postur ada untuk orang yang memikirkan RSI (cedera regangan berulang) dan postur selama hari panjang di depan keyboard. vibestretch adalah pengingat. Ia tidak mendiagnosis atau mengobati apa pun."
+        },
+        {
+          "h2": "Pakai daftar Anda sendiri"
+        },
+        {
+          "p": "Tulis satu latihan per baris di `~/.config/vibestretch/exercises.txt`. Dua belas latihan bawaan lalu tidak dipakai. Baris kosong dan baris yang diawali # dilewati."
+        },
+        {
+          "code": "custom_list"
+        },
+        {
+          "p": "Atur `VIBESTRETCH_EXERCISES` ke path lain untuk menyimpan file di tempat lain. Daftar per proyek juga bisa dibuat dengan cara itu. Rotasi berjalan sesuai urutan daftar Anda. File yang tidak berisi apa pun yang bisa dipakai akan kembali ke daftar bawaan."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Berapa banyak latihan di vibestretch?",
+          "a": "Dua belas: peregangan, latihan mikro dan istirahat mata. Latihannya bergiliran, jadi latihan yang sama tidak pernah muncul dua kali berturut-turut."
+        },
+        {
+          "q": "Bisakah saya menambah peregangan sendiri?",
+          "a": "Bisa. Tulis satu per baris di ~/.config/vibestretch/exercises.txt. Tanda kutip dan backslash dalam teks Anda aman dipakai."
+        }
+      ]
+    },
+    "claude-code-break-reminder": {
+      "nav": "Claude Code",
+      "title": "Cara menambah pengingat istirahat di Claude Code | vibestretch",
+      "description": "Pasang vibestretch di Claude Code untuk pengingat peregangan dan istirahat mata saat giliran panjang. Instalasi, status line, catatan VS Code dan pengaturan.",
+      "h1": "Cara menambah pengingat istirahat di Claude Code",
+      "lead": "vibestretch adalah plugin Claude Code. Ia memakai tiga hook untuk mengenali giliran panjang dan mengingatkan Anda untuk bergerak.",
+      "blocks": [
+        {
+          "h2": "Instalasi"
+        },
+        {
+          "p": "Jalankan dua perintah ini di dalam Claude Code:"
+        },
+        {
+          "code": "install_claude"
+        },
+        {
+          "p": "Tidak ada dependensi, tidak ada daemon dan tidak ada telemetri. Tidak ada lagi yang perlu dikonfigurasi."
+        },
+        {
+          "h2": "Di mana pengingat muncul"
+        },
+        {
+          "ul": [
+            "Satu baris di sesi.",
+            "Bunyi lembut bawaan.",
+            "Banner notifikasi di Warp, Ghostty, iTerm2, WezTerm dan kitty. Di VS Code perlu ekstensi notifikasi.",
+            "Status line Anda, jika Anda mengaturnya."
+          ]
+        },
+        {
+          "h2": "Tambahkan ke status line"
+        },
+        {
+          "code": "statusline"
+        },
+        {
+          "p": "Perintah ini mencadangkan pengaturan Anda dan membungkus perintah status line yang sudah ada. Jika Anda belum punya, ia memasang versi minimal. Setelah pengingat muncul, latihannya tetap tampil di sana selama 5 menit. Batalkan dengan `/vibestretch:statusline off`. Jalankan `off` sebelum Anda menghapus plugin."
+        },
+        {
+          "h2": "VS Code"
+        },
+        {
+          "p": "Di terminal terintegrasi, baris pengingat, bunyi dan status line semuanya berfungsi. Di panel chat ekstensi, hanya bunyi yang sampai ke Anda. Banner perlu ekstensi notifikasi di kedua tempat. Ini sudah dicek di Claude Code 2.1.234."
+        },
+        {
+          "h2": "Pengaturan"
+        },
+        {
+          "p": "Semua pengaturan adalah variabel lingkungan opsional. Waktu dalam detik."
+        },
+        {
+          "table": "settings"
+        },
+        {
+          "p": "Menjalankan Claude Code secara headless dengan `claude -p` dari skrip? Atur `VIBESTRETCH_DISABLE=1` di sana."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Bagaimana cara menghapus segmen status line?",
+          "a": "Jalankan /vibestretch:statusline off. Lakukan ini sebelum menghapus plugin. Jika tidak, segmennya tetap terkonfigurasi tetapi membeku."
+        },
+        {
+          "q": "Apakah pengingat sampai ke model?",
+          "a": "Tidak. Pengingat adalah systemMessage. Ia ditampilkan kepada Anda dan tidak pernah ditambahkan ke konteks model."
+        },
+        {
+          "q": "Kenapa saya mendengar dua bunyi?",
+          "a": "Beberapa terminal, seperti iTerm2, memutar bunyi sendiri untuk notifikasi. Atur VIBESTRETCH_SOUND=0 agar hanya bunyi terminal yang terdengar."
+        }
+      ]
+    },
+    "codex-cli-break-reminder": {
+      "nav": "Codex CLI",
+      "title": "Cara menambah pengingat istirahat di Codex CLI | vibestretch",
+      "description": "Pasang vibestretch di OpenAI Codex CLI sebagai plugin atau secara manual. Dapatkan baris peregangan dan bunyi saat giliran Codex yang panjang berjalan.",
+      "h1": "Cara menambah pengingat istirahat di Codex CLI",
+      "lead": "vibestretch bisa dipasang di OpenAI Codex CLI dari marketplace plugin. Ia menampilkan baris peregangan dan memutar bunyi saat giliran panjang.",
+      "blocks": [
+        {
+          "h2": "Pasang sebagai plugin"
+        },
+        {
+          "code": "install_codex"
+        },
+        {
+          "p": "Codex tidak menjalankan hook plugin sampai Anda meninjaunya. Buka `/hooks` dan percayai tiga entri vibestretch. Sebelum itu, plugin sudah terpasang tetapi diam."
+        },
+        {
+          "h2": "Pasang secara manual"
+        },
+        {
+          "p": "Clone repositori dan satu file konfigurasi memberi hasil yang sama:"
+        },
+        {
+          "code": "install_codex_manual"
+        },
+        {
+          "p": "Sudah punya `~/.codex/hooks.json`? Gabungkan tiga entri dari file kami ke dalamnya. Jangan menimpa file Anda. Codex meminta Anda memercayai konfigurasi hook baru saat pertama kali berjalan. Permintaan itu memang normal."
+        },
+        {
+          "p": "Pilih satu cara. Jika plugin dan entri manual sama-sama terpasang, setiap hook berjalan dua kali. Jika Anda memasang secara manual sebelum 0.8.0, hapus entri kami dari `~/.codex/hooks.json` saat beralih ke plugin."
+        },
+        {
+          "h2": "Yang Anda dapatkan di Codex"
+        },
+        {
+          "p": "Anda mendapat baris di sesi dan bunyi. Tidak ada banner notifikasi, karena Codex tidak punya field output hook untuk sequence terminal. Tidak ada segmen status line juga. Bar itu tidak bisa diatur dengan skrip di Codex."
+        },
+        {
+          "p": "Penghitungnya dipakai bersama dengan Claude Code dan Gemini CLI. Satu jam menunggu hanya dihitung sekali, agen mana pun yang membuat Anda tetap duduk. Adapter ini sudah dijalankan pada instalasi nyata Codex CLI 0.149.1 di macOS."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Saya sudah memasangnya, tetapi tidak terjadi apa-apa. Kenapa?",
+          "a": "Codex hanya menjalankan hook plugin setelah Anda memercayainya. Buka /hooks dan percayai tiga entri vibestretch."
+        },
+        {
+          "q": "Setiap hook berjalan dua kali. Kenapa?",
+          "a": "Kemungkinan Anda memasang plugin sekaligus entri manual di ~/.codex/hooks.json. Pertahankan salah satunya saja."
+        },
+        {
+          "q": "Bisakah dipakai dengan codex exec?",
+          "a": "Atur VIBESTRETCH_DISABLE=1 di lingkungan tersebut. Proses tanpa pengawasan sebaiknya tidak dihitung sebagai waktu yang Anda jalani."
+        }
+      ]
+    },
+    "gemini-cli-break-reminder": {
+      "nav": "Gemini CLI",
+      "title": "Cara menambah pengingat istirahat di Gemini CLI | vibestretch",
+      "description": "Tambahkan vibestretch ke Gemini CLI dengan tiga hook. Dapatkan baris peregangan dan bunyi saat giliran Gemini yang panjang. Langkah instalasi dan penggabungan.",
+      "h1": "Cara menambah pengingat istirahat di Gemini CLI",
+      "lead": "Gemini CLI sudah mengaktifkan hook secara bawaan sejak v0.26. vibestretch menambahkan tiga hook untuk mengingatkan Anda meregangkan badan saat giliran panjang.",
+      "blocks": [
+        {
+          "h2": "Instalasi"
+        },
+        {
+          "p": "Clone repositorinya:"
+        },
+        {
+          "code": "install_gemini_clone"
+        },
+        {
+          "p": "Lalu salin objek `hooks` dari `~/.gemini/vibestretch/hooks/gemini-hooks.json` ke `~/.gemini/settings.json`. File itu menyimpan seluruh konfigurasi Gemini Anda, jadi gabungkan isinya. Jangan menggantinya. Dengan `jq` cukup satu baris:"
+        },
+        {
+          "code": "install_gemini_merge"
+        },
+        {
+          "h2": "Hook yang dipakai"
+        },
+        {
+          "ul": [
+            "`BeforeAgent`: agen mulai mengerjakan prompt Anda.",
+            "`AfterTool`: sebuah tool selesai. Waktu tunggu ditambahkan, dan pengingat muncul jika sudah waktunya.",
+            "`AfterAgent`: giliran selesai. Penghitungan ditutup."
+          ]
+        },
+        {
+          "h2": "Yang Anda dapatkan di Gemini CLI"
+        },
+        {
+          "p": "Anda mendapat baris di sesi dan bunyi. Tidak ada banner notifikasi. Gemini memakai stdout hook khusus untuk JSON, jadi tidak ada tempat untuk mencetak escape sequence."
+        },
+        {
+          "p": "Adapter ini sudah dijalankan pada instalasi nyata Gemini CLI 0.56.0 di macOS. Penghitungnya dipakai bersama dengan Claude Code dan Codex CLI."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Versi Gemini CLI berapa yang saya perlukan?",
+          "a": "Hook aktif secara bawaan sejak Gemini CLI v0.26."
+        },
+        {
+          "q": "Apakah penggabungan akan menimpa pengaturan saya?",
+          "a": "Perintah jq menggabungkan objek hooks ke settings.json yang sudah ada. Cadangkan file itu dulu jika ingin aman."
+        },
+        {
+          "q": "Bisakah dipakai dengan gemini -p?",
+          "a": "Atur VIBESTRETCH_DISABLE=1 saat Anda menjalankan Gemini dari skrip, cron atau bot."
+        }
+      ]
+    }
+  },
+  "settings_rows": {
+    "VIBESTRETCH_MIN_TURN": "Giliran saat ini harus berjalan paling tidak selama ini.",
+    "VIBESTRETCH_MIN_ACTIVE": "Waktu agen yang dibutuhkan sejak istirahat terakhir.",
+    "VIBESTRETCH_COOLDOWN": "Jeda minimum antar pengingat.",
+    "VIBESTRETCH_AWAY": "Tanpa aktivitas keyboard atau mouse selama ini berarti Anda sedang pergi. Hanya macOS. 0 mematikan fitur ini.",
+    "VIBESTRETCH_DISABLE": "Isi dengan nilai apa saja untuk mematikan pengingat.",
+    "VIBESTRETCH_NOTIFY": "Atur ke 0 untuk menghilangkan notifikasi desktop.",
+    "VIBESTRETCH_SOUND": "Atur ke 0 untuk mematikan suara.",
+    "VIBESTRETCH_EXERCISES": "Path ke daftar latihan Anda sendiri."
+  },
+  "settings_head": [
+    "Variabel",
+    "Bawaan",
+    "Arti"
+  ]
+}

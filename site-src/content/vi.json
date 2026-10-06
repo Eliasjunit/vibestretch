@@ -1,0 +1,471 @@
+{
+  "lang_name": "Tiếng Việt",
+  "ui": {
+    "skip": "Chuyển đến nội dung",
+    "nav_home": "Trang chủ",
+    "nav_label": "Các trang",
+    "languages": "Ngôn ngữ",
+    "breadcrumb_home": "vibestretch",
+    "faq_title": "Câu hỏi thường gặp",
+    "related_title": "Đọc tiếp",
+    "source_link": "Mã nguồn trên GitHub",
+    "footer_license": "vibestretch là phần mềm mã nguồn mở theo giấy phép MIT.",
+    "footer_made": "Do Junit thực hiện.",
+    "breadcrumb_label": "Đường dẫn"
+  },
+  "pages": {
+    "index": {
+      "nav": "Tổng quan",
+      "title": "vibestretch: nhắc giãn cơ khi chờ coding agent làm việc",
+      "description": "vibestretch là công cụ nhắc giãn cơ và nghỉ giải lao miễn phí cho lập trình viên. Nó nhắc bạn vận động khi Claude Code, Codex CLI hay Gemini CLI chạy lâu.",
+      "h1": "Giãn cơ trong lúc coding agent làm việc",
+      "lead": "vibestretch hiển thị một động tác giãn cơ ngắn, một bài tập nhỏ hoặc một lần nghỉ mắt khi một lượt chạy dài của agent khiến bạn phải chờ. Công cụ dùng được với Claude Code, Codex CLI và Gemini CLI.",
+      "blocks": [
+        {
+          "code": "install_claude_cli"
+        },
+        {
+          "p": "Lệnh này cài plugin vào Claude Code. Trang [Codex CLI](@codex-cli-break-reminder) và [Gemini CLI](@gemini-cli-break-reminder) có hướng dẫn cài đặt riêng."
+        },
+        {
+          "h2": "Lời nhắc trông như thế nào"
+        },
+        {
+          "code": "nudge_example"
+        },
+        {
+          "p": "Một dòng xuất hiện trong phiên làm việc. Một tiếng chuông nhẹ vang lên. Ở các terminal có hỗ trợ, một banner thông báo cũng hiện ra."
+        },
+        {
+          "h2": "Khi nào lời nhắc xuất hiện"
+        },
+        {
+          "p": "vibestretch không có lịch cố định. Nó chỉ đếm một thứ: số phút một lượt chạy của agent khiến bạn phải ngồi chờ trước máy. Lời nhắc chỉ xuất hiện khi cả ba điều kiện sau đều đúng:"
+        },
+        {
+          "ol": [
+            "Lượt hiện tại đã chạy từ 2 phút trở lên.",
+            "Tổng thời gian agent kể từ lời nhắc trước đạt từ 5 phút trở lên.",
+            "Lời nhắc trước đã cách đây ít nhất 15 phút."
+          ]
+        },
+        {
+          "p": "Các lượt nhanh không bao giờ kích hoạt nó. Cả một ngày chỉ có lượt ngắn thì không có lời nhắc nào. Không cần tạm hoãn gì cả, vì nó chỉ lên tiếng khi bạn đang chờ sẵn. Đọc thêm tại [nghỉ giãn cơ khi AI coding agent đang chạy](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Bạn nhận được gì"
+        },
+        {
+          "ul": [
+            "Mười hai bài tập có sẵn: giãn cơ, bài tập nhỏ và nghỉ mắt như [20-20-20](@20-20-20-eye-rule-developers).",
+            "Cơ chế xoay vòng không bao giờ lặp lại cùng một bài hai lần liên tiếp.",
+            "Danh sách bài tập của riêng bạn, nếu bạn muốn. Xem [bài tập giãn cơ tại bàn cho lập trình viên](@desk-stretches-programmers).",
+            "Một phần hiển thị tùy chọn trên status line của Claude Code."
+          ]
+        },
+        {
+          "h2": "Quyền riêng tư"
+        },
+        {
+          "p": "vibestretch gồm vài script shell POSIX nhỏ và một file âm thanh đi kèm. Nó không gọi mạng. Nó không gửi dữ liệu telemetry. Nó không hiển thị quảng cáo và không chèn liên kết vào terminal của bạn. Nó không thêm gì vào ngữ cảnh của model. Trạng thái của nó nằm trong `~/.cache/vibestretch/`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "vibestretch là gì?",
+          "a": "vibestretch là plugin cho coding agent. Nó nhắc bạn giãn cơ, vận động hoặc cho mắt nghỉ khi một lượt chạy dài của agent khiến bạn phải chờ."
+        },
+        {
+          "q": "Nó hỗ trợ những coding agent nào?",
+          "a": "Claude Code, OpenAI Codex CLI và Gemini CLI. Cả ba dùng chung một bộ đếm, nên một giờ chờ chỉ được tính một lần, dù agent nào giữ bạn ngồi trên ghế."
+        },
+        {
+          "q": "Đây có phải là bộ hẹn giờ nghỉ giải lao?",
+          "a": "Không. Bộ hẹn giờ chạy theo lịch. vibestretch chỉ đếm thời gian một lượt chạy của agent khiến bạn phải chờ, và chỉ nhắc trong lúc chờ đó."
+        },
+        {
+          "q": "Nó có gửi dữ liệu đi đâu không?",
+          "a": "Không. Nó không gọi mạng và không gửi telemetry. Không có gì rời khỏi máy của bạn."
+        },
+        {
+          "q": "Giá bao nhiêu?",
+          "a": "Đây là phần mềm mã nguồn mở theo giấy phép MIT. Mã nguồn có trên GitHub."
+        },
+        {
+          "q": "Làm sao để tắt nó?",
+          "a": "Đặt VIBESTRETCH_DISABLE với giá trị bất kỳ để tắt lời nhắc. VIBESTRETCH_SOUND=0 tắt âm thanh. VIBESTRETCH_NOTIFY=0 bỏ banner."
+        }
+      ]
+    },
+    "stretch-breaks-ai-coding-agents": {
+      "nav": "Nghỉ khi agent chạy",
+      "title": "Nghỉ giãn cơ khi AI coding agent đang chạy | vibestretch",
+      "description": "Tận dụng những phút chờ coding agent để giãn cơ ngắn. Cách vibestretch đếm thời gian chờ agent và khi nào nó nhắc bạn.",
+      "h1": "Nghỉ giãn cơ khi AI coding agent đang chạy",
+      "lead": "Một coding agent có thể làm việc liền nhiều phút. Bạn ngồi và nhìn. vibestretch biến khoảng chờ đó thành một lần nghỉ ngắn.",
+      "blocks": [
+        {
+          "h2": "Vì sao lúc chờ là thời điểm tốt"
+        },
+        {
+          "p": "Bộ hẹn giờ nghỉ chạy theo lịch. Chúng thường reo đúng lúc bạn đang suy nghĩ, và nhiều người cuối cùng tắt chúng đi. Thời gian agent đang bận thì khác. Đằng nào bạn cũng đang chờ. Giãn cơ trong khoảng đó không làm bạn mất tập trung."
+        },
+        {
+          "h2": "vibestretch đếm những gì"
+        },
+        {
+          "p": "Nó đếm thời gian agent: số phút một lượt của agent chạy trong khi bạn ngồi trước máy. Nó cộng dồn các phút này kể từ lời nhắc gần nhất. Đây không phải là thời gian bạn ngồi ở bàn. Một giờ đọc và gõ phím xen kẽ các lượt nhanh gần như không cộng thêm gì."
+        },
+        {
+          "h2": "Khi nào lời nhắc xuất hiện"
+        },
+        {
+          "p": "Cả ba điều kiện phải đều đúng:"
+        },
+        {
+          "ol": [
+            "Lượt hiện tại đã chạy ít nhất 2 phút.",
+            "Thời gian agent kể từ lời nhắc trước ít nhất 5 phút. Một tác vụ lớn hay vài tác vụ vừa đều được tính.",
+            "Lời nhắc trước đã cách đây ít nhất 15 phút."
+          ]
+        },
+        {
+          "p": "Bạn có thể đổi từng con số bằng biến môi trường. Xem [trang Claude Code](@claude-code-break-reminder) để biết danh sách đầy đủ."
+        },
+        {
+          "h2": "Khi bạn rời khỏi máy"
+        },
+        {
+          "p": "Nếu bạn rời bàn phím từ 45 phút trở lên, bộ đếm được đặt lại. Bạn đã nghỉ rồi. Trên macOS, các hook đọc đồng hồ nhàn rỗi của bàn phím và chuột từ hệ thống. Vì vậy một agent chạy qua đêm không cộng thêm thời gian agent và không bao giờ reo chuông trước một chiếc ghế trống. Linux không có đồng hồ nhàn rỗi dùng chung được, nên ở đó chỉ áp dụng việc đặt lại sau 45 phút."
+        },
+        {
+          "h2": "Lời nhắc yêu cầu bạn làm gì"
+        },
+        {
+          "p": "Mỗi lời nhắc là một bài tập trong danh sách mười hai bài. Danh sách gồm giãn cơ, bài tập nhỏ và nghỉ mắt. Xem [bài tập giãn cơ tại bàn cho lập trình viên](@desk-stretches-programmers) để biết toàn bộ danh sách."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Nó có nhắc tôi trong các lượt ngắn không?",
+          "a": "Không. Một lượt phải chạy ít nhất 2 phút, và thời gian agent phải tích lũy đủ, thì lời nhắc mới có thể xuất hiện."
+        },
+        {
+          "q": "Model nhanh có nghĩa là ít lời nhắc hơn?",
+          "a": "Đúng. Model nhanh hoàn thành lượt trước khi đạt ngưỡng, nên không có gì cần tắt."
+        },
+        {
+          "q": "Còn agent chạy từ script hoặc cron thì sao?",
+          "a": "Đặt VIBESTRETCH_DISABLE=1 trong môi trường đó. Nếu không, các phiên chạy không người giám sát sẽ bị tính là thời gian bạn ngồi chờ, dù bạn không hề ngồi đó."
+        }
+      ]
+    },
+    "20-20-20-eye-rule-developers": {
+      "nav": "Quy tắc 20-20-20",
+      "title": "Quy tắc 20-20-20 cho mắt lập trình viên | vibestretch",
+      "description": "Quy tắc nghỉ mắt 20-20-20 và các bài nghỉ mắt khác có sẵn trong vibestretch, công cụ nhắc nhở chạy trong lúc coding agent làm việc.",
+      "h1": "Quy tắc 20-20-20 cho mắt của lập trình viên",
+      "lead": "Lượt chạy dài của agent đồng nghĩa với việc nhìn màn hình rất lâu. vibestretch có các bài nghỉ mắt trong vòng xoay, và 20-20-20 là một trong số đó.",
+      "blocks": [
+        {
+          "h2": "Bài nghỉ mắt 20-20-20 trong vibestretch"
+        },
+        {
+          "p": "Lời nhắc trông như sau:"
+        },
+        {
+          "code": "nudge_202020"
+        },
+        {
+          "p": "Nhìn vào một vật cách xa 20 feet. Giữ ánh nhìn trong 20 giây. Sau đó quay lại với agent của bạn."
+        },
+        {
+          "h2": "Các bài nghỉ mắt khác trong danh sách"
+        },
+        {
+          "ul": [
+            "Chớp mắt chậm 20 lần.",
+            "Xoa hai lòng bàn tay cho ấm, rồi úp lên mắt đang nhắm trong 20 giây.",
+            "Đứng dậy và đi tới cửa sổ."
+          ]
+        },
+        {
+          "h2": "Khi nào nó nhắc bạn"
+        },
+        {
+          "p": "vibestretch không chạy theo đồng hồ. Nó nhắc bạn khi một lượt chạy dài của agent khiến bạn phải chờ, mặc định tối đa một lần mỗi 15 phút. Các bài nghỉ mắt xuất hiện trong vòng xoay mười hai bài tập. Đọc cách tính thời gian tại [nghỉ giãn cơ khi AI coding agent đang chạy](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Chỉ muốn nghỉ mắt?"
+        },
+        {
+          "p": "Hãy tự viết danh sách chỉ gồm các bài nghỉ mắt bạn thích. Mỗi dòng một bài trong `~/.config/vibestretch/exercises.txt`. Khi đó danh sách có sẵn sẽ không được dùng. Xem ví dụ tại [bài tập giãn cơ tại bàn cho lập trình viên](@desk-stretches-programmers)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "vibestretch có nhắc tôi mỗi 20 phút không?",
+          "a": "Không. Nó không có lịch cố định. Nó chỉ nhắc trong các lượt chạy dài của agent, và khoảng cách mặc định giữa hai lời nhắc là 15 phút."
+        },
+        {
+          "q": "Tôi có thể chỉ nhận bài nghỉ mắt không?",
+          "a": "Có. Ghi các bài tập của bạn vào ~/.config/vibestretch/exercises.txt, mỗi dòng một bài, và vibestretch sẽ dùng danh sách đó thay cho danh sách có sẵn."
+        }
+      ]
+    },
+    "desk-stretches-programmers": {
+      "nav": "Giãn cơ tại bàn",
+      "title": "Bài tập giãn cơ tại bàn cho lập trình viên | vibestretch",
+      "description": "Mười hai bài giãn cơ tại bàn, bài tập nhỏ và nghỉ mắt ngắn cho lập trình viên, cùng cách thay bằng danh sách của riêng bạn trong vibestretch.",
+      "h1": "Bài tập giãn cơ tại bàn cho lập trình viên",
+      "lead": "vibestretch có sẵn mười hai bài tập ngắn. Mỗi bài vừa đủ trong thời gian một lượt chạy của agent. Các bài được xoay vòng, nên bạn không bao giờ gặp cùng một bài hai lần liên tiếp.",
+      "blocks": [
+        {
+          "h2": "Mười hai bài tập có sẵn"
+        },
+        {
+          "ol": [
+            "20-20-20: nhìn vào một vật cách xa 20 feet trong 20 giây.",
+            "Đứng dậy, vươn tay lên trần nhà và giữ 15 giây. Sau đó gập người xuống chạm ngón chân trong 15 giây.",
+            "10 lần squat.",
+            "Xoay cổ chậm, mỗi chiều 5 lần.",
+            "Xoay cổ tay, mỗi chiều 10 lần.",
+            "Chớp mắt chậm 20 lần.",
+            "Ép bả vai 10 lần: siết lại, giữ 3 giây, thả ra.",
+            "Kiểm tra tư thế: tai thẳng với vai, vai thẳng với hông. Giữ nguyên.",
+            "Đứng dậy và đi tới cửa sổ. Mở cửa ra nếu có thể.",
+            "Xoa hai lòng bàn tay cho ấm, rồi úp lên mắt đang nhắm trong 20 giây.",
+            "Xoay hông, mỗi chiều 8 lần.",
+            "Một hơi thở 4-7-8: hít vào 4 nhịp, nín 7 nhịp, thở ra 8 nhịp."
+          ]
+        },
+        {
+          "p": "Bài xoay cổ tay và kiểm tra tư thế dành cho những ai quan tâm đến RSI (chấn thương do lặp lại) và tư thế ngồi trong những ngày dài bên bàn phím. vibestretch là công cụ nhắc nhở. Nó không chẩn đoán hay điều trị bất cứ bệnh gì."
+        },
+        {
+          "h2": "Dùng danh sách của riêng bạn"
+        },
+        {
+          "p": "Ghi mỗi dòng một bài tập vào `~/.config/vibestretch/exercises.txt`. Khi đó mười hai bài có sẵn sẽ không được dùng. Dòng trống và dòng bắt đầu bằng # sẽ bị bỏ qua."
+        },
+        {
+          "code": "custom_list"
+        },
+        {
+          "p": "Đặt `VIBESTRETCH_EXERCISES` thành một đường dẫn khác nếu muốn để file ở nơi khác. Danh sách riêng cho từng dự án cũng làm theo cách đó. Vòng xoay đi qua danh sách của bạn theo thứ tự. Nếu file không có nội dung nào dùng được, công cụ quay lại danh sách có sẵn."
+        }
+      ],
+      "faq": [
+        {
+          "q": "vibestretch có bao nhiêu bài tập?",
+          "a": "Mười hai bài: giãn cơ, bài tập nhỏ và nghỉ mắt. Các bài được xoay vòng nên cùng một bài không bao giờ xuất hiện hai lần liên tiếp."
+        },
+        {
+          "q": "Tôi có thể thêm bài giãn cơ của mình không?",
+          "a": "Có. Ghi mỗi dòng một bài vào ~/.config/vibestretch/exercises.txt. Dấu ngoặc kép và dấu gạch chéo ngược trong nội dung đều dùng được an toàn."
+        }
+      ]
+    },
+    "claude-code-break-reminder": {
+      "nav": "Claude Code",
+      "title": "Cách thêm lời nhắc nghỉ giải lao vào Claude Code | vibestretch",
+      "description": "Cài vibestretch vào Claude Code để được nhắc giãn cơ và nghỉ mắt trong các lượt chạy dài. Cài đặt, status line, lưu ý cho VS Code và cấu hình.",
+      "h1": "Cách thêm lời nhắc nghỉ giải lao vào Claude Code",
+      "lead": "vibestretch là một plugin cho Claude Code. Nó dùng ba hook để nhận biết các lượt chạy dài và nhắc bạn vận động.",
+      "blocks": [
+        {
+          "h2": "Cài đặt"
+        },
+        {
+          "p": "Chạy hai lệnh sau bên trong Claude Code:"
+        },
+        {
+          "code": "install_claude"
+        },
+        {
+          "p": "Không có phụ thuộc, không có daemon và không có telemetry. Không cần cấu hình gì thêm."
+        },
+        {
+          "h2": "Lời nhắc xuất hiện ở đâu"
+        },
+        {
+          "ul": [
+            "Một dòng trong phiên làm việc.",
+            "Một tiếng chuông nhẹ đi kèm.",
+            "Một banner thông báo trong Warp, Ghostty, iTerm2, WezTerm và kitty. Trong VS Code cần có extension thông báo.",
+            "Status line của bạn, nếu bạn đã thiết lập."
+          ]
+        },
+        {
+          "h2": "Thêm vào status line"
+        },
+        {
+          "code": "statusline"
+        },
+        {
+          "p": "Lệnh này sao lưu cấu hình của bạn và bọc lệnh status line hiện có. Nếu bạn chưa có, nó cài một status line tối giản. Sau mỗi lời nhắc, bài tập sẽ hiển thị ở đó trong 5 phút. Hoàn tác bằng `/vibestretch:statusline off`. Hãy chạy `off` trước khi gỡ plugin."
+        },
+        {
+          "h2": "VS Code"
+        },
+        {
+          "p": "Trong terminal tích hợp, dòng nhắc, tiếng chuông và status line đều hoạt động. Trong khung chat của extension, chỉ có tiếng chuông đến được với bạn. Banner cần extension thông báo ở cả hai nơi. Điều này đã được kiểm tra trên Claude Code 2.1.234."
+        },
+        {
+          "h2": "Cấu hình"
+        },
+        {
+          "p": "Mọi cấu hình đều là biến môi trường tùy chọn. Thời gian tính bằng giây."
+        },
+        {
+          "table": "settings"
+        },
+        {
+          "p": "Bạn chạy Claude Code ở chế độ headless với `claude -p` từ một script? Hãy đặt `VIBESTRETCH_DISABLE=1` ở đó."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Làm sao để gỡ phần hiển thị trên status line?",
+          "a": "Chạy /vibestretch:statusline off. Hãy làm việc này trước khi gỡ plugin. Nếu không, phần hiển thị vẫn còn trong cấu hình nhưng bị đứng yên."
+        },
+        {
+          "q": "Lời nhắc có được gửi tới model không?",
+          "a": "Không. Lời nhắc là một systemMessage. Nó chỉ hiển thị cho bạn và không bao giờ được thêm vào ngữ cảnh của model."
+        },
+        {
+          "q": "Vì sao tôi nghe thấy hai âm thanh?",
+          "a": "Một số terminal, như iTerm2, tự phát âm thanh khi có thông báo. Đặt VIBESTRETCH_SOUND=0 để chỉ giữ âm thanh của terminal."
+        }
+      ]
+    },
+    "codex-cli-break-reminder": {
+      "nav": "Codex CLI",
+      "title": "Cách thêm lời nhắc nghỉ giải lao vào Codex CLI | vibestretch",
+      "description": "Cài vibestretch vào OpenAI Codex CLI dưới dạng plugin hoặc cài thủ công. Nhận dòng nhắc giãn cơ và tiếng chuông khi Codex chạy các lượt dài.",
+      "h1": "Cách thêm lời nhắc nghỉ giải lao vào Codex CLI",
+      "lead": "vibestretch cài vào OpenAI Codex CLI từ plugin marketplace. Nó hiển thị một dòng nhắc giãn cơ và phát tiếng chuông trong các lượt chạy dài.",
+      "blocks": [
+        {
+          "h2": "Cài dưới dạng plugin"
+        },
+        {
+          "code": "install_codex"
+        },
+        {
+          "p": "Codex không chạy hook của plugin cho đến khi bạn xem xét chúng. Mở `/hooks` và tin cậy ba mục của vibestretch. Trước đó, plugin đã được cài nhưng im lặng."
+        },
+        {
+          "h2": "Cài thủ công"
+        },
+        {
+          "p": "Một bản clone và một file cấu hình cũng cho kết quả tương tự:"
+        },
+        {
+          "code": "install_codex_manual"
+        },
+        {
+          "p": "Đã có sẵn `~/.codex/hooks.json`? Hãy gộp ba mục từ file của chúng tôi vào đó. Đừng ghi đè file của bạn. Codex sẽ yêu cầu bạn tin cậy cấu hình hook mới trong lần chạy đầu tiên. Lời nhắc đó là bình thường."
+        },
+        {
+          "p": "Chỉ chọn một cách. Nếu cả plugin và các mục cài thủ công cùng tồn tại, mỗi hook sẽ chạy hai lần. Nếu bạn đã cài thủ công trước bản 0.8.0, hãy xóa các mục của chúng tôi khỏi `~/.codex/hooks.json` khi chuyển sang plugin."
+        },
+        {
+          "h2": "Bạn nhận được gì trong Codex"
+        },
+        {
+          "p": "Bạn có dòng nhắc trong phiên làm việc và tiếng chuông. Không có banner thông báo, vì Codex không có trường đầu ra hook nào cho chuỗi điều khiển terminal. Cũng không có phần hiển thị trên status line. Thanh đó không thể tùy biến bằng script trong Codex."
+        },
+        {
+          "p": "Bộ đếm được dùng chung với Claude Code và Gemini CLI. Một giờ chờ chỉ được tính một lần, dù agent nào giữ bạn ngồi trên ghế. Adapter đã được chạy trên một bản cài thực tế của Codex CLI 0.149.1 trên macOS."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Tôi đã cài nhưng không có gì xảy ra. Vì sao?",
+          "a": "Codex chỉ chạy hook của plugin sau khi bạn tin cậy chúng. Mở /hooks và tin cậy ba mục của vibestretch."
+        },
+        {
+          "q": "Mỗi hook chạy hai lần. Vì sao?",
+          "a": "Có thể bạn đang có cả plugin lẫn các mục cài thủ công trong ~/.codex/hooks.json. Chỉ giữ lại một trong hai."
+        },
+        {
+          "q": "Tôi có thể dùng nó với codex exec không?",
+          "a": "Đặt VIBESTRETCH_DISABLE=1 trong môi trường đó. Các lần chạy không người giám sát không nên được tính là thời gian bạn ngồi chờ."
+        }
+      ]
+    },
+    "gemini-cli-break-reminder": {
+      "nav": "Gemini CLI",
+      "title": "Cách thêm lời nhắc nghỉ giải lao vào Gemini CLI | vibestretch",
+      "description": "Thêm vibestretch vào Gemini CLI bằng ba hook. Nhận dòng nhắc giãn cơ và tiếng chuông trong các lượt chạy dài của Gemini. Các bước cài đặt và gộp cấu hình.",
+      "h1": "Cách thêm lời nhắc nghỉ giải lao vào Gemini CLI",
+      "lead": "Gemini CLI bật sẵn hook từ bản v0.26. vibestretch thêm ba hook để nhắc bạn giãn cơ trong các lượt chạy dài.",
+      "blocks": [
+        {
+          "h2": "Cài đặt"
+        },
+        {
+          "p": "Clone repository:"
+        },
+        {
+          "code": "install_gemini_clone"
+        },
+        {
+          "p": "Sau đó chép đối tượng `hooks` từ `~/.gemini/vibestretch/hooks/gemini-hooks.json` vào `~/.gemini/settings.json`. File đó chứa toàn bộ cấu hình Gemini của bạn, nên hãy gộp vào. Đừng thay thế nó. Với `jq` chỉ cần một dòng:"
+        },
+        {
+          "code": "install_gemini_merge"
+        },
+        {
+          "h2": "Các hook được sử dụng"
+        },
+        {
+          "ul": [
+            "`BeforeAgent`: agent bắt đầu xử lý prompt của bạn.",
+            "`AfterTool`: một tool đã chạy xong. Thời gian chờ được cộng thêm, và lời nhắc xuất hiện nếu đã đến lúc.",
+            "`AfterAgent`: lượt chạy kết thúc. Việc tính thời gian được chốt lại."
+          ]
+        },
+        {
+          "h2": "Bạn nhận được gì trong Gemini CLI"
+        },
+        {
+          "p": "Bạn có dòng nhắc trong phiên làm việc và tiếng chuông. Không có banner thông báo. Gemini dành stdout của hook chỉ cho JSON, nên không có chỗ để in escape sequence."
+        },
+        {
+          "p": "Adapter đã được chạy trên một bản cài thực tế của Gemini CLI 0.56.0 trên macOS. Bộ đếm được dùng chung với Claude Code và Codex CLI."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Tôi cần Gemini CLI phiên bản nào?",
+          "a": "Hook được bật sẵn từ Gemini CLI v0.26."
+        },
+        {
+          "q": "Việc gộp có ghi đè cấu hình của tôi không?",
+          "a": "Lệnh jq gộp đối tượng hooks vào file settings.json hiện có. Hãy sao lưu file trước nếu muốn chắc chắn an toàn."
+        },
+        {
+          "q": "Tôi có thể dùng nó với gemini -p không?",
+          "a": "Đặt VIBESTRETCH_DISABLE=1 khi bạn chạy Gemini từ script, cron hoặc bot."
+        }
+      ]
+    }
+  },
+  "settings_rows": {
+    "VIBESTRETCH_MIN_TURN": "Lượt hiện tại phải chạy ít nhất trong khoảng thời gian này.",
+    "VIBESTRETCH_MIN_ACTIVE": "Thời gian agent cần có kể từ lần nghỉ trước.",
+    "VIBESTRETCH_COOLDOWN": "Khoảng cách tối thiểu giữa hai lời nhắc.",
+    "VIBESTRETCH_AWAY": "Không dùng bàn phím hay chuột trong khoảng này nghĩa là bạn đã rời máy. Chỉ trên macOS. 0 tắt cơ chế này.",
+    "VIBESTRETCH_DISABLE": "Đặt giá trị bất kỳ để tắt lời nhắc.",
+    "VIBESTRETCH_NOTIFY": "Đặt thành 0 để bỏ thông báo trên desktop.",
+    "VIBESTRETCH_SOUND": "Đặt thành 0 để tắt âm thanh.",
+    "VIBESTRETCH_EXERCISES": "Đường dẫn tới danh sách bài tập của riêng bạn."
+  },
+  "settings_head": [
+    "Biến",
+    "Mặc định",
+    "Ý nghĩa"
+  ]
+}

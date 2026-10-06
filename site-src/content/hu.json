@@ -1,0 +1,471 @@
+{
+  "lang_name": "Magyar",
+  "ui": {
+    "skip": "Ugrás a tartalomhoz",
+    "nav_home": "Kezdőlap",
+    "nav_label": "Oldalak",
+    "languages": "Nyelv",
+    "breadcrumb_home": "vibestretch",
+    "faq_title": "GYIK",
+    "related_title": "Olvasd el ezt is",
+    "source_link": "Forráskód a GitHubon",
+    "footer_license": "A vibestretch nyílt forráskódú, MIT licenc alatt.",
+    "footer_made": "Készítette: Junit.",
+    "breadcrumb_label": "Morzsamenü"
+  },
+  "pages": {
+    "index": {
+      "nav": "Áttekintés",
+      "title": "vibestretch: nyújtás emlékeztető, amíg a kódoló AI dolgozik",
+      "description": "A vibestretch ingyenes nyújtás- és szünetemlékeztető fejlesztőknek. Mozgásra emlékeztet, amíg a Claude Code, a Codex CLI vagy a Gemini CLI hosszan fut.",
+      "h1": "Nyújts, amíg a kódoló ügynököd dolgozik",
+      "lead": "A vibestretch egy rövid nyújtást, mini edzést vagy szemszünetet mutat, amíg egy hosszú ügynökfutás miatt várnod kell. A Claude Code, a Codex CLI és a Gemini CLI mellett működik.",
+      "blocks": [
+        {
+          "code": "install_claude_cli"
+        },
+        {
+          "p": "Ez telepíti a bővítményt a Claude Code-ba. A [Codex CLI](@codex-cli-break-reminder) és a [Gemini CLI](@gemini-cli-break-reminder) oldalán megtalálod a telepítés lépéseit."
+        },
+        {
+          "h2": "Így néz ki egy emlékeztető"
+        },
+        {
+          "code": "nudge_example"
+        },
+        {
+          "p": "A munkamenetben megjelenik egy sor. Halk hangjelzés szól. Az ezt támogató terminálokban értesítési banner is felugrik."
+        },
+        {
+          "h2": "Hogyan dönti el, mikor szóljon"
+        },
+        {
+          "p": "A vibestretch nem ütemezés szerint működik. Egyetlen dolgot számol: azokat a perceket, amikor egy ügynökfutás miatt a gépnél vártál. Emlékeztető csak akkor jön, ha mindhárom feltétel teljesül:"
+        },
+        {
+          "ol": [
+            "Az aktuális futás legalább 2 perce tart.",
+            "Az utolsó emlékeztető óta összesen legalább 5 perc ügynökidő gyűlt össze.",
+            "Az utolsó emlékeztető legalább 15 perce volt."
+          ]
+        },
+        {
+          "p": "A gyors futások sosem indítják el. Egy rövid futásokkal teli napon egyáltalán nem szól. Nincs mit szundiztatni, mert csak akkor szól, amikor amúgy is vársz. Bővebben: [nyújtószünetek, amíg az AI kódoló ügynökök futnak](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Mit kapsz"
+        },
+        {
+          "ul": [
+            "Tizenkét beépített gyakorlat: nyújtások, mini edzések és szemszünetek, például a [20-20-20](@20-20-20-eye-rule-developers).",
+            "Váltakozó sorrend, amely sosem ismétli ugyanazt a gyakorlatot kétszer egymás után.",
+            "Saját gyakorlatlista, ha azt szeretnéd. Lásd: [irodai nyújtógyakorlatok programozóknak](@desk-stretches-programmers).",
+            "Opcionális állapotsor-elem a Claude Code-ban."
+          ]
+        },
+        {
+          "h2": "Adatvédelem"
+        },
+        {
+          "p": "A vibestretch néhány kis POSIX shell szkriptből és egy mellékelt hangfájlból áll. Nem kommunikál a hálózaton. Nem küld telemetriát. Nem jelenít meg hirdetést, és nem tesz linkeket a terminálodba. Semmit nem ad a modell kontextusához. Az állapotát a `~/.cache/vibestretch/` mappában tárolja."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Mi a vibestretch?",
+          "a": "A vibestretch bővítmény kódoló ügynökökhöz. Emlékeztet, hogy nyújts, mozogj vagy pihentesd a szemed, amíg egy hosszú ügynökfutás miatt várnod kell."
+        },
+        {
+          "q": "Mely kódoló ügynököket támogatja?",
+          "a": "Claude Code, OpenAI Codex CLI és Gemini CLI. Mindhárom ugyanazt a számlálót használja, így egy óra várakozás egyszer számít, bármelyik ügynök tartott is a széken."
+        },
+        {
+          "q": "Ez egy szünetidőzítő?",
+          "a": "Nem. Egy időzítő ütemezés szerint fut. A vibestretch csak azt az időt számolja, amíg egy ügynökfutás miatt vártál, és csak ez alatt a várakozás alatt szól."
+        },
+        {
+          "q": "Küld valahova adatot?",
+          "a": "Nem. Nem kommunikál a hálózaton, és nem küld telemetriát. Semmi nem hagyja el a gépedet."
+        },
+        {
+          "q": "Mennyibe kerül?",
+          "a": "Nyílt forráskódú, MIT licenc alatt. A kód a GitHubon van."
+        },
+        {
+          "q": "Hogyan némíthatom el?",
+          "a": "Állítsd a VIBESTRETCH_DISABLE változót bármilyen értékre, és az emlékeztetők elnémulnak. A VIBESTRETCH_SOUND=0 elnémítja a hangot. A VIBESTRETCH_NOTIFY=0 kikapcsolja a bannert."
+        }
+      ]
+    },
+    "stretch-breaks-ai-coding-agents": {
+      "nav": "Szünetek ügynökfutás közben",
+      "title": "Nyújtószünetek, amíg az AI kódoló ügynök fut | vibestretch",
+      "description": "Használd a perceket, amíg a kódoló ügynökre vársz, egy rövid nyújtásra. Így számolja a vibestretch a várakozási időt, és így dönti el, mikor szóljon.",
+      "h1": "Nyújtószünetek, amíg az AI kódoló ügynökök futnak",
+      "lead": "Egy kódoló ügynök percekig is dolgozhat egyhuzamban. Te ülsz és nézed. A vibestretch ebből a várakozásból rövid szünetet csinál.",
+      "blocks": [
+        {
+          "h2": "Miért jó pillanat a várakozás"
+        },
+        {
+          "p": "A szünetidőzítők ütemezés szerint szólalnak meg. Gyakran egy gondolat közepén jönnek, és sokan végül kikapcsolják őket. Az az idő, amíg az ügynök dolgozik, más. Úgyis vársz. Egy nyújtás ebben a résben nem vesz el a koncentrációdból."
+        },
+        {
+          "h2": "Mit számol a vibestretch"
+        },
+        {
+          "p": "Ügynökidőt számol: azokat a perceket, amikor egy ügynökfutás zajlott, és te a gépnél voltál. Ezeket az utolsó emlékeztető óta összeadja. Ez nem azonos azzal, mennyi ideje ülsz az asztalnál. Egy óra olvasás és gépelés, közben gyors futásokkal, szinte semmit nem ad hozzá."
+        },
+        {
+          "h2": "Mikor jön emlékeztető"
+        },
+        {
+          "p": "Mindhárom feltételnek teljesülnie kell:"
+        },
+        {
+          "ol": [
+            "Az aktuális futás legalább 2 perce tart.",
+            "Az utolsó emlékeztető óta legalább 5 perc ügynökidő gyűlt össze. Egy nagy feladat vagy több közepes is beleszámít.",
+            "Az utolsó emlékeztető legalább 15 perce volt."
+          ]
+        },
+        {
+          "p": "Mindegyik számot módosíthatod egy környezeti változóval. A teljes listát a [Claude Code oldalon](@claude-code-break-reminder) találod."
+        },
+        {
+          "h2": "Ha felállsz a géptől"
+        },
+        {
+          "p": "Ha legalább 45 percig nem vagy a billentyűzetnél, a felgyűlt idő nullázódik. A szünetedet már megtartottad. macOS-en a hookok a rendszer billentyűzet- és egértétlenségi óráját olvassák. Így egy éjszaka dolgozó ügynök nem gyűjt ügynökidőt, és sosem csilingel egy üres széknek. Linuxon nincs hordozható tétlenségi óra, ezért ott csak a 45 perces nullázás érvényes."
+        },
+        {
+          "h2": "Mire kér az emlékeztető"
+        },
+        {
+          "p": "Minden emlékeztető egy gyakorlat egy tizenkét elemű listából. Vannak köztük nyújtások, mini edzések és szemszünetek. A teljes lista itt található: [irodai nyújtógyakorlatok programozóknak](@desk-stretches-programmers)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Szól rövid futások alatt is?",
+          "a": "Nem. Egy futásnak legalább 2 percig tartania kell, és elég ügynökidőnek kell összegyűlnie, mielőtt emlékeztető jöhet."
+        },
+        {
+          "q": "Gyors modell mellett kevesebb az emlékeztető?",
+          "a": "Igen. A gyors modellek a küszöbök elérése előtt befejezik a futást, így nincs mit elnémítani."
+        },
+        {
+          "q": "Mi a helyzet a szkriptből vagy cronból futtatott ügynökökkel?",
+          "a": "Abban a környezetben állítsd be: VIBESTRETCH_DISABLE=1. Különben a felügyelet nélküli munkamenetek olyan időnek számítanak, amit végig sem ültél."
+        }
+      ]
+    },
+    "20-20-20-eye-rule-developers": {
+      "nav": "20-20-20 szabály",
+      "title": "20-20-20 szabály a szemnek fejlesztőknek | vibestretch",
+      "description": "A 20-20-20 szemszünet és a vibestretch többi beépített szemszünete. Egy emlékeztető, amely akkor szól, amikor a kódoló ügynököd dolgozik.",
+      "h1": "A 20-20-20 szabály fejlesztőknek",
+      "lead": "A hosszú ügynökfutások hosszú képernyőbámulást jelentenek. A vibestretch váltakozó gyakorlatai között szemszünetek is vannak, és a 20-20-20 is köztük van.",
+      "blocks": [
+        {
+          "h2": "A 20-20-20 szünet a vibestretchben"
+        },
+        {
+          "p": "Így szól az emlékeztető:"
+        },
+        {
+          "code": "nudge_202020"
+        },
+        {
+          "p": "Nézz valamit, ami 20 láb távolságra van. Nézd 20 másodpercig. Aztán térj vissza az ügynöködhöz."
+        },
+        {
+          "h2": "További szemszünetek a listán"
+        },
+        {
+          "ul": [
+            "Pislogj lassan 20-szor.",
+            "Dörzsöld melegre a tenyered, aztán borítsd a csukott szemedre 20 másodpercre.",
+            "Állj fel, és sétálj egy ablakhoz."
+          ]
+        },
+        {
+          "h2": "Mikor emlékeztet"
+        },
+        {
+          "p": "A vibestretch nem óra szerint működik. Akkor emlékeztet, amikor egy hosszú ügynökfutás miatt vársz, alapértelmezés szerint legfeljebb 15 percenként egyszer. A szemszünetek a tizenkét gyakorlat váltakozásának részeként jönnek elő. Az időzítésről itt olvashatsz: [nyújtószünetek, amíg az AI kódoló ügynökök futnak](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Csak szemszüneteket szeretnél?"
+        },
+        {
+          "p": "Írj saját listát, csak a kedvenc szemszüneteiddel. Soronként egy gyakorlat a `~/.config/vibestretch/exercises.txt` fájlban. A beépített lista ilyenkor háttérbe lép. Példát itt találsz: [irodai nyújtógyakorlatok programozóknak](@desk-stretches-programmers)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "20 percenként emlékeztet a vibestretch?",
+          "a": "Nem. Nincs fix ütemezése. Csak hosszú ügynökfutások alatt emlékeztet, és két emlékeztető között alapértelmezésben 15 perc a várakozási idő."
+        },
+        {
+          "q": "Kaphatok csak szemszüneteket?",
+          "a": "Igen. Tedd a saját gyakorlataidat a ~/.config/vibestretch/exercises.txt fájlba, soronként egyet, és a vibestretch a beépített helyett azt a listát használja."
+        }
+      ]
+    },
+    "desk-stretches-programmers": {
+      "nav": "Irodai nyújtás",
+      "title": "Irodai nyújtógyakorlatok programozóknak: a vibestretch listája",
+      "description": "Tizenkét rövid irodai nyújtógyakorlat, mini edzés és szemszünet programozóknak, és hogyan cserélheted le őket saját listára a vibestretchben.",
+      "h1": "Irodai nyújtógyakorlatok programozóknak",
+      "lead": "A vibestretch tizenkét rövid gyakorlatot tartalmaz. Mindegyik belefér egy ügynökfutás idejébe. Váltakoznak, így sosem kapod ugyanazt kétszer egymás után.",
+      "blocks": [
+        {
+          "h2": "A tizenkét beépített gyakorlat"
+        },
+        {
+          "ol": [
+            "20-20-20: nézz 20 másodpercig valamit, ami 20 láb távolságra van.",
+            "Állj fel, nyújtózkodj a plafon felé, és tartsd 15 másodpercig. Aztán hajolj le a lábujjaidig 15 másodpercre.",
+            "10 guggolás.",
+            "Lassú nyakkörzés, mindkét irányba 5.",
+            "Csuklókörzés, mindkét irányba 10.",
+            "Pislogj lassan 20-szor.",
+            "Lapockazárás 10-szer: húzd össze, tartsd 3 másodpercig, engedd el.",
+            "Testtartás-ellenőrzés: fül a váll fölött, váll a csípő fölött. Tartsd meg.",
+            "Állj fel, és sétálj egy ablakhoz. Nyisd ki, ha lehet.",
+            "Dörzsöld melegre a tenyered, aztán borítsd a csukott szemedre 20 másodpercre.",
+            "Csípőkörzés, mindkét irányba 8.",
+            "Egy 4-7-8 légzés: be 4-ig, tartsd bent 7-ig, ki 8-ig."
+          ]
+        },
+        {
+          "p": "A csuklókörzés és a testtartás-ellenőrzés azoknak szól, akik a billentyűzetnél töltött hosszú napokon gondolnak az RSI-re (ismétlődő terhelés okozta sérülés) és a testtartásukra. A vibestretch egy emlékeztető. Semmit nem diagnosztizál és nem kezel."
+        },
+        {
+          "h2": "Használd a saját listádat"
+        },
+        {
+          "p": "Írj soronként egy gyakorlatot a `~/.config/vibestretch/exercises.txt` fájlba. A beépített tizenkettő ilyenkor háttérbe lép. Az üres sorokat és a #-tel kezdődő sorokat kihagyja."
+        },
+        {
+          "code": "custom_list"
+        },
+        {
+          "p": "Ha máshol szeretnéd tartani a fájlt, állítsd a `VIBESTRETCH_EXERCISES` változót egy másik útvonalra. Így projektenként külön lista is használható. A váltakozás sorban végigmegy a listádon. Ha a fájlban nincs semmi használható, a beépített lista lép életbe."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Hány gyakorlatot tartalmaz a vibestretch?",
+          "a": "Tizenkettőt: nyújtásokat, mini edzéseket és szemszüneteket. Váltakoznak, így ugyanaz sosem jön kétszer egymás után."
+        },
+        {
+          "q": "Hozzáadhatok saját nyújtógyakorlatokat?",
+          "a": "Igen. Írd őket soronként egyet a ~/.config/vibestretch/exercises.txt fájlba. Idézőjelek és fordított perjelek nyugodtan szerepelhetnek a szövegben."
+        }
+      ]
+    },
+    "claude-code-break-reminder": {
+      "nav": "Claude Code",
+      "title": "Hogyan adj szünetemlékeztetőt a Claude Code-hoz | vibestretch",
+      "description": "Telepítsd a vibestretchet a Claude Code-ba, és kapj nyújtás- és szemszünet-emlékeztetőt a hosszú futások alatt. Telepítés, állapotsor, VS Code, beállítások.",
+      "h1": "Hogyan adj szünetemlékeztetőt a Claude Code-hoz",
+      "lead": "A vibestretch egy Claude Code bővítmény. Három hookkal észleli a hosszú futásokat, és mozgásra emlékeztet.",
+      "blocks": [
+        {
+          "h2": "Telepítés"
+        },
+        {
+          "p": "Futtasd ezt a két parancsot a Claude Code-ban:"
+        },
+        {
+          "code": "install_claude"
+        },
+        {
+          "p": "Nincsenek függőségek, nincs háttérfolyamat és nincs telemetria. Mást nem kell beállítani."
+        },
+        {
+          "h2": "Hol jelenik meg az emlékeztető"
+        },
+        {
+          "ul": [
+            "Egy sorként a munkamenetben.",
+            "Egy halk, mellékelt hangjelzésként.",
+            "Értesítési bannerként a Warp, Ghostty, iTerm2, WezTerm és kitty terminálokban. A VS Code-ban ehhez értesítő bővítmény kell.",
+            "Az állapotsorodban, ha beállítod."
+          ]
+        },
+        {
+          "h2": "Add hozzá az állapotsorhoz"
+        },
+        {
+          "code": "statusline"
+        },
+        {
+          "p": "Ez a parancs biztonsági mentést készít a beállításaidról, és becsomagolja a meglévő állapotsor-parancsodat. Ha nincs ilyen, telepít egy minimálisat. Egy emlékeztető után a gyakorlat 5 percig ott marad. Visszavonni a `/vibestretch:statusline off` paranccsal tudod. Az `off` parancsot a bővítmény eltávolítása előtt futtasd."
+        },
+        {
+          "h2": "VS Code"
+        },
+        {
+          "p": "Az integrált terminálban a sor, a hangjelzés és az állapotsor is működik. A bővítmény csevegőpaneljén csak a hangjelzés jut el hozzád. A bannerhez mindkét helyen értesítő bővítmény kell. Ezt a Claude Code 2.1.234 verzión ellenőriztük."
+        },
+        {
+          "h2": "Beállítások"
+        },
+        {
+          "p": "Minden beállítás opcionális környezeti változó. Az idők másodpercben értendők."
+        },
+        {
+          "table": "settings"
+        },
+        {
+          "p": "Szkriptből, felület nélkül futtatod a Claude Code-ot a `claude -p` paranccsal? Ott állítsd be: `VIBESTRETCH_DISABLE=1`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Hogyan távolítom el az állapotsor-elemet?",
+          "a": "Futtasd: /vibestretch:statusline off. Ezt a bővítmény eltávolítása előtt tedd meg, különben az elem beállítva marad, de lefagy."
+        },
+        {
+          "q": "Eljut az emlékeztető a modellhez?",
+          "a": "Nem. Az emlékeztető egy systemMessage. Neked jelenik meg, és sosem kerül a modell kontextusába."
+        },
+        {
+          "q": "Miért hallok két hangot?",
+          "a": "Egyes terminálok, például az iTerm2, saját hangot játszanak le az értesítésekhez. Állítsd be a VIBESTRETCH_SOUND=0 értéket, hogy csak a terminál hangja maradjon."
+        }
+      ]
+    },
+    "codex-cli-break-reminder": {
+      "nav": "Codex CLI",
+      "title": "Hogyan adj szünetemlékeztetőt a Codex CLI-hoz | vibestretch",
+      "description": "Telepítsd a vibestretchet az OpenAI Codex CLI-ba bővítményként vagy kézzel. Nyújtásos sort és hangjelzést kapsz, amíg a hosszú Codex-futások zajlanak.",
+      "h1": "Hogyan adj szünetemlékeztetőt a Codex CLI-hoz",
+      "lead": "A vibestretch a bővítménypiactérről települ az OpenAI Codex CLI-ba. Hosszú futások alatt nyújtásos sort mutat és hangjelzést ad.",
+      "blocks": [
+        {
+          "h2": "Telepítés bővítményként"
+        },
+        {
+          "code": "install_codex"
+        },
+        {
+          "p": "A Codex addig nem futtatja egy bővítmény hookjait, amíg át nem nézed őket. Nyisd meg a `/hooks` menüt, és jelöld megbízhatónak a három vibestretch bejegyzést. Addig a bővítmény telepítve van, de néma."
+        },
+        {
+          "h2": "Telepítés kézzel"
+        },
+        {
+          "p": "Egy klón és egy konfigurációs fájl ugyanezt elvégzi:"
+        },
+        {
+          "code": "install_codex_manual"
+        },
+        {
+          "p": "Már van `~/.codex/hooks.json` fájlod? Fésüld bele a mi fájlunk három bejegyzését. Ne írd felül a sajátodat. A Codex az első futáskor megkér, hogy bízz meg az új hook-konfigurációban. Ez a kérdés várható."
+        },
+        {
+          "p": "Válassz egy módszert. Ha a bővítmény és a kézi bejegyzések is megvannak, minden hook kétszer fut. Ha 0.8.0 előtt kézzel telepítetted, a bővítményre váltáskor töröld a bejegyzéseinket a `~/.codex/hooks.json` fájlból."
+        },
+        {
+          "h2": "Mit kapsz a Codexben"
+        },
+        {
+          "p": "Megkapod a sort a munkamenetben és a hangjelzést. Értesítési banner nincs, mert a Codexben nincs olyan hook-kimeneti mező, amely terminálszekvenciát fogadna. Állapotsor-elem sincs. Ez a sáv a Codexben nem szkriptelhető."
+        },
+        {
+          "p": "A számláló közös a Claude Code-dal és a Gemini CLI-jal. Egy óra várakozás egyszer számít, bármelyik ügynök tartott is a széken. Az adaptert egy valódi Codex CLI 0.149.1 telepítésen futtattuk macOS-en."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Telepítettem, de semmi nem történik. Miért?",
+          "a": "A Codex csak akkor futtatja egy bővítmény hookjait, ha megbíztál bennük. Nyisd meg a /hooks menüt, és bízz meg a három vibestretch bejegyzésben."
+        },
+        {
+          "q": "Minden hook kétszer fut. Miért?",
+          "a": "Valószínűleg a bővítmény és kézi bejegyzések is szerepelnek a ~/.codex/hooks.json fájlban. A kettő közül csak az egyiket tartsd meg."
+        },
+        {
+          "q": "Használhatom a codex exec paranccsal?",
+          "a": "Abban a környezetben állítsd be: VIBESTRETCH_DISABLE=1. A felügyelet nélküli futások ne számítsanak olyan időnek, amit végigültél."
+        }
+      ]
+    },
+    "gemini-cli-break-reminder": {
+      "nav": "Gemini CLI",
+      "title": "Hogyan adj szünetemlékeztetőt a Gemini CLI-hoz | vibestretch",
+      "description": "Add hozzá a vibestretchet a Gemini CLI-hoz három hookkal. Nyújtásos sort és hangjelzést kapsz a hosszú Gemini-futások alatt. Telepítés és összefésülés.",
+      "h1": "Hogyan adj szünetemlékeztetőt a Gemini CLI-hoz",
+      "lead": "A Gemini CLI a v0.26 óta bekapcsolt hookokkal érkezik. A vibestretch hármat ad hozzá, hogy a hosszú futások alatt nyújtásra emlékeztessen.",
+      "blocks": [
+        {
+          "h2": "Telepítés"
+        },
+        {
+          "p": "Klónozd a tárolót:"
+        },
+        {
+          "code": "install_gemini_clone"
+        },
+        {
+          "p": "Ezután másold át a `hooks` objektumot a `~/.gemini/vibestretch/hooks/gemini-hooks.json` fájlból a `~/.gemini/settings.json` fájlba. Ez a fájl a teljes Gemini-konfigurációdat tartalmazza, ezért fésüld össze. Ne cseréld le. A `jq` eszközzel ez egy sor:"
+        },
+        {
+          "code": "install_gemini_merge"
+        },
+        {
+          "h2": "Milyen hookokat használ"
+        },
+        {
+          "ul": [
+            "`BeforeAgent`: az ügynök elkezd dolgozni a promptodon.",
+            "`AfterTool`: egy eszköz végzett. A várakozási idő hozzáadódik, és ha esedékes, jön az emlékeztető.",
+            "`AfterAgent`: a futás véget ért. Az elszámolás lezárul."
+          ]
+        },
+        {
+          "h2": "Mit kapsz a Gemini CLI-ban"
+        },
+        {
+          "p": "Megkapod a sort a munkamenetben és a hangjelzést. Értesítési banner nincs. A Gemini a hook stdout kimenetét kizárólag JSON számára tartja fenn, így nincs hova kiírni egy escape-szekvenciát."
+        },
+        {
+          "p": "Az adaptert egy valódi Gemini CLI 0.56.0 telepítésen futtattuk macOS-en. A számláló közös a Claude Code-dal és a Codex CLI-jal."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Melyik Gemini CLI verzió kell?",
+          "a": "A hookok a Gemini CLI v0.26 óta bekapcsolva érkeznek."
+        },
+        {
+          "q": "Felülírja az összefésülés a beállításaimat?",
+          "a": "A jq parancs a hooks objektumot a meglévő settings.json fájlodba fésüli. Ha biztosra akarsz menni, előbb készíts mentést a fájlról."
+        },
+        {
+          "q": "Használhatom a gemini -p paranccsal?",
+          "a": "Állítsd be a VIBESTRETCH_DISABLE=1 értéket, amikor szkriptből, cronból vagy botból futtatod a Geminit."
+        }
+      ]
+    }
+  },
+  "settings_rows": {
+    "VIBESTRETCH_MIN_TURN": "Az aktuális futásnak legalább ennyi ideig kell tartania.",
+    "VIBESTRETCH_MIN_ACTIVE": "Szükséges ügynökidő az utolsó szünet óta.",
+    "VIBESTRETCH_COOLDOWN": "Minimális idő két emlékeztető között.",
+    "VIBESTRETCH_AWAY": "Ha ennyi ideig nincs billentyűzet- vagy egérhasználat, távol vagy. Csak macOS. A 0 kikapcsolja ezt a védelmet.",
+    "VIBESTRETCH_DISABLE": "Bármilyen értékre állítva elnémítja az emlékeztetőket.",
+    "VIBESTRETCH_NOTIFY": "0 értékkel kikapcsolja az asztali értesítést.",
+    "VIBESTRETCH_SOUND": "0 értékkel elnémítja a hangot.",
+    "VIBESTRETCH_EXERCISES": "A saját gyakorlatlistád útvonala."
+  },
+  "settings_head": [
+    "Változó",
+    "Alapérték",
+    "Jelentés"
+  ]
+}

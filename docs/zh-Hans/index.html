@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vibestretch：编程智能体等待时的拉伸提醒</title>
+<meta name="description" content="vibestretch 是一款免费的开发者拉伸和休息提醒工具。Claude Code、Codex CLI 或 Gemini CLI 长时间运行时，它会提醒你起身活动。">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/zh-Hans/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="vibestretch：编程智能体等待时的拉伸提醒">
+<meta property="og:description" content="vibestretch 是一款免费的开发者拉伸和休息提醒工具。Claude Code、Codex CLI 或 Gemini CLI 长时间运行时，它会提醒你起身活动。">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/zh-Hans/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta property="og:locale:alternate" content="ms_MY">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch 是一款免费的开发者拉伸和休息提醒工具。Claude Code、Codex CLI 或 Gemini CLI 长时间运行时，它会提醒你起身活动。",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/zh-Hans/",
+   "name": "vibestretch：编程智能体等待时的拉伸提醒",
+   "description": "vibestretch 是一款免费的开发者拉伸和休息提醒工具。Claude Code、Codex CLI 或 Gemini CLI 长时间运行时，它会提醒你起身活动。",
+   "inLanguage": "zh-Hans",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/zh-Hans/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/zh-Hans/",
+   "inLanguage": "zh-Hans",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "vibestretch 是什么？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "vibestretch 是一款编程智能体插件。智能体的一轮长任务让你等待时，它会提醒你拉伸、活动一下或让眼睛休息。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "它支持哪些编程智能体？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Claude Code、OpenAI Codex CLI 和 Gemini CLI。三者共用同一个计数器。无论是哪个智能体让你坐在椅子上，一小时的等待只计一次。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "它是休息计时器吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不是。计时器按固定时间表运行。vibestretch 只统计智能体任务让你等待的时间，也只在等待期间提醒你。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "它会把数据发送到别处吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不会。它不发起网络请求，也不发送遥测数据。任何数据都不会离开你的电脑。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "它要多少钱？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "它是开源软件，采用 MIT 许可证。代码托管在 GitHub 上。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "如何让它静音？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "将 VIBESTRETCH_DISABLE 设为任意值，即可关闭提醒。VIBESTRETCH_SOUND=0 关闭声音。VIBESTRETCH_NOTIFY=0 关闭通知横幅。"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../zh-Hans/"><img src="../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>语言: 简体中文</summary><ul><li><a href="../" hreflang="en" lang="en">English</a></li><li><a href="../es/" hreflang="es" lang="es">Español</a></li><li><a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../it/" hreflang="it" lang="it">Italiano</a></li><li><a href="../ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../uk/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../sv/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../da/" hreflang="da" lang="da">Dansk</a></li><li><a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../cs/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="../ro/" hreflang="ro" lang="ro">Română</a></li><li><a href="../hu/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../el/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../ko/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">简体中文</a></li><li><a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../th/" hreflang="th" lang="th">ไทย</a></li><li><a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a></li><li><a href="../ms/" hreflang="ms" lang="ms">Bahasa Melayu</a></li><li><a href="../hi/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../ar/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../he/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="页面"><ul><li><a href="../zh-Hans/" aria-current="page">概览</a></li><li><a href="../zh-Hans/stretch-breaks-ai-coding-agents/">智能体运行时的休息</a></li><li><a href="../zh-Hans/20-20-20-eye-rule-developers/">20-20-20 护眼法则</a></li><li><a href="../zh-Hans/desk-stretches-programmers/">办公桌拉伸</a></li><li><a href="../zh-Hans/claude-code-break-reminder/">Claude Code</a></li><li><a href="../zh-Hans/codex-cli-break-reminder/">Codex CLI</a></li><li><a href="../zh-Hans/gemini-cli-break-reminder/">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="面包屑导航"><ol><li><a href="../zh-Hans/">vibestretch</a></li></ol></nav>
+<h1>编程智能体工作时，起来拉伸一下</h1>
+<p class="lead">智能体的一轮长任务让你干等时，vibestretch 会显示一个简短的拉伸动作、微运动或护眼休息。它支持 Claude Code、Codex CLI 和 Gemini CLI。</p>
+<pre><code>claude plugin marketplace add Eliasjunit/vibestretch &amp;&amp; claude plugin install vibestretch@vibestretch</code></pre>
+<p>这会在 Claude Code 中安装插件。<a href="../zh-Hans/codex-cli-break-reminder/">Codex CLI</a> 和 <a href="../zh-Hans/gemini-cli-break-reminder/">Gemini CLI</a> 的页面介绍了各自的安装步骤。</p>
+<h2>提醒是什么样子</h2>
+<pre><code>🧘 Wrist circles, 10 each way. Your tendons will thank you. · vibestretch · 7 min of agent time</code></pre>
+<p>会话中会出现一行提示，同时响起一声轻柔的提示音。在支持通知的终端里，还会弹出通知横幅。</p>
+<h2>它如何决定何时提醒</h2>
+<p>vibestretch 没有固定的时间表。它只统计一件事：智能体的任务让你在电脑前等了多少分钟。只有同时满足以下三个条件，才会提醒：</p>
+<ol><li>当前这一轮已运行 2 分钟或以上。</li><li>自上次提醒以来，智能体累计运行时间达到 5 分钟或以上。</li><li>距上次提醒至少过了 15 分钟。</li></ol>
+<p>很快结束的轮次不会触发提醒。一整天都是短轮次，它就一声不响。它也没有“稍后提醒”，因为它只在你本来就在等待时出声。详见<a href="../zh-Hans/stretch-breaks-ai-coding-agents/">AI 编程智能体运行时的拉伸休息</a>。</p>
+<h2>功能</h2>
+<ul><li>12 个内置动作：拉伸、微运动和护眼休息，例如 <a href="../zh-Hans/20-20-20-eye-rule-developers/">20-20-20</a>。</li><li>轮换时不会连续两次出现同一个动作。</li><li>你也可以使用自己的动作列表。参见<a href="../zh-Hans/desk-stretches-programmers/">程序员办公桌拉伸</a>。</li><li>Claude Code 中可选的状态栏片段。</li></ul>
+<h2>隐私</h2>
+<p>vibestretch 由几个小巧的 POSIX shell 脚本和一个内置音效组成。它不发起任何网络请求，不发送遥测数据。它不显示广告，也不会在终端里插入链接。它不会向模型的上下文添加任何内容。它的状态保存在 <code>~/.cache/vibestretch/</code>。</p>
+<section class="faq" id="faq"><h2>常见问题</h2><dl><dt>vibestretch 是什么？</dt><dd>vibestretch 是一款编程智能体插件。智能体的一轮长任务让你等待时，它会提醒你拉伸、活动一下或让眼睛休息。</dd><dt>它支持哪些编程智能体？</dt><dd>Claude Code、OpenAI Codex CLI 和 Gemini CLI。三者共用同一个计数器。无论是哪个智能体让你坐在椅子上，一小时的等待只计一次。</dd><dt>它是休息计时器吗？</dt><dd>不是。计时器按固定时间表运行。vibestretch 只统计智能体任务让你等待的时间，也只在等待期间提醒你。</dd><dt>它会把数据发送到别处吗？</dt><dd>不会。它不发起网络请求，也不发送遥测数据。任何数据都不会离开你的电脑。</dd><dt>它要多少钱？</dt><dd>它是开源软件，采用 MIT 许可证。代码托管在 GitHub 上。</dd><dt>如何让它静音？</dt><dd>将 VIBESTRETCH_DISABLE 设为任意值，即可关闭提醒。VIBESTRETCH_SOUND=0 关闭声音。VIBESTRETCH_NOTIFY=0 关闭通知横幅。</dd></dl></section>
+<section class="related"><h2>延伸阅读</h2><ul><li><a href="../zh-Hans/stretch-breaks-ai-coding-agents/">AI 编程智能体运行时的拉伸休息</a></li><li><a href="../zh-Hans/20-20-20-eye-rule-developers/">程序员的 20-20-20 护眼法则</a></li><li><a href="../zh-Hans/desk-stretches-programmers/">程序员办公桌拉伸</a></li><li><a href="../zh-Hans/claude-code-break-reminder/">如何为 Claude Code 添加休息提醒</a></li><li><a href="../zh-Hans/codex-cli-break-reminder/">如何为 Codex CLI 添加休息提醒</a></li><li><a href="../zh-Hans/gemini-cli-break-reminder/">如何为 Gemini CLI 添加休息提醒</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch 是开源软件，采用 MIT 许可证。 由 Junit 制作。 <a href="https://github.com/Eliasjunit/vibestretch">GitHub 上的源代码</a></p>
+</div></footer>
+</body>
+</html>

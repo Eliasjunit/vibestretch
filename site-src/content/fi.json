@@ -1,0 +1,471 @@
+{
+  "lang_name": "Suomi",
+  "ui": {
+    "skip": "Siirry sisältöön",
+    "nav_home": "Etusivu",
+    "nav_label": "Sivut",
+    "languages": "Kieli",
+    "breadcrumb_home": "vibestretch",
+    "faq_title": "Usein kysyttyä",
+    "related_title": "Lue seuraavaksi",
+    "source_link": "Lähdekoodi GitHubissa",
+    "footer_license": "vibestretch on avointa lähdekoodia MIT-lisenssillä.",
+    "footer_made": "Tekijä: Junit.",
+    "breadcrumb_label": "Murupolku"
+  },
+  "pages": {
+    "index": {
+      "nav": "Yleiskatsaus",
+      "title": "vibestretch: venyttelymuistutus koodausagentin odotukseen",
+      "description": "vibestretch on ilmainen venyttely- ja taukomuistutus kehittäjille. Se muistuttaa liikkumaan, kun Claude Code, Codex CLI tai Gemini CLI tekee pitkää vuoroa.",
+      "h1": "Venyttele, kun koodausagenttisi työskentelee",
+      "lead": "vibestretch näyttää lyhyen venyttelyn, minitreenin tai silmätauon, kun pitkä agentin vuoro pitää sinut odottamassa. Se toimii Claude Coden, Codex CLI:n ja Gemini CLI:n kanssa.",
+      "blocks": [
+        {
+          "code": "install_claude_cli"
+        },
+        {
+          "p": "Tämä asentaa lisäosan Claude Codeen. [Codex CLI:n](@codex-cli-break-reminder) ja [Gemini CLI:n](@gemini-cli-break-reminder) sivuilla on niiden asennusohjeet."
+        },
+        {
+          "h2": "Miltä muistutus näyttää"
+        },
+        {
+          "code": "nudge_example"
+        },
+        {
+          "p": "Istuntoon ilmestyy yksi rivi. Kuuluu pehmeä merkkiääni. Päätteissä, jotka tukevat sitä, näkyy myös ilmoitusbanneri."
+        },
+        {
+          "h2": "Miten se päättää, milloin muistuttaa"
+        },
+        {
+          "p": "vibestretchillä ei ole aikataulua. Se laskee yhtä asiaa: minuutteja, jotka agentin vuoro piti sinut odottamassa koneen ääressä. Muistutus tulee vain, kun kaikki kolme ehtoa täyttyvät:"
+        },
+        {
+          "ol": [
+            "Nykyinen vuoro on kestänyt vähintään 2 minuuttia.",
+            "Agenttiaikaa on kertynyt edellisen muistutuksen jälkeen yhteensä vähintään 5 minuuttia.",
+            "Edellisestä muistutuksesta on kulunut vähintään 15 minuuttia."
+          ]
+        },
+        {
+          "p": "Nopeat vuorot eivät koskaan laukaise sitä. Lyhyiden vuorojen päivänä se pysyy täysin hiljaa. Torkuttavaa ei ole, koska se puhuu vain silloin, kun odotat jo valmiiksi. Lue lisää: [venyttelytauot AI-koodausagenttien työskennellessä](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Mitä saat"
+        },
+        {
+          "ul": [
+            "Kaksitoista valmista harjoitusta: venyttelyjä, minitreenejä ja silmätaukoja, kuten [20-20-20](@20-20-20-eye-rule-developers).",
+            "Kierto, joka ei koskaan toista samaa harjoitusta kahdesti peräkkäin.",
+            "Halutessasi oma harjoituslista. Katso [taukojumppa ohjelmoijille](@desk-stretches-programmers).",
+            "Valinnainen tilarivin osio Claude Codessa."
+          ]
+        },
+        {
+          "h2": "Yksityisyys"
+        },
+        {
+          "p": "vibestretch koostuu muutamasta pienestä POSIX-shell-skriptistä ja yhdestä mukana tulevasta äänestä. Se ei ota verkkoyhteyksiä. Se ei lähetä telemetriaa. Se ei näytä mainoksia eikä lisää linkkejä päätteeseesi. Se ei lisää mitään mallin kontekstiin. Sen tila on hakemistossa `~/.cache/vibestretch/`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Mikä vibestretch on?",
+          "a": "vibestretch on lisäosa koodausagenteille. Se muistuttaa venyttelemään, liikkumaan tai lepuuttamaan silmiä, kun pitkä agentin vuoro pitää sinut odottamassa."
+        },
+        {
+          "q": "Mitä koodausagentteja se tukee?",
+          "a": "Claude Code, OpenAI Codex CLI ja Gemini CLI. Kaikki kolme käyttävät samaa laskuria, joten tunnin odotus lasketaan kerran, piti sinua tuolissa mikä agentti tahansa."
+        },
+        {
+          "q": "Onko se taukoajastin?",
+          "a": "Ei. Ajastin toimii aikataulun mukaan. vibestretch laskee vain ajan, jonka agentin vuoro piti sinut odottamassa, ja muistuttaa vain tuon odotuksen aikana."
+        },
+        {
+          "q": "Lähettääkö se tietoja minnekään?",
+          "a": "Ei. Se ei ota verkkoyhteyksiä eikä lähetä telemetriaa. Mikään ei lähde koneeltasi."
+        },
+        {
+          "q": "Paljonko se maksaa?",
+          "a": "Se on avointa lähdekoodia MIT-lisenssillä. Koodi on GitHubissa."
+        },
+        {
+          "q": "Miten mykistän sen?",
+          "a": "Aseta VIBESTRETCH_DISABLE mihin tahansa arvoon, niin muistutukset mykistyvät. VIBESTRETCH_SOUND=0 mykistää äänen. VIBESTRETCH_NOTIFY=0 poistaa bannerin."
+        }
+      ]
+    },
+    "stretch-breaks-ai-coding-agents": {
+      "nav": "Tauot agentin ajon aikana",
+      "title": "Venyttelytauot AI-koodausagentin työskennellessä | vibestretch",
+      "description": "Käytä minuutit, jotka koodausagentti pitää sinut odottamassa, lyhyeen venyttelyyn. Näin vibestretch laskee odotusajan ja päättää, milloin muistuttaa.",
+      "h1": "Venyttelytauot AI-koodausagenttien työskennellessä",
+      "lead": "Koodausagentti voi työskennellä minuutteja kerrallaan. Sinä istut ja katsot. vibestretch tekee odotuksesta lyhyen tauon.",
+      "blocks": [
+        {
+          "h2": "Miksi odotus on hyvä hetki"
+        },
+        {
+          "p": "Taukoajastimet laukeavat aikataulun mukaan. Ne osuvat usein kesken ajatuksen, ja moni päätyy kytkemään ne pois. Aika, jolloin agentti on kiireinen, on erilainen. Odotat joka tapauksessa. Venyttely tuossa välissä ei vie keskittymistäsi."
+        },
+        {
+          "h2": "Mitä vibestretch laskee"
+        },
+        {
+          "p": "Se laskee agenttiaikaa: minuutteja, joina agentin vuoro oli käynnissä sinun ollessasi koneen ääressä. Se laskee ne yhteen edellisestä muistutuksesta lähtien. Kyse ei ole siitä, kuinka kauan olet istunut työpöydän ääressä. Tunti lukemista ja kirjoittamista nopeiden vuorojen välissä kerryttää tuskin mitään."
+        },
+        {
+          "h2": "Milloin muistutus tulee"
+        },
+        {
+          "p": "Kaikkien kolmen ehdon on täytyttävä:"
+        },
+        {
+          "ol": [
+            "Nykyinen vuoro on kestänyt vähintään 2 minuuttia.",
+            "Agenttiaikaa on edellisen muistutuksen jälkeen vähintään 5 minuuttia. Yksi iso tehtävä tai useampi keskikokoinen käy yhtä lailla.",
+            "Edellisestä muistutuksesta on kulunut vähintään 15 minuuttia."
+          ]
+        },
+        {
+          "p": "Voit muuttaa jokaista lukua ympäristömuuttujalla. Koko lista on [Claude Code -sivulla](@claude-code-break-reminder)."
+        },
+        {
+          "h2": "Kun lähdet koneelta"
+        },
+        {
+          "p": "Jos olet poissa näppäimistöltä vähintään 45 minuuttia, kertymä nollautuu. Olet jo pitänyt taukosi. macOS:ssä hookit lukevat järjestelmän näppäimistön ja hiiren käyttämättömyysajan. Yön yli työskentelevä agentti ei siis kerrytä agenttiaikaa eikä koskaan soita tyhjälle tuolille. Linuxissa ei ole siirrettävää käyttämättömyyskelloa, joten siellä pätee vain 45 minuutin nollaus."
+        },
+        {
+          "h2": "Mitä muistutus pyytää tekemään"
+        },
+        {
+          "p": "Jokainen muistutus on yksi harjoitus kahdentoista harjoituksen listalta. Mukana on venyttelyjä, minitreenejä ja silmätaukoja. Koko lista on sivulla [taukojumppa ohjelmoijille](@desk-stretches-programmers)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Muistuttaako se lyhyiden vuorojen aikana?",
+          "a": "Ei. Vuoron on kestettävä vähintään 2 minuuttia ja agenttiaikaa on kerryttävä tarpeeksi, ennen kuin muistutus voi tulla."
+        },
+        {
+          "q": "Tarkoittaako nopea malli harvempia muistutuksia?",
+          "a": "Kyllä. Nopeat mallit saavat vuorot valmiiksi ennen kuin raja-arvot täyttyvät, joten mykistettävää ei ole."
+        },
+        {
+          "q": "Entä skripteistä tai cronista ajettavat agentit?",
+          "a": "Aseta siinä ympäristössä VIBESTRETCH_DISABLE=1. Muuten valvomattomat istunnot lasketaan ajaksi, jota et koskaan istunut läpi."
+        }
+      ]
+    },
+    "20-20-20-eye-rule-developers": {
+      "nav": "20-20-20-sääntö",
+      "title": "20-20-20-sääntö silmille ohjelmoijille | vibestretch",
+      "description": "20-20-20-silmätauko ja muut vibestretchin silmätauot. Muistutus, joka toimii sillä aikaa, kun koodausagenttisi työskentelee.",
+      "h1": "20-20-20-sääntö silmille ohjelmoijille",
+      "lead": "Pitkät agentin vuorot tarkoittavat pitkiä hetkiä ruudun tuijottamista. vibestretchin kierrossa on silmätaukoja, ja 20-20-20 on yksi niistä.",
+      "blocks": [
+        {
+          "h2": "20-20-20-tauko vibestretchissä"
+        },
+        {
+          "p": "Muistutus näyttää tältä:"
+        },
+        {
+          "code": "nudge_202020"
+        },
+        {
+          "p": "Katso jotain 20 jalan päässä olevaa. Katso sitä 20 sekuntia. Palaa sitten agenttisi pariin."
+        },
+        {
+          "h2": "Muut silmätauot listalla"
+        },
+        {
+          "ul": [
+            "Räpäytä silmiä 20 kertaa, hitaasti.",
+            "Hiero kämmenet lämpimiksi ja aseta ne kupeiksi suljettujen silmien päälle 20 sekunniksi.",
+            "Nouse ylös ja kävele ikkunan luo."
+          ]
+        },
+        {
+          "h2": "Milloin se muistuttaa"
+        },
+        {
+          "p": "vibestretch ei toimi kellon mukaan. Se muistuttaa, kun pitkä agentin vuoro pitää sinut odottamassa, oletuksena enintään kerran 15 minuutissa. Silmätauot tulevat vastaan kahdentoista harjoituksen kierrossa. Lue ajoituksesta lisää: [venyttelytauot AI-koodausagenttien työskennellessä](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Haluatko vain silmätaukoja?"
+        },
+        {
+          "p": "Kirjoita oma lista, jossa on vain mieleisesi silmätauot. Yksi harjoitus riviä kohden tiedostoon `~/.config/vibestretch/exercises.txt`. Valmis lista jää silloin pois käytöstä. Esimerkki on sivulla [taukojumppa ohjelmoijille](@desk-stretches-programmers)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Muistuttaako vibestretch 20 minuutin välein?",
+          "a": "Ei. Sillä ei ole kiinteää aikataulua. Se muistuttaa vain pitkien agentin vuorojen aikana, ja muistutusten välinen oletusväli on 15 minuuttia."
+        },
+        {
+          "q": "Voinko saada vain silmätaukoja?",
+          "a": "Kyllä. Laita omat harjoituksesi tiedostoon ~/.config/vibestretch/exercises.txt, yksi riviä kohden, niin vibestretch käyttää sitä listaa valmiin listan sijaan."
+        }
+      ]
+    },
+    "desk-stretches-programmers": {
+      "nav": "Taukojumppa",
+      "title": "Taukojumppa ohjelmoijille: vibestretchin harjoituslista",
+      "description": "Kaksitoista lyhyttä venyttelyliikettä, minitreeniä ja silmätaukoa ohjelmoijille työpisteelle sekä ohje oman listan käyttöön vibestretchissä.",
+      "h1": "Taukojumppa ohjelmoijille",
+      "lead": "vibestretchissä on mukana kaksitoista lyhyttä harjoitusta. Jokainen mahtuu agentin vuoron kestoon. Ne vuorottelevat, joten samaa ei tule kahdesti peräkkäin.",
+      "blocks": [
+        {
+          "h2": "Kaksitoista valmista harjoitusta"
+        },
+        {
+          "ol": [
+            "20-20-20: katso jotain 20 jalan päässä olevaa 20 sekunnin ajan.",
+            "Nouse seisomaan, kurota kohti kattoa ja pidä 15 sekuntia. Taivu sitten kohti varpaita 15 sekunniksi.",
+            "10 kyykkyä.",
+            "Hitaat niskan pyöritykset, 5 kumpaankin suuntaan.",
+            "Ranteiden pyöritykset, 10 kumpaankin suuntaan.",
+            "Räpäytä silmiä 20 kertaa, hitaasti.",
+            "Lapojen yhteenvedot 10 kertaa: purista, pidä 3 sekuntia, rentouta.",
+            "Ryhdin tarkistus: korvat hartioiden päällä, hartiat lantion päällä. Pidä asento.",
+            "Nouse ylös ja kävele ikkunan luo. Avaa se, jos voit.",
+            "Hiero kämmenet lämpimiksi ja aseta ne kupeiksi suljettujen silmien päälle 20 sekunniksi.",
+            "Lantion pyöritykset, 8 kumpaankin suuntaan.",
+            "Yksi 4-7-8-hengitys: sisään 4, pidätä 7, ulos 8."
+          ]
+        },
+        {
+          "p": "Ranteiden pyöritykset ja ryhdin tarkistus ovat mukana niitä varten, jotka miettivät toistorasitusvammoja (RSI) ja ryhtiä pitkinä päivinä näppäimistön ääressä. vibestretch on muistutus. Se ei diagnosoi eikä hoida mitään."
+        },
+        {
+          "h2": "Käytä omaa listaa"
+        },
+        {
+          "p": "Kirjoita yksi harjoitus riviä kohden tiedostoon `~/.config/vibestretch/exercises.txt`. Valmiit kaksitoista jäävät silloin pois käytöstä. Tyhjät rivit ja #-merkillä alkavat rivit ohitetaan."
+        },
+        {
+          "code": "custom_list"
+        },
+        {
+          "p": "Aseta `VIBESTRETCH_EXERCISES` toiseen polkuun, jos haluat pitää tiedoston muualla. Samalla tavalla toimivat myös projektikohtaiset listat. Kierto käy listasi läpi järjestyksessä. Jos tiedostossa ei ole mitään käyttökelpoista, käytetään valmista listaa."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Montako harjoitusta vibestretchissä on?",
+          "a": "Kaksitoista: venyttelyjä, minitreenejä ja silmätaukoja. Ne vuorottelevat, joten sama ei koskaan tule kahdesti peräkkäin."
+        },
+        {
+          "q": "Voinko lisätä omia venyttelyjä?",
+          "a": "Kyllä. Kirjoita yksi riviä kohden tiedostoon ~/.config/vibestretch/exercises.txt. Lainausmerkkejä ja kenoviivoja voi käyttää tekstissä turvallisesti."
+        }
+      ]
+    },
+    "claude-code-break-reminder": {
+      "nav": "Claude Code",
+      "title": "Näin lisäät taukomuistutuksen Claude Codeen | vibestretch",
+      "description": "Asenna vibestretch Claude Codeen, niin saat venyttely- ja silmätaukomuistutuksia pitkien vuorojen aikana. Asennus, tilarivi, VS Code ja asetukset.",
+      "h1": "Näin lisäät taukomuistutuksen Claude Codeen",
+      "lead": "vibestretch on Claude Code -lisäosa. Se huomaa pitkät vuorot kolmen hookin avulla ja muistuttaa sinua liikkumaan.",
+      "blocks": [
+        {
+          "h2": "Asennus"
+        },
+        {
+          "p": "Suorita nämä kaksi komentoa Claude Codessa:"
+        },
+        {
+          "code": "install_claude"
+        },
+        {
+          "p": "Riippuvuuksia, taustaprosessia tai telemetriaa ei ole. Muuta määritettävää ei ole."
+        },
+        {
+          "h2": "Missä muistutus näkyy"
+        },
+        {
+          "ul": [
+            "Rivinä istunnossa.",
+            "Pehmeänä merkkiäänenä, joka tulee lisäosan mukana.",
+            "Ilmoitusbannerina päätteissä Warp, Ghostty, iTerm2, WezTerm ja kitty. VS Codessa se vaatii ilmoituslaajennuksen.",
+            "Tilarivilläsi, jos otat sen käyttöön."
+          ]
+        },
+        {
+          "h2": "Lisää se tilariville"
+        },
+        {
+          "code": "statusline"
+        },
+        {
+          "p": "Tämä komento varmuuskopioi asetuksesi ja käärii nykyisen tilarivikomentosi. Jos sinulla ei ole sellaista, se asentaa yksinkertaisen. Muistutuksen jälkeen harjoitus pysyy näkyvissä 5 minuuttia. Kumoa se komennolla `/vibestretch:statusline off`. Suorita `off` ennen kuin poistat lisäosan."
+        },
+        {
+          "h2": "VS Code"
+        },
+        {
+          "p": "Integroidussa päätteessä rivi, merkkiääni ja tilarivi toimivat kaikki. Laajennuksen chat-paneelissa sinulle asti tulee vain merkkiääni. Banneri vaatii ilmoituslaajennuksen molemmissa. Tämä on tarkistettu Claude Coden versiolla 2.1.234."
+        },
+        {
+          "h2": "Asetukset"
+        },
+        {
+          "p": "Kaikki asetukset ovat valinnaisia ympäristömuuttujia. Ajat ovat sekunteina."
+        },
+        {
+          "table": "settings"
+        },
+        {
+          "p": "Ajatko Claude Codea ilman käyttöliittymää komennolla `claude -p` skriptistä? Aseta siellä `VIBESTRETCH_DISABLE=1`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Miten poistan tilarivin osion?",
+          "a": "Suorita /vibestretch:statusline off. Tee tämä ennen kuin poistat lisäosan, muuten osio jää määritetyksi mutta jumiin."
+        },
+        {
+          "q": "Päätyykö muistutus mallille?",
+          "a": "Ei. Muistutus on systemMessage. Se näytetään sinulle, eikä sitä koskaan lisätä mallin kontekstiin."
+        },
+        {
+          "q": "Miksi kuulen kaksi ääntä?",
+          "a": "Jotkin päätteet, kuten iTerm2, soittavat ilmoituksille oman äänensä. Aseta VIBESTRETCH_SOUND=0, niin kuuluu vain päätteen ääni."
+        }
+      ]
+    },
+    "codex-cli-break-reminder": {
+      "nav": "Codex CLI",
+      "title": "Näin lisäät taukomuistutuksen Codex CLI:hin | vibestretch",
+      "description": "Asenna vibestretch OpenAI Codex CLI:hin lisäosana tai käsin. Saat venyttelyrivin ja merkkiäänen, kun Codexin vuoro kestää pitkään.",
+      "h1": "Näin lisäät taukomuistutuksen Codex CLI:hin",
+      "lead": "vibestretch asennetaan OpenAI Codex CLI:hin lisäosien markkinapaikalta. Se näyttää venyttelyrivin ja soittaa merkkiäänen pitkien vuorojen aikana.",
+      "blocks": [
+        {
+          "h2": "Asennus lisäosana"
+        },
+        {
+          "code": "install_codex"
+        },
+        {
+          "p": "Codex ei aja lisäosan hookeja ennen kuin olet tarkistanut ne. Avaa `/hooks` ja merkitse kolme vibestretch-merkintää luotetuiksi. Siihen asti lisäosa on asennettu mutta hiljaa."
+        },
+        {
+          "h2": "Asennus käsin"
+        },
+        {
+          "p": "Kloonaus ja asetustiedosto hoitavat saman asian:"
+        },
+        {
+          "code": "install_codex_manual"
+        },
+        {
+          "p": "Onko sinulla jo `~/.codex/hooks.json`? Yhdistä siihen meidän tiedostomme kolme merkintää. Älä korvaa omaasi. Codex pyytää luottamaan uuteen hook-määritykseen, kun se ajetaan ensimmäisen kerran. Kehote on odotettu."
+        },
+        {
+          "p": "Valitse yksi tapa. Jos sekä lisäosa että käsin tehdyt merkinnät ovat käytössä, jokainen hook ajetaan kahdesti. Jos asensit käsin ennen versiota 0.8.0, poista merkintämme tiedostosta `~/.codex/hooks.json`, kun siirryt lisäosaan."
+        },
+        {
+          "h2": "Mitä saat Codexissa"
+        },
+        {
+          "p": "Saat rivin istuntoon ja merkkiäänen. Ilmoitusbanneria ei ole, koska Codexissa ei ole hookin tulostekenttää päätteen ohjaussekvenssille. Tilarivin osiotakaan ei ole. Sitä palkkia ei voi skriptata Codexissa."
+        },
+        {
+          "p": "Laskuri on yhteinen Claude Coden ja Gemini CLI:n kanssa. Tunnin odotus lasketaan kerran, piti sinua tuolissa mikä agentti tahansa. Sovitinta ajettiin oikeassa Codex CLI 0.149.1 -asennuksessa macOS:llä."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Asensin sen, mutta mitään ei tapahdu. Miksi?",
+          "a": "Codex ajaa lisäosan hookit vasta, kun olet merkinnyt ne luotetuiksi. Avaa /hooks ja luota kolmeen vibestretch-merkintään."
+        },
+        {
+          "q": "Jokainen hook ajetaan kahdesti. Miksi?",
+          "a": "Sinulla on todennäköisesti sekä lisäosa että käsin tehdyt merkinnät tiedostossa ~/.codex/hooks.json. Pidä niistä vain toinen."
+        },
+        {
+          "q": "Voinko käyttää sitä codex exec -komennon kanssa?",
+          "a": "Aseta siinä ympäristössä VIBESTRETCH_DISABLE=1. Valvomattomia ajoja ei pidä laskea ajaksi, jonka istuit läpi."
+        }
+      ]
+    },
+    "gemini-cli-break-reminder": {
+      "nav": "Gemini CLI",
+      "title": "Näin lisäät taukomuistutuksen Gemini CLI:hin | vibestretch",
+      "description": "Lisää vibestretch Gemini CLI:hin kolmella hookilla. Saat venyttelyrivin ja merkkiäänen pitkien Gemini-vuorojen aikana. Asennus ja yhdistäminen.",
+      "h1": "Näin lisäät taukomuistutuksen Gemini CLI:hin",
+      "lead": "Gemini CLI:ssä hookit ovat olleet oletuksena käytössä versiosta v0.26 lähtien. vibestretch lisää niistä kolme ja muistuttaa venyttelemään pitkien vuorojen aikana.",
+      "blocks": [
+        {
+          "h2": "Asennus"
+        },
+        {
+          "p": "Kloonaa repositorio:"
+        },
+        {
+          "code": "install_gemini_clone"
+        },
+        {
+          "p": "Kopioi sitten `hooks`-objekti tiedostosta `~/.gemini/vibestretch/hooks/gemini-hooks.json` tiedostoon `~/.gemini/settings.json`. Siinä tiedostossa on koko Gemini-määrityksesi, joten yhdistä se. Älä korvaa sitä. Työkalulla `jq` se onnistuu yhdellä rivillä:"
+        },
+        {
+          "code": "install_gemini_merge"
+        },
+        {
+          "h2": "Mitä hookeja se käyttää"
+        },
+        {
+          "ul": [
+            "`BeforeAgent`: agentti alkaa työstää kehotettasi.",
+            "`AfterTool`: työkalu valmistui. Odotusaika lisätään, ja muistutus tulee, jos sen aika on.",
+            "`AfterAgent`: vuoro on ohi. Kirjanpito suljetaan."
+          ]
+        },
+        {
+          "h2": "Mitä saat Gemini CLI:ssä"
+        },
+        {
+          "p": "Saat rivin istuntoon ja merkkiäänen. Ilmoitusbanneria ei ole. Gemini varaa hookin stdoutin pelkälle JSONille, joten ohjaussekvenssiä ei voi tulostaa mihinkään."
+        },
+        {
+          "p": "Sovitinta ajettiin oikeassa Gemini CLI 0.56.0 -asennuksessa macOS:llä. Laskuri on yhteinen Claude Coden ja Codex CLI:n kanssa."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Mikä Gemini CLI -versio tarvitaan?",
+          "a": "Hookit ovat olleet oletuksena käytössä Gemini CLI:n versiosta v0.26 lähtien."
+        },
+        {
+          "q": "Korvaako yhdistäminen asetukseni?",
+          "a": "jq-komento yhdistää hooks-objektin nykyiseen settings.json-tiedostoosi. Ota tiedostosta ensin varmuuskopio, jos haluat olla varma."
+        },
+        {
+          "q": "Voinko käyttää sitä gemini -p -komennon kanssa?",
+          "a": "Aseta VIBESTRETCH_DISABLE=1, kun ajat Geminiä skriptistä, cronista tai botista."
+        }
+      ]
+    }
+  },
+  "settings_rows": {
+    "VIBESTRETCH_MIN_TURN": "Nykyisen vuoron on kestettävä vähintään näin kauan.",
+    "VIBESTRETCH_MIN_ACTIVE": "Tarvittava agenttiaika edellisen tauon jälkeen.",
+    "VIBESTRETCH_COOLDOWN": "Muistutusten välinen vähimmäisaika.",
+    "VIBESTRETCH_AWAY": "Jos näppäimistöä tai hiirtä ei käytetä näin pitkään aikaan, olet poissa. Vain macOS. 0 kytkee tarkistuksen pois.",
+    "VIBESTRETCH_DISABLE": "Aseta mihin tahansa arvoon, niin muistutukset mykistyvät.",
+    "VIBESTRETCH_NOTIFY": "Aseta arvoon 0, niin työpöytäilmoitus jää pois.",
+    "VIBESTRETCH_SOUND": "Aseta arvoon 0, niin ääni mykistyy.",
+    "VIBESTRETCH_EXERCISES": "Polku omaan harjoituslistaasi."
+  },
+  "settings_head": [
+    "Muuttuja",
+    "Oletus",
+    "Merkitys"
+  ]
+}

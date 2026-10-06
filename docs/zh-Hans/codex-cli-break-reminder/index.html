@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codex CLI 休息提醒安装方法 | vibestretch</title>
+<meta name="description" content="以插件方式或手动在 OpenAI Codex CLI 中安装 vibestretch。Codex 长时间运行时，你会看到一行拉伸提示，并听到提示音。">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/zh-Hans/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/codex-cli-break-reminder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="Codex CLI 休息提醒安装方法 | vibestretch">
+<meta property="og:description" content="以插件方式或手动在 OpenAI Codex CLI 中安装 vibestretch。Codex 长时间运行时，你会看到一行拉伸提示，并听到提示音。">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/zh-Hans/codex-cli-break-reminder/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta property="og:locale:alternate" content="ms_MY">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch 是一款免费的开发者拉伸和休息提醒工具。Claude Code、Codex CLI 或 Gemini CLI 长时间运行时，它会提醒你起身活动。",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/codex-cli-break-reminder/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/zh-Hans/codex-cli-break-reminder/",
+   "name": "Codex CLI 休息提醒安装方法 | vibestretch",
+   "description": "以插件方式或手动在 OpenAI Codex CLI 中安装 vibestretch。Codex 长时间运行时，你会看到一行拉伸提示，并听到提示音。",
+   "inLanguage": "zh-Hans",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/codex-cli-break-reminder/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/codex-cli-break-reminder/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/zh-Hans/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "如何为 Codex CLI 添加休息提醒",
+     "item": "https://eliasjunit.github.io/vibestretch/zh-Hans/codex-cli-break-reminder/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/codex-cli-break-reminder/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/zh-Hans/codex-cli-break-reminder/",
+   "inLanguage": "zh-Hans",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "装好了，但没有任何反应。为什么？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Codex 只有在你信任插件的钩子之后才会运行它们。打开 /hooks，信任三个 vibestretch 条目。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "每个钩子都运行了两次。为什么？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "你可能既装了插件，又在 ~/.codex/hooks.json 中手动添加了条目。两者保留一个即可。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "可以配合 codex exec 使用吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "在那个环境中设置 VIBESTRETCH_DISABLE=1。无人值守的运行不应算作你坐着等待的时间。"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../../zh-Hans/"><img src="../../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>语言: 简体中文</summary><ul><li><a href="../../codex-cli-break-reminder/" hreflang="en" lang="en">English</a></li><li><a href="../../es/codex-cli-break-reminder/" hreflang="es" lang="es">Español</a></li><li><a href="../../pt-BR/codex-cli-break-reminder/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../../fr/codex-cli-break-reminder/" hreflang="fr" lang="fr">Français</a></li><li><a href="../../de/codex-cli-break-reminder/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../../it/codex-cli-break-reminder/" hreflang="it" lang="it">Italiano</a></li><li><a href="../../ru/codex-cli-break-reminder/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../../uk/codex-cli-break-reminder/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../pl/codex-cli-break-reminder/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../../tr/codex-cli-break-reminder/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../../nl/codex-cli-break-reminder/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../../sv/codex-cli-break-reminder/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../../da/codex-cli-break-reminder/" hreflang="da" lang="da">Dansk</a></li><li><a href="../../nb/codex-cli-break-reminder/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../../fi/codex-cli-break-reminder/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../../cs/codex-cli-break-reminder/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="../../ro/codex-cli-break-reminder/" hreflang="ro" lang="ro">Română</a></li><li><a href="../../hu/codex-cli-break-reminder/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../../el/codex-cli-break-reminder/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../../ja/codex-cli-break-reminder/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../../ko/codex-cli-break-reminder/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../../zh-Hans/codex-cli-break-reminder/" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">简体中文</a></li><li><a href="../../zh-Hant/codex-cli-break-reminder/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../../id/codex-cli-break-reminder/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../../th/codex-cli-break-reminder/" hreflang="th" lang="th">ไทย</a></li><li><a href="../../vi/codex-cli-break-reminder/" hreflang="vi" lang="vi">Tiếng Việt</a></li><li><a href="../../ms/codex-cli-break-reminder/" hreflang="ms" lang="ms">Bahasa Melayu</a></li><li><a href="../../hi/codex-cli-break-reminder/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../../ar/codex-cli-break-reminder/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../../he/codex-cli-break-reminder/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="页面"><ul><li><a href="../../zh-Hans/">概览</a></li><li><a href="../../zh-Hans/stretch-breaks-ai-coding-agents/">智能体运行时的休息</a></li><li><a href="../../zh-Hans/20-20-20-eye-rule-developers/">20-20-20 护眼法则</a></li><li><a href="../../zh-Hans/desk-stretches-programmers/">办公桌拉伸</a></li><li><a href="../../zh-Hans/claude-code-break-reminder/">Claude Code</a></li><li><a href="../../zh-Hans/codex-cli-break-reminder/" aria-current="page">Codex CLI</a></li><li><a href="../../zh-Hans/gemini-cli-break-reminder/">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="面包屑导航"><ol><li><a href="../../zh-Hans/">vibestretch</a></li><li aria-current="page">如何为 Codex CLI 添加休息提醒</li></ol></nav>
+<h1>如何为 Codex CLI 添加休息提醒</h1>
+<p class="lead">vibestretch 可以从插件市场安装到 OpenAI Codex CLI。在长时间运行的轮次中，它会显示一行拉伸提示并播放提示音。</p>
+<h2>以插件方式安装</h2>
+<pre><code>codex plugin marketplace add Eliasjunit/vibestretch
+codex plugin add vibestretch@vibestretch</code></pre>
+<p>在你审核插件的钩子之前，Codex 不会运行它们。打开 <code>/hooks</code>，信任三个 vibestretch 条目。在此之前，插件虽已安装，但不会有任何动静。</p>
+<h2>手动安装</h2>
+<p>克隆仓库，再加一个配置文件，效果相同：</p>
+<pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.codex/vibestretch
+cp ~/.codex/vibestretch/hooks/codex-hooks.json ~/.codex/hooks.json</code></pre>
+<p>已经有 <code>~/.codex/hooks.json</code> 了？把我们文件中的三个条目合并进去。不要覆盖你的文件。Codex 首次运行新的钩子配置时，会请你确认信任。出现这个提示是正常的。</p>
+<p>两种方式选一种。如果插件和手动添加的条目同时存在，每个钩子都会运行两次。如果你在 0.8.0 之前手动安装过，换成插件时，请从 <code>~/.codex/hooks.json</code> 中删除我们的条目。</p>
+<h2>在 Codex 中能得到什么</h2>
+<p>你会看到会话中的提示行，并听到提示音。没有通知横幅，因为 Codex 的钩子输出中没有可以传递终端序列的字段。也没有状态栏片段。Codex 的状态栏不支持脚本。</p>
+<p>计数器与 Claude Code 和 Gemini CLI 共用。无论是哪个智能体让你坐在椅子上，一小时的等待只计一次。该适配器已在 macOS 上实际安装的 Codex CLI 0.149.1 中运行过。</p>
+<section class="faq" id="faq"><h2>常见问题</h2><dl><dt>装好了，但没有任何反应。为什么？</dt><dd>Codex 只有在你信任插件的钩子之后才会运行它们。打开 /hooks，信任三个 vibestretch 条目。</dd><dt>每个钩子都运行了两次。为什么？</dt><dd>你可能既装了插件，又在 ~/.codex/hooks.json 中手动添加了条目。两者保留一个即可。</dd><dt>可以配合 codex exec 使用吗？</dt><dd>在那个环境中设置 VIBESTRETCH_DISABLE=1。无人值守的运行不应算作你坐着等待的时间。</dd></dl></section>
+<section class="related"><h2>延伸阅读</h2><ul><li><a href="../../zh-Hans/">编程智能体工作时，起来拉伸一下</a></li><li><a href="../../zh-Hans/stretch-breaks-ai-coding-agents/">AI 编程智能体运行时的拉伸休息</a></li><li><a href="../../zh-Hans/20-20-20-eye-rule-developers/">程序员的 20-20-20 护眼法则</a></li><li><a href="../../zh-Hans/desk-stretches-programmers/">程序员办公桌拉伸</a></li><li><a href="../../zh-Hans/claude-code-break-reminder/">如何为 Claude Code 添加休息提醒</a></li><li><a href="../../zh-Hans/gemini-cli-break-reminder/">如何为 Gemini CLI 添加休息提醒</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch 是开源软件，采用 MIT 许可证。 由 Junit 制作。 <a href="https://github.com/Eliasjunit/vibestretch">GitHub 上的源代码</a></p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codex CLI में ब्रेक रिमाइंडर कैसे जोड़ें | vibestretch</title>
+<meta name="description" content="OpenAI Codex CLI में vibestretch को प्लगइन के रूप में या मैन्युअली इंस्टॉल करें। Codex के लंबे टर्न के दौरान स्ट्रेच लाइन और चाइम पाएं।">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/hi/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/codex-cli-break-reminder/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/codex-cli-break-reminder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="Codex CLI में ब्रेक रिमाइंडर कैसे जोड़ें | vibestretch">
+<meta property="og:description" content="OpenAI Codex CLI में vibestretch को प्लगइन के रूप में या मैन्युअली इंस्टॉल करें। Codex के लंबे टर्न के दौरान स्ट्रेच लाइन और चाइम पाएं।">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/hi/codex-cli-break-reminder/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="hi_IN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta property="og:locale:alternate" content="ms_MY">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch डेवलपर्स के लिए मुफ़्त स्ट्रेच और ब्रेक रिमाइंडर है। Claude Code, Codex CLI या Gemini CLI के लंबे टर्न के दौरान यह आपको उठकर हिलने की याद दिलाता है।",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/hi/codex-cli-break-reminder/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/hi/codex-cli-break-reminder/",
+   "name": "Codex CLI में ब्रेक रिमाइंडर कैसे जोड़ें | vibestretch",
+   "description": "OpenAI Codex CLI में vibestretch को प्लगइन के रूप में या मैन्युअली इंस्टॉल करें। Codex के लंबे टर्न के दौरान स्ट्रेच लाइन और चाइम पाएं।",
+   "inLanguage": "hi",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/hi/codex-cli-break-reminder/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/hi/codex-cli-break-reminder/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/hi/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Codex CLI में ब्रेक रिमाइंडर कैसे जोड़ें",
+     "item": "https://eliasjunit.github.io/vibestretch/hi/codex-cli-break-reminder/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/hi/codex-cli-break-reminder/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/hi/codex-cli-break-reminder/",
+   "inLanguage": "hi",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "मैंने इंस्टॉल किया, लेकिन कुछ नहीं होता। क्यों?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Codex किसी प्लगइन के हुक तभी चलाता है जब आप उन्हें trust करते हैं। /hooks खोलें और vibestretch की तीनों एंट्री को trust करें।"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "हर हुक दो बार चलता है। क्यों?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "शायद आपके पास प्लगइन और ~/.codex/hooks.json में मैन्युअल एंट्री, दोनों हैं। इनमें से एक ही रखें।"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "क्या मैं इसे codex exec के साथ इस्तेमाल कर सकता हूं?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "उस एनवायरनमेंट में VIBESTRETCH_DISABLE=1 सेट करें। बिना निगरानी वाले रन को ऐसे समय के रूप में नहीं गिना जाना चाहिए जो आपने बैठकर बिताया।"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">सीधे कंटेंट पर जाएं</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../../hi/"><img src="../../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>भाषा: हिन्दी</summary><ul><li><a href="../../codex-cli-break-reminder/" hreflang="en" lang="en">English</a></li><li><a href="../../es/codex-cli-break-reminder/" hreflang="es" lang="es">Español</a></li><li><a href="../../pt-BR/codex-cli-break-reminder/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../../fr/codex-cli-break-reminder/" hreflang="fr" lang="fr">Français</a></li><li><a href="../../de/codex-cli-break-reminder/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../../it/codex-cli-break-reminder/" hreflang="it" lang="it">Italiano</a></li><li><a href="../../ru/codex-cli-break-reminder/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../../uk/codex-cli-break-reminder/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../pl/codex-cli-break-reminder/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../../tr/codex-cli-break-reminder/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../../nl/codex-cli-break-reminder/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../../sv/codex-cli-break-reminder/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../../da/codex-cli-break-reminder/" hreflang="da" lang="da">Dansk</a></li><li><a href="../../nb/codex-cli-break-reminder/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../../fi/codex-cli-break-reminder/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../../cs/codex-cli-break-reminder/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="../../ro/codex-cli-break-reminder/" hreflang="ro" lang="ro">Română</a></li><li><a href="../../hu/codex-cli-break-reminder/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../../el/codex-cli-break-reminder/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../../ja/codex-cli-break-reminder/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../../ko/codex-cli-break-reminder/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../../zh-Hans/codex-cli-break-reminder/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="../../zh-Hant/codex-cli-break-reminder/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../../id/codex-cli-break-reminder/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../../th/codex-cli-break-reminder/" hreflang="th" lang="th">ไทย</a></li><li><a href="../../vi/codex-cli-break-reminder/" hreflang="vi" lang="vi">Tiếng Việt</a></li><li><a href="../../ms/codex-cli-break-reminder/" hreflang="ms" lang="ms">Bahasa Melayu</a></li><li><a href="../../hi/codex-cli-break-reminder/" hreflang="hi" lang="hi" aria-current="true">हिन्दी</a></li><li><a href="../../ar/codex-cli-break-reminder/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../../he/codex-cli-break-reminder/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="पेज"><ul><li><a href="../../hi/">परिचय</a></li><li><a href="../../hi/stretch-breaks-ai-coding-agents/">एजेंट रन के दौरान ब्रेक</a></li><li><a href="../../hi/20-20-20-eye-rule-developers/">20-20-20 आई रूल</a></li><li><a href="../../hi/desk-stretches-programmers/">डेस्क स्ट्रेच</a></li><li><a href="../../hi/claude-code-break-reminder/">Claude Code</a></li><li><a href="../../hi/codex-cli-break-reminder/" aria-current="page">Codex CLI</a></li><li><a href="../../hi/gemini-cli-break-reminder/">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="ब्रेडक्रम्ब"><ol><li><a href="../../hi/">vibestretch</a></li><li aria-current="page">Codex CLI में ब्रेक रिमाइंडर कैसे जोड़ें</li></ol></nav>
+<h1>Codex CLI में ब्रेक रिमाइंडर कैसे जोड़ें</h1>
+<p class="lead">vibestretch को OpenAI Codex CLI में प्लगइन मार्केटप्लेस से इंस्टॉल किया जाता है। यह लंबे टर्न के दौरान एक स्ट्रेच लाइन दिखाता है और चाइम बजाता है।</p>
+<h2>प्लगइन के रूप में इंस्टॉल करें</h2>
+<pre><code>codex plugin marketplace add Eliasjunit/vibestretch
+codex plugin add vibestretch@vibestretch</code></pre>
+<p>जब तक आप किसी प्लगइन के हुक रिव्यू नहीं करते, Codex उन्हें नहीं चलाता। <code>/hooks</code> खोलें और vibestretch की तीनों एंट्री को trust करें। तब तक प्लगइन इंस्टॉल रहता है लेकिन चुप रहता है।</p>
+<h2>मैन्युअली इंस्टॉल करें</h2>
+<p>एक clone और एक कॉन्फ़िग फ़ाइल से भी यही काम होता है:</p>
+<pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.codex/vibestretch
+cp ~/.codex/vibestretch/hooks/codex-hooks.json ~/.codex/hooks.json</code></pre>
+<p>क्या आपके पास पहले से <code>~/.codex/hooks.json</code> है? हमारी फ़ाइल की तीनों एंट्री उसमें मर्ज करें। अपनी फ़ाइल ओवरराइट न करें। नई हुक कॉन्फ़िग पहली बार चलने पर Codex आपसे उसे trust करने को कहता है। यह प्रॉम्प्ट आना सामान्य है।</p>
+<p>एक ही तरीका चुनें। अगर प्लगइन और मैन्युअल एंट्री दोनों मौजूद हैं, तो हर हुक दो बार चलता है। अगर आपने 0.8.0 से पहले मैन्युअली इंस्टॉल किया था, तो प्लगइन पर जाते समय <code>~/.codex/hooks.json</code> से हमारी एंट्री हटा दें।</p>
+<h2>Codex में आपको क्या मिलता है</h2>
+<p>आपको सेशन में लाइन और चाइम मिलती है। नोटिफ़िकेशन बैनर नहीं है, क्योंकि Codex में टर्मिनल सीक्वेंस के लिए कोई हुक आउटपुट फ़ील्ड नहीं है। स्टेटस लाइन सेगमेंट भी नहीं है। Codex में वह बार स्क्रिप्ट नहीं किया जा सकता।</p>
+<p>काउंटर Claude Code और Gemini CLI के साथ शेयर होता है। एक घंटे का इंतज़ार एक ही बार गिना जाता है, चाहे किसी भी एजेंट ने आपको कुर्सी पर बैठाए रखा हो। अडैप्टर को macOS पर Codex CLI 0.149.1 के लाइव इंस्टॉल पर चलाया गया था।</p>
+<section class="faq" id="faq"><h2>अक्सर पूछे जाने वाले सवाल</h2><dl><dt>मैंने इंस्टॉल किया, लेकिन कुछ नहीं होता। क्यों?</dt><dd>Codex किसी प्लगइन के हुक तभी चलाता है जब आप उन्हें trust करते हैं। /hooks खोलें और vibestretch की तीनों एंट्री को trust करें।</dd><dt>हर हुक दो बार चलता है। क्यों?</dt><dd>शायद आपके पास प्लगइन और ~/.codex/hooks.json में मैन्युअल एंट्री, दोनों हैं। इनमें से एक ही रखें।</dd><dt>क्या मैं इसे codex exec के साथ इस्तेमाल कर सकता हूं?</dt><dd>उस एनवायरनमेंट में VIBESTRETCH_DISABLE=1 सेट करें। बिना निगरानी वाले रन को ऐसे समय के रूप में नहीं गिना जाना चाहिए जो आपने बैठकर बिताया।</dd></dl></section>
+<section class="related"><h2>आगे पढ़ें</h2><ul><li><a href="../../hi/">जब कोडिंग एजेंट काम करे, तब आप स्ट्रेच करें</a></li><li><a href="../../hi/stretch-breaks-ai-coding-agents/">AI कोडिंग एजेंट चलने के दौरान स्ट्रेच ब्रेक</a></li><li><a href="../../hi/20-20-20-eye-rule-developers/">डेवलपर्स के लिए 20-20-20 आई रूल</a></li><li><a href="../../hi/desk-stretches-programmers/">प्रोग्रामर्स के लिए डेस्क स्ट्रेच</a></li><li><a href="../../hi/claude-code-break-reminder/">Claude Code में ब्रेक रिमाइंडर कैसे जोड़ें</a></li><li><a href="../../hi/gemini-cli-break-reminder/">Gemini CLI में ब्रेक रिमाइंडर कैसे जोड़ें</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch ओपन सोर्स है और MIT लाइसेंस के तहत उपलब्ध है। Junit ने बनाया। <a href="https://github.com/Eliasjunit/vibestretch">GitHub पर सोर्स कोड</a></p>
+</div></footer>
+</body>
+</html>
