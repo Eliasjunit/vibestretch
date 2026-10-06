@@ -64,7 +64,7 @@ Or inside Claude Code:
 ```
 
 That's it. No dependencies, no daemon, no telemetry, no ads, no links in your terminal.
-It is a few small POSIX shell scripts (plus one chime.wav) wired into Claude Code hooks.
+It is a few small POSIX shell scripts (plus one bundled sound file, nudge.wav) wired into Claude Code hooks.
 Nothing ever leaves your machine.
 
 ## Install (Codex CLI)
@@ -129,9 +129,9 @@ Codex's generated JSON schemas and Gemini's hooks reference. They have since
 been run on live installs: Codex CLI 0.149.1 and Gemini CLI 0.56.0 on macOS.
 That run found the one place a contract and its runtime disagree. Codex lists
 `suppressOutput` in its schema and rejects it in practice, marking the hook
-failed and printing an error under every nudge. The field is Claude Code's
-alone as of 0.7.2. If your build behaves differently, an issue with the output
-would be welcome.
+failed and printing an error under every nudge. Since 0.7.2 the plugin
+sends that field to Claude Code only. If your build behaves differently, an
+issue with the output would be welcome.
 
 ## When it nudges
 
