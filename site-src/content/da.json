@@ -89,7 +89,7 @@
         },
         {
           "q": "Hvad koster det?",
-          "a": "Det er open source under MIT-licensen. Koden ligger på GitHub."
+          "a": "Det er gratis. vibestretch er open source under MIT-licensen, og koden ligger på GitHub."
         },
         {
           "q": "Hvordan slår jeg den fra?",
@@ -125,7 +125,7 @@
         {
           "ol": [
             "Den aktuelle tur har kørt i mindst 2 minutter.",
-            "Agenttiden siden sidste påmindelse er mindst 5 minutter. Én stor opgave eller flere mellemstore tæller begge.",
+            "Agenttiden siden sidste påmindelse er mindst 5 minutter. Både én stor opgave og flere mellemstore tæller med.",
             "Sidste påmindelse var for mindst 15 minutter siden."
           ]
         },
@@ -136,7 +136,7 @@
           "h2": "Når du går fra computeren"
         },
         {
-          "p": "Hvis du er væk fra tastaturet i 45 minutter eller mere, nulstilles gælden. Du har allerede haft din pause. På macOS læser hooks systemets inaktivitetsur for tastatur og mus. Så en agent, der arbejder hele natten, lægger ingen agenttid til og spiller aldrig lyd for en tom stol. Linux har intet portabelt inaktivitetsur, så der gælder kun nulstillingen efter 45 minutter."
+          "p": "Hvis du er væk fra tastaturet i 45 minutter eller mere, nulstilles tælleren. Du har allerede haft din pause. På macOS læser hooks systemets inaktivitetsur for tastatur og mus. Så en agent, der arbejder hele natten, lægger ingen agenttid til og spiller aldrig lyd for en tom stol. Linux har intet portabelt inaktivitetsur, så der gælder kun nulstillingen efter 45 minutter."
         },
         {
           "h2": "Hvad påmindelsen beder dig gøre"
@@ -162,9 +162,9 @@
     },
     "20-20-20-eye-rule-developers": {
       "nav": "20-20-20-reglen",
-      "title": "20-20-20-reglen for øjnene til udviklere | vibestretch",
+      "title": "20-20-20-reglen: øjenpauser til udviklere | vibestretch",
       "description": "Øjenpausen 20-20-20 og andre øjenpauser i vibestretch, en påmindelse der kører, mens din kodeagent arbejder, og du sidder foran skærmen.",
-      "h1": "20-20-20-reglen for øjnene til udviklere",
+      "h1": "20-20-20-reglen for udvikleres øjne",
       "lead": "Lange agentture betyder lange perioder foran skærmen. vibestretch har øjenpauser i sin rotation, og 20-20-20 er en af dem.",
       "blocks": [
         {
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Kig på noget, der er 20 fod væk. Bliv ved med at kigge i 20 sekunder. Gå så tilbage til din agent."
+          "p": "Kig på noget, der er 20 fod (cirka 6 meter) væk. Bliv ved med at kigge i 20 sekunder. Gå så tilbage til din agent."
         },
         {
           "h2": "Andre øjenpauser på listen"
@@ -365,7 +365,7 @@
           "code": "install_codex_manual"
         },
         {
-          "p": "Har du allerede en `~/.codex/hooks.json`? Flet de tre poster fra vores fil ind i din. Overskriv ikke din. Codex beder dig godkende en ny hook-konfiguration, første gang den kører. Den forespørgsel er forventet."
+          "p": "Har du allerede en `~/.codex/hooks.json`? Flet de tre poster fra vores fil ind i din. Overskriv ikke din. Codex beder dig godkende en ny hook-konfiguration, første gang den kører. Det er helt normalt."
         },
         {
           "p": "Vælg én måde. Hvis både pluginet og de manuelle poster er på plads, kører hver hook to gange. Hvis du installerede manuelt før 0.8.0, så fjern vores poster fra `~/.codex/hooks.json`, når du skifter til pluginet."
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Har du allerede egne hooks under `BeforeAgent`, `AfterTool` eller `AfterAgent`, erstatter kommandoen dem med vores. Tilføj så vores tre poster til dine lister manuelt."
+        },
+        {
           "h2": "Hvilke hooks den bruger"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "Overskriver fletningen mine indstillinger?",
-          "a": "Kommandoen med jq fletter objektet hooks ind i din eksisterende settings.json. Tag en sikkerhedskopi af filen først, hvis du vil være på den sikre side."
+          "a": "Dine andre indstillinger bliver, hvor de er. Har du allerede egne hooks under BeforeAgent, AfterTool eller AfterAgent, erstatter jq de lister med vores. Tilføj så vores tre poster manuelt. Tag en sikkerhedskopi af filen først."
         },
         {
           "q": "Kan jeg bruge det med gemini -p?",

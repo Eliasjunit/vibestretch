@@ -89,7 +89,7 @@
         },
         {
           "q": "Quanto custa?",
-          "a": "É open source sob a licença MIT. O código está no GitHub."
+          "a": "É grátis. O vibestretch é open source sob a licença MIT, e o código está no GitHub."
         },
         {
           "q": "Como deixo ele em silêncio?",
@@ -136,7 +136,7 @@
           "h2": "Quando você sai da mesa"
         },
         {
-          "p": "Se você ficar longe do teclado por 45 minutos ou mais, a dívida zera. Você já fez sua pausa. No macOS, os hooks leem o relógio de inatividade de teclado e mouse do sistema. Assim, um agente trabalhando de madrugada não soma tempo de agente e nunca toca para uma cadeira vazia. O Linux não tem um relógio de inatividade portável, então lá vale só o reset de 45 minutos."
+          "p": "Se você ficar longe do teclado por 45 minutos ou mais, o contador zera. Você já fez sua pausa. No macOS, os hooks leem o relógio de inatividade de teclado e mouse do sistema. Assim, um agente trabalhando de madrugada não soma tempo de agente e nunca toca para uma cadeira vazia. O Linux não tem um relógio de inatividade portável, então lá vale só o reset de 45 minutos."
         },
         {
           "h2": "O que o aviso pede para você fazer"
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Olhe para algo a 20 pés de distância. Continue olhando por 20 segundos. Depois volte para o seu agente."
+          "p": "Olhe para algo a 20 pés (cerca de 6 m) de distância. Continue olhando por 20 segundos. Depois volte para o seu agente."
         },
         {
           "h2": "Outras pausas para os olhos na lista"
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Se você já tem hooks próprios em `BeforeAgent`, `AfterTool` ou `AfterAgent`, esse comando os substitui pelos nossos. Nesse caso, adicione nossas três entradas às suas listas manualmente."
+        },
+        {
           "h2": "Quais hooks ele usa"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "A mesclagem vai sobrescrever minhas configurações?",
-          "a": "O comando jq mescla o objeto hooks no seu settings.json atual. Se quiser garantir, faça um backup do arquivo antes."
+          "a": "Suas outras configurações continuam lá. Se você já tem hooks próprios em BeforeAgent, AfterTool ou AfterAgent, o jq substitui essas listas pelas nossas. Nesse caso, adicione nossas três entradas manualmente. Faça um backup do arquivo antes."
         },
         {
           "q": "Posso usar com gemini -p?",

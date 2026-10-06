@@ -163,7 +163,7 @@
      "name": "Přepíše sloučení moje nastavení?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Příkaz jq sloučí objekt hooks do vašeho stávajícího settings.json. Pokud chcete mít jistotu, soubor si nejdřív zazálohujte."
+      "text": "Ostatní nastavení zůstanou. Pokud už máte vlastní hooky v BeforeAgent, AfterTool nebo AfterAgent, jq tyto seznamy nahradí našimi. V tom případě přidejte naše tři položky ručně. Soubor si nejdřív zazálohujte."
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>Pak zkopírujte objekt <code>hooks</code> z <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> do <code>~/.gemini/settings.json</code>. Tento soubor obsahuje celou vaši konfiguraci Gemini, takže ho slučte. Nenahrazujte ho. S <code>jq</code> je to jeden řádek:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>Pokud už máte vlastní hooky v <code>BeforeAgent</code>, <code>AfterTool</code> nebo <code>AfterAgent</code>, tento příkaz je nahradí našimi. V tom případě přidejte naše tři položky do svých seznamů ručně.</p>
 <h2>Které hooky používá</h2>
 <ul><li><code>BeforeAgent</code>: agent začíná pracovat na vašem zadání.</li><li><code>AfterTool</code>: nástroj skončil. Přičte se čas čekání, a pokud je připomínka na řadě, zobrazí se.</li><li><code>AfterAgent</code>: běh skončil. Počítání se uzavře.</li></ul>
 <h2>Co dostanete v Gemini CLI</h2>
 <p>Dostanete řádek v relaci a zvuk. Oznámení nebude. Gemini vyhrazuje standardní výstup hooku jen pro JSON, takže není kam vypsat řídicí sekvenci.</p>
 <p>Adaptér byl vyzkoušen na skutečné instalaci Gemini CLI 0.56.0 na macOS. Počítadlo je sdílené s Claude Code a Codex CLI.</p>
-<section class="faq" id="faq"><h2>Časté dotazy</h2><dl><dt>Jakou verzi Gemini CLI potřebuji?</dt><dd>Hooky jsou zapnuté od Gemini CLI v0.26.</dd><dt>Přepíše sloučení moje nastavení?</dt><dd>Příkaz jq sloučí objekt hooks do vašeho stávajícího settings.json. Pokud chcete mít jistotu, soubor si nejdřív zazálohujte.</dd><dt>Můžu ho používat s gemini -p?</dt><dd>Když spouštíte Gemini ze skriptu, z cronu nebo z bota, nastavte VIBESTRETCH_DISABLE=1.</dd></dl></section>
+<section class="faq" id="faq"><h2>Časté dotazy</h2><dl><dt>Jakou verzi Gemini CLI potřebuji?</dt><dd>Hooky jsou zapnuté od Gemini CLI v0.26.</dd><dt>Přepíše sloučení moje nastavení?</dt><dd>Ostatní nastavení zůstanou. Pokud už máte vlastní hooky v BeforeAgent, AfterTool nebo AfterAgent, jq tyto seznamy nahradí našimi. V tom případě přidejte naše tři položky ručně. Soubor si nejdřív zazálohujte.</dd><dt>Můžu ho používat s gemini -p?</dt><dd>Když spouštíte Gemini ze skriptu, z cronu nebo z bota, nastavte VIBESTRETCH_DISABLE=1.</dd></dl></section>
 <section class="related"><h2>Čtěte dál</h2><ul><li><a href="../../cs/">Protáhněte se, zatímco váš AI agent pracuje</a></li><li><a href="../../cs/stretch-breaks-ai-coding-agents/">Přestávky na protažení během běhu AI agentů</a></li><li><a href="../../cs/20-20-20-eye-rule-developers/">Pravidlo 20-20-20 pro oči vývojářů</a></li><li><a href="../../cs/desk-stretches-programmers/">Cviky u stolu pro programátory</a></li><li><a href="../../cs/claude-code-break-reminder/">Jak přidat připomínku přestávek do Claude Code</a></li><li><a href="../../cs/codex-cli-break-reminder/">Jak přidat připomínku přestávek do Codex CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

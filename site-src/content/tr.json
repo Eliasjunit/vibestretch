@@ -89,7 +89,7 @@
         },
         {
           "q": "Ücreti ne kadar?",
-          "a": "MIT lisansı altında açık kaynaklıdır. Kod GitHub'da."
+          "a": "Ücretsizdir. vibestretch MIT lisansı altında açık kaynaklıdır ve kodu GitHub'dadır."
         },
         {
           "q": "Nasıl sessize alırım?",
@@ -136,7 +136,7 @@
           "h2": "Bilgisayardan uzaklaştığınızda"
         },
         {
-          "p": "45 dakika veya daha uzun süre klavyeden uzak kalırsanız birikmiş süre sıfırlanır. Molanızı zaten vermişsinizdir. macOS'ta hook'lar sistemin klavye ve fare boşta kalma saatini okur. Böylece gece boyunca çalışan bir ajan ajan süresi eklemez ve boş bir sandalyeye asla zil çalmaz. Linux'ta taşınabilir bir boşta kalma saati yoktur, bu yüzden orada yalnızca 45 dakikalık sıfırlama geçerlidir."
+          "p": "45 dakika veya daha uzun süre klavyeden uzak kalırsanız birikmiş süre sıfırlanır. Molanızı zaten vermişsinizdir. macOS'ta hook'lar sistemin klavye ve fare boşta kalma saatini okur. Böylece gece boyunca çalışan bir ajan süreye hiçbir şey eklemez ve boş bir sandalyeye asla zil çalmaz. Linux'ta taşınabilir bir boşta kalma saati yoktur, bu yüzden orada yalnızca 45 dakikalık sıfırlama geçerlidir."
         },
         {
           "h2": "Hatırlatma sizden ne ister"
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "20 fit uzaklıktaki bir şeye bakın. 20 saniye boyunca bakmaya devam edin. Sonra ajanınıza dönün."
+          "p": "20 fit (yaklaşık 6 m) uzaklıktaki bir şeye bakın. 20 saniye boyunca bakmaya devam edin. Sonra ajanınıza dönün."
         },
         {
           "h2": "Listedeki diğer göz molaları"
@@ -365,7 +365,7 @@
           "code": "install_codex_manual"
         },
         {
-          "p": "Zaten bir `~/.codex/hooks.json` dosyanız mı var? Bizimkindeki üç girdiyi onunla birleştirin. Kendi dosyanızın üzerine yazmayın. Codex yeni bir hook yapılandırması ilk kez çalıştığında ona güvenmenizi ister. Bu istem beklenen bir durumdur."
+          "p": "Zaten bir `~/.codex/hooks.json` dosyanız mı var? Bizimkindeki üç girdiyi onunla birleştirin. Kendi dosyanızın üzerine yazmayın. Codex yeni bir hook yapılandırması ilk kez çalıştığında ona güvenmenizi ister. Bu istem normaldir."
         },
         {
           "p": "Tek bir yol seçin. Eklenti ve elle eklenen girdiler birlikte varsa her hook iki kez çalışır. 0.8.0 öncesinde elle kurduysanız, eklentiye geçerken bizim girdilerimizi `~/.codex/hooks.json` dosyasından kaldırın."
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "`BeforeAgent`, `AfterTool` veya `AfterAgent` altında kendi hook'larınız varsa bu komut onları bizimkilerle değiştirir. Bu durumda üç girdimizi listelerinize elle ekleyin."
+        },
+        {
           "h2": "Hangi hook'ları kullanır"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "Birleştirme ayarlarımın üzerine yazar mı?",
-          "a": "jq komutu hooks nesnesini mevcut settings.json dosyanızla birleştirir. Emin olmak istiyorsanız önce dosyayı yedekleyin."
+          "a": "Diğer ayarlarınız korunur. BeforeAgent, AfterTool veya AfterAgent altında kendi hook'larınız varsa jq bu listeleri bizimkilerle değiştirir. Bu durumda üç girdimizi elle ekleyin. Önce dosyayı yedekleyin."
         },
         {
           "q": "gemini -p ile kullanabilir miyim?",

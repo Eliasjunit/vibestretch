@@ -198,7 +198,7 @@
 <p>Il compte le temps d'agent : les minutes pendant lesquelles un tour de l'agent tournait alors que vous étiez devant la machine. Il les additionne depuis votre dernier rappel. Ce n'est pas le temps passé à votre bureau. Une heure de lecture et de saisie avec des tours rapides entre les deux n'ajoute presque rien.</p>
 <h2>Quand un rappel se déclenche</h2>
 <p>Les trois conditions doivent être réunies :</p>
-<ol><li>Le tour en cours dure depuis au moins 2 minutes.</li><li>Le temps d'agent depuis le dernier rappel atteint au moins 5 minutes. Une grosse tâche ou plusieurs tâches moyennes comptent toutes les deux.</li><li>Le dernier rappel date d'au moins 15 minutes.</li></ol>
+<ol><li>Le tour en cours dure depuis au moins 2 minutes.</li><li>Le temps d'agent depuis le dernier rappel atteint au moins 5 minutes. Une seule grosse tâche suffit, plusieurs tâches moyennes aussi.</li><li>Le dernier rappel date d'au moins 15 minutes.</li></ol>
 <p>Vous pouvez modifier chaque valeur avec une variable d'environnement. Consultez la <a href="../../fr/claude-code-break-reminder/">page Claude Code</a> pour la liste complète.</p>
 <h2>Quand vous vous absentez</h2>
 <p>Si vous quittez le clavier pendant 45 minutes ou plus, le compteur est remis à zéro. Vous avez déjà fait votre pause. Sur macOS, les hooks lisent l'horloge d'inactivité clavier et souris du système. Un agent qui travaille la nuit n'ajoute donc aucun temps d'agent et ne sonne jamais devant une chaise vide. Linux n'a pas d'horloge d'inactivité portable, donc seule la remise à zéro après 45 minutes s'y applique.</p>

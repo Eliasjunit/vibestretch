@@ -163,7 +163,7 @@
      "name": "¿La combinación sobrescribirá mis ajustes?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "El comando jq combina el objeto hooks con tu settings.json actual. Si quieres ir sobre seguro, haz antes una copia de seguridad del archivo."
+      "text": "Tus demás ajustes se conservan. Si ya tienes hooks propios en BeforeAgent, AfterTool o AfterAgent, jq sustituye esas listas por las nuestras. En ese caso añade nuestras tres entradas a mano. Haz antes una copia de seguridad del archivo."
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>Después copia el objeto <code>hooks</code> de <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> en <code>~/.gemini/settings.json</code>. Ese archivo contiene toda tu configuración de Gemini, así que combínalo. No lo reemplaces. Con <code>jq</code> basta una línea:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>Si ya tienes hooks propios en <code>BeforeAgent</code>, <code>AfterTool</code> o <code>AfterAgent</code>, este comando los sustituye por los nuestros. En ese caso añade nuestras tres entradas a tus listas a mano.</p>
 <h2>Qué hooks usa</h2>
 <ul><li><code>BeforeAgent</code>: el agente empieza a trabajar en tu prompt.</li><li><code>AfterTool</code>: una herramienta terminó. Se suma el tiempo de espera y salta un aviso si toca.</li><li><code>AfterAgent</code>: el turno terminó. Se cierra la cuenta.</li></ul>
 <h2>Qué obtienes en Gemini CLI</h2>
 <p>Obtienes la línea en la sesión y el tono. No hay notificación. Gemini reserva la salida estándar de un hook solo para JSON, así que no hay dónde imprimir una secuencia de escape.</p>
 <p>El adaptador se probó en una instalación real de Gemini CLI 0.56.0 en macOS. El contador se comparte con Claude Code y Codex CLI.</p>
-<section class="faq" id="faq"><h2>Preguntas frecuentes</h2><dl><dt>¿Qué versión de Gemini CLI necesito?</dt><dd>Los hooks vienen activados desde Gemini CLI v0.26.</dd><dt>¿La combinación sobrescribirá mis ajustes?</dt><dd>El comando jq combina el objeto hooks con tu settings.json actual. Si quieres ir sobre seguro, haz antes una copia de seguridad del archivo.</dd><dt>¿Puedo usarlo con gemini -p?</dt><dd>Define VIBESTRETCH_DISABLE=1 cuando ejecutes Gemini desde un script, cron o un bot.</dd></dl></section>
+<section class="faq" id="faq"><h2>Preguntas frecuentes</h2><dl><dt>¿Qué versión de Gemini CLI necesito?</dt><dd>Los hooks vienen activados desde Gemini CLI v0.26.</dd><dt>¿La combinación sobrescribirá mis ajustes?</dt><dd>Tus demás ajustes se conservan. Si ya tienes hooks propios en BeforeAgent, AfterTool o AfterAgent, jq sustituye esas listas por las nuestras. En ese caso añade nuestras tres entradas a mano. Haz antes una copia de seguridad del archivo.</dd><dt>¿Puedo usarlo con gemini -p?</dt><dd>Define VIBESTRETCH_DISABLE=1 cuando ejecutes Gemini desde un script, cron o un bot.</dd></dl></section>
 <section class="related"><h2>Sigue leyendo</h2><ul><li><a href="../../es/">Estírate mientras tu agente de código trabaja</a></li><li><a href="../../es/stretch-breaks-ai-coding-agents/">Pausas para estirarse mientras trabajan los agentes de IA</a></li><li><a href="../../es/20-20-20-eye-rule-developers/">La regla 20-20-20 para desarrolladores</a></li><li><a href="../../es/desk-stretches-programmers/">Estiramientos en el escritorio para programadores</a></li><li><a href="../../es/claude-code-break-reminder/">Cómo añadir un recordatorio de pausas a Claude Code</a></li><li><a href="../../es/codex-cli-break-reminder/">Cómo añadir un recordatorio de pausas a Codex CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

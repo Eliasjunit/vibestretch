@@ -200,7 +200,7 @@ codex plugin add vibestretch@vibestretch</code></pre>
 <p>Egy klón és egy konfigurációs fájl ugyanezt elvégzi:</p>
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.codex/vibestretch
 cp ~/.codex/vibestretch/hooks/codex-hooks.json ~/.codex/hooks.json</code></pre>
-<p>Már van <code>~/.codex/hooks.json</code> fájlod? Fésüld bele a mi fájlunk három bejegyzését. Ne írd felül a sajátodat. A Codex az első futáskor megkér, hogy bízz meg az új hook-konfigurációban. Ez a kérdés várható.</p>
+<p>Már van <code>~/.codex/hooks.json</code> fájlod? Fésüld bele a mi fájlunk három bejegyzését. Ne írd felül a sajátodat. A Codex az első futáskor megkér, hogy bízz meg az új hook-konfigurációban. Ez rendben van.</p>
 <p>Válassz egy módszert. Ha a bővítmény és a kézi bejegyzések is megvannak, minden hook kétszer fut. Ha 0.8.0 előtt kézzel telepítetted, a bővítményre váltáskor töröld a bejegyzéseinket a <code>~/.codex/hooks.json</code> fájlból.</p>
 <h2>Mit kapsz a Codexben</h2>
 <p>Megkapod a sort a munkamenetben és a hangjelzést. Értesítési banner nincs, mert a Codexben nincs olyan hook-kimeneti mező, amely terminálszekvenciát fogadna. Állapotsor-elem sincs. Ez a sáv a Codexben nem szkriptelhető.</p>

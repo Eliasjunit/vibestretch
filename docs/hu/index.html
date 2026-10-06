@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>vibestretch: nyújtás emlékeztető, amíg a kódoló AI dolgozik</title>
+<title>vibestretch: nyújtásemlékeztető, amíg a kódoló AI dolgozik</title>
 <meta name="description" content="A vibestretch ingyenes nyújtás- és szünetemlékeztető fejlesztőknek. Mozgásra emlékeztet, amíg a Claude Code, a Codex CLI vagy a Gemini CLI hosszan fut.">
 <link rel="canonical" href="https://eliasjunit.github.io/vibestretch/hu/">
 <link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/">
@@ -39,7 +39,7 @@
 <link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="vibestretch">
-<meta property="og:title" content="vibestretch: nyújtás emlékeztető, amíg a kódoló AI dolgozik">
+<meta property="og:title" content="vibestretch: nyújtásemlékeztető, amíg a kódoló AI dolgozik">
 <meta property="og:description" content="A vibestretch ingyenes nyújtás- és szünetemlékeztető fejlesztőknek. Mozgásra emlékeztet, amíg a Claude Code, a Codex CLI vagy a Gemini CLI hosszan fut.">
 <meta property="og:url" content="https://eliasjunit.github.io/vibestretch/hu/">
 <meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
@@ -106,7 +106,7 @@
    "@type": "WebPage",
    "@id": "https://eliasjunit.github.io/vibestretch/hu/#webpage",
    "url": "https://eliasjunit.github.io/vibestretch/hu/",
-   "name": "vibestretch: nyújtás emlékeztető, amíg a kódoló AI dolgozik",
+   "name": "vibestretch: nyújtásemlékeztető, amíg a kódoló AI dolgozik",
    "description": "A vibestretch ingyenes nyújtás- és szünetemlékeztető fejlesztőknek. Mozgásra emlékeztet, amíg a Claude Code, a Codex CLI vagy a Gemini CLI hosszan fut.",
    "inLanguage": "hu",
    "isPartOf": {
@@ -181,7 +181,7 @@
      "name": "Mennyibe kerül?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Nyílt forráskódú, MIT licenc alatt. A kód a GitHubon van."
+      "text": "Ingyenes. A vibestretch nyílt forráskódú, MIT licenc alatt, a kód a GitHubon van."
      }
     },
     {
@@ -209,7 +209,7 @@
 <main id="main" class="wrap">
 <nav class="crumbs" aria-label="Morzsamenü"><ol><li><a href="../hu/">vibestretch</a></li></ol></nav>
 <h1>Nyújts, amíg a kódoló ügynököd dolgozik</h1>
-<p class="lead">A vibestretch egy rövid nyújtást, mini edzést vagy szemszünetet mutat, amíg egy hosszú ügynökfutás miatt várnod kell. A Claude Code, a Codex CLI és a Gemini CLI mellett működik.</p>
+<p class="lead">A vibestretch egy rövid nyújtást, mini edzést vagy szemszünetet mutat, amíg egy hosszú ügynökfutás miatt várnod kell. A Claude Code-dal, a Codex CLI-jal és a Gemini CLI-jal működik.</p>
 <pre><code>claude plugin marketplace add Eliasjunit/vibestretch &amp;&amp; claude plugin install vibestretch@vibestretch</code></pre>
 <p>Ez telepíti a bővítményt a Claude Code-ba. A <a href="../hu/codex-cli-break-reminder/">Codex CLI</a> és a <a href="../hu/gemini-cli-break-reminder/">Gemini CLI</a> oldalán megtalálod a telepítés lépéseit.</p>
 <h2>Így néz ki egy emlékeztető</h2>
@@ -223,7 +223,7 @@
 <ul><li>Tizenkét beépített gyakorlat: nyújtások, mini edzések és szemszünetek, például a <a href="../hu/20-20-20-eye-rule-developers/">20-20-20</a>.</li><li>Váltakozó sorrend, amely sosem ismétli ugyanazt a gyakorlatot kétszer egymás után.</li><li>Saját gyakorlatlista, ha azt szeretnéd. Lásd: <a href="../hu/desk-stretches-programmers/">irodai nyújtógyakorlatok programozóknak</a>.</li><li>Opcionális állapotsor-elem a Claude Code-ban.</li></ul>
 <h2>Adatvédelem</h2>
 <p>A vibestretch néhány kis POSIX shell szkriptből és egy mellékelt hangfájlból áll. Nem kommunikál a hálózaton. Nem küld telemetriát. Nem jelenít meg hirdetést, és nem tesz linkeket a terminálodba. Semmit nem ad a modell kontextusához. Az állapotát a <code>~/.cache/vibestretch/</code> mappában tárolja.</p>
-<section class="faq" id="faq"><h2>GYIK</h2><dl><dt>Mi a vibestretch?</dt><dd>A vibestretch bővítmény kódoló ügynökökhöz. Emlékeztet, hogy nyújts, mozogj vagy pihentesd a szemed, amíg egy hosszú ügynökfutás miatt várnod kell.</dd><dt>Mely kódoló ügynököket támogatja?</dt><dd>Claude Code, OpenAI Codex CLI és Gemini CLI. Mindhárom ugyanazt a számlálót használja, így egy óra várakozás egyszer számít, bármelyik ügynök tartott is a széken.</dd><dt>Ez egy szünetidőzítő?</dt><dd>Nem. Egy időzítő ütemezés szerint fut. A vibestretch csak azt az időt számolja, amíg egy ügynökfutás miatt vártál, és csak ez alatt a várakozás alatt szól.</dd><dt>Küld valahova adatot?</dt><dd>Nem. Nem kommunikál a hálózaton, és nem küld telemetriát. Semmi nem hagyja el a gépedet.</dd><dt>Mennyibe kerül?</dt><dd>Nyílt forráskódú, MIT licenc alatt. A kód a GitHubon van.</dd><dt>Hogyan némíthatom el?</dt><dd>Állítsd a VIBESTRETCH_DISABLE változót bármilyen értékre, és az emlékeztetők elnémulnak. A VIBESTRETCH_SOUND=0 elnémítja a hangot. A VIBESTRETCH_NOTIFY=0 kikapcsolja a bannert.</dd></dl></section>
+<section class="faq" id="faq"><h2>GYIK</h2><dl><dt>Mi a vibestretch?</dt><dd>A vibestretch bővítmény kódoló ügynökökhöz. Emlékeztet, hogy nyújts, mozogj vagy pihentesd a szemed, amíg egy hosszú ügynökfutás miatt várnod kell.</dd><dt>Mely kódoló ügynököket támogatja?</dt><dd>Claude Code, OpenAI Codex CLI és Gemini CLI. Mindhárom ugyanazt a számlálót használja, így egy óra várakozás egyszer számít, bármelyik ügynök tartott is a széken.</dd><dt>Ez egy szünetidőzítő?</dt><dd>Nem. Egy időzítő ütemezés szerint fut. A vibestretch csak azt az időt számolja, amíg egy ügynökfutás miatt vártál, és csak ez alatt a várakozás alatt szól.</dd><dt>Küld valahova adatot?</dt><dd>Nem. Nem kommunikál a hálózaton, és nem küld telemetriát. Semmi nem hagyja el a gépedet.</dd><dt>Mennyibe kerül?</dt><dd>Ingyenes. A vibestretch nyílt forráskódú, MIT licenc alatt, a kód a GitHubon van.</dd><dt>Hogyan némíthatom el?</dt><dd>Állítsd a VIBESTRETCH_DISABLE változót bármilyen értékre, és az emlékeztetők elnémulnak. A VIBESTRETCH_SOUND=0 elnémítja a hangot. A VIBESTRETCH_NOTIFY=0 kikapcsolja a bannert.</dd></dl></section>
 <section class="related"><h2>Olvasd el ezt is</h2><ul><li><a href="../hu/stretch-breaks-ai-coding-agents/">Nyújtószünetek, amíg az AI kódoló ügynökök futnak</a></li><li><a href="../hu/20-20-20-eye-rule-developers/">A 20-20-20 szabály fejlesztőknek</a></li><li><a href="../hu/desk-stretches-programmers/">Irodai nyújtógyakorlatok programozóknak</a></li><li><a href="../hu/claude-code-break-reminder/">Hogyan adj szünetemlékeztetőt a Claude Code-hoz</a></li><li><a href="../hu/codex-cli-break-reminder/">Hogyan adj szünetemlékeztetőt a Codex CLI-hoz</a></li><li><a href="../hu/gemini-cli-break-reminder/">Hogyan adj szünetemlékeztetőt a Gemini CLI-hoz</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

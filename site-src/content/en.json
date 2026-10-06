@@ -89,7 +89,7 @@
         },
         {
           "q": "How much does it cost?",
-          "a": "It is open source under the MIT license. The code is on GitHub."
+          "a": "It is free. vibestretch is open source under the MIT license, and the code is on GitHub."
         },
         {
           "q": "How do I mute it?",
@@ -136,7 +136,7 @@
           "h2": "When you step away"
         },
         {
-          "p": "If you are away from the keyboard for 45 minutes or more, the debt resets. You already had your break. On macOS the hooks read the system keyboard and mouse idle clock. So an agent working overnight adds no agent time and never chimes at an empty chair. Linux has no portable idle clock, so there only the 45-minute reset applies."
+          "p": "If you are away from the keyboard for 45 minutes or more, the count resets. You already had your break. On macOS the hooks read the system keyboard and mouse idle clock. So an agent working overnight adds no agent time and never chimes at an empty chair. Linux has no portable idle clock, so there only the 45-minute reset applies."
         },
         {
           "h2": "What the nudge asks you to do"
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Look at something 20 feet away. Keep looking for 20 seconds. Then go back to your agent."
+          "p": "Look at something 20 feet (about 6 m) away. Keep looking for 20 seconds. Then go back to your agent."
         },
         {
           "h2": "Other eye breaks in the list"
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "If you already have your own `BeforeAgent`, `AfterTool` or `AfterAgent` hooks, this command replaces them with ours. In that case add our three entries to your lists by hand."
+        },
+        {
           "h2": "Which hooks it uses"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "Will the merge overwrite my settings?",
-          "a": "The jq command merges the hooks object into your existing settings.json. Back up the file first if you want to be safe."
+          "a": "It keeps your other settings. If you already have your own BeforeAgent, AfterTool or AfterAgent hooks, jq replaces those lists with ours. In that case add our three entries by hand. Back up the file first."
         },
         {
           "q": "Can I use it with gemini -p?",

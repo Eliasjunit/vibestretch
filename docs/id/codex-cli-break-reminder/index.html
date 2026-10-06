@@ -171,7 +171,7 @@
      "name": "Bisakah dipakai dengan codex exec?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Atur VIBESTRETCH_DISABLE=1 di lingkungan tersebut. Proses tanpa pengawasan sebaiknya tidak dihitung sebagai waktu yang Anda jalani."
+      "text": "Atur VIBESTRETCH_DISABLE=1 di lingkungan tersebut. Proses tanpa pengawasan sebaiknya tidak dihitung sebagai waktu Anda menunggu."
      }
     }
    ]
@@ -205,7 +205,7 @@ cp ~/.codex/vibestretch/hooks/codex-hooks.json ~/.codex/hooks.json</code></pre>
 <h2>Yang Anda dapatkan di Codex</h2>
 <p>Anda mendapat baris di sesi dan bunyi. Tidak ada banner notifikasi, karena Codex tidak punya field output hook untuk sequence terminal. Tidak ada segmen status line juga. Bar itu tidak bisa diatur dengan skrip di Codex.</p>
 <p>Penghitungnya dipakai bersama dengan Claude Code dan Gemini CLI. Satu jam menunggu hanya dihitung sekali, agen mana pun yang membuat Anda tetap duduk. Adapter ini sudah dijalankan pada instalasi nyata Codex CLI 0.149.1 di macOS.</p>
-<section class="faq" id="faq"><h2>Tanya jawab</h2><dl><dt>Saya sudah memasangnya, tetapi tidak terjadi apa-apa. Kenapa?</dt><dd>Codex hanya menjalankan hook plugin setelah Anda memercayainya. Buka /hooks dan percayai tiga entri vibestretch.</dd><dt>Setiap hook berjalan dua kali. Kenapa?</dt><dd>Kemungkinan Anda memasang plugin sekaligus entri manual di ~/.codex/hooks.json. Pertahankan salah satunya saja.</dd><dt>Bisakah dipakai dengan codex exec?</dt><dd>Atur VIBESTRETCH_DISABLE=1 di lingkungan tersebut. Proses tanpa pengawasan sebaiknya tidak dihitung sebagai waktu yang Anda jalani.</dd></dl></section>
+<section class="faq" id="faq"><h2>Tanya jawab</h2><dl><dt>Saya sudah memasangnya, tetapi tidak terjadi apa-apa. Kenapa?</dt><dd>Codex hanya menjalankan hook plugin setelah Anda memercayainya. Buka /hooks dan percayai tiga entri vibestretch.</dd><dt>Setiap hook berjalan dua kali. Kenapa?</dt><dd>Kemungkinan Anda memasang plugin sekaligus entri manual di ~/.codex/hooks.json. Pertahankan salah satunya saja.</dd><dt>Bisakah dipakai dengan codex exec?</dt><dd>Atur VIBESTRETCH_DISABLE=1 di lingkungan tersebut. Proses tanpa pengawasan sebaiknya tidak dihitung sebagai waktu Anda menunggu.</dd></dl></section>
 <section class="related"><h2>Baca selanjutnya</h2><ul><li><a href="../../id/">Lakukan peregangan selagi agen coding bekerja</a></li><li><a href="../../id/stretch-breaks-ai-coding-agents/">Istirahat peregangan saat agen coding AI berjalan</a></li><li><a href="../../id/20-20-20-eye-rule-developers/">Aturan mata 20-20-20 untuk developer</a></li><li><a href="../../id/desk-stretches-programmers/">Peregangan di meja untuk programmer</a></li><li><a href="../../id/claude-code-break-reminder/">Cara menambah pengingat istirahat di Claude Code</a></li><li><a href="../../id/gemini-cli-break-reminder/">Cara menambah pengingat istirahat di Gemini CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

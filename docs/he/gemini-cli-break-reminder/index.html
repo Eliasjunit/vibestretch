@@ -163,7 +163,7 @@
      "name": "המיזוג ידרוס את ההגדרות שלי?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "פקודת jq ממזגת את האובייקט hooks לתוך settings.json הקיים שלכם. אם אתם רוצים להיות בטוחים, גבו את הקובץ קודם."
+      "text": "שאר ההגדרות שלכם נשמרות. אם כבר יש לכם hooks משלכם ב-BeforeAgent, ב-AfterTool או ב-AfterAgent, jq מחליף את הרשימות האלה ברשימות שלנו. במקרה כזה הוסיפו את שלוש הרשומות שלנו ידנית. גבו את הקובץ קודם."
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>אחר כך העתיקו את האובייקט <code>hooks</code> מ-<code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> אל <code>~/.gemini/settings.json</code>. הקובץ הזה מכיל את כל הגדרות Gemini שלכם, אז מזגו אותו. אל תחליפו אותו. עם <code>jq</code> זו שורה אחת:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>אם כבר יש לכם hooks משלכם ב-<code>BeforeAgent</code>, ב-<code>AfterTool</code> או ב-<code>AfterAgent</code>, הפקודה הזו מחליפה אותם בשלנו. במקרה כזה הוסיפו את שלוש הרשומות שלנו לרשימות שלכם ידנית.</p>
 <h2>באילו hooks הוא משתמש</h2>
 <ul><li><code>BeforeAgent</code>: הסוכן מתחיל לעבוד על הפרומפט שלכם.</li><li><code>AfterTool</code>: כלי סיים לרוץ. זמן ההמתנה מתווסף, ותזכורת מופיעה אם הגיע הזמן.</li><li><code>AfterAgent</code>: התור הסתיים. הספירה נסגרת.</li></ul>
 <h2>מה מקבלים ב-Gemini CLI</h2>
 <p>מקבלים את השורה בסשן ואת הצליל. אין התראה. Gemini שומר את ה-stdout של hook ל-JSON בלבד, כך שאין איפה להדפיס רצף escape.</p>
 <p>המתאם הורץ על התקנה חיה של Gemini CLI 0.56.0 ב-macOS. המונה משותף עם Claude Code ו-Codex CLI.</p>
-<section class="faq" id="faq"><h2>שאלות נפוצות</h2><dl><dt>איזו גרסה של Gemini CLI אני צריך?</dt><dd>ה-hooks מופעלים כברירת מחדל מאז Gemini CLI v0.26.</dd><dt>המיזוג ידרוס את ההגדרות שלי?</dt><dd>פקודת jq ממזגת את האובייקט hooks לתוך settings.json הקיים שלכם. אם אתם רוצים להיות בטוחים, גבו את הקובץ קודם.</dd><dt>אפשר להשתמש בו עם gemini -p?</dt><dd>הגדירו VIBESTRETCH_DISABLE=1 כשאתם מריצים את Gemini מסקריפט, מ-cron או מבוט.</dd></dl></section>
+<section class="faq" id="faq"><h2>שאלות נפוצות</h2><dl><dt>איזו גרסה של Gemini CLI אני צריך?</dt><dd>ה-hooks מופעלים כברירת מחדל מאז Gemini CLI v0.26.</dd><dt>המיזוג ידרוס את ההגדרות שלי?</dt><dd>שאר ההגדרות שלכם נשמרות. אם כבר יש לכם hooks משלכם ב-BeforeAgent, ב-AfterTool או ב-AfterAgent, jq מחליף את הרשימות האלה ברשימות שלנו. במקרה כזה הוסיפו את שלוש הרשומות שלנו ידנית. גבו את הקובץ קודם.</dd><dt>אפשר להשתמש בו עם gemini -p?</dt><dd>הגדירו VIBESTRETCH_DISABLE=1 כשאתם מריצים את Gemini מסקריפט, מ-cron או מבוט.</dd></dl></section>
 <section class="related"><h2>להמשך קריאה</h2><ul><li><a href="../../he/">מתיחות בזמן שסוכן הקוד עובד</a></li><li><a href="../../he/stretch-breaks-ai-coding-agents/">הפסקות מתיחה בזמן שסוכני קוד מבוססי AI עובדים</a></li><li><a href="../../he/20-20-20-eye-rule-developers/">כלל 20-20-20 לעיניים למפתחים</a></li><li><a href="../../he/desk-stretches-programmers/">מתיחות ליד השולחן למתכנתים</a></li><li><a href="../../he/claude-code-break-reminder/">איך מוסיפים תזכורת להפסקה ל-Claude Code</a></li><li><a href="../../he/codex-cli-break-reminder/">איך מוסיפים תזכורת להפסקה ל-Codex CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

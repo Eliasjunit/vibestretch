@@ -89,7 +89,7 @@
         },
         {
           "q": "Ile to kosztuje?",
-          "a": "To open source na licencji MIT. Kod jest na GitHubie."
+          "a": "Jest darmowy. vibestretch to open source na licencji MIT, a kod jest na GitHubie."
         },
         {
           "q": "Jak go wyciszyć?",
@@ -114,7 +114,7 @@
           "h2": "Co liczy vibestretch"
         },
         {
-          "p": "Liczy czas agenta: minuty, w których agent pracował nad odpowiedzią, gdy ty byłeś przy komputerze. Sumuje je od ostatniego przypomnienia. To nie jest czas spędzony przy biurku. Godzina czytania i pisania z szybkimi odpowiedziami agenta w międzyczasie dodaje prawie nic."
+          "p": "Liczy czas agenta: minuty, w których agent pracował nad odpowiedzią, gdy ty byłeś przy komputerze. Sumuje je od ostatniego przypomnienia. To nie jest czas spędzony przy biurku. Godzina czytania i pisania z szybkimi odpowiedziami agenta w międzyczasie nie dodaje prawie nic."
         },
         {
           "h2": "Kiedy pojawia się przypomnienie"
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Spójrz na coś oddalonego o 20 stóp. Patrz przez 20 sekund. Potem wróć do agenta."
+          "p": "Spójrz na coś oddalonego o 20 stóp (około 6 m). Patrz przez 20 sekund. Potem wróć do agenta."
         },
         {
           "h2": "Inne przerwy dla oczu na liście"
@@ -365,7 +365,7 @@
           "code": "install_codex_manual"
         },
         {
-          "p": "Masz już `~/.codex/hooks.json`? Dopisz do niego trzy wpisy z naszego pliku. Nie nadpisuj swojego. Przy pierwszym uruchomieniu Codex poprosi o zaufanie nowej konfiguracji hooków. Ten monit jest oczekiwany."
+          "p": "Masz już `~/.codex/hooks.json`? Dopisz do niego trzy wpisy z naszego pliku. Nie nadpisuj swojego. Przy pierwszym uruchomieniu Codex poprosi o zaufanie nowej konfiguracji hooków. To normalne."
         },
         {
           "p": "Wybierz jeden sposób. Jeśli masz jednocześnie wtyczkę i ręczne wpisy, każdy hook uruchamia się dwa razy. Jeśli instalowałeś ręcznie przed 0.8.0, usuń nasze wpisy z `~/.codex/hooks.json`, gdy przechodzisz na wtyczkę."
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Jeśli masz już własne hooki w `BeforeAgent`, `AfterTool` lub `AfterAgent`, to polecenie zastąpi je naszymi. Wtedy dopisz nasze trzy wpisy do swoich list ręcznie."
+        },
+        {
           "h2": "Jakich hooków używa"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "Czy scalanie nadpisze moje ustawienia?",
-          "a": "Polecenie jq scala obiekt hooks z twoim istniejącym settings.json. Jeśli chcesz mieć pewność, najpierw zrób kopię zapasową pliku."
+          "a": "Pozostałe ustawienia zostają. Jeśli masz już własne hooki w BeforeAgent, AfterTool lub AfterAgent, jq zastąpi te listy naszymi. Wtedy dopisz nasze trzy wpisy ręcznie. Najpierw zrób kopię zapasową pliku."
         },
         {
           "q": "Czy mogę używać go z gemini -p?",

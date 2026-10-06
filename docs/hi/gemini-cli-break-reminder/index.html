@@ -163,7 +163,7 @@
      "name": "क्या मर्ज से मेरी सेटिंग्स ओवरराइट हो जाएंगी?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "jq कमांड hooks ऑब्जेक्ट को आपकी मौजूदा settings.json में मर्ज करता है। सुरक्षित रहना चाहें तो पहले फ़ाइल का बैकअप ले लें।"
+      "text": "आपकी बाकी सेटिंग्स बनी रहती हैं। अगर BeforeAgent, AfterTool या AfterAgent में आपके अपने हुक पहले से हैं, तो jq उन लिस्ट को हमारी लिस्ट से बदल देता है। ऐसे में हमारी तीनों एंट्री हाथ से जोड़ें। पहले फ़ाइल का बैकअप ले लें।"
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>फिर <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> से <code>hooks</code> ऑब्जेक्ट को <code>~/.gemini/settings.json</code> में कॉपी करें। उस फ़ाइल में आपकी पूरी Gemini कॉन्फ़िगरेशन होती है, इसलिए उसे मर्ज करें। उसे बदलें नहीं। <code>jq</code> के साथ यह एक लाइन का काम है:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>अगर <code>BeforeAgent</code>, <code>AfterTool</code> या <code>AfterAgent</code> में आपके अपने हुक पहले से हैं, तो यह कमांड उन्हें हमारे हुक से बदल देता है। ऐसे में हमारी तीनों एंट्री अपनी लिस्ट में हाथ से जोड़ें।</p>
 <h2>यह कौन से हुक इस्तेमाल करता है</h2>
 <ul><li><code>BeforeAgent</code>: एजेंट आपके प्रॉम्प्ट पर काम शुरू करता है।</li><li><code>AfterTool</code>: कोई टूल पूरा हुआ। इंतज़ार का समय जुड़ता है, और अगर रिमाइंडर का समय हो गया है तो वह आता है।</li><li><code>AfterAgent</code>: टर्न खत्म हो गया। गिनती बंद होती है।</li></ul>
 <h2>Gemini CLI में आपको क्या मिलता है</h2>
 <p>आपको सेशन में लाइन और चाइम मिलती है। नोटिफ़िकेशन बैनर नहीं है। Gemini हुक के stdout को सिर्फ़ JSON के लिए रखता है, इसलिए escape sequence प्रिंट करने की कोई जगह नहीं है।</p>
 <p>अडैप्टर को macOS पर Gemini CLI 0.56.0 के लाइव इंस्टॉल पर चलाया गया था। काउंटर Claude Code और Codex CLI के साथ शेयर होता है।</p>
-<section class="faq" id="faq"><h2>अक्सर पूछे जाने वाले सवाल</h2><dl><dt>मुझे Gemini CLI का कौन सा वर्ज़न चाहिए?</dt><dd>Gemini CLI v0.26 से हुक डिफ़ॉल्ट रूप से चालू आते हैं।</dd><dt>क्या मर्ज से मेरी सेटिंग्स ओवरराइट हो जाएंगी?</dt><dd>jq कमांड hooks ऑब्जेक्ट को आपकी मौजूदा settings.json में मर्ज करता है। सुरक्षित रहना चाहें तो पहले फ़ाइल का बैकअप ले लें।</dd><dt>क्या मैं इसे gemini -p के साथ इस्तेमाल कर सकता हूं?</dt><dd>जब आप Gemini को किसी स्क्रिप्ट, cron या बॉट से चलाएं, तो VIBESTRETCH_DISABLE=1 सेट करें।</dd></dl></section>
+<section class="faq" id="faq"><h2>अक्सर पूछे जाने वाले सवाल</h2><dl><dt>मुझे Gemini CLI का कौन सा वर्ज़न चाहिए?</dt><dd>Gemini CLI v0.26 से हुक डिफ़ॉल्ट रूप से चालू आते हैं।</dd><dt>क्या मर्ज से मेरी सेटिंग्स ओवरराइट हो जाएंगी?</dt><dd>आपकी बाकी सेटिंग्स बनी रहती हैं। अगर BeforeAgent, AfterTool या AfterAgent में आपके अपने हुक पहले से हैं, तो jq उन लिस्ट को हमारी लिस्ट से बदल देता है। ऐसे में हमारी तीनों एंट्री हाथ से जोड़ें। पहले फ़ाइल का बैकअप ले लें।</dd><dt>क्या मैं इसे gemini -p के साथ इस्तेमाल कर सकता हूं?</dt><dd>जब आप Gemini को किसी स्क्रिप्ट, cron या बॉट से चलाएं, तो VIBESTRETCH_DISABLE=1 सेट करें।</dd></dl></section>
 <section class="related"><h2>आगे पढ़ें</h2><ul><li><a href="../../hi/">जब कोडिंग एजेंट काम करे, तब आप स्ट्रेच करें</a></li><li><a href="../../hi/stretch-breaks-ai-coding-agents/">AI कोडिंग एजेंट चलने के दौरान स्ट्रेच ब्रेक</a></li><li><a href="../../hi/20-20-20-eye-rule-developers/">डेवलपर्स के लिए 20-20-20 आई रूल</a></li><li><a href="../../hi/desk-stretches-programmers/">प्रोग्रामर्स के लिए डेस्क स्ट्रेच</a></li><li><a href="../../hi/claude-code-break-reminder/">Claude Code में ब्रेक रिमाइंडर कैसे जोड़ें</a></li><li><a href="../../hi/codex-cli-break-reminder/">Codex CLI में ब्रेक रिमाइंडर कैसे जोड़ें</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>vibestretch : rappel d&#x27;étirements pendant votre agent de code</title>
+<title>vibestretch : rappel d&#x27;étirements pendant que l&#x27;agent de code travaille</title>
 <meta name="description" content="vibestretch est un rappel de pause et d&#x27;étirements gratuit pour développeurs. Il vous invite à bouger quand Claude Code, Codex CLI ou Gemini CLI travaille.">
 <link rel="canonical" href="https://eliasjunit.github.io/vibestretch/fr/">
 <link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/">
@@ -39,7 +39,7 @@
 <link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="vibestretch">
-<meta property="og:title" content="vibestretch : rappel d&#x27;étirements pendant votre agent de code">
+<meta property="og:title" content="vibestretch : rappel d&#x27;étirements pendant que l&#x27;agent de code travaille">
 <meta property="og:description" content="vibestretch est un rappel de pause et d&#x27;étirements gratuit pour développeurs. Il vous invite à bouger quand Claude Code, Codex CLI ou Gemini CLI travaille.">
 <meta property="og:url" content="https://eliasjunit.github.io/vibestretch/fr/">
 <meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
@@ -106,7 +106,7 @@
    "@type": "WebPage",
    "@id": "https://eliasjunit.github.io/vibestretch/fr/#webpage",
    "url": "https://eliasjunit.github.io/vibestretch/fr/",
-   "name": "vibestretch : rappel d'étirements pendant votre agent de code",
+   "name": "vibestretch : rappel d'étirements pendant que l'agent de code travaille",
    "description": "vibestretch est un rappel de pause et d'étirements gratuit pour développeurs. Il vous invite à bouger quand Claude Code, Codex CLI ou Gemini CLI travaille.",
    "inLanguage": "fr",
    "isPartOf": {
@@ -165,7 +165,7 @@
      "name": "Est-ce un minuteur de pauses ?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Non. Un minuteur suit un horaire. vibestretch compte uniquement le temps pendant lequel un tour de l'agent vous a fait attendre, et il ne vous rappelle à l'ordre que pendant cette attente."
+      "text": "Non. Un minuteur suit un horaire. vibestretch compte uniquement le temps pendant lequel un tour de l'agent vous a fait attendre, et il ne vous prévient que pendant cette attente."
      }
     },
     {
@@ -181,7 +181,7 @@
      "name": "Combien ça coûte ?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Il est open source sous licence MIT. Le code est sur GitHub."
+      "text": "Il est gratuit. vibestretch est open source sous licence MIT, et le code est sur GitHub."
      }
     },
     {
@@ -223,7 +223,7 @@
 <ul><li>Douze exercices intégrés : étirements, mini exercices et pauses pour les yeux comme la <a href="../fr/20-20-20-eye-rule-developers/">règle 20-20-20</a>.</li><li>Une rotation qui ne propose jamais deux fois de suite le même exercice.</li><li>Votre propre liste d'exercices, si vous préférez. Voir <a href="../fr/desk-stretches-programmers/">étirements au bureau pour développeurs</a>.</li><li>Un segment facultatif dans la ligne d'état de Claude Code.</li></ul>
 <h2>Confidentialité</h2>
 <p>vibestretch se compose de quelques petits scripts shell POSIX et d'un son fourni. Il ne fait aucun appel réseau. Il n'envoie aucune télémétrie. Il n'affiche aucune publicité et ne met aucun lien dans votre terminal. Il n'ajoute rien au contexte du modèle. Son état est stocké dans <code>~/.cache/vibestretch/</code>.</p>
-<section class="faq" id="faq"><h2>Questions fréquentes</h2><dl><dt>Qu'est-ce que vibestretch ?</dt><dd>vibestretch est un plugin pour agents de code. Il vous rappelle de vous étirer, de bouger ou de reposer vos yeux quand un long tour de l'agent vous fait attendre.</dd><dt>Quels agents de code sont pris en charge ?</dt><dd>Claude Code, OpenAI Codex CLI et Gemini CLI. Les trois partagent le même compteur : une heure d'attente compte une seule fois, quel que soit l'agent qui vous a gardé sur votre chaise.</dd><dt>Est-ce un minuteur de pauses ?</dt><dd>Non. Un minuteur suit un horaire. vibestretch compte uniquement le temps pendant lequel un tour de l'agent vous a fait attendre, et il ne vous rappelle à l'ordre que pendant cette attente.</dd><dt>Envoie-t-il des données quelque part ?</dt><dd>Non. Il ne fait aucun appel réseau et n'envoie aucune télémétrie. Rien ne quitte votre machine.</dd><dt>Combien ça coûte ?</dt><dd>Il est open source sous licence MIT. Le code est sur GitHub.</dd><dt>Comment le rendre muet ?</dt><dd>Donnez n'importe quelle valeur à VIBESTRETCH_DISABLE pour couper les rappels. VIBESTRETCH_SOUND=0 coupe le son. VIBESTRETCH_NOTIFY=0 supprime la notification.</dd></dl></section>
+<section class="faq" id="faq"><h2>Questions fréquentes</h2><dl><dt>Qu'est-ce que vibestretch ?</dt><dd>vibestretch est un plugin pour agents de code. Il vous rappelle de vous étirer, de bouger ou de reposer vos yeux quand un long tour de l'agent vous fait attendre.</dd><dt>Quels agents de code sont pris en charge ?</dt><dd>Claude Code, OpenAI Codex CLI et Gemini CLI. Les trois partagent le même compteur : une heure d'attente compte une seule fois, quel que soit l'agent qui vous a gardé sur votre chaise.</dd><dt>Est-ce un minuteur de pauses ?</dt><dd>Non. Un minuteur suit un horaire. vibestretch compte uniquement le temps pendant lequel un tour de l'agent vous a fait attendre, et il ne vous prévient que pendant cette attente.</dd><dt>Envoie-t-il des données quelque part ?</dt><dd>Non. Il ne fait aucun appel réseau et n'envoie aucune télémétrie. Rien ne quitte votre machine.</dd><dt>Combien ça coûte ?</dt><dd>Il est gratuit. vibestretch est open source sous licence MIT, et le code est sur GitHub.</dd><dt>Comment le rendre muet ?</dt><dd>Donnez n'importe quelle valeur à VIBESTRETCH_DISABLE pour couper les rappels. VIBESTRETCH_SOUND=0 coupe le son. VIBESTRETCH_NOTIFY=0 supprime la notification.</dd></dl></section>
 <section class="related"><h2>À lire ensuite</h2><ul><li><a href="../fr/stretch-breaks-ai-coding-agents/">Pauses étirements pendant que les agents IA travaillent</a></li><li><a href="../fr/20-20-20-eye-rule-developers/">La règle 20-20-20 pour les développeurs</a></li><li><a href="../fr/desk-stretches-programmers/">Étirements au bureau pour développeurs</a></li><li><a href="../fr/claude-code-break-reminder/">Comment ajouter un rappel de pause à Claude Code</a></li><li><a href="../fr/codex-cli-break-reminder/">Comment ajouter un rappel de pause à Codex CLI</a></li><li><a href="../fr/gemini-cli-break-reminder/">Comment ajouter un rappel de pause à Gemini CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

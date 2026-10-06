@@ -163,7 +163,7 @@
      "name": "Apakah penggabungan akan menimpa pengaturan saya?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Perintah jq menggabungkan objek hooks ke settings.json yang sudah ada. Cadangkan file itu dulu jika ingin aman."
+      "text": "Pengaturan lain Anda tetap ada. Jika Anda sudah punya hook sendiri di BeforeAgent, AfterTool atau AfterAgent, jq mengganti daftar itu dengan milik kami. Dalam hal itu, tambahkan tiga entri kami secara manual. Cadangkan file itu dulu."
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>Lalu salin objek <code>hooks</code> dari <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> ke <code>~/.gemini/settings.json</code>. File itu menyimpan seluruh konfigurasi Gemini Anda, jadi gabungkan isinya. Jangan menggantinya. Dengan <code>jq</code> cukup satu baris:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>Jika Anda sudah punya hook sendiri di <code>BeforeAgent</code>, <code>AfterTool</code> atau <code>AfterAgent</code>, perintah ini menggantinya dengan milik kami. Dalam hal itu, tambahkan tiga entri kami ke daftar Anda secara manual.</p>
 <h2>Hook yang dipakai</h2>
 <ul><li><code>BeforeAgent</code>: agen mulai mengerjakan prompt Anda.</li><li><code>AfterTool</code>: sebuah tool selesai. Waktu tunggu ditambahkan, dan pengingat muncul jika sudah waktunya.</li><li><code>AfterAgent</code>: giliran selesai. Penghitungan ditutup.</li></ul>
 <h2>Yang Anda dapatkan di Gemini CLI</h2>
 <p>Anda mendapat baris di sesi dan bunyi. Tidak ada banner notifikasi. Gemini memakai stdout hook khusus untuk JSON, jadi tidak ada tempat untuk mencetak escape sequence.</p>
 <p>Adapter ini sudah dijalankan pada instalasi nyata Gemini CLI 0.56.0 di macOS. Penghitungnya dipakai bersama dengan Claude Code dan Codex CLI.</p>
-<section class="faq" id="faq"><h2>Tanya jawab</h2><dl><dt>Versi Gemini CLI berapa yang saya perlukan?</dt><dd>Hook aktif secara bawaan sejak Gemini CLI v0.26.</dd><dt>Apakah penggabungan akan menimpa pengaturan saya?</dt><dd>Perintah jq menggabungkan objek hooks ke settings.json yang sudah ada. Cadangkan file itu dulu jika ingin aman.</dd><dt>Bisakah dipakai dengan gemini -p?</dt><dd>Atur VIBESTRETCH_DISABLE=1 saat Anda menjalankan Gemini dari skrip, cron atau bot.</dd></dl></section>
+<section class="faq" id="faq"><h2>Tanya jawab</h2><dl><dt>Versi Gemini CLI berapa yang saya perlukan?</dt><dd>Hook aktif secara bawaan sejak Gemini CLI v0.26.</dd><dt>Apakah penggabungan akan menimpa pengaturan saya?</dt><dd>Pengaturan lain Anda tetap ada. Jika Anda sudah punya hook sendiri di BeforeAgent, AfterTool atau AfterAgent, jq mengganti daftar itu dengan milik kami. Dalam hal itu, tambahkan tiga entri kami secara manual. Cadangkan file itu dulu.</dd><dt>Bisakah dipakai dengan gemini -p?</dt><dd>Atur VIBESTRETCH_DISABLE=1 saat Anda menjalankan Gemini dari skrip, cron atau bot.</dd></dl></section>
 <section class="related"><h2>Baca selanjutnya</h2><ul><li><a href="../../id/">Lakukan peregangan selagi agen coding bekerja</a></li><li><a href="../../id/stretch-breaks-ai-coding-agents/">Istirahat peregangan saat agen coding AI berjalan</a></li><li><a href="../../id/20-20-20-eye-rule-developers/">Aturan mata 20-20-20 untuk developer</a></li><li><a href="../../id/desk-stretches-programmers/">Peregangan di meja untuk programmer</a></li><li><a href="../../id/claude-code-break-reminder/">Cara menambah pengingat istirahat di Claude Code</a></li><li><a href="../../id/codex-cli-break-reminder/">Cara menambah pengingat istirahat di Codex CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

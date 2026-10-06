@@ -97,7 +97,7 @@
    "license": "https://opensource.org/licenses/MIT",
    "url": "https://github.com/Eliasjunit/vibestretch",
    "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
-   "description": "Το vibestretch είναι δωρεάν υπενθύμιση διαλείμματος για προγραμματιστές. Σας θυμίζει να κινηθείτε όσο το Claude Code, το Codex CLI ή το Gemini CLI δουλεύει.",
+   "description": "Το vibestretch είναι δωρεάν υπενθύμιση διατάσεων και διαλειμμάτων για προγραμματιστές. Σας θυμίζει να κινηθείτε όσο το Claude Code, το Codex CLI ή το Gemini CLI δουλεύει.",
    "author": {
     "@id": "https://eliasjunit.github.io/vibestretch/#org"
    }
@@ -163,7 +163,7 @@
      "name": "Θα αντικαταστήσει η συγχώνευση τις ρυθμίσεις μου;",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Η εντολή jq συγχωνεύει το αντικείμενο hooks στο υπάρχον settings.json σας. Κρατήστε πρώτα αντίγραφο του αρχείου αν θέλετε να είστε σίγουροι."
+      "text": "Οι υπόλοιπες ρυθμίσεις σας μένουν ως έχουν. Αν έχετε ήδη δικά σας hooks στα BeforeAgent, AfterTool ή AfterAgent, το jq αντικαθιστά αυτές τις λίστες με τις δικές μας. Σε αυτή την περίπτωση προσθέστε χειροκίνητα τις τρεις καταχωρίσεις μας. Κρατήστε πρώτα αντίγραφο του αρχείου."
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>Μετά αντιγράψτε το αντικείμενο <code>hooks</code> από το <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> στο <code>~/.gemini/settings.json</code>. Εκείνο το αρχείο περιέχει όλη τη ρύθμιση του Gemini, οπότε κάντε συγχώνευση. Μην το αντικαταστήσετε. Με το <code>jq</code> είναι μία γραμμή:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>Αν έχετε ήδη δικά σας hooks στα <code>BeforeAgent</code>, <code>AfterTool</code> ή <code>AfterAgent</code>, αυτή η εντολή τα αντικαθιστά με τα δικά μας. Σε αυτή την περίπτωση προσθέστε χειροκίνητα τις τρεις καταχωρίσεις μας στις λίστες σας.</p>
 <h2>Ποια hooks χρησιμοποιεί</h2>
 <ul><li><code>BeforeAgent</code>: ο agent αρχίζει να δουλεύει πάνω στο prompt σας.</li><li><code>AfterTool</code>: ένα εργαλείο τελείωσε. Προστίθεται χρόνος αναμονής και εμφανίζεται υπενθύμιση αν είναι η ώρα.</li><li><code>AfterAgent</code>: ο γύρος τελείωσε. Η καταμέτρηση κλείνει.</li></ul>
 <h2>Τι έχετε στο Gemini CLI</h2>
 <p>Έχετε τη γραμμή στη συνεδρία και τον ήχο. Δεν υπάρχει ειδοποίηση. Το Gemini κρατά το stdout ενός hook μόνο για JSON, οπότε δεν υπάρχει πού να τυπωθεί μια ακολουθία escape.</p>
 <p>Ο adapter δοκιμάστηκε σε πραγματική εγκατάσταση του Gemini CLI 0.56.0 σε macOS. Ο μετρητής είναι κοινός με το Claude Code και το Codex CLI.</p>
-<section class="faq" id="faq"><h2>Συχνές ερωτήσεις</h2><dl><dt>Ποια έκδοση του Gemini CLI χρειάζομαι;</dt><dd>Τα hooks είναι ενεργά από το Gemini CLI v0.26.</dd><dt>Θα αντικαταστήσει η συγχώνευση τις ρυθμίσεις μου;</dt><dd>Η εντολή jq συγχωνεύει το αντικείμενο hooks στο υπάρχον settings.json σας. Κρατήστε πρώτα αντίγραφο του αρχείου αν θέλετε να είστε σίγουροι.</dd><dt>Μπορώ να το χρησιμοποιήσω με το gemini -p;</dt><dd>Ορίστε VIBESTRETCH_DISABLE=1 όταν τρέχετε το Gemini από script, cron ή bot.</dd></dl></section>
+<section class="faq" id="faq"><h2>Συχνές ερωτήσεις</h2><dl><dt>Ποια έκδοση του Gemini CLI χρειάζομαι;</dt><dd>Τα hooks είναι ενεργά από το Gemini CLI v0.26.</dd><dt>Θα αντικαταστήσει η συγχώνευση τις ρυθμίσεις μου;</dt><dd>Οι υπόλοιπες ρυθμίσεις σας μένουν ως έχουν. Αν έχετε ήδη δικά σας hooks στα BeforeAgent, AfterTool ή AfterAgent, το jq αντικαθιστά αυτές τις λίστες με τις δικές μας. Σε αυτή την περίπτωση προσθέστε χειροκίνητα τις τρεις καταχωρίσεις μας. Κρατήστε πρώτα αντίγραφο του αρχείου.</dd><dt>Μπορώ να το χρησιμοποιήσω με το gemini -p;</dt><dd>Ορίστε VIBESTRETCH_DISABLE=1 όταν τρέχετε το Gemini από script, cron ή bot.</dd></dl></section>
 <section class="related"><h2>Διαβάστε επίσης</h2><ul><li><a href="../../el/">Κάντε διατάσεις όσο δουλεύει ο AI agent σας</a></li><li><a href="../../el/stretch-breaks-ai-coding-agents/">Διαλείμματα για διατάσεις όσο τρέχουν οι AI agents προγραμματισμού</a></li><li><a href="../../el/20-20-20-eye-rule-developers/">Ο κανόνας 20-20-20 για τα μάτια των προγραμματιστών</a></li><li><a href="../../el/desk-stretches-programmers/">Διατάσεις γραφείου για προγραμματιστές</a></li><li><a href="../../el/claude-code-break-reminder/">Πώς βάζετε υπενθύμιση διαλείμματος στο Claude Code</a></li><li><a href="../../el/codex-cli-break-reminder/">Πώς βάζετε υπενθύμιση διαλείμματος στο Codex CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

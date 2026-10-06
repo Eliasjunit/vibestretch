@@ -89,7 +89,7 @@
         },
         {
           "q": "Berapakah harganya?",
-          "a": "Ia perisian sumber terbuka di bawah lesen MIT. Kodnya ada di GitHub."
+          "a": "Percuma. vibestretch ialah perisian sumber terbuka di bawah lesen MIT, dan kodnya ada di GitHub."
         },
         {
           "q": "Bagaimana mahu menyenyapkannya?",
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Pandang sesuatu yang berada 20 kaki jauhnya. Terus pandang selama 20 saat. Kemudian kembali kepada ejen anda."
+          "p": "Pandang sesuatu yang berada 20 kaki (kira-kira 6 meter) jauhnya. Terus pandang selama 20 saat. Kemudian kembali kepada ejen anda."
         },
         {
           "h2": "Rehat mata lain dalam senarai"
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Jika anda sudah ada hook sendiri dalam `BeforeAgent`, `AfterTool` atau `AfterAgent`, arahan ini menggantikannya dengan hook kami. Dalam keadaan itu, tambah tiga entri kami ke dalam senarai anda secara manual."
+        },
+        {
           "h2": "Hook yang digunakan"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "Adakah penggabungan akan menulis ganti tetapan saya?",
-          "a": "Arahan jq menggabungkan objek hooks ke dalam settings.json sedia ada anda. Sandarkan fail itu dahulu jika anda mahu lebih selamat."
+          "a": "Tetapan lain anda kekal. Jika anda sudah ada hook sendiri dalam BeforeAgent, AfterTool atau AfterAgent, jq menggantikan senarai itu dengan senarai kami. Dalam keadaan itu, tambah tiga entri kami secara manual. Sandarkan fail itu dahulu."
         },
         {
           "q": "Bolehkah saya menggunakannya dengan gemini -p?",

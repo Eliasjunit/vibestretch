@@ -16,7 +16,7 @@
   "pages": {
     "index": {
       "nav": "Présentation",
-      "title": "vibestretch : rappel d'étirements pendant votre agent de code",
+      "title": "vibestretch : rappel d'étirements pendant que l'agent de code travaille",
       "description": "vibestretch est un rappel de pause et d'étirements gratuit pour développeurs. Il vous invite à bouger quand Claude Code, Codex CLI ou Gemini CLI travaille.",
       "h1": "Étirez-vous pendant que votre agent de code travaille",
       "lead": "vibestretch affiche un étirement court, un mini exercice ou une pause pour les yeux quand un long tour de l'agent vous fait attendre. Il fonctionne avec Claude Code, Codex CLI et Gemini CLI.",
@@ -81,7 +81,7 @@
         },
         {
           "q": "Est-ce un minuteur de pauses ?",
-          "a": "Non. Un minuteur suit un horaire. vibestretch compte uniquement le temps pendant lequel un tour de l'agent vous a fait attendre, et il ne vous rappelle à l'ordre que pendant cette attente."
+          "a": "Non. Un minuteur suit un horaire. vibestretch compte uniquement le temps pendant lequel un tour de l'agent vous a fait attendre, et il ne vous prévient que pendant cette attente."
         },
         {
           "q": "Envoie-t-il des données quelque part ?",
@@ -89,7 +89,7 @@
         },
         {
           "q": "Combien ça coûte ?",
-          "a": "Il est open source sous licence MIT. Le code est sur GitHub."
+          "a": "Il est gratuit. vibestretch est open source sous licence MIT, et le code est sur GitHub."
         },
         {
           "q": "Comment le rendre muet ?",
@@ -125,7 +125,7 @@
         {
           "ol": [
             "Le tour en cours dure depuis au moins 2 minutes.",
-            "Le temps d'agent depuis le dernier rappel atteint au moins 5 minutes. Une grosse tâche ou plusieurs tâches moyennes comptent toutes les deux.",
+            "Le temps d'agent depuis le dernier rappel atteint au moins 5 minutes. Une seule grosse tâche suffit, plusieurs tâches moyennes aussi.",
             "Le dernier rappel date d'au moins 15 minutes."
           ]
         },
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Regardez quelque chose situé à 20 pieds. Gardez les yeux dessus pendant 20 secondes. Puis revenez à votre agent."
+          "p": "Regardez quelque chose situé à 20 pieds (environ 6 m). Gardez les yeux dessus pendant 20 secondes. Puis revenez à votre agent."
         },
         {
           "h2": "Les autres pauses pour les yeux de la liste"
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Si vous avez déjà vos propres hooks `BeforeAgent`, `AfterTool` ou `AfterAgent`, cette commande les remplace par les nôtres. Dans ce cas, ajoutez nos trois entrées à vos listes à la main."
+        },
+        {
           "h2": "Les hooks utilisés"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "La fusion va-t-elle écraser mes réglages ?",
-          "a": "La commande jq fusionne l'objet hooks dans votre settings.json existant. Par précaution, sauvegardez le fichier avant."
+          "a": "Vos autres réglages restent en place. Si vous avez déjà vos propres hooks BeforeAgent, AfterTool ou AfterAgent, jq remplace ces listes par les nôtres. Dans ce cas, ajoutez nos trois entrées à la main. Sauvegardez le fichier avant."
         },
         {
           "q": "Puis-je l'utiliser avec gemini -p ?",

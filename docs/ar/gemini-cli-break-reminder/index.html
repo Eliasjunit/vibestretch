@@ -163,7 +163,7 @@
      "name": "هل سيستبدل الدمج إعداداتي؟",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "يدمج أمر jq الكائن hooks في ملف settings.json الموجود لديك. خذ نسخة احتياطية من الملف أولًا إن أردت الاطمئنان."
+      "text": "تبقى إعداداتك الأخرى كما هي. إذا كانت لديك خطافات خاصة بك في BeforeAgent أو AfterTool أو AfterAgent، فإن jq يستبدل تلك القوائم بقوائمنا. في هذه الحالة أضف إدخالاتنا الثلاثة يدويًا. خذ نسخة احتياطية من الملف أولًا."
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>ثم انسخ الكائن <code>hooks</code> من <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> إلى <code>~/.gemini/settings.json</code>. يحتوي ذلك الملف على إعداد Gemini بالكامل، لذا ادمجه. لا تستبدله. باستخدام <code>jq</code> يكفي سطر واحد:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>إذا كانت لديك خطافات خاصة بك في <code>BeforeAgent</code> أو <code>AfterTool</code> أو <code>AfterAgent</code>، فإن هذا الأمر يستبدلها بخطافاتنا. في هذه الحالة أضف إدخالاتنا الثلاثة إلى قوائمك يدويًا.</p>
 <h2>الخطافات التي يستخدمها</h2>
 <ul><li><code>BeforeAgent</code>: يبدأ الوكيل العمل على طلبك.</li><li><code>AfterTool</code>: انتهت أداة من عملها. يُضاف وقت الانتظار، ويظهر التنبيه إن حان موعده.</li><li><code>AfterAgent</code>: انتهت الدورة. يُغلق الحساب.</li></ul>
 <h2>ما الذي تحصل عليه في Gemini CLI</h2>
 <p>تحصل على السطر في الجلسة وعلى الرنين. لا يوجد شريط إشعار. يخصص Gemini مخرجات stdout للخطاف لـ JSON وحده، فلا يوجد مكان لطباعة تسلسل الهروب.</p>
 <p>جرى تشغيل المحوّل على تثبيت فعلي لـ Gemini CLI 0.56.0 على macOS. العدّاد مشترك مع Claude Code وCodex CLI.</p>
-<section class="faq" id="faq"><h2>الأسئلة الشائعة</h2><dl><dt>ما إصدار Gemini CLI الذي أحتاجه؟</dt><dd>تأتي الخطافات مفعّلة منذ Gemini CLI v0.26.</dd><dt>هل سيستبدل الدمج إعداداتي؟</dt><dd>يدمج أمر jq الكائن hooks في ملف settings.json الموجود لديك. خذ نسخة احتياطية من الملف أولًا إن أردت الاطمئنان.</dd><dt>هل يمكنني استخدامه مع gemini -p؟</dt><dd>اضبط VIBESTRETCH_DISABLE=1 عندما تشغّل Gemini من سكربت أو cron أو بوت.</dd></dl></section>
+<section class="faq" id="faq"><h2>الأسئلة الشائعة</h2><dl><dt>ما إصدار Gemini CLI الذي أحتاجه؟</dt><dd>تأتي الخطافات مفعّلة منذ Gemini CLI v0.26.</dd><dt>هل سيستبدل الدمج إعداداتي؟</dt><dd>تبقى إعداداتك الأخرى كما هي. إذا كانت لديك خطافات خاصة بك في BeforeAgent أو AfterTool أو AfterAgent، فإن jq يستبدل تلك القوائم بقوائمنا. في هذه الحالة أضف إدخالاتنا الثلاثة يدويًا. خذ نسخة احتياطية من الملف أولًا.</dd><dt>هل يمكنني استخدامه مع gemini -p؟</dt><dd>اضبط VIBESTRETCH_DISABLE=1 عندما تشغّل Gemini من سكربت أو cron أو بوت.</dd></dl></section>
 <section class="related"><h2>اقرأ أيضًا</h2><ul><li><a href="../../ar/">تمدّد بينما يعمل وكيل البرمجة</a></li><li><a href="../../ar/stretch-breaks-ai-coding-agents/">استراحات التمدد أثناء عمل وكلاء البرمجة بالذكاء الاصطناعي</a></li><li><a href="../../ar/20-20-20-eye-rule-developers/">قاعدة 20-20-20 لإراحة العين للمطورين</a></li><li><a href="../../ar/desk-stretches-programmers/">تمارين التمدد على المكتب للمبرمجين</a></li><li><a href="../../ar/claude-code-break-reminder/">كيف تضيف تذكيرًا بالاستراحة إلى Claude Code</a></li><li><a href="../../ar/codex-cli-break-reminder/">كيف تضيف تذكيرًا بالاستراحة إلى Codex CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

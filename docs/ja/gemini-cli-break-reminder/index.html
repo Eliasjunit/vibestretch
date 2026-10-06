@@ -163,7 +163,7 @@
      "name": "マージで設定が上書きされませんか？",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "jq コマンドは、hooks オブジェクトを既存の settings.json にマージします。念のため、先にファイルをバックアップしておくと安心です。"
+      "text": "ほかの設定はそのまま残ります。ただし、BeforeAgent、AfterTool、AfterAgent に自分のフックがすでにある場合、jq はそのリストをこちらのものに置き換えます。その場合は 3 つのエントリを手動で追加してください。先にファイルをバックアップしておきましょう。"
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>次に、<code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> の <code>hooks</code> オブジェクトを <code>~/.gemini/settings.json</code> にコピーします。このファイルには Gemini の設定がすべて入っているので、置き換えずにマージしてください。<code>jq</code> を使えば 1 行で済みます。</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p><code>BeforeAgent</code>、<code>AfterTool</code>、<code>AfterAgent</code> に自分のフックがすでにある場合、このコマンドはそれをこちらのフックに置き換えます。その場合は、3 つのエントリを手動でリストに追加してください。</p>
 <h2>使用するフック</h2>
 <ul><li><code>BeforeAgent</code>: エージェントがプロンプトの処理を始めます。</li><li><code>AfterTool</code>: ツールが終了しました。待ち時間が加算され、条件を満たしていれば通知が出ます。</li><li><code>AfterAgent</code>: ターンが終わりました。集計を締めます。</li></ul>
 <h2>Gemini CLI で使える機能</h2>
 <p>セッション内の 1 行とチャイムが使えます。通知バナーはありません。Gemini はフックの stdout を JSON 専用にしているため、エスケープシーケンスを出力する場所がありません。</p>
 <p>このアダプターは macOS 上の Gemini CLI 0.56.0 の実環境で動作させました。カウンターは Claude Code、Codex CLI と共通です。</p>
-<section class="faq" id="faq"><h2>よくある質問</h2><dl><dt>Gemini CLI のどのバージョンが必要ですか？</dt><dd>Gemini CLI v0.26 以降では、フックが有効な状態で提供されています。</dd><dt>マージで設定が上書きされませんか？</dt><dd>jq コマンドは、hooks オブジェクトを既存の settings.json にマージします。念のため、先にファイルをバックアップしておくと安心です。</dd><dt>gemini -p でも使えますか？</dt><dd>スクリプト、cron、ボットから Gemini を実行するときは、VIBESTRETCH_DISABLE=1 を設定してください。</dd></dl></section>
+<section class="faq" id="faq"><h2>よくある質問</h2><dl><dt>Gemini CLI のどのバージョンが必要ですか？</dt><dd>Gemini CLI v0.26 以降では、フックが有効な状態で提供されています。</dd><dt>マージで設定が上書きされませんか？</dt><dd>ほかの設定はそのまま残ります。ただし、BeforeAgent、AfterTool、AfterAgent に自分のフックがすでにある場合、jq はそのリストをこちらのものに置き換えます。その場合は 3 つのエントリを手動で追加してください。先にファイルをバックアップしておきましょう。</dd><dt>gemini -p でも使えますか？</dt><dd>スクリプト、cron、ボットから Gemini を実行するときは、VIBESTRETCH_DISABLE=1 を設定してください。</dd></dl></section>
 <section class="related"><h2>次に読む</h2><ul><li><a href="../../ja/">コーディングエージェントの作業中にストレッチ</a></li><li><a href="../../ja/stretch-breaks-ai-coding-agents/">AI コーディングエージェント実行中のストレッチ休憩</a></li><li><a href="../../ja/20-20-20-eye-rule-developers/">開発者のための 20-20-20 ルール</a></li><li><a href="../../ja/desk-stretches-programmers/">プログラマー向けデスクストレッチ</a></li><li><a href="../../ja/claude-code-break-reminder/">Claude Code に休憩リマインダーを追加する方法</a></li><li><a href="../../ja/codex-cli-break-reminder/">Codex CLI に休憩リマインダーを追加する方法</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

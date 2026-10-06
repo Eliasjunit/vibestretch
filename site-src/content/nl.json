@@ -89,7 +89,7 @@
         },
         {
           "q": "Wat kost het?",
-          "a": "Het is open source onder de MIT-licentie. De code staat op GitHub."
+          "a": "Het is gratis. vibestretch is open source onder de MIT-licentie en de code staat op GitHub."
         },
         {
           "q": "Hoe zet ik het uit?",
@@ -136,7 +136,7 @@
           "h2": "Als je wegloopt"
         },
         {
-          "p": "Ben je 45 minuten of langer niet aan het toetsenbord, dan wordt de teller op nul gezet. Je pauze heb je dan al gehad. Op macOS lezen de hooks de inactiviteitstijd van toetsenbord en muis uit het systeem. Een agent die 's nachts doorwerkt, telt dus geen agenttijd op en laat nooit een belletje horen bij een lege stoel. Linux heeft geen draagbare manier om inactiviteit te meten, dus daar geldt alleen de reset na 45 minuten."
+          "p": "Ben je 45 minuten of langer niet aan het toetsenbord, dan wordt de teller op nul gezet. Je pauze heb je dan al gehad. Op macOS lezen de hooks de inactiviteitstijd van toetsenbord en muis uit het systeem. Een agent die 's nachts doorwerkt, telt dus geen agenttijd op en laat nooit een belletje horen bij een lege stoel. Linux heeft geen standaardmanier om inactiviteit te meten, dus daar geldt alleen de reset na 45 minuten."
         },
         {
           "h2": "Wat het seintje je vraagt"
@@ -164,7 +164,7 @@
       "nav": "20-20-20-regel",
       "title": "De 20-20-20-regel voor je ogen als ontwikkelaar | vibestretch",
       "description": "De 20-20-20-oogpauze en andere oogpauzes in vibestretch, een herinnering die loopt terwijl je coding agent aan het werk is.",
-      "h1": "De 20-20-20-regel voor je ogen, voor ontwikkelaars",
+      "h1": "De 20-20-20-oogregel voor ontwikkelaars",
       "lead": "Lange beurten van de agent betekenen lang naar een scherm staren. vibestretch heeft oogpauzes in de rotatie, en 20-20-20 is daar één van.",
       "blocks": [
         {
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Kijk naar iets op 20 voet afstand. Blijf 20 seconden kijken. Ga dan terug naar je agent."
+          "p": "Kijk naar iets op 20 voet (ongeveer 6 meter) afstand. Blijf 20 seconden kijken. Ga dan terug naar je agent."
         },
         {
           "h2": "Andere oogpauzes in de lijst"
@@ -303,7 +303,7 @@
           "code": "statusline"
         },
         {
-          "p": "Dit commando maakt een back-up van je instellingen en zet je bestaande statusregel-commando erin. Heb je er geen, dan installeert het een minimale versie. Na een seintje blijft de oefening daar 5 minuten staan. Ongedaan maken doe je met `/vibestretch:statusline off`. Voer `off` uit voordat je de plugin verwijdert."
+          "p": "Dit commando maakt een back-up van je instellingen en bouwt je bestaande statusregelcommando erin in. Heb je er geen, dan installeert het een minimale versie. Na een seintje blijft de oefening daar 5 minuten staan. Ongedaan maken doe je met `/vibestretch:statusline off`. Voer `off` uit voordat je de plugin verwijdert."
         },
         {
           "h2": "VS Code"
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Heb je al eigen hooks onder `BeforeAgent`, `AfterTool` of `AfterAgent`, dan vervangt dit commando ze door de onze. Voeg onze drie items dan met de hand aan je lijsten toe."
+        },
+        {
           "h2": "Welke hooks het gebruikt"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "Overschrijft het samenvoegen mijn instellingen?",
-          "a": "Het jq-commando voegt het object hooks samen met je bestaande settings.json. Maak eerst een back-up van het bestand als je zeker wilt zijn."
+          "a": "Je andere instellingen blijven staan. Heb je al eigen hooks onder BeforeAgent, AfterTool of AfterAgent, dan vervangt jq die lijsten door de onze. Voeg onze drie items dan met de hand toe. Maak eerst een back-up van het bestand."
         },
         {
           "q": "Kan ik het gebruiken met gemini -p?",

@@ -97,7 +97,7 @@
    "license": "https://opensource.org/licenses/MIT",
    "url": "https://github.com/Eliasjunit/vibestretch",
    "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
-   "description": "Το vibestretch είναι δωρεάν υπενθύμιση διαλείμματος για προγραμματιστές. Σας θυμίζει να κινηθείτε όσο το Claude Code, το Codex CLI ή το Gemini CLI δουλεύει.",
+   "description": "Το vibestretch είναι δωρεάν υπενθύμιση διατάσεων και διαλειμμάτων για προγραμματιστές. Σας θυμίζει να κινηθείτε όσο το Claude Code, το Codex CLI ή το Gemini CLI δουλεύει.",
    "author": {
     "@id": "https://eliasjunit.github.io/vibestretch/#org"
    }
@@ -200,7 +200,7 @@ codex plugin add vibestretch@vibestretch</code></pre>
 <p>Ένα clone και ένα αρχείο ρυθμίσεων κάνουν την ίδια δουλειά:</p>
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.codex/vibestretch
 cp ~/.codex/vibestretch/hooks/codex-hooks.json ~/.codex/hooks.json</code></pre>
-<p>Έχετε ήδη ένα <code>~/.codex/hooks.json</code>; Συγχωνεύστε μέσα του τις τρεις καταχωρίσεις από το δικό μας. Μην αντικαταστήσετε το δικό σας. Το Codex σάς ζητά να εγκρίνετε μια νέα ρύθμιση hooks την πρώτη φορά που εκτελείται. Αυτό το μήνυμα είναι αναμενόμενο.</p>
+<p>Έχετε ήδη ένα <code>~/.codex/hooks.json</code>; Συγχωνεύστε μέσα του τις τρεις καταχωρίσεις από το δικό μας. Μην αντικαταστήσετε το δικό σας. Το Codex σάς ζητά να εγκρίνετε μια νέα ρύθμιση hooks την πρώτη φορά που εκτελείται. Αυτό είναι φυσιολογικό.</p>
 <p>Διαλέξτε έναν τρόπο. Αν υπάρχουν και το plugin και οι χειροκίνητες καταχωρίσεις, κάθε hook εκτελείται δύο φορές. Αν κάνατε χειροκίνητη εγκατάσταση πριν από την 0.8.0, αφαιρέστε τις καταχωρίσεις μας από το <code>~/.codex/hooks.json</code> όταν περάσετε στο plugin.</p>
 <h2>Τι έχετε στο Codex</h2>
 <p>Έχετε τη γραμμή στη συνεδρία και τον ήχο. Δεν υπάρχει ειδοποίηση, γιατί το Codex δεν έχει πεδίο εξόδου hook για ακολουθία τερματικού. Δεν υπάρχει ούτε τμήμα στη γραμμή κατάστασης. Αυτή η μπάρα δεν ελέγχεται με scripts στο Codex.</p>

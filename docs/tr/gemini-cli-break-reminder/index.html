@@ -163,7 +163,7 @@
      "name": "Birleştirme ayarlarımın üzerine yazar mı?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "jq komutu hooks nesnesini mevcut settings.json dosyanızla birleştirir. Emin olmak istiyorsanız önce dosyayı yedekleyin."
+      "text": "Diğer ayarlarınız korunur. BeforeAgent, AfterTool veya AfterAgent altında kendi hook'larınız varsa jq bu listeleri bizimkilerle değiştirir. Bu durumda üç girdimizi elle ekleyin. Önce dosyayı yedekleyin."
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>Sonra <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> içindeki <code>hooks</code> nesnesini <code>~/.gemini/settings.json</code> dosyasına kopyalayın. Bu dosya Gemini yapılandırmanızın tamamını tutar, bu yüzden içerikleri birleştirin. Dosyanın yerine yenisini koymayın. <code>jq</code> ile tek satırdır:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p><code>BeforeAgent</code>, <code>AfterTool</code> veya <code>AfterAgent</code> altında kendi hook'larınız varsa bu komut onları bizimkilerle değiştirir. Bu durumda üç girdimizi listelerinize elle ekleyin.</p>
 <h2>Hangi hook'ları kullanır</h2>
 <ul><li><code>BeforeAgent</code>: ajan isteminiz üzerinde çalışmaya başlar.</li><li><code>AfterTool</code>: bir araç işini bitirdi. Bekleme süresi eklenir ve zamanı geldiyse bir hatırlatma gelir.</li><li><code>AfterAgent</code>: tur bitti. Hesap kapanır.</li></ul>
 <h2>Gemini CLI'da neler alırsınız</h2>
 <p>Oturumda satırı ve zil sesini alırsınız. Bildirim yoktur. Gemini bir hook'un stdout çıktısını yalnızca JSON için ayırır, bu yüzden bir kaçış dizisi yazdırılacak yer yoktur.</p>
 <p>Adaptör, macOS üzerinde Gemini CLI 0.56.0'ın gerçek bir kurulumunda çalıştırıldı. Sayaç Claude Code ve Codex CLI ile ortaktır.</p>
-<section class="faq" id="faq"><h2>SSS</h2><dl><dt>Hangi Gemini CLI sürümü gerekiyor?</dt><dd>Hook'lar Gemini CLI v0.26'dan beri etkin olarak geliyor.</dd><dt>Birleştirme ayarlarımın üzerine yazar mı?</dt><dd>jq komutu hooks nesnesini mevcut settings.json dosyanızla birleştirir. Emin olmak istiyorsanız önce dosyayı yedekleyin.</dd><dt>gemini -p ile kullanabilir miyim?</dt><dd>Gemini'yi bir betikten, cron'dan veya bir bottan çalıştırdığınızda VIBESTRETCH_DISABLE=1 ayarlayın.</dd></dl></section>
+<section class="faq" id="faq"><h2>SSS</h2><dl><dt>Hangi Gemini CLI sürümü gerekiyor?</dt><dd>Hook'lar Gemini CLI v0.26'dan beri etkin olarak geliyor.</dd><dt>Birleştirme ayarlarımın üzerine yazar mı?</dt><dd>Diğer ayarlarınız korunur. BeforeAgent, AfterTool veya AfterAgent altında kendi hook'larınız varsa jq bu listeleri bizimkilerle değiştirir. Bu durumda üç girdimizi elle ekleyin. Önce dosyayı yedekleyin.</dd><dt>gemini -p ile kullanabilir miyim?</dt><dd>Gemini'yi bir betikten, cron'dan veya bir bottan çalıştırdığınızda VIBESTRETCH_DISABLE=1 ayarlayın.</dd></dl></section>
 <section class="related"><h2>Devamını okuyun</h2><ul><li><a href="../../tr/">Kodlama ajanınız çalışırken esneyin</a></li><li><a href="../../tr/stretch-breaks-ai-coding-agents/">Yapay zeka kodlama ajanları çalışırken esneme molaları</a></li><li><a href="../../tr/20-20-20-eye-rule-developers/">Yazılımcılar için 20-20-20 göz kuralı</a></li><li><a href="../../tr/desk-stretches-programmers/">Programcılar için masa başı esneme hareketleri</a></li><li><a href="../../tr/claude-code-break-reminder/">Claude Code&#x27;a mola hatırlatıcısı nasıl eklenir</a></li><li><a href="../../tr/codex-cli-break-reminder/">Codex CLI&#x27;ya mola hatırlatıcısı nasıl eklenir</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

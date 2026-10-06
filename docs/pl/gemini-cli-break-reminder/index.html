@@ -163,7 +163,7 @@
      "name": "Czy scalanie nadpisze moje ustawienia?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Polecenie jq scala obiekt hooks z twoim istniejącym settings.json. Jeśli chcesz mieć pewność, najpierw zrób kopię zapasową pliku."
+      "text": "Pozostałe ustawienia zostają. Jeśli masz już własne hooki w BeforeAgent, AfterTool lub AfterAgent, jq zastąpi te listy naszymi. Wtedy dopisz nasze trzy wpisy ręcznie. Najpierw zrób kopię zapasową pliku."
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>Następnie skopiuj obiekt <code>hooks</code> z <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> do <code>~/.gemini/settings.json</code>. Ten plik zawiera całą twoją konfigurację Gemini, więc scal dane. Nie zastępuj pliku. Z <code>jq</code> to jedna linia:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>Jeśli masz już własne hooki w <code>BeforeAgent</code>, <code>AfterTool</code> lub <code>AfterAgent</code>, to polecenie zastąpi je naszymi. Wtedy dopisz nasze trzy wpisy do swoich list ręcznie.</p>
 <h2>Jakich hooków używa</h2>
 <ul><li><code>BeforeAgent</code>: agent zaczyna pracę nad twoim promptem.</li><li><code>AfterTool</code>: narzędzie zakończyło pracę. Czas czekania jest dodawany i jeśli przyszła pora, pojawia się przypomnienie.</li><li><code>AfterAgent</code>: odpowiedź się skończyła. Rozliczanie czasu jest zamykane.</li></ul>
 <h2>Co działa w Gemini CLI</h2>
 <p>Dostajesz linię w sesji i dźwięk. Nie ma banera powiadomienia. Gemini rezerwuje stdout hooka wyłącznie dla JSON, więc nie ma gdzie wypisać sekwencji sterującej.</p>
 <p>Adapter uruchomiono na działającej instalacji Gemini CLI 0.56.0 w macOS. Licznik jest wspólny z Claude Code i Codex CLI.</p>
-<section class="faq" id="faq"><h2>Najczęstsze pytania</h2><dl><dt>Jakiej wersji Gemini CLI potrzebuję?</dt><dd>Hooki są włączone domyślnie od Gemini CLI v0.26.</dd><dt>Czy scalanie nadpisze moje ustawienia?</dt><dd>Polecenie jq scala obiekt hooks z twoim istniejącym settings.json. Jeśli chcesz mieć pewność, najpierw zrób kopię zapasową pliku.</dd><dt>Czy mogę używać go z gemini -p?</dt><dd>Ustaw VIBESTRETCH_DISABLE=1, gdy uruchamiasz Gemini ze skryptu, przez cron albo z bota.</dd></dl></section>
+<section class="faq" id="faq"><h2>Najczęstsze pytania</h2><dl><dt>Jakiej wersji Gemini CLI potrzebuję?</dt><dd>Hooki są włączone domyślnie od Gemini CLI v0.26.</dd><dt>Czy scalanie nadpisze moje ustawienia?</dt><dd>Pozostałe ustawienia zostają. Jeśli masz już własne hooki w BeforeAgent, AfterTool lub AfterAgent, jq zastąpi te listy naszymi. Wtedy dopisz nasze trzy wpisy ręcznie. Najpierw zrób kopię zapasową pliku.</dd><dt>Czy mogę używać go z gemini -p?</dt><dd>Ustaw VIBESTRETCH_DISABLE=1, gdy uruchamiasz Gemini ze skryptu, przez cron albo z bota.</dd></dl></section>
 <section class="related"><h2>Czytaj dalej</h2><ul><li><a href="../../pl/">Rozciągaj się, gdy agent AI pracuje</a></li><li><a href="../../pl/stretch-breaks-ai-coding-agents/">Przerwy na rozciąganie, gdy pracują agenci AI</a></li><li><a href="../../pl/20-20-20-eye-rule-developers/">Zasada 20-20-20 dla oczu programisty</a></li><li><a href="../../pl/desk-stretches-programmers/">Ćwiczenia przy biurku dla programistów</a></li><li><a href="../../pl/claude-code-break-reminder/">Jak dodać przypomnienie o przerwie do Claude Code</a></li><li><a href="../../pl/codex-cli-break-reminder/">Jak dodać przypomnienie o przerwie do Codex CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

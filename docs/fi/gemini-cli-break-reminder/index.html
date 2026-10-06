@@ -163,7 +163,7 @@
      "name": "Korvaako yhdistäminen asetukseni?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "jq-komento yhdistää hooks-objektin nykyiseen settings.json-tiedostoosi. Ota tiedostosta ensin varmuuskopio, jos haluat olla varma."
+      "text": "Muut asetuksesi säilyvät. Jos sinulla on jo omia BeforeAgent-, AfterTool- tai AfterAgent-hookeja, jq korvaa ne listat meidän listoillamme. Lisää silloin kolme merkintäämme käsin. Ota tiedostosta ensin varmuuskopio."
      }
     },
     {
@@ -197,13 +197,14 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>Kopioi sitten <code>hooks</code>-objekti tiedostosta <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> tiedostoon <code>~/.gemini/settings.json</code>. Siinä tiedostossa on koko Gemini-määrityksesi, joten yhdistä se. Älä korvaa sitä. Työkalulla <code>jq</code> se onnistuu yhdellä rivillä:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>Jos sinulla on jo omia hookeja kohdissa <code>BeforeAgent</code>, <code>AfterTool</code> tai <code>AfterAgent</code>, tämä komento korvaa ne meidän hookeillamme. Lisää silloin kolme merkintäämme listoihisi käsin.</p>
 <h2>Mitä hookeja se käyttää</h2>
 <ul><li><code>BeforeAgent</code>: agentti alkaa työstää kehotettasi.</li><li><code>AfterTool</code>: työkalu valmistui. Odotusaika lisätään, ja muistutus tulee, jos sen aika on.</li><li><code>AfterAgent</code>: vuoro on ohi. Kirjanpito suljetaan.</li></ul>
 <h2>Mitä saat Gemini CLI:ssä</h2>
 <p>Saat rivin istuntoon ja merkkiäänen. Ilmoitusbanneria ei ole. Gemini varaa hookin stdoutin pelkälle JSONille, joten ohjaussekvenssiä ei voi tulostaa mihinkään.</p>
 <p>Sovitinta ajettiin oikeassa Gemini CLI 0.56.0 -asennuksessa macOS:llä. Laskuri on yhteinen Claude Coden ja Codex CLI:n kanssa.</p>
-<section class="faq" id="faq"><h2>Usein kysyttyä</h2><dl><dt>Mikä Gemini CLI -versio tarvitaan?</dt><dd>Hookit ovat olleet oletuksena käytössä Gemini CLI:n versiosta v0.26 lähtien.</dd><dt>Korvaako yhdistäminen asetukseni?</dt><dd>jq-komento yhdistää hooks-objektin nykyiseen settings.json-tiedostoosi. Ota tiedostosta ensin varmuuskopio, jos haluat olla varma.</dd><dt>Voinko käyttää sitä gemini -p -komennon kanssa?</dt><dd>Aseta VIBESTRETCH_DISABLE=1, kun ajat Geminiä skriptistä, cronista tai botista.</dd></dl></section>
-<section class="related"><h2>Lue seuraavaksi</h2><ul><li><a href="../../fi/">Venyttele, kun koodausagenttisi työskentelee</a></li><li><a href="../../fi/stretch-breaks-ai-coding-agents/">Venyttelytauot AI-koodausagenttien työskennellessä</a></li><li><a href="../../fi/20-20-20-eye-rule-developers/">20-20-20-sääntö silmille ohjelmoijille</a></li><li><a href="../../fi/desk-stretches-programmers/">Taukojumppa ohjelmoijille</a></li><li><a href="../../fi/claude-code-break-reminder/">Näin lisäät taukomuistutuksen Claude Codeen</a></li><li><a href="../../fi/codex-cli-break-reminder/">Näin lisäät taukomuistutuksen Codex CLI:hin</a></li></ul></section>
+<section class="faq" id="faq"><h2>Usein kysyttyä</h2><dl><dt>Mikä Gemini CLI -versio tarvitaan?</dt><dd>Hookit ovat olleet oletuksena käytössä Gemini CLI:n versiosta v0.26 lähtien.</dd><dt>Korvaako yhdistäminen asetukseni?</dt><dd>Muut asetuksesi säilyvät. Jos sinulla on jo omia BeforeAgent-, AfterTool- tai AfterAgent-hookeja, jq korvaa ne listat meidän listoillamme. Lisää silloin kolme merkintäämme käsin. Ota tiedostosta ensin varmuuskopio.</dd><dt>Voinko käyttää sitä gemini -p -komennon kanssa?</dt><dd>Aseta VIBESTRETCH_DISABLE=1, kun ajat Geminiä skriptistä, cronista tai botista.</dd></dl></section>
+<section class="related"><h2>Lue seuraavaksi</h2><ul><li><a href="../../fi/">Venyttele, kun koodausagenttisi työskentelee</a></li><li><a href="../../fi/stretch-breaks-ai-coding-agents/">Venyttelytauot AI-koodausagenttien työskennellessä</a></li><li><a href="../../fi/20-20-20-eye-rule-developers/">Ohjelmoijan silmien 20-20-20-sääntö</a></li><li><a href="../../fi/desk-stretches-programmers/">Taukojumppa ohjelmoijille</a></li><li><a href="../../fi/claude-code-break-reminder/">Näin lisäät taukomuistutuksen Claude Codeen</a></li><li><a href="../../fi/codex-cli-break-reminder/">Näin lisäät taukomuistutuksen Codex CLI:hin</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">
 <p>vibestretch on avointa lähdekoodia MIT-lisenssillä. Tekijä: Junit. <a href="https://github.com/Eliasjunit/vibestretch">Lähdekoodi GitHubissa</a></p>

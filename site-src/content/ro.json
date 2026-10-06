@@ -40,13 +40,13 @@
           "h2": "Cum decide când să te atenționeze"
         },
         {
-          "p": "vibestretch nu are un program fix. Numără un singur lucru: minutele în care o rundă a agentului te-a ținut în așteptare la calculator. Un memento apare doar când sunt îndeplinite toate trei condițiile:"
+          "p": "vibestretch nu are un program fix. Numără un singur lucru: minutele în care o rundă a agentului te-a ținut în așteptare la calculator. Un memento apare doar când sunt îndeplinite toate cele trei condiții:"
         },
         {
           "ol": [
             "Runda curentă rulează de cel puțin 2 minute.",
             "Timpul de agent adunat de la ultimul memento ajunge la cel puțin 5 minute.",
-            "Ultimul memento a fost acum cel puțin 15 minute."
+            "Au trecut cel puțin 15 minute de la ultimul memento."
           ]
         },
         {
@@ -89,7 +89,7 @@
         },
         {
           "q": "Cât costă?",
-          "a": "Este open source, sub licența MIT. Codul este pe GitHub."
+          "a": "Este gratuit. vibestretch este open source, sub licența MIT, iar codul este pe GitHub."
         },
         {
           "q": "Cum îl opresc?",
@@ -120,13 +120,13 @@
           "h2": "Când apare un memento"
         },
         {
-          "p": "Toate trei condițiile trebuie îndeplinite:"
+          "p": "Toate cele trei condiții trebuie îndeplinite:"
         },
         {
           "ol": [
             "Runda curentă rulează de cel puțin 2 minute.",
             "Timpul de agent de la ultimul memento este de cel puțin 5 minute. Contează la fel o sarcină mare sau mai multe sarcini medii.",
-            "Ultimul memento a fost acum cel puțin 15 minute."
+            "Au trecut cel puțin 15 minute de la ultimul memento."
           ]
         },
         {
@@ -136,7 +136,7 @@
           "h2": "Când pleci de la calculator"
         },
         {
-          "p": "Dacă lipsești de la tastatură 45 de minute sau mai mult, datoria se resetează. Ai avut deja pauza. Pe macOS, hookurile citesc ceasul de inactivitate al tastaturii și mouse-ului din sistem. Astfel, un agent care lucrează peste noapte nu adaugă timp de agent și nu sună niciodată pentru un scaun gol. Linux nu are un ceas de inactivitate portabil, așa că acolo se aplică doar resetarea de 45 de minute."
+          "p": "Dacă lipsești de la tastatură 45 de minute sau mai mult, contorul se resetează. Ai avut deja pauza. Pe macOS, hookurile citesc ceasul de inactivitate al tastaturii și mouse-ului din sistem. Astfel, un agent care lucrează peste noapte nu adaugă timp de agent și nu sună niciodată pentru un scaun gol. Linux nu are un ceas de inactivitate portabil, așa că acolo se aplică doar resetarea de 45 de minute."
         },
         {
           "h2": "Ce îți cere mementoul"
@@ -162,9 +162,9 @@
     },
     "20-20-20-eye-rule-developers": {
       "nav": "Regula 20-20-20 pentru ochi",
-      "title": "Regula 20-20-20 pentru ochi, pentru programatori | vibestretch",
+      "title": "Regula 20-20-20 pentru ochii programatorilor | vibestretch",
       "description": "Pauza pentru ochi 20-20-20 și alte pauze pentru ochi incluse în vibestretch, un memento care rulează cât lucrează agentul tău de cod.",
-      "h1": "Regula 20-20-20 pentru ochi, pentru programatori",
+      "h1": "Regula 20-20-20 pentru ochii programatorilor",
       "lead": "Rundele lungi ale agentului înseamnă mult timp cu privirea în ecran. vibestretch include pauze pentru ochi în rotație, iar 20-20-20 este una dintre ele.",
       "blocks": [
         {
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Privește ceva aflat la 20 de picioare distanță. Continuă să privești 20 de secunde. Apoi revino la agent."
+          "p": "Privește ceva aflat la 20 de picioare (circa 6 m) distanță. Continuă să privești 20 de secunde. Apoi revino la agent."
         },
         {
           "h2": "Alte pauze pentru ochi din listă"
@@ -193,13 +193,13 @@
           "h2": "Când îți amintește"
         },
         {
-          "p": "vibestretch nu merge după ceas. Îți amintește cât o rundă lungă a agentului te ține în așteptare, implicit cel mult o dată la 15 minute. Pauzele pentru ochi apar ca parte a rotației de douăsprezece exerciții. Citește cum funcționează sincronizarea în [pauze de stretching cât rulează agenții AI de cod](@stretch-breaks-ai-coding-agents)."
+          "p": "vibestretch nu merge după ceas. Îți amintește cât o rundă lungă a agentului te ține în așteptare, implicit cel mult o dată la 15 minute. Pauzele pentru ochi apar ca parte a rotației de douăsprezece exerciții. Citește cum se alege momentul în [pauze de stretching cât rulează agenții AI de cod](@stretch-breaks-ai-coding-agents)."
         },
         {
           "h2": "Vrei doar pauze pentru ochi?"
         },
         {
-          "p": "Scrie-ți propria listă doar cu pauzele pentru ochi care îți plac. Câte un exercițiu pe linie în `~/.config/vibestretch/exercises.txt`. Lista inclusă se retrage atunci. Vezi un exemplu în [exerciții de stretching la birou pentru programatori](@desk-stretches-programmers)."
+          "p": "Scrie-ți propria listă doar cu pauzele pentru ochi care îți plac. Câte un exercițiu pe linie în `~/.config/vibestretch/exercises.txt`. Atunci lista inclusă nu mai este folosită. Vezi un exemplu în [exerciții de stretching la birou pentru programatori](@desk-stretches-programmers)."
         }
       ],
       "faq": [
@@ -246,7 +246,7 @@
           "h2": "Folosește propria listă"
         },
         {
-          "p": "Scrie câte un exercițiu pe linie în `~/.config/vibestretch/exercises.txt`. Cele douăsprezece exerciții incluse se retrag atunci. Liniile goale și cele care încep cu # sunt ignorate."
+          "p": "Scrie câte un exercițiu pe linie în `~/.config/vibestretch/exercises.txt`. Atunci cele douăsprezece exerciții incluse nu mai sunt folosite. Liniile goale și cele care încep cu # sunt ignorate."
         },
         {
           "code": "custom_list"
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Dacă ai deja hookuri proprii în `BeforeAgent`, `AfterTool` sau `AfterAgent`, comanda le înlocuiește cu ale noastre. În acest caz, adaugă manual cele trei intrări ale noastre în listele tale."
+        },
+        {
           "h2": "Ce hookuri folosește"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "Combinarea îmi suprascrie setările?",
-          "a": "Comanda jq îmbină obiectul hooks în settings.json-ul existent. Fă mai întâi o copie de rezervă a fișierului dacă vrei să fii sigur."
+          "a": "Celelalte setări rămân. Dacă ai deja hookuri proprii în BeforeAgent, AfterTool sau AfterAgent, jq înlocuiește acele liste cu ale noastre. În acest caz, adaugă manual cele trei intrări ale noastre. Fă mai întâi o copie de rezervă a fișierului."
         },
         {
           "q": "Îl pot folosi cu gemini -p?",

@@ -163,7 +163,7 @@
      "name": "合并会覆盖我的设置吗？",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "这条 jq 命令会把 hooks 对象合并到你现有的 settings.json 中。如果想更稳妥，请先备份该文件。"
+      "text": "其他设置会保留。但如果你在 BeforeAgent、AfterTool 或 AfterAgent 下已经有自己的钩子，jq 会用我们的列表替换它们。这种情况下，请手动添加我们的三个条目。请先备份该文件。"
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>然后把 <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> 中的 <code>hooks</code> 对象复制到 <code>~/.gemini/settings.json</code>。该文件保存着你的全部 Gemini 配置，所以请合并，不要替换。用 <code>jq</code> 只需一行：</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>如果你在 <code>BeforeAgent</code>、<code>AfterTool</code> 或 <code>AfterAgent</code> 下已经有自己的钩子，这条命令会用我们的钩子替换它们。这种情况下，请手动把我们的三个条目加进你的列表。</p>
 <h2>使用了哪些钩子</h2>
 <ul><li><code>BeforeAgent</code>：智能体开始处理你的提示词。</li><li><code>AfterTool</code>：某个工具执行完毕。累加等待时间。如果到了该提醒的时候，就触发提醒。</li><li><code>AfterAgent</code>：本轮结束。统计随之结束。</li></ul>
 <h2>在 Gemini CLI 中能得到什么</h2>
 <p>你会看到会话中的提示行，并听到提示音。没有通知横幅。Gemini 规定钩子的 stdout 只能输出 JSON，所以没有地方输出转义序列。</p>
 <p>该适配器已在 macOS 上实际安装的 Gemini CLI 0.56.0 中运行过。计数器与 Claude Code 和 Codex CLI 共用。</p>
-<section class="faq" id="faq"><h2>常见问题</h2><dl><dt>需要哪个版本的 Gemini CLI？</dt><dd>Gemini CLI 从 v0.26 起默认启用钩子。</dd><dt>合并会覆盖我的设置吗？</dt><dd>这条 jq 命令会把 hooks 对象合并到你现有的 settings.json 中。如果想更稳妥，请先备份该文件。</dd><dt>可以配合 gemini -p 使用吗？</dt><dd>从脚本、cron 或机器人运行 Gemini 时，请设置 VIBESTRETCH_DISABLE=1。</dd></dl></section>
+<section class="faq" id="faq"><h2>常见问题</h2><dl><dt>需要哪个版本的 Gemini CLI？</dt><dd>Gemini CLI 从 v0.26 起默认启用钩子。</dd><dt>合并会覆盖我的设置吗？</dt><dd>其他设置会保留。但如果你在 BeforeAgent、AfterTool 或 AfterAgent 下已经有自己的钩子，jq 会用我们的列表替换它们。这种情况下，请手动添加我们的三个条目。请先备份该文件。</dd><dt>可以配合 gemini -p 使用吗？</dt><dd>从脚本、cron 或机器人运行 Gemini 时，请设置 VIBESTRETCH_DISABLE=1。</dd></dl></section>
 <section class="related"><h2>延伸阅读</h2><ul><li><a href="../../zh-Hans/">编程智能体工作时，起来拉伸一下</a></li><li><a href="../../zh-Hans/stretch-breaks-ai-coding-agents/">AI 编程智能体运行时的拉伸休息</a></li><li><a href="../../zh-Hans/20-20-20-eye-rule-developers/">程序员的 20-20-20 护眼法则</a></li><li><a href="../../zh-Hans/desk-stretches-programmers/">程序员办公桌拉伸</a></li><li><a href="../../zh-Hans/claude-code-break-reminder/">如何为 Claude Code 添加休息提醒</a></li><li><a href="../../zh-Hans/codex-cli-break-reminder/">如何为 Codex CLI 添加休息提醒</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

@@ -1,6 +1,6 @@
 # 🧘 vibestretch
 
-A stretch and break reminder for developers that nudges you to move while Claude Code, Codex CLI or Gemini CLI runs a long turn.
+A stretch and break reminder plugin for developers. It nudges you to move while Claude Code, Codex CLI or Gemini CLI runs a long turn.
 
 ```
 claude plugin marketplace add Eliasjunit/vibestretch && claude plugin install vibestretch@vibestretch
@@ -119,6 +119,10 @@ merge it. Do not replace it. With `jq` it's one line:
 jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json > /tmp/s.json && mv /tmp/s.json ~/.gemini/settings.json
 ```
 
+If you already have your own `BeforeAgent`, `AfterTool` or `AfterAgent` hooks,
+that command replaces those lists with ours. In that case add our three entries
+to your lists by hand. Back up `settings.json` first either way.
+
 As with Codex, you get the line in the session and the chime. There is no
 notification banner. Gemini reserves a hook's stdout for JSON alone, so there's
 nowhere to print an escape sequence. `BeforeAgent`, `AfterTool` and `AfterAgent`
@@ -137,10 +141,9 @@ issue with the output would be welcome.
 
 vibestretch counts one thing only: **agent time**. That is the minutes an agent
 turn was in flight while you were at the machine, added up since your last nudge.
-It is not how long you have been at your desk, and the counter never claims to be.
-An hour of reading and typing with quick turns in between adds almost nothing.
-What it measures is the time the agent kept you waiting. A nudge fires only when
-all three are true:
+Desk time without a long turn running adds nothing to it, so an hour of reading
+and typing with quick turns in between barely moves the counter. A nudge fires
+only when all three are true:
 
 1. The current turn has been running for a while, so you are actually waiting
    right now (default: 2+ min).
@@ -280,10 +283,10 @@ Undo with `/vibestretch:statusline off`. If you ever uninstall the plugin, run
 
 Prefer wiring it yourself? The state is plain files in `~/.cache/vibestretch/`:
 `current` (latest exercise text), `last-nudge` (unix time it fired) and `active`
-(seconds of agent time since the last nudge). Rather than parsing them by hand,
-copy `scripts/statusline-segment.sh` somewhere stable and call it from your
-status line command. It handles the edge cases (empty files, mute, staleness)
-that a quick snippet won't.
+(seconds of agent time since the last nudge). The simplest route is to copy
+`scripts/statusline-segment.sh` somewhere stable and call it from your status
+line command. It handles the edge cases (empty files, mute, staleness) that a
+quick snippet won't.
 
 ## FAQ
 
@@ -315,6 +318,9 @@ built-in exercises, next to slow blinking and palming.
 **Does it send any data?**
 No. It makes no network calls, sends no telemetry and adds nothing to the
 model's context. State stays in `~/.cache/vibestretch/`.
+
+**Is it free?**
+Yes. It is open source under the MIT license.
 
 **Does it work on Linux?**
 Yes. On Linux there's no portable idle clock, so the away guard falls back to the

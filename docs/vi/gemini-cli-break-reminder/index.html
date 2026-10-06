@@ -163,7 +163,7 @@
      "name": "Việc gộp có ghi đè cấu hình của tôi không?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Lệnh jq gộp đối tượng hooks vào file settings.json hiện có. Hãy sao lưu file trước nếu muốn chắc chắn an toàn."
+      "text": "Các cấu hình khác của bạn vẫn được giữ nguyên. Nếu bạn đã có hook riêng trong BeforeAgent, AfterTool hoặc AfterAgent, jq sẽ thay các danh sách đó bằng danh sách của chúng tôi. Khi đó hãy thêm ba mục của chúng tôi bằng tay. Hãy sao lưu file trước."
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>Sau đó chép đối tượng <code>hooks</code> từ <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> vào <code>~/.gemini/settings.json</code>. File đó chứa toàn bộ cấu hình Gemini của bạn, nên hãy gộp vào. Đừng thay thế nó. Với <code>jq</code> chỉ cần một dòng:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>Nếu bạn đã có hook riêng trong <code>BeforeAgent</code>, <code>AfterTool</code> hoặc <code>AfterAgent</code>, lệnh này sẽ thay chúng bằng hook của chúng tôi. Khi đó hãy tự thêm ba mục của chúng tôi vào danh sách của bạn.</p>
 <h2>Các hook được sử dụng</h2>
 <ul><li><code>BeforeAgent</code>: agent bắt đầu xử lý prompt của bạn.</li><li><code>AfterTool</code>: một tool đã chạy xong. Thời gian chờ được cộng thêm, và lời nhắc xuất hiện nếu đã đến lúc.</li><li><code>AfterAgent</code>: lượt chạy kết thúc. Việc tính thời gian được chốt lại.</li></ul>
 <h2>Bạn nhận được gì trong Gemini CLI</h2>
 <p>Bạn có dòng nhắc trong phiên làm việc và tiếng chuông. Không có banner thông báo. Gemini dành stdout của hook chỉ cho JSON, nên không có chỗ để in escape sequence.</p>
 <p>Adapter đã được chạy trên một bản cài thực tế của Gemini CLI 0.56.0 trên macOS. Bộ đếm được dùng chung với Claude Code và Codex CLI.</p>
-<section class="faq" id="faq"><h2>Câu hỏi thường gặp</h2><dl><dt>Tôi cần Gemini CLI phiên bản nào?</dt><dd>Hook được bật sẵn từ Gemini CLI v0.26.</dd><dt>Việc gộp có ghi đè cấu hình của tôi không?</dt><dd>Lệnh jq gộp đối tượng hooks vào file settings.json hiện có. Hãy sao lưu file trước nếu muốn chắc chắn an toàn.</dd><dt>Tôi có thể dùng nó với gemini -p không?</dt><dd>Đặt VIBESTRETCH_DISABLE=1 khi bạn chạy Gemini từ script, cron hoặc bot.</dd></dl></section>
+<section class="faq" id="faq"><h2>Câu hỏi thường gặp</h2><dl><dt>Tôi cần Gemini CLI phiên bản nào?</dt><dd>Hook được bật sẵn từ Gemini CLI v0.26.</dd><dt>Việc gộp có ghi đè cấu hình của tôi không?</dt><dd>Các cấu hình khác của bạn vẫn được giữ nguyên. Nếu bạn đã có hook riêng trong BeforeAgent, AfterTool hoặc AfterAgent, jq sẽ thay các danh sách đó bằng danh sách của chúng tôi. Khi đó hãy thêm ba mục của chúng tôi bằng tay. Hãy sao lưu file trước.</dd><dt>Tôi có thể dùng nó với gemini -p không?</dt><dd>Đặt VIBESTRETCH_DISABLE=1 khi bạn chạy Gemini từ script, cron hoặc bot.</dd></dl></section>
 <section class="related"><h2>Đọc tiếp</h2><ul><li><a href="../../vi/">Giãn cơ trong lúc coding agent làm việc</a></li><li><a href="../../vi/stretch-breaks-ai-coding-agents/">Nghỉ giãn cơ khi AI coding agent đang chạy</a></li><li><a href="../../vi/20-20-20-eye-rule-developers/">Quy tắc 20-20-20 cho mắt của lập trình viên</a></li><li><a href="../../vi/desk-stretches-programmers/">Bài tập giãn cơ tại bàn cho lập trình viên</a></li><li><a href="../../vi/claude-code-break-reminder/">Cách thêm lời nhắc nghỉ giải lao vào Claude Code</a></li><li><a href="../../vi/codex-cli-break-reminder/">Cách thêm lời nhắc nghỉ giải lao vào Codex CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

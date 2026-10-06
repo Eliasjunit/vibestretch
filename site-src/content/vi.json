@@ -89,7 +89,7 @@
         },
         {
           "q": "Giá bao nhiêu?",
-          "a": "Đây là phần mềm mã nguồn mở theo giấy phép MIT. Mã nguồn có trên GitHub."
+          "a": "Miễn phí. vibestretch là phần mềm mã nguồn mở theo giấy phép MIT, mã nguồn có trên GitHub."
         },
         {
           "q": "Làm sao để tắt nó?",
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Nhìn vào một vật cách xa 20 feet. Giữ ánh nhìn trong 20 giây. Sau đó quay lại với agent của bạn."
+          "p": "Nhìn vào một vật cách xa 20 feet (khoảng 6 mét). Giữ ánh nhìn trong 20 giây. Sau đó quay lại với agent của bạn."
         },
         {
           "h2": "Các bài nghỉ mắt khác trong danh sách"
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Nếu bạn đã có hook riêng trong `BeforeAgent`, `AfterTool` hoặc `AfterAgent`, lệnh này sẽ thay chúng bằng hook của chúng tôi. Khi đó hãy tự thêm ba mục của chúng tôi vào danh sách của bạn."
+        },
+        {
           "h2": "Các hook được sử dụng"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "Việc gộp có ghi đè cấu hình của tôi không?",
-          "a": "Lệnh jq gộp đối tượng hooks vào file settings.json hiện có. Hãy sao lưu file trước nếu muốn chắc chắn an toàn."
+          "a": "Các cấu hình khác của bạn vẫn được giữ nguyên. Nếu bạn đã có hook riêng trong BeforeAgent, AfterTool hoặc AfterAgent, jq sẽ thay các danh sách đó bằng danh sách của chúng tôi. Khi đó hãy thêm ba mục của chúng tôi bằng tay. Hãy sao lưu file trước."
         },
         {
           "q": "Tôi có thể dùng nó với gemini -p không?",

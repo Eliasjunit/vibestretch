@@ -163,7 +163,7 @@
      "name": "การรวมจะเขียนทับการตั้งค่าของฉันไหม",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "คำสั่ง jq จะรวมออบเจกต์ hooks เข้าไปใน settings.json ที่คุณมีอยู่ ถ้าอยากให้ชัวร์ ให้สำรองไฟล์ไว้ก่อน"
+      "text": "การตั้งค่าอื่นของคุณยังอยู่ครบ แต่ถ้าคุณมีฮุกของตัวเองใน BeforeAgent, AfterTool หรือ AfterAgent อยู่แล้ว jq จะเอารายการของเราไปแทนที่รายการเหล่านั้น กรณีนี้ให้เพิ่มสามรายการของเราเอง และสำรองไฟล์ไว้ก่อน"
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>จากนั้นคัดลอกออบเจกต์ <code>hooks</code> จาก <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> ไปไว้ใน <code>~/.gemini/settings.json</code> ไฟล์นั้นเก็บการตั้งค่า Gemini ทั้งหมดของคุณ จึงต้องรวมเข้าไป อย่าแทนที่ทั้งไฟล์ ถ้าใช้ <code>jq</code> ทำได้ในบรรทัดเดียว:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>ถ้าคุณมีฮุกของตัวเองใน <code>BeforeAgent</code>, <code>AfterTool</code> หรือ <code>AfterAgent</code> อยู่แล้ว คำสั่งนี้จะเอาฮุกของเราไปแทนที่ กรณีนี้ให้เพิ่มสามรายการของเราลงในรายการของคุณเอง</p>
 <h2>ใช้ฮุกตัวไหนบ้าง</h2>
 <ul><li><code>BeforeAgent</code>: เอเจนต์เริ่มทำงานตามพรอมต์ของคุณ</li><li><code>AfterTool</code>: เครื่องมือตัวหนึ่งทำงานเสร็จ ระบบเพิ่มเวลารอ และถ้าถึงเวลาก็จะเตือน</li><li><code>AfterAgent</code>: จบรอบแล้ว การนับเวลาของรอบนี้ปิดลง</li></ul>
 <h2>ใน Gemini CLI จะได้อะไรบ้าง</h2>
 <p>คุณจะได้ข้อความในเซสชันและเสียงเตือน ไม่มีแบนเนอร์แจ้งเตือน Gemini สงวน stdout ของฮุกไว้สำหรับ JSON เท่านั้น จึงไม่มีที่ให้พิมพ์ escape sequence</p>
 <p>ตัวเชื่อมนี้ผ่านการรันบน Gemini CLI 0.56.0 ที่ติดตั้งใช้งานจริงบน macOS ตัวนับใช้ร่วมกับ Claude Code และ Codex CLI</p>
-<section class="faq" id="faq"><h2>คำถามที่พบบ่อย</h2><dl><dt>ต้องใช้ Gemini CLI เวอร์ชันไหน</dt><dd>ฮุกเปิดใช้เป็นค่าเริ่มต้นตั้งแต่ Gemini CLI v0.26</dd><dt>การรวมจะเขียนทับการตั้งค่าของฉันไหม</dt><dd>คำสั่ง jq จะรวมออบเจกต์ hooks เข้าไปใน settings.json ที่คุณมีอยู่ ถ้าอยากให้ชัวร์ ให้สำรองไฟล์ไว้ก่อน</dd><dt>ใช้กับ gemini -p ได้ไหม</dt><dd>ตั้งค่า VIBESTRETCH_DISABLE=1 เมื่อรัน Gemini จากสคริปต์ cron หรือบอต</dd></dl></section>
+<section class="faq" id="faq"><h2>คำถามที่พบบ่อย</h2><dl><dt>ต้องใช้ Gemini CLI เวอร์ชันไหน</dt><dd>ฮุกเปิดใช้เป็นค่าเริ่มต้นตั้งแต่ Gemini CLI v0.26</dd><dt>การรวมจะเขียนทับการตั้งค่าของฉันไหม</dt><dd>การตั้งค่าอื่นของคุณยังอยู่ครบ แต่ถ้าคุณมีฮุกของตัวเองใน BeforeAgent, AfterTool หรือ AfterAgent อยู่แล้ว jq จะเอารายการของเราไปแทนที่รายการเหล่านั้น กรณีนี้ให้เพิ่มสามรายการของเราเอง และสำรองไฟล์ไว้ก่อน</dd><dt>ใช้กับ gemini -p ได้ไหม</dt><dd>ตั้งค่า VIBESTRETCH_DISABLE=1 เมื่อรัน Gemini จากสคริปต์ cron หรือบอต</dd></dl></section>
 <section class="related"><h2>อ่านต่อ</h2><ul><li><a href="../../th/">ยืดเส้นระหว่างที่เอเจนต์เขียนโค้ดทำงาน</a></li><li><a href="../../th/stretch-breaks-ai-coding-agents/">ยืดเส้นระหว่างที่เอเจนต์เขียนโค้ด AI ทำงาน</a></li><li><a href="../../th/20-20-20-eye-rule-developers/">กฎ 20-20-20 พักสายตาสำหรับนักพัฒนา</a></li><li><a href="../../th/desk-stretches-programmers/">ท่ายืดเส้นที่โต๊ะทำงานสำหรับโปรแกรมเมอร์</a></li><li><a href="../../th/claude-code-break-reminder/">วิธีเพิ่มตัวเตือนพักเบรกใน Claude Code</a></li><li><a href="../../th/codex-cli-break-reminder/">วิธีเพิ่มตัวเตือนพักเบรกใน Codex CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

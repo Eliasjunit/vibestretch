@@ -200,7 +200,7 @@ codex plugin add vibestretch@vibestretch</code></pre>
 <p>Totéž zařídí klon repozitáře a konfigurační soubor:</p>
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.codex/vibestretch
 cp ~/.codex/vibestretch/hooks/codex-hooks.json ~/.codex/hooks.json</code></pre>
-<p>Už máte <code>~/.codex/hooks.json</code>? Slučte do něj tři položky z našeho souboru. Svůj soubor nepřepisujte. Codex vás při prvním spuštění požádá, abyste nové konfiguraci hooků důvěřovali. Tento dotaz je očekávaný.</p>
+<p>Už máte <code>~/.codex/hooks.json</code>? Slučte do něj tři položky z našeho souboru. Svůj soubor nepřepisujte. Codex vás při prvním spuštění požádá, abyste nové konfiguraci hooků důvěřovali. To je v pořádku.</p>
 <p>Vyberte si jeden způsob. Pokud máte zároveň plugin i ručně přidané položky, každý hook se spustí dvakrát. Pokud jste instalovali ručně před verzí 0.8.0, při přechodu na plugin odstraňte naše položky z <code>~/.codex/hooks.json</code>.</p>
 <h2>Co dostanete v Codexu</h2>
 <p>Dostanete řádek v relaci a zvuk. Oznámení nebude, protože Codex nemá ve výstupu hooku pole pro sekvenci terminálu. Nebude ani část stavového řádku. Tuto lištu v Codexu nelze skriptovat.</p>

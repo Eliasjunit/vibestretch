@@ -89,7 +89,7 @@
         },
         {
           "q": "¿Cuánto cuesta?",
-          "a": "Es de código abierto con licencia MIT. El código está en GitHub."
+          "a": "Es gratis. vibestretch es de código abierto con licencia MIT y el código está en GitHub."
         },
         {
           "q": "¿Cómo lo silencio?",
@@ -136,7 +136,7 @@
           "h2": "Cuando te alejas"
         },
         {
-          "p": "Si te alejas del teclado 45 minutos o más, la deuda se reinicia. Ya tuviste tu pausa. En macOS, los hooks leen el reloj de inactividad del teclado y el ratón del sistema. Así, un agente que trabaja de noche no suma tiempo de agente y nunca suena ante una silla vacía. Linux no tiene un reloj de inactividad portable, así que allí solo se aplica el reinicio de 45 minutos."
+          "p": "Si te alejas del teclado 45 minutos o más, el contador se reinicia. Ya tuviste tu pausa. En macOS, los hooks leen el reloj de inactividad del teclado y el ratón del sistema. Así, un agente que trabaja de noche no suma tiempo de agente y nunca suena ante una silla vacía. Linux no tiene un reloj de inactividad portable, así que allí solo se aplica el reinicio de 45 minutos."
         },
         {
           "h2": "Qué te pide hacer el aviso"
@@ -162,7 +162,7 @@
     },
     "20-20-20-eye-rule-developers": {
       "nav": "Regla 20-20-20",
-      "title": "Regla 20-20-20 para la vista en programadores | vibestretch",
+      "title": "Regla 20-20-20 para cuidar la vista al programar | vibestretch",
       "description": "La pausa visual 20-20-20 y otras pausas para los ojos incluidas en vibestretch, un recordatorio que se activa mientras tu agente de código trabaja.",
       "h1": "La regla 20-20-20 para desarrolladores",
       "lead": "Los turnos largos del agente implican largos ratos mirando la pantalla. vibestretch incluye pausas visuales en su rotación, y la 20-20-20 es una de ellas.",
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Mira algo que esté a 20 pies de distancia. Sigue mirando durante 20 segundos. Después vuelve con tu agente."
+          "p": "Mira algo que esté a 20 pies (unos 6 m) de distancia. Sigue mirando durante 20 segundos. Después vuelve con tu agente."
         },
         {
           "h2": "Otras pausas visuales de la lista"
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Si ya tienes hooks propios en `BeforeAgent`, `AfterTool` o `AfterAgent`, este comando los sustituye por los nuestros. En ese caso añade nuestras tres entradas a tus listas a mano."
+        },
+        {
           "h2": "Qué hooks usa"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "¿La combinación sobrescribirá mis ajustes?",
-          "a": "El comando jq combina el objeto hooks con tu settings.json actual. Si quieres ir sobre seguro, haz antes una copia de seguridad del archivo."
+          "a": "Tus demás ajustes se conservan. Si ya tienes hooks propios en BeforeAgent, AfterTool o AfterAgent, jq sustituye esas listas por las nuestras. En ese caso añade nuestras tres entradas a mano. Haz antes una copia de seguridad del archivo."
         },
         {
           "q": "¿Puedo usarlo con gemini -p?",

@@ -163,7 +163,7 @@
      "name": "Will the merge overwrite my settings?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "The jq command merges the hooks object into your existing settings.json. Back up the file first if you want to be safe."
+      "text": "It keeps your other settings. If you already have your own BeforeAgent, AfterTool or AfterAgent hooks, jq replaces those lists with ours. In that case add our three entries by hand. Back up the file first."
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>Then copy the <code>hooks</code> object from <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> into <code>~/.gemini/settings.json</code>. That file holds your whole Gemini configuration, so merge it. Do not replace it. With <code>jq</code> it is one line:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>If you already have your own <code>BeforeAgent</code>, <code>AfterTool</code> or <code>AfterAgent</code> hooks, this command replaces them with ours. In that case add our three entries to your lists by hand.</p>
 <h2>Which hooks it uses</h2>
 <ul><li><code>BeforeAgent</code>: the agent starts working on your prompt.</li><li><code>AfterTool</code>: a tool finished. Wait time is added, and a nudge fires if one is due.</li><li><code>AfterAgent</code>: the turn is over. The accounting closes.</li></ul>
 <h2>What you get in Gemini CLI</h2>
 <p>You get the line in the session and the chime. There is no notification banner. Gemini reserves a hook's stdout for JSON alone, so there is nowhere to print an escape sequence.</p>
 <p>The adapter was run on a live install of Gemini CLI 0.56.0 on macOS. The counter is shared with Claude Code and Codex CLI.</p>
-<section class="faq" id="faq"><h2>FAQ</h2><dl><dt>Which Gemini CLI version do I need?</dt><dd>Hooks ship enabled since Gemini CLI v0.26.</dd><dt>Will the merge overwrite my settings?</dt><dd>The jq command merges the hooks object into your existing settings.json. Back up the file first if you want to be safe.</dd><dt>Can I use it with gemini -p?</dt><dd>Set VIBESTRETCH_DISABLE=1 when you run Gemini from a script, cron or a bot.</dd></dl></section>
+<section class="faq" id="faq"><h2>FAQ</h2><dl><dt>Which Gemini CLI version do I need?</dt><dd>Hooks ship enabled since Gemini CLI v0.26.</dd><dt>Will the merge overwrite my settings?</dt><dd>It keeps your other settings. If you already have your own BeforeAgent, AfterTool or AfterAgent hooks, jq replaces those lists with ours. In that case add our three entries by hand. Back up the file first.</dd><dt>Can I use it with gemini -p?</dt><dd>Set VIBESTRETCH_DISABLE=1 when you run Gemini from a script, cron or a bot.</dd></dl></section>
 <section class="related"><h2>Read next</h2><ul><li><a href="../">Stretch while your coding agent works</a></li><li><a href="../stretch-breaks-ai-coding-agents/">Stretch breaks while AI coding agents run</a></li><li><a href="../20-20-20-eye-rule-developers/">The 20-20-20 eye rule for developers</a></li><li><a href="../desk-stretches-programmers/">Desk stretches for programmers</a></li><li><a href="../claude-code-break-reminder/">How to add a break reminder to Claude Code</a></li><li><a href="../codex-cli-break-reminder/">How to add a break reminder to Codex CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

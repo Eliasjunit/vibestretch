@@ -155,7 +155,7 @@
      "name": "L'ho installato ma non succede nulla. Perché?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Codex esegue gli hook di un plugin solo dopo che gli hai dato la tua fiducia. Apri /hooks e conferma le tre voci di vibestretch."
+      "text": "Codex esegue gli hook di un plugin solo dopo che li hai approvati. Apri /hooks e approva le tre voci di vibestretch."
      }
     },
     {
@@ -195,7 +195,7 @@
 <h2>Installazione come plugin</h2>
 <pre><code>codex plugin marketplace add Eliasjunit/vibestretch
 codex plugin add vibestretch@vibestretch</code></pre>
-<p>Codex non esegue gli hook di un plugin finché non li hai esaminati. Apri <code>/hooks</code> e dai la tua fiducia alle tre voci di vibestretch. Fino ad allora il plugin è installato ma resta in silenzio.</p>
+<p>Codex non esegue gli hook di un plugin finché non li hai esaminati. Apri <code>/hooks</code> e approva le tre voci di vibestretch. Fino ad allora il plugin è installato ma resta in silenzio.</p>
 <h2>Installazione manuale</h2>
 <p>Un clone e un file di configurazione fanno lo stesso lavoro:</p>
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.codex/vibestretch
@@ -205,8 +205,8 @@ cp ~/.codex/vibestretch/hooks/codex-hooks.json ~/.codex/hooks.json</code></pre>
 <h2>Cosa ottieni in Codex</h2>
 <p>Ottieni la riga nella sessione e il segnale acustico. Non c'è la notifica, perché Codex non ha un campo di output degli hook per una sequenza di terminale. Non c'è nemmeno il segmento nella barra di stato. In Codex quella barra non si può controllare con script.</p>
 <p>Il contatore è condiviso con Claude Code e Gemini CLI. Un'ora di attesa conta una volta sola, qualunque agente ti abbia tenuto sulla sedia. L'adattatore è stato eseguito su un'installazione reale di Codex CLI 0.149.1 su macOS.</p>
-<section class="faq" id="faq"><h2>Domande frequenti</h2><dl><dt>L'ho installato ma non succede nulla. Perché?</dt><dd>Codex esegue gli hook di un plugin solo dopo che gli hai dato la tua fiducia. Apri /hooks e conferma le tre voci di vibestretch.</dd><dt>Ogni hook viene eseguito due volte. Perché?</dt><dd>Probabilmente hai sia il plugin sia voci aggiunte a mano in ~/.codex/hooks.json. Tieni solo una delle due.</dd><dt>Posso usarlo con codex exec?</dt><dd>Imposta VIBESTRETCH_DISABLE=1 in quell'ambiente. Le esecuzioni senza supervisione non dovrebbero contare come tempo passato in attesa.</dd></dl></section>
-<section class="related"><h2>Leggi anche</h2><ul><li><a href="../../it/">Fai stretching mentre il tuo coding agent lavora</a></li><li><a href="../../it/stretch-breaks-ai-coding-agents/">Pause di stretching mentre lavorano i coding agent AI</a></li><li><a href="../../it/20-20-20-eye-rule-developers/">La regola 20-20-20 per gli occhi, per sviluppatori</a></li><li><a href="../../it/desk-stretches-programmers/">Esercizi di stretching alla scrivania per programmatori</a></li><li><a href="../../it/claude-code-break-reminder/">Come aggiungere un promemoria per le pause a Claude Code</a></li><li><a href="../../it/gemini-cli-break-reminder/">Come aggiungere un promemoria per le pause a Gemini CLI</a></li></ul></section>
+<section class="faq" id="faq"><h2>Domande frequenti</h2><dl><dt>L'ho installato ma non succede nulla. Perché?</dt><dd>Codex esegue gli hook di un plugin solo dopo che li hai approvati. Apri /hooks e approva le tre voci di vibestretch.</dd><dt>Ogni hook viene eseguito due volte. Perché?</dt><dd>Probabilmente hai sia il plugin sia voci aggiunte a mano in ~/.codex/hooks.json. Tieni solo una delle due.</dd><dt>Posso usarlo con codex exec?</dt><dd>Imposta VIBESTRETCH_DISABLE=1 in quell'ambiente. Le esecuzioni senza supervisione non dovrebbero contare come tempo passato in attesa.</dd></dl></section>
+<section class="related"><h2>Leggi anche</h2><ul><li><a href="../../it/">Fai stretching mentre il tuo coding agent lavora</a></li><li><a href="../../it/stretch-breaks-ai-coding-agents/">Pause di stretching mentre lavorano i coding agent AI</a></li><li><a href="../../it/20-20-20-eye-rule-developers/">La regola 20-20-20 per gli occhi di chi programma</a></li><li><a href="../../it/desk-stretches-programmers/">Esercizi di stretching alla scrivania per programmatori</a></li><li><a href="../../it/claude-code-break-reminder/">Come aggiungere un promemoria per le pause a Claude Code</a></li><li><a href="../../it/gemini-cli-break-reminder/">Come aggiungere un promemoria per le pause a Gemini CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">
 <p>vibestretch è open source con licenza MIT. Creato da Junit. <a href="https://github.com/Eliasjunit/vibestretch">Codice sorgente su GitHub</a></p>

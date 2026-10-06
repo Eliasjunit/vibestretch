@@ -163,7 +163,7 @@
      "name": "Об'єднання перезапише мої налаштування?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Команда jq додає об'єкт hooks до вашого наявного settings.json. Якщо хочете підстрахуватися, спершу зробіть резервну копію файлу."
+      "text": "Інші налаштування зберігаються. Якщо у вас уже є власні хуки в BeforeAgent, AfterTool або AfterAgent, jq замінить ці списки нашими. Тоді додайте три наші записи вручну. Спершу зробіть резервну копію файлу."
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>Потім скопіюйте об'єкт <code>hooks</code> з <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> у <code>~/.gemini/settings.json</code>. У цьому файлі вся ваша конфігурація Gemini, тому об'єднайте дані. Не замінюйте файл. З <code>jq</code> це один рядок:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>Якщо у вас уже є власні хуки в <code>BeforeAgent</code>, <code>AfterTool</code> або <code>AfterAgent</code>, ця команда замінить їх нашими. Тоді додайте три наші записи до своїх списків вручну.</p>
 <h2>Які хуки використовуються</h2>
 <ul><li><code>BeforeAgent</code>: агент починає працювати над вашим запитом.</li><li><code>AfterTool</code>: інструмент завершив роботу. Час очікування додається, і якщо час настав, надходить нагадування.</li><li><code>AfterAgent</code>: відповідь завершено. Облік часу закривається.</li></ul>
 <h2>Що працює в Gemini CLI</h2>
 <p>Ви отримуєте рядок у сесії та звуковий сигнал. Банера сповіщення немає. Gemini відводить stdout хука лише під JSON, тому вивести керуючу послідовність нікуди.</p>
 <p>Адаптер перевірено на реальному встановленні Gemini CLI 0.56.0 у macOS. Лічильник спільний із Claude Code і Codex CLI.</p>
-<section class="faq" id="faq"><h2>Часті запитання</h2><dl><dt>Яка версія Gemini CLI потрібна?</dt><dd>Хуки ввімкнені за замовчуванням починаючи з Gemini CLI v0.26.</dd><dt>Об'єднання перезапише мої налаштування?</dt><dd>Команда jq додає об'єкт hooks до вашого наявного settings.json. Якщо хочете підстрахуватися, спершу зробіть резервну копію файлу.</dd><dt>Чи можна використовувати його з gemini -p?</dt><dd>Задайте VIBESTRETCH_DISABLE=1, коли запускаєте Gemini зі скрипта, cron або бота.</dd></dl></section>
+<section class="faq" id="faq"><h2>Часті запитання</h2><dl><dt>Яка версія Gemini CLI потрібна?</dt><dd>Хуки ввімкнені за замовчуванням починаючи з Gemini CLI v0.26.</dd><dt>Об'єднання перезапише мої налаштування?</dt><dd>Інші налаштування зберігаються. Якщо у вас уже є власні хуки в BeforeAgent, AfterTool або AfterAgent, jq замінить ці списки нашими. Тоді додайте три наші записи вручну. Спершу зробіть резервну копію файлу.</dd><dt>Чи можна використовувати його з gemini -p?</dt><dd>Задайте VIBESTRETCH_DISABLE=1, коли запускаєте Gemini зі скрипта, cron або бота.</dd></dl></section>
 <section class="related"><h2>Читайте далі</h2><ul><li><a href="../../uk/">Розминайтеся, поки працює агент</a></li><li><a href="../../uk/stretch-breaks-ai-coding-agents/">Перерви на розминку, поки працюють ШІ-агенти</a></li><li><a href="../../uk/20-20-20-eye-rule-developers/">Правило 20-20-20 для очей розробника</a></li><li><a href="../../uk/desk-stretches-programmers/">Розминка за комп&#x27;ютером для програмістів</a></li><li><a href="../../uk/claude-code-break-reminder/">Як додати нагадування про перерву в Claude Code</a></li><li><a href="../../uk/codex-cli-break-reminder/">Як додати нагадування про перерву в Codex CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

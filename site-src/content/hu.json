@@ -16,10 +16,10 @@
   "pages": {
     "index": {
       "nav": "Áttekintés",
-      "title": "vibestretch: nyújtás emlékeztető, amíg a kódoló AI dolgozik",
+      "title": "vibestretch: nyújtásemlékeztető, amíg a kódoló AI dolgozik",
       "description": "A vibestretch ingyenes nyújtás- és szünetemlékeztető fejlesztőknek. Mozgásra emlékeztet, amíg a Claude Code, a Codex CLI vagy a Gemini CLI hosszan fut.",
       "h1": "Nyújts, amíg a kódoló ügynököd dolgozik",
-      "lead": "A vibestretch egy rövid nyújtást, mini edzést vagy szemszünetet mutat, amíg egy hosszú ügynökfutás miatt várnod kell. A Claude Code, a Codex CLI és a Gemini CLI mellett működik.",
+      "lead": "A vibestretch egy rövid nyújtást, mini edzést vagy szemszünetet mutat, amíg egy hosszú ügynökfutás miatt várnod kell. A Claude Code-dal, a Codex CLI-jal és a Gemini CLI-jal működik.",
       "blocks": [
         {
           "code": "install_claude_cli"
@@ -89,7 +89,7 @@
         },
         {
           "q": "Mennyibe kerül?",
-          "a": "Nyílt forráskódú, MIT licenc alatt. A kód a GitHubon van."
+          "a": "Ingyenes. A vibestretch nyílt forráskódú, MIT licenc alatt, a kód a GitHubon van."
         },
         {
           "q": "Hogyan némíthatom el?",
@@ -136,7 +136,7 @@
           "h2": "Ha felállsz a géptől"
         },
         {
-          "p": "Ha legalább 45 percig nem vagy a billentyűzetnél, a felgyűlt idő nullázódik. A szünetedet már megtartottad. macOS-en a hookok a rendszer billentyűzet- és egértétlenségi óráját olvassák. Így egy éjszaka dolgozó ügynök nem gyűjt ügynökidőt, és sosem csilingel egy üres széknek. Linuxon nincs hordozható tétlenségi óra, ezért ott csak a 45 perces nullázás érvényes."
+          "p": "Ha legalább 45 percig nem vagy a billentyűzetnél, a felgyűlt idő nullázódik. A szünetedet már megtartottad. macOS-en a hookok a rendszertől olvassák ki a billentyűzet és az egér tétlenségi idejét. Így egy éjszaka dolgozó ügynök nem gyűjt ügynökidőt, és sosem csilingel egy üres széknek. Linuxon nincs egységes módja a tétlenség mérésének, ezért ott csak a 45 perces nullázás érvényes."
         },
         {
           "h2": "Mire kér az emlékeztető"
@@ -162,7 +162,7 @@
     },
     "20-20-20-eye-rule-developers": {
       "nav": "20-20-20 szabály",
-      "title": "20-20-20 szabály a szemnek fejlesztőknek | vibestretch",
+      "title": "20-20-20 szabály: szempihentetés fejlesztőknek | vibestretch",
       "description": "A 20-20-20 szemszünet és a vibestretch többi beépített szemszünete. Egy emlékeztető, amely akkor szól, amikor a kódoló ügynököd dolgozik.",
       "h1": "A 20-20-20 szabály fejlesztőknek",
       "lead": "A hosszú ügynökfutások hosszú képernyőbámulást jelentenek. A vibestretch váltakozó gyakorlatai között szemszünetek is vannak, és a 20-20-20 is köztük van.",
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Nézz valamit, ami 20 láb távolságra van. Nézd 20 másodpercig. Aztán térj vissza az ügynöködhöz."
+          "p": "Nézz valamit, ami 20 láb (kb. 6 méter) távolságra van. Nézd 20 másodpercig. Aztán térj vissza az ügynöködhöz."
         },
         {
           "h2": "További szemszünetek a listán"
@@ -365,7 +365,7 @@
           "code": "install_codex_manual"
         },
         {
-          "p": "Már van `~/.codex/hooks.json` fájlod? Fésüld bele a mi fájlunk három bejegyzését. Ne írd felül a sajátodat. A Codex az első futáskor megkér, hogy bízz meg az új hook-konfigurációban. Ez a kérdés várható."
+          "p": "Már van `~/.codex/hooks.json` fájlod? Fésüld bele a mi fájlunk három bejegyzését. Ne írd felül a sajátodat. A Codex az első futáskor megkér, hogy bízz meg az új hook-konfigurációban. Ez rendben van."
         },
         {
           "p": "Válassz egy módszert. Ha a bővítmény és a kézi bejegyzések is megvannak, minden hook kétszer fut. Ha 0.8.0 előtt kézzel telepítetted, a bővítményre váltáskor töröld a bejegyzéseinket a `~/.codex/hooks.json` fájlból."
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Ha már vannak saját hookjaid a `BeforeAgent`, `AfterTool` vagy `AfterAgent` alatt, ez a parancs lecseréli őket a mieinkre. Ilyenkor kézzel add hozzá a három bejegyzésünket a listáidhoz."
+        },
+        {
           "h2": "Milyen hookokat használ"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "Felülírja az összefésülés a beállításaimat?",
-          "a": "A jq parancs a hooks objektumot a meglévő settings.json fájlodba fésüli. Ha biztosra akarsz menni, előbb készíts mentést a fájlról."
+          "a": "A többi beállításod megmarad. Ha már vannak saját BeforeAgent, AfterTool vagy AfterAgent hookjaid, a jq ezeket a listákat a mieinkre cseréli. Ilyenkor kézzel add hozzá a három bejegyzésünket. Előbb készíts mentést a fájlról."
         },
         {
           "q": "Használhatom a gemini -p paranccsal?",

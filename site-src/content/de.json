@@ -89,7 +89,7 @@
         },
         {
           "q": "Was kostet es?",
-          "a": "Es ist Open Source unter der MIT-Lizenz. Der Code liegt auf GitHub."
+          "a": "Es ist kostenlos. vibestretch ist Open Source unter der MIT-Lizenz, der Code liegt auf GitHub."
         },
         {
           "q": "Wie schalte ich es stumm?",
@@ -162,9 +162,9 @@
     },
     "20-20-20-eye-rule-developers": {
       "nav": "20-20-20-Regel",
-      "title": "20-20-20-Regel für die Augen: für Entwickler | vibestretch",
+      "title": "20-20-20-Regel: Augenpausen für Entwickler | vibestretch",
       "description": "Die 20-20-20-Augenpause und weitere Augenpausen in vibestretch, einer Erinnerung, die läuft, während dein Coding-Agent arbeitet.",
-      "h1": "Die 20-20-20-Regel für die Augen für Entwickler",
+      "h1": "Die 20-20-20-Augenregel für Entwickler",
       "lead": "Lange Agent-Durchläufe bedeuten lange Zeit vor dem Bildschirm. vibestretch hat Augenpausen in der Übungsfolge, und 20-20-20 ist eine davon.",
       "blocks": [
         {
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Schau auf etwas, das 20 Fuß entfernt ist. Halte den Blick 20 Sekunden lang. Dann geh zurück zu deinem Agent."
+          "p": "Schau auf etwas, das 20 Fuß (etwa 6 m) entfernt ist. Halte den Blick 20 Sekunden lang. Dann geh zurück zu deinem Agent."
         },
         {
           "h2": "Weitere Augenpausen in der Liste"
@@ -271,7 +271,7 @@
       "title": "Pausen-Erinnerung für Claude Code einrichten | vibestretch",
       "description": "Installiere vibestretch in Claude Code für Dehn- und Augenpausen bei langen Durchläufen. Installation, Statuszeile, Hinweise zu VS Code und Einstellungen.",
       "h1": "So richtest du eine Pausen-Erinnerung in Claude Code ein",
-      "lead": "vibestretch ist ein Plugin für Claude Code. Es nutzt drei Hooks, um lange Durchläufe zu erkennen und dich zum Bewegen zu erinnern.",
+      "lead": "vibestretch ist ein Plugin für Claude Code. Es nutzt drei Hooks, um lange Durchläufe zu erkennen und dich ans Bewegen zu erinnern.",
       "blocks": [
         {
           "h2": "Installation"
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Hast du schon eigene Hooks unter `BeforeAgent`, `AfterTool` oder `AfterAgent`, ersetzt dieser Befehl sie durch unsere. Füge unsere drei Einträge dann von Hand in deine Listen ein."
+        },
+        {
           "h2": "Welche Hooks es nutzt"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "Überschreibt das Zusammenführen meine Einstellungen?",
-          "a": "Der jq-Befehl fügt das Objekt hooks in deine bestehende settings.json ein. Wenn du sichergehen willst, leg vorher eine Sicherung der Datei an."
+          "a": "Deine übrigen Einstellungen bleiben erhalten. Hast du schon eigene Hooks unter BeforeAgent, AfterTool oder AfterAgent, ersetzt jq diese Listen durch unsere. Füge unsere drei Einträge dann von Hand hinzu. Leg vorher eine Sicherung der Datei an."
         },
         {
           "q": "Kann ich es mit gemini -p nutzen?",

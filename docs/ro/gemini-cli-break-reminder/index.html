@@ -163,7 +163,7 @@
      "name": "Combinarea îmi suprascrie setările?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Comanda jq îmbină obiectul hooks în settings.json-ul existent. Fă mai întâi o copie de rezervă a fișierului dacă vrei să fii sigur."
+      "text": "Celelalte setări rămân. Dacă ai deja hookuri proprii în BeforeAgent, AfterTool sau AfterAgent, jq înlocuiește acele liste cu ale noastre. În acest caz, adaugă manual cele trei intrări ale noastre. Fă mai întâi o copie de rezervă a fișierului."
      }
     },
     {
@@ -197,13 +197,14 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>Apoi copiază obiectul <code>hooks</code> din <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> în <code>~/.gemini/settings.json</code>. Acel fișier conține toată configurarea Gemini, așa că îmbină conținutul. Nu înlocui fișierul. Cu <code>jq</code> este o singură linie:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>Dacă ai deja hookuri proprii în <code>BeforeAgent</code>, <code>AfterTool</code> sau <code>AfterAgent</code>, comanda le înlocuiește cu ale noastre. În acest caz, adaugă manual cele trei intrări ale noastre în listele tale.</p>
 <h2>Ce hookuri folosește</h2>
 <ul><li><code>BeforeAgent</code>: agentul începe să lucreze la promptul tău.</li><li><code>AfterTool</code>: un instrument și-a terminat treaba. Se adaugă timpul de așteptare și apare un memento dacă e momentul.</li><li><code>AfterAgent</code>: runda s-a încheiat. Contabilizarea se închide.</li></ul>
 <h2>Ce primești în Gemini CLI</h2>
 <p>Primești linia în sesiune și sunetul. Nu există notificare. Gemini rezervă stdout-ul unui hook doar pentru JSON, așa că nu există unde să afișezi o secvență escape.</p>
 <p>Adaptorul a fost rulat pe o instalare reală de Gemini CLI 0.56.0 pe macOS. Contorul este comun cu Claude Code și Codex CLI.</p>
-<section class="faq" id="faq"><h2>Întrebări frecvente</h2><dl><dt>De ce versiune de Gemini CLI am nevoie?</dt><dd>Hookurile vin activate începând cu Gemini CLI v0.26.</dd><dt>Combinarea îmi suprascrie setările?</dt><dd>Comanda jq îmbină obiectul hooks în settings.json-ul existent. Fă mai întâi o copie de rezervă a fișierului dacă vrei să fii sigur.</dd><dt>Îl pot folosi cu gemini -p?</dt><dd>Setează VIBESTRETCH_DISABLE=1 când rulezi Gemini dintr-un script, din cron sau dintr-un bot.</dd></dl></section>
-<section class="related"><h2>Citește în continuare</h2><ul><li><a href="../../ro/">Fă stretching cât lucrează agentul de cod</a></li><li><a href="../../ro/stretch-breaks-ai-coding-agents/">Pauze de stretching cât rulează agenții AI de cod</a></li><li><a href="../../ro/20-20-20-eye-rule-developers/">Regula 20-20-20 pentru ochi, pentru programatori</a></li><li><a href="../../ro/desk-stretches-programmers/">Exerciții de stretching la birou pentru programatori</a></li><li><a href="../../ro/claude-code-break-reminder/">Cum adaugi un memento pentru pauze în Claude Code</a></li><li><a href="../../ro/codex-cli-break-reminder/">Cum adaugi un memento pentru pauze în Codex CLI</a></li></ul></section>
+<section class="faq" id="faq"><h2>Întrebări frecvente</h2><dl><dt>De ce versiune de Gemini CLI am nevoie?</dt><dd>Hookurile vin activate începând cu Gemini CLI v0.26.</dd><dt>Combinarea îmi suprascrie setările?</dt><dd>Celelalte setări rămân. Dacă ai deja hookuri proprii în BeforeAgent, AfterTool sau AfterAgent, jq înlocuiește acele liste cu ale noastre. În acest caz, adaugă manual cele trei intrări ale noastre. Fă mai întâi o copie de rezervă a fișierului.</dd><dt>Îl pot folosi cu gemini -p?</dt><dd>Setează VIBESTRETCH_DISABLE=1 când rulezi Gemini dintr-un script, din cron sau dintr-un bot.</dd></dl></section>
+<section class="related"><h2>Citește în continuare</h2><ul><li><a href="../../ro/">Fă stretching cât lucrează agentul de cod</a></li><li><a href="../../ro/stretch-breaks-ai-coding-agents/">Pauze de stretching cât rulează agenții AI de cod</a></li><li><a href="../../ro/20-20-20-eye-rule-developers/">Regula 20-20-20 pentru ochii programatorilor</a></li><li><a href="../../ro/desk-stretches-programmers/">Exerciții de stretching la birou pentru programatori</a></li><li><a href="../../ro/claude-code-break-reminder/">Cum adaugi un memento pentru pauze în Claude Code</a></li><li><a href="../../ro/codex-cli-break-reminder/">Cum adaugi un memento pentru pauze în Codex CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">
 <p>vibestretch este open source, sub licența MIT. Creat de Junit. <a href="https://github.com/Eliasjunit/vibestretch">Codul sursă pe GitHub</a></p>

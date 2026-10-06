@@ -81,7 +81,7 @@
         },
         {
           "q": "Je to časovač přestávek?",
-          "a": "Ne. Časovač běží podle rozvrhu. vibestretch počítá jen čas, kdy vás běh agenta nechal čekat, a připomíná se jen během tohoto čekání."
+          "a": "Ne. Časovač běží podle rozvrhu. vibestretch počítá jen čas, kdy vás běh agenta nechal čekat, a připomíná jen během tohoto čekání."
         },
         {
           "q": "Posílá někam data?",
@@ -89,7 +89,7 @@
         },
         {
           "q": "Kolik stojí?",
-          "a": "Je to open source pod licencí MIT. Kód je na GitHubu."
+          "a": "Je zdarma. vibestretch je open source pod licencí MIT a kód je na GitHubu."
         },
         {
           "q": "Jak ho ztlumím?",
@@ -114,7 +114,7 @@
           "h2": "Co vibestretch počítá"
         },
         {
-          "p": "Počítá čas agenta: minuty, kdy agent pracoval na vašem zadání a vy jste byli u počítače. Sčítá je od poslední připomínky. Nejde o to, jak dlouho sedíte u stolu. Hodina čtení a psaní s krátkými běhy mezi tím nepřidá skoro nic."
+          "p": "Počítá čas agenta: minuty, kdy agent pracoval na vašem zadání a vy jste byli u počítače. Sčítá je od poslední připomínky. Nejde o to, jak dlouho sedíte u stolu. Hodina čtení a psaní s občasnými krátkými běhy nepřidá skoro nic."
         },
         {
           "h2": "Kdy připomínka přijde"
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Podívejte se na něco 20 stop daleko. Dívejte se 20 sekund. Pak se vraťte ke svému agentovi."
+          "p": "Podívejte se na něco 20 stop (asi 6 m) daleko. Dívejte se 20 sekund. Pak se vraťte ke svému agentovi."
         },
         {
           "h2": "Další přestávky pro oči v seznamu"
@@ -365,7 +365,7 @@
           "code": "install_codex_manual"
         },
         {
-          "p": "Už máte `~/.codex/hooks.json`? Slučte do něj tři položky z našeho souboru. Svůj soubor nepřepisujte. Codex vás při prvním spuštění požádá, abyste nové konfiguraci hooků důvěřovali. Tento dotaz je očekávaný."
+          "p": "Už máte `~/.codex/hooks.json`? Slučte do něj tři položky z našeho souboru. Svůj soubor nepřepisujte. Codex vás při prvním spuštění požádá, abyste nové konfiguraci hooků důvěřovali. To je v pořádku."
         },
         {
           "p": "Vyberte si jeden způsob. Pokud máte zároveň plugin i ručně přidané položky, každý hook se spustí dvakrát. Pokud jste instalovali ručně před verzí 0.8.0, při přechodu na plugin odstraňte naše položky z `~/.codex/hooks.json`."
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Pokud už máte vlastní hooky v `BeforeAgent`, `AfterTool` nebo `AfterAgent`, tento příkaz je nahradí našimi. V tom případě přidejte naše tři položky do svých seznamů ručně."
+        },
+        {
           "h2": "Které hooky používá"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "Přepíše sloučení moje nastavení?",
-          "a": "Příkaz jq sloučí objekt hooks do vašeho stávajícího settings.json. Pokud chcete mít jistotu, soubor si nejdřív zazálohujte."
+          "a": "Ostatní nastavení zůstanou. Pokud už máte vlastní hooky v BeforeAgent, AfterTool nebo AfterAgent, jq tyto seznamy nahradí našimi. V tom případě přidejte naše tři položky ručně. Soubor si nejdřív zazálohujte."
         },
         {
           "q": "Můžu ho používat s gemini -p?",

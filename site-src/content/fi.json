@@ -89,7 +89,7 @@
         },
         {
           "q": "Paljonko se maksaa?",
-          "a": "Se on avointa lähdekoodia MIT-lisenssillä. Koodi on GitHubissa."
+          "a": "Se on ilmainen. vibestretch on avointa lähdekoodia MIT-lisenssillä, ja koodi on GitHubissa."
         },
         {
           "q": "Miten mykistän sen?",
@@ -136,7 +136,7 @@
           "h2": "Kun lähdet koneelta"
         },
         {
-          "p": "Jos olet poissa näppäimistöltä vähintään 45 minuuttia, kertymä nollautuu. Olet jo pitänyt taukosi. macOS:ssä hookit lukevat järjestelmän näppäimistön ja hiiren käyttämättömyysajan. Yön yli työskentelevä agentti ei siis kerrytä agenttiaikaa eikä koskaan soita tyhjälle tuolille. Linuxissa ei ole siirrettävää käyttämättömyyskelloa, joten siellä pätee vain 45 minuutin nollaus."
+          "p": "Jos olet poissa näppäimistöltä vähintään 45 minuuttia, kertymä nollautuu. Olet jo pitänyt taukosi. macOS:ssä hookit lukevat järjestelmän näppäimistön ja hiiren käyttämättömyysajan. Yön yli työskentelevä agentti ei siis kerrytä agenttiaikaa eikä koskaan soita tyhjälle tuolille. Linuxissa ei ole kaikkialla toimivaa tapaa lukea käyttämättömyysaikaa, joten siellä pätee vain 45 minuutin nollaus."
         },
         {
           "h2": "Mitä muistutus pyytää tekemään"
@@ -162,9 +162,9 @@
     },
     "20-20-20-eye-rule-developers": {
       "nav": "20-20-20-sääntö",
-      "title": "20-20-20-sääntö silmille ohjelmoijille | vibestretch",
+      "title": "20-20-20-sääntö: silmätauot ohjelmoijille | vibestretch",
       "description": "20-20-20-silmätauko ja muut vibestretchin silmätauot. Muistutus, joka toimii sillä aikaa, kun koodausagenttisi työskentelee.",
-      "h1": "20-20-20-sääntö silmille ohjelmoijille",
+      "h1": "Ohjelmoijan silmien 20-20-20-sääntö",
       "lead": "Pitkät agentin vuorot tarkoittavat pitkiä hetkiä ruudun tuijottamista. vibestretchin kierrossa on silmätaukoja, ja 20-20-20 on yksi niistä.",
       "blocks": [
         {
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Katso jotain 20 jalan päässä olevaa. Katso sitä 20 sekuntia. Palaa sitten agenttisi pariin."
+          "p": "Katso jotain 20 jalan (noin 6 metrin) päässä olevaa. Katso sitä 20 sekuntia. Palaa sitten agenttisi pariin."
         },
         {
           "h2": "Muut silmätauot listalla"
@@ -365,7 +365,7 @@
           "code": "install_codex_manual"
         },
         {
-          "p": "Onko sinulla jo `~/.codex/hooks.json`? Yhdistä siihen meidän tiedostomme kolme merkintää. Älä korvaa omaasi. Codex pyytää luottamaan uuteen hook-määritykseen, kun se ajetaan ensimmäisen kerran. Kehote on odotettu."
+          "p": "Onko sinulla jo `~/.codex/hooks.json`? Yhdistä siihen meidän tiedostomme kolme merkintää. Älä korvaa omaasi. Codex pyytää luottamaan uuteen hook-määritykseen, kun se ajetaan ensimmäisen kerran. Tämä on normaalia."
         },
         {
           "p": "Valitse yksi tapa. Jos sekä lisäosa että käsin tehdyt merkinnät ovat käytössä, jokainen hook ajetaan kahdesti. Jos asensit käsin ennen versiota 0.8.0, poista merkintämme tiedostosta `~/.codex/hooks.json`, kun siirryt lisäosaan."
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Jos sinulla on jo omia hookeja kohdissa `BeforeAgent`, `AfterTool` tai `AfterAgent`, tämä komento korvaa ne meidän hookeillamme. Lisää silloin kolme merkintäämme listoihisi käsin."
+        },
+        {
           "h2": "Mitä hookeja se käyttää"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "Korvaako yhdistäminen asetukseni?",
-          "a": "jq-komento yhdistää hooks-objektin nykyiseen settings.json-tiedostoosi. Ota tiedostosta ensin varmuuskopio, jos haluat olla varma."
+          "a": "Muut asetuksesi säilyvät. Jos sinulla on jo omia BeforeAgent-, AfterTool- tai AfterAgent-hookeja, jq korvaa ne listat meidän listoillamme. Lisää silloin kolme merkintäämme käsin. Ota tiedostosta ensin varmuuskopio."
         },
         {
           "q": "Voinko käyttää sitä gemini -p -komennon kanssa?",

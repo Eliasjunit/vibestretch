@@ -89,7 +89,7 @@
         },
         {
           "q": "Quanto costa?",
-          "a": "È open source con licenza MIT. Il codice è su GitHub."
+          "a": "È gratuito. vibestretch è open source con licenza MIT e il codice è su GitHub."
         },
         {
           "q": "Come lo silenzio?",
@@ -164,7 +164,7 @@
       "nav": "Regola 20-20-20",
       "title": "Regola 20-20-20 per gli occhi degli sviluppatori | vibestretch",
       "description": "La pausa per gli occhi 20-20-20 e le altre pause visive incluse in vibestretch, un promemoria che si attiva mentre il tuo coding agent lavora.",
-      "h1": "La regola 20-20-20 per gli occhi, per sviluppatori",
+      "h1": "La regola 20-20-20 per gli occhi di chi programma",
       "lead": "Turni lunghi dell'agente significano tanto tempo a fissare lo schermo. vibestretch include pause per gli occhi nella sua rotazione, e la 20-20-20 è una di queste.",
       "blocks": [
         {
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Guarda qualcosa a 20 piedi di distanza. Continua a guardarlo per 20 secondi. Poi torna al tuo agente."
+          "p": "Guarda qualcosa a 20 piedi (circa 6 m) di distanza. Continua a guardarlo per 20 secondi. Poi torna al tuo agente."
         },
         {
           "h2": "Altre pause per gli occhi nella lista"
@@ -353,7 +353,7 @@
           "code": "install_codex"
         },
         {
-          "p": "Codex non esegue gli hook di un plugin finché non li hai esaminati. Apri `/hooks` e dai la tua fiducia alle tre voci di vibestretch. Fino ad allora il plugin è installato ma resta in silenzio."
+          "p": "Codex non esegue gli hook di un plugin finché non li hai esaminati. Apri `/hooks` e approva le tre voci di vibestretch. Fino ad allora il plugin è installato ma resta in silenzio."
         },
         {
           "h2": "Installazione manuale"
@@ -383,7 +383,7 @@
       "faq": [
         {
           "q": "L'ho installato ma non succede nulla. Perché?",
-          "a": "Codex esegue gli hook di un plugin solo dopo che gli hai dato la tua fiducia. Apri /hooks e conferma le tre voci di vibestretch."
+          "a": "Codex esegue gli hook di un plugin solo dopo che li hai approvati. Apri /hooks e approva le tre voci di vibestretch."
         },
         {
           "q": "Ogni hook viene eseguito due volte. Perché?",
@@ -418,6 +418,9 @@
           "code": "install_gemini_merge"
         },
         {
+          "p": "Se hai già hook tuoi in `BeforeAgent`, `AfterTool` o `AfterAgent`, questo comando li sostituisce con i nostri. In quel caso aggiungi a mano le nostre tre voci alle tue liste."
+        },
+        {
           "h2": "Quali hook usa"
         },
         {
@@ -444,7 +447,7 @@
         },
         {
           "q": "L'unione sovrascrive le mie impostazioni?",
-          "a": "Il comando jq unisce l'oggetto hooks al tuo settings.json esistente. Per stare tranquillo, fai prima un backup del file."
+          "a": "Le altre impostazioni restano. Se hai già hook tuoi in BeforeAgent, AfterTool o AfterAgent, jq sostituisce quelle liste con le nostre. In quel caso aggiungi a mano le nostre tre voci. Fai prima un backup del file."
         },
         {
           "q": "Posso usarlo con gemini -p?",

@@ -163,7 +163,7 @@
      "name": "Felülírja az összefésülés a beállításaimat?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "A jq parancs a hooks objektumot a meglévő settings.json fájlodba fésüli. Ha biztosra akarsz menni, előbb készíts mentést a fájlról."
+      "text": "A többi beállításod megmarad. Ha már vannak saját BeforeAgent, AfterTool vagy AfterAgent hookjaid, a jq ezeket a listákat a mieinkre cseréli. Ilyenkor kézzel add hozzá a három bejegyzésünket. Előbb készíts mentést a fájlról."
      }
     },
     {
@@ -197,12 +197,13 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>Ezután másold át a <code>hooks</code> objektumot a <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> fájlból a <code>~/.gemini/settings.json</code> fájlba. Ez a fájl a teljes Gemini-konfigurációdat tartalmazza, ezért fésüld össze. Ne cseréld le. A <code>jq</code> eszközzel ez egy sor:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>Ha már vannak saját hookjaid a <code>BeforeAgent</code>, <code>AfterTool</code> vagy <code>AfterAgent</code> alatt, ez a parancs lecseréli őket a mieinkre. Ilyenkor kézzel add hozzá a három bejegyzésünket a listáidhoz.</p>
 <h2>Milyen hookokat használ</h2>
 <ul><li><code>BeforeAgent</code>: az ügynök elkezd dolgozni a promptodon.</li><li><code>AfterTool</code>: egy eszköz végzett. A várakozási idő hozzáadódik, és ha esedékes, jön az emlékeztető.</li><li><code>AfterAgent</code>: a futás véget ért. Az elszámolás lezárul.</li></ul>
 <h2>Mit kapsz a Gemini CLI-ban</h2>
 <p>Megkapod a sort a munkamenetben és a hangjelzést. Értesítési banner nincs. A Gemini a hook stdout kimenetét kizárólag JSON számára tartja fenn, így nincs hova kiírni egy escape-szekvenciát.</p>
 <p>Az adaptert egy valódi Gemini CLI 0.56.0 telepítésen futtattuk macOS-en. A számláló közös a Claude Code-dal és a Codex CLI-jal.</p>
-<section class="faq" id="faq"><h2>GYIK</h2><dl><dt>Melyik Gemini CLI verzió kell?</dt><dd>A hookok a Gemini CLI v0.26 óta bekapcsolva érkeznek.</dd><dt>Felülírja az összefésülés a beállításaimat?</dt><dd>A jq parancs a hooks objektumot a meglévő settings.json fájlodba fésüli. Ha biztosra akarsz menni, előbb készíts mentést a fájlról.</dd><dt>Használhatom a gemini -p paranccsal?</dt><dd>Állítsd be a VIBESTRETCH_DISABLE=1 értéket, amikor szkriptből, cronból vagy botból futtatod a Geminit.</dd></dl></section>
+<section class="faq" id="faq"><h2>GYIK</h2><dl><dt>Melyik Gemini CLI verzió kell?</dt><dd>A hookok a Gemini CLI v0.26 óta bekapcsolva érkeznek.</dd><dt>Felülírja az összefésülés a beállításaimat?</dt><dd>A többi beállításod megmarad. Ha már vannak saját BeforeAgent, AfterTool vagy AfterAgent hookjaid, a jq ezeket a listákat a mieinkre cseréli. Ilyenkor kézzel add hozzá a három bejegyzésünket. Előbb készíts mentést a fájlról.</dd><dt>Használhatom a gemini -p paranccsal?</dt><dd>Állítsd be a VIBESTRETCH_DISABLE=1 értéket, amikor szkriptből, cronból vagy botból futtatod a Geminit.</dd></dl></section>
 <section class="related"><h2>Olvasd el ezt is</h2><ul><li><a href="../../hu/">Nyújts, amíg a kódoló ügynököd dolgozik</a></li><li><a href="../../hu/stretch-breaks-ai-coding-agents/">Nyújtószünetek, amíg az AI kódoló ügynökök futnak</a></li><li><a href="../../hu/20-20-20-eye-rule-developers/">A 20-20-20 szabály fejlesztőknek</a></li><li><a href="../../hu/desk-stretches-programmers/">Irodai nyújtógyakorlatok programozóknak</a></li><li><a href="../../hu/claude-code-break-reminder/">Hogyan adj szünetemlékeztetőt a Claude Code-hoz</a></li><li><a href="../../hu/codex-cli-break-reminder/">Hogyan adj szünetemlékeztetőt a Codex CLI-hoz</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">

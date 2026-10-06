@@ -89,7 +89,7 @@
         },
         {
           "q": "Berapa biayanya?",
-          "a": "vibestretch adalah open source dengan lisensi MIT. Kodenya ada di GitHub."
+          "a": "Gratis. vibestretch adalah open source dengan lisensi MIT, dan kodenya ada di GitHub."
         },
         {
           "q": "Bagaimana cara mematikannya?",
@@ -156,7 +156,7 @@
         },
         {
           "q": "Bagaimana dengan agen yang dijalankan dari skrip atau cron?",
-          "a": "Atur VIBESTRETCH_DISABLE=1 di lingkungan tersebut. Jika tidak, sesi tanpa pengawasan akan dihitung sebagai waktu yang tidak pernah Anda jalani."
+          "a": "Atur VIBESTRETCH_DISABLE=1 di lingkungan tersebut. Jika tidak, sesi tanpa pengawasan akan dihitung sebagai waktu menunggu, padahal Anda tidak sedang duduk di sana."
         }
       ]
     },
@@ -177,7 +177,7 @@
           "code": "nudge_202020"
         },
         {
-          "p": "Lihat sesuatu yang berjarak 20 kaki. Tetap lihat selama 20 detik. Lalu kembali ke agen Anda."
+          "p": "Lihat sesuatu yang berjarak 20 kaki (sekitar 6 meter). Tetap lihat selama 20 detik. Lalu kembali ke agen Anda."
         },
         {
           "h2": "Istirahat mata lain dalam daftar"
@@ -391,7 +391,7 @@
         },
         {
           "q": "Bisakah dipakai dengan codex exec?",
-          "a": "Atur VIBESTRETCH_DISABLE=1 di lingkungan tersebut. Proses tanpa pengawasan sebaiknya tidak dihitung sebagai waktu yang Anda jalani."
+          "a": "Atur VIBESTRETCH_DISABLE=1 di lingkungan tersebut. Proses tanpa pengawasan sebaiknya tidak dihitung sebagai waktu Anda menunggu."
         }
       ]
     },
@@ -416,6 +416,9 @@
         },
         {
           "code": "install_gemini_merge"
+        },
+        {
+          "p": "Jika Anda sudah punya hook sendiri di `BeforeAgent`, `AfterTool` atau `AfterAgent`, perintah ini menggantinya dengan milik kami. Dalam hal itu, tambahkan tiga entri kami ke daftar Anda secara manual."
         },
         {
           "h2": "Hook yang dipakai"
@@ -444,7 +447,7 @@
         },
         {
           "q": "Apakah penggabungan akan menimpa pengaturan saya?",
-          "a": "Perintah jq menggabungkan objek hooks ke settings.json yang sudah ada. Cadangkan file itu dulu jika ingin aman."
+          "a": "Pengaturan lain Anda tetap ada. Jika Anda sudah punya hook sendiri di BeforeAgent, AfterTool atau AfterAgent, jq mengganti daftar itu dengan milik kami. Dalam hal itu, tambahkan tiga entri kami secara manual. Cadangkan file itu dulu."
         },
         {
           "q": "Bisakah dipakai dengan gemini -p?",

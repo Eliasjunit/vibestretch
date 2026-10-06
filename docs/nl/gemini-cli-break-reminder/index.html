@@ -163,7 +163,7 @@
      "name": "Overschrijft het samenvoegen mijn instellingen?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Het jq-commando voegt het object hooks samen met je bestaande settings.json. Maak eerst een back-up van het bestand als je zeker wilt zijn."
+      "text": "Je andere instellingen blijven staan. Heb je al eigen hooks onder BeforeAgent, AfterTool of AfterAgent, dan vervangt jq die lijsten door de onze. Voeg onze drie items dan met de hand toe. Maak eerst een back-up van het bestand."
      }
     },
     {
@@ -197,13 +197,14 @@
 <pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
 <p>Kopieer daarna het object <code>hooks</code> uit <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> naar <code>~/.gemini/settings.json</code>. Dat bestand bevat je hele Gemini-configuratie, dus voeg samen. Vervang het niet. Met <code>jq</code> kan het in één regel:</p>
 <pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>Heb je al eigen hooks onder <code>BeforeAgent</code>, <code>AfterTool</code> of <code>AfterAgent</code>, dan vervangt dit commando ze door de onze. Voeg onze drie items dan met de hand aan je lijsten toe.</p>
 <h2>Welke hooks het gebruikt</h2>
 <ul><li><code>BeforeAgent</code>: de agent begint aan je prompt.</li><li><code>AfterTool</code>: een tool is klaar. De wachttijd wordt opgeteld, en als er een seintje nodig is, komt het.</li><li><code>AfterAgent</code>: de beurt is voorbij. De telling wordt afgesloten.</li></ul>
 <h2>Wat je krijgt in Gemini CLI</h2>
 <p>Je krijgt de regel in de sessie en het belletje. Er is geen melding. Gemini reserveert de stdout van een hook alleen voor JSON, dus er is geen plek om een escapereeks te tonen.</p>
 <p>De adapter is getest op een echte installatie van Gemini CLI 0.56.0 op macOS. De teller wordt gedeeld met Claude Code en Codex CLI.</p>
-<section class="faq" id="faq"><h2>Veelgestelde vragen</h2><dl><dt>Welke versie van Gemini CLI heb ik nodig?</dt><dd>Hooks staan standaard aan sinds Gemini CLI v0.26.</dd><dt>Overschrijft het samenvoegen mijn instellingen?</dt><dd>Het jq-commando voegt het object hooks samen met je bestaande settings.json. Maak eerst een back-up van het bestand als je zeker wilt zijn.</dd><dt>Kan ik het gebruiken met gemini -p?</dt><dd>Zet VIBESTRETCH_DISABLE=1 als je Gemini vanuit een script, cron of een bot start.</dd></dl></section>
-<section class="related"><h2>Lees verder</h2><ul><li><a href="../../nl/">Rek je uit terwijl je coding agent werkt</a></li><li><a href="../../nl/stretch-breaks-ai-coding-agents/">Rekpauzes terwijl AI coding agents werken</a></li><li><a href="../../nl/20-20-20-eye-rule-developers/">De 20-20-20-regel voor je ogen, voor ontwikkelaars</a></li><li><a href="../../nl/desk-stretches-programmers/">Rekoefeningen aan je bureau voor programmeurs</a></li><li><a href="../../nl/claude-code-break-reminder/">Zo voeg je een pauzeherinnering toe aan Claude Code</a></li><li><a href="../../nl/codex-cli-break-reminder/">Zo voeg je een pauzeherinnering toe aan Codex CLI</a></li></ul></section>
+<section class="faq" id="faq"><h2>Veelgestelde vragen</h2><dl><dt>Welke versie van Gemini CLI heb ik nodig?</dt><dd>Hooks staan standaard aan sinds Gemini CLI v0.26.</dd><dt>Overschrijft het samenvoegen mijn instellingen?</dt><dd>Je andere instellingen blijven staan. Heb je al eigen hooks onder BeforeAgent, AfterTool of AfterAgent, dan vervangt jq die lijsten door de onze. Voeg onze drie items dan met de hand toe. Maak eerst een back-up van het bestand.</dd><dt>Kan ik het gebruiken met gemini -p?</dt><dd>Zet VIBESTRETCH_DISABLE=1 als je Gemini vanuit een script, cron of een bot start.</dd></dl></section>
+<section class="related"><h2>Lees verder</h2><ul><li><a href="../../nl/">Rek je uit terwijl je coding agent werkt</a></li><li><a href="../../nl/stretch-breaks-ai-coding-agents/">Rekpauzes terwijl AI coding agents werken</a></li><li><a href="../../nl/20-20-20-eye-rule-developers/">De 20-20-20-oogregel voor ontwikkelaars</a></li><li><a href="../../nl/desk-stretches-programmers/">Rekoefeningen aan je bureau voor programmeurs</a></li><li><a href="../../nl/claude-code-break-reminder/">Zo voeg je een pauzeherinnering toe aan Claude Code</a></li><li><a href="../../nl/codex-cli-break-reminder/">Zo voeg je een pauzeherinnering toe aan Codex CLI</a></li></ul></section>
 </main>
 <footer class="site"><div class="wrap">
 <p>vibestretch is open source onder de MIT-licentie. Gemaakt door Junit. <a href="https://github.com/Eliasjunit/vibestretch">Broncode op GitHub</a></p>
