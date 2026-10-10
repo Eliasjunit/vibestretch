@@ -1,0 +1,474 @@
+{
+  "lang_name": "Čeština",
+  "ui": {
+    "skip": "Přejít na obsah",
+    "nav_home": "Domů",
+    "nav_label": "Stránky",
+    "languages": "Jazyk",
+    "breadcrumb_home": "vibestretch",
+    "faq_title": "Časté dotazy",
+    "related_title": "Čtěte dál",
+    "source_link": "Zdrojový kód na GitHubu",
+    "footer_license": "vibestretch je open source pod licencí MIT.",
+    "footer_made": "Vytvořil Junit.",
+    "breadcrumb_label": "Drobečková navigace"
+  },
+  "pages": {
+    "index": {
+      "nav": "Přehled",
+      "title": "vibestretch: připomínka protažení při čekání na AI agenta",
+      "description": "vibestretch je bezplatná připomínka přestávek a protažení pro vývojáře. Připomene vám pohyb, když Claude Code, Codex CLI nebo Gemini CLI běží dlouho.",
+      "h1": "Protáhněte se, zatímco váš AI agent pracuje",
+      "lead": "vibestretch zobrazí krátké protažení, mini cvičení nebo přestávku pro oči, když vás dlouhý běh agenta nechá čekat. Funguje s Claude Code, Codex CLI a Gemini CLI.",
+      "blocks": [
+        {
+          "code": "install_claude_cli"
+        },
+        {
+          "p": "Tímto nainstalujete plugin do Claude Code. Postup instalace pro [Codex CLI](@codex-cli-break-reminder) a [Gemini CLI](@gemini-cli-break-reminder) najdete na jejich stránkách."
+        },
+        {
+          "h2": "Jak připomínka vypadá"
+        },
+        {
+          "code": "nudge_example"
+        },
+        {
+          "p": "V relaci se objeví jeden řádek. Zazní jemný zvuk. V terminálech, které to podporují, se zobrazí i oznámení."
+        },
+        {
+          "h2": "Jak rozhoduje, kdy připomenout"
+        },
+        {
+          "p": "vibestretch nemá žádný rozvrh. Počítá jedinou věc: minuty, kdy vás běh agenta nechal čekat u počítače. Připomínka přijde jen tehdy, když platí všechny tři podmínky:"
+        },
+        {
+          "ol": [
+            "Aktuální běh trvá 2 minuty nebo déle.",
+            "Čas agenta od poslední připomínky dává dohromady 5 minut nebo víc.",
+            "Poslední připomínka byla nejméně před 15 minutami."
+          ]
+        },
+        {
+          "p": "Krátké běhy ji nikdy nespustí. Za den plný krátkých běhů se neozve vůbec. Není co odkládat, protože se ozve jen ve chvíli, kdy už stejně čekáte. Více v článku [přestávky na protažení během běhu AI agentů](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Co dostanete"
+        },
+        {
+          "ul": [
+            "Dvanáct vestavěných cviků: protažení, mini cvičení a přestávky pro oči, například [20-20-20](@20-20-20-eye-rule-developers).",
+            "Střídání, které nikdy nezopakuje stejný cvik dvakrát za sebou.",
+            "Vlastní seznam cviků, pokud ho chcete. Viz [cviky u stolu pro programátory](@desk-stretches-programmers).",
+            "Volitelnou část stavového řádku v Claude Code."
+          ]
+        },
+        {
+          "h2": "Soukromí"
+        },
+        {
+          "p": "vibestretch tvoří několik malých skriptů v POSIX shellu a jeden přibalený zvuk. Nepřipojuje se k síti. Neposílá telemetrii. Nezobrazuje reklamy a nevkládá do terminálu žádné odkazy. Nepřidává nic do kontextu modelu. Svůj stav ukládá do `~/.cache/vibestretch/`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Co je vibestretch?",
+          "a": "vibestretch je plugin pro AI agenty na programování. Připomene vám, abyste se protáhli, rozhýbali nebo nechali odpočinout oči, když vás dlouhý běh agenta nechá čekat."
+        },
+        {
+          "q": "Které AI agenty podporuje?",
+          "a": "Claude Code, OpenAI Codex CLI a Gemini CLI. Všechny tři používají stejné počítadlo, takže hodina čekání se započítá jednou, ať vás v křesle držel kterýkoli agent."
+        },
+        {
+          "q": "Je to časovač přestávek?",
+          "a": "Ne. Časovač běží podle rozvrhu. vibestretch počítá jen čas, kdy vás běh agenta nechal čekat, a připomíná jen během tohoto čekání."
+        },
+        {
+          "q": "Posílá někam data?",
+          "a": "Ne. Nepřipojuje se k síti a neposílá telemetrii. Nic neopustí váš počítač."
+        },
+        {
+          "q": "Kolik stojí?",
+          "a": "Je zdarma. vibestretch je open source pod licencí MIT a kód je na GitHubu."
+        },
+        {
+          "q": "Jak ho ztlumím?",
+          "a": "Nastavte VIBESTRETCH_DISABLE na libovolnou hodnotu a připomínky utichnou. VIBESTRETCH_SOUND=0 vypne zvuk. VIBESTRETCH_NOTIFY=0 vypne oznámení."
+        }
+      ]
+    },
+    "stretch-breaks-ai-coding-agents": {
+      "nav": "Přestávky během běhu agenta",
+      "title": "Přestávky na protažení během běhu AI agentů | vibestretch",
+      "description": "Využijte minuty, kdy čekáte na AI agenta, ke krátkému protažení. Jak vibestretch počítá čas čekání na agenta a kdy vám připomene pohyb.",
+      "h1": "Přestávky na protažení během běhu AI agentů",
+      "lead": "AI agent na programování může pracovat i několik minut v kuse. Vy sedíte a díváte se. vibestretch z tohoto čekání udělá krátkou přestávku.",
+      "blocks": [
+        {
+          "h2": "Proč je čekání dobrá chvíle"
+        },
+        {
+          "p": "Časovače přestávek se spouštějí podle rozvrhu. Často přijdou uprostřed myšlenky a mnoho lidí je nakonec vypne. Čas, kdy agent pracuje, je jiný. Stejně čekáte. Protažení v této mezeře vás nestojí žádné soustředění."
+        },
+        {
+          "h2": "Co vibestretch počítá"
+        },
+        {
+          "p": "Počítá čas agenta: minuty, kdy agent pracoval na vašem zadání a vy jste byli u počítače. Sčítá je od poslední připomínky. Nejde o to, jak dlouho sedíte u stolu. Hodina čtení a psaní s občasnými krátkými běhy nepřidá skoro nic."
+        },
+        {
+          "h2": "Kdy připomínka přijde"
+        },
+        {
+          "p": "Musí platit všechny tři podmínky:"
+        },
+        {
+          "ol": [
+            "Aktuální běh trvá nejméně 2 minuty.",
+            "Čas agenta od poslední připomínky je nejméně 5 minut. Počítá se jeden velký úkol i několik středních.",
+            "Poslední připomínka byla nejméně před 15 minutami."
+          ]
+        },
+        {
+          "p": "Každé z těchto čísel můžete změnit proměnnou prostředí. Úplný seznam najdete na [stránce o Claude Code](@claude-code-break-reminder)."
+        },
+        {
+          "h2": "Když odejdete od počítače"
+        },
+        {
+          "p": "Pokud jste od klávesnice pryč 45 minut nebo déle, nasbíraný čas se vynuluje. Přestávku jste už měli. Na macOS hooky čtou systémový čas nečinnosti klávesnice a myši. Agent, který pracuje přes noc, tak nepřidá žádný čas agenta a nikdy nezazvoní u prázdné židle. Linux nemá přenositelné hodiny nečinnosti, takže tam platí jen vynulování po 45 minutách."
+        },
+        {
+          "h2": "K čemu vás připomínka vyzve"
+        },
+        {
+          "p": "Každá připomínka je jeden cvik ze seznamu dvanácti. Najdete mezi nimi protažení, mini cvičení a přestávky pro oči. Celý seznam je v článku [cviky u stolu pro programátory](@desk-stretches-programmers)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Bude mi připomínat i během krátkých běhů?",
+          "a": "Ne. Běh musí trvat nejméně 2 minuty a musí se nasbírat dost času agenta, než může připomínka přijít."
+        },
+        {
+          "q": "Znamená rychlý model méně připomínek?",
+          "a": "Ano. Rychlé modely dokončí běh dřív, než se dosáhne limitů, takže není co ztlumit."
+        },
+        {
+          "q": "A co agenti spouštění ze skriptů nebo z cronu?",
+          "a": "V tom prostředí nastavte VIBESTRETCH_DISABLE=1. Jinak se relace bez dozoru započítají jako čas, který jste nikdy neprosezeli."
+        }
+      ]
+    },
+    "20-20-20-eye-rule-developers": {
+      "nav": "Pravidlo 20-20-20",
+      "title": "Pravidlo 20-20-20 pro oči programátorů | vibestretch",
+      "description": "Přestávka pro oči podle pravidla 20-20-20 a další přestávky pro oči ve vibestretch, připomínce, která běží, zatímco pracuje váš AI agent.",
+      "h1": "Pravidlo 20-20-20 pro oči vývojářů",
+      "lead": "Dlouhé běhy agenta znamenají dlouhé zírání do obrazovky. vibestretch má ve střídání i přestávky pro oči a 20-20-20 je jednou z nich.",
+      "blocks": [
+        {
+          "h2": "Přestávka 20-20-20 ve vibestretch"
+        },
+        {
+          "p": "Takto připomínka vypadá:"
+        },
+        {
+          "code": "nudge_202020"
+        },
+        {
+          "p": "Podívejte se na něco 20 stop (asi 6 m) daleko. Dívejte se 20 sekund. Pak se vraťte ke svému agentovi."
+        },
+        {
+          "h2": "Další přestávky pro oči v seznamu"
+        },
+        {
+          "ul": [
+            "Pomalu 20krát mrkněte.",
+            "Promněte dlaně, až budou teplé, a pak je na 20 sekund přiložte na zavřené oči.",
+            "Vstaňte a dojděte k oknu."
+          ]
+        },
+        {
+          "h2": "Kdy vám připomene"
+        },
+        {
+          "p": "vibestretch se neřídí hodinami. Připomene vám, když vás dlouhý běh agenta nechá čekat, ve výchozím nastavení nejvýš jednou za 15 minut. Přestávky pro oči přicházejí jako součást střídání dvanácti cviků. Jak funguje načasování, se dočtete v článku [přestávky na protažení během běhu AI agentů](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Chcete jen přestávky pro oči?"
+        },
+        {
+          "p": "Napište si vlastní seznam jen s přestávkami pro oči, které vám vyhovují. Jeden cvik na řádek v `~/.config/vibestretch/exercises.txt`. Vestavěný seznam se pak nepoužije. Příklad najdete v článku [cviky u stolu pro programátory](@desk-stretches-programmers)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Připomíná vibestretch každých 20 minut?",
+          "a": "Ne. Nemá pevný rozvrh. Připomíná jen během dlouhých běhů agenta a výchozí odstup mezi připomínkami je 15 minut."
+        },
+        {
+          "q": "Můžu dostávat jen přestávky pro oči?",
+          "a": "Ano. Dejte vlastní cviky do ~/.config/vibestretch/exercises.txt, jeden na řádek, a vibestretch použije tento seznam místo vestavěného."
+        }
+      ]
+    },
+    "desk-stretches-programmers": {
+      "nav": "Cviky u stolu",
+      "title": "Cviky u stolu pro programátory: seznam ve vibestretch",
+      "description": "Dvanáct krátkých cviků u stolu pro programátory: protažení, mini cvičení a přestávky pro oči. A jak je ve vibestretch nahradit vlastním seznamem.",
+      "h1": "Cviky u stolu pro programátory",
+      "lead": "vibestretch obsahuje dvanáct krátkých cviků. Každý se vejde do doby, kterou trvá běh agenta. Střídají se, takže stejný nikdy nedostanete dvakrát za sebou.",
+      "blocks": [
+        {
+          "h2": "Dvanáct vestavěných cviků"
+        },
+        {
+          "ol": [
+            "20-20-20: dívejte se 20 sekund na něco 20 stop daleko.",
+            "Vstaňte, natáhněte se ke stropu a vydržte 15 sekund. Pak se na 15 sekund předkloňte ke špičkám.",
+            "10 dřepů.",
+            "Pomalé kroužení hlavou, 5 na každou stranu.",
+            "Kroužení zápěstím, 10 na každou stranu.",
+            "Pomalu 20krát mrkněte.",
+            "Stažení lopatek, 10krát: stáhněte, vydržte 3 sekundy, povolte.",
+            "Kontrola držení těla: uši nad rameny, ramena nad boky. Vydržte.",
+            "Vstaňte a dojděte k oknu. Pokud můžete, otevřete ho.",
+            "Promněte dlaně, až budou teplé, a pak je na 20 sekund přiložte na zavřené oči.",
+            "Kroužení boky, 8 na každou stranu.",
+            "Jeden dech 4-7-8: nádech na 4, zadržet na 7, výdech na 8."
+          ]
+        },
+        {
+          "p": "Kroužení zápěstím a kontrola držení těla jsou tu pro ty, kdo během dlouhých dnů u klávesnice myslí na RSI (syndrom z opakovaného přetížení) a držení těla. vibestretch je připomínka. Nic nediagnostikuje ani neléčí."
+        },
+        {
+          "h2": "Použijte vlastní seznam"
+        },
+        {
+          "p": "Napište jeden cvik na řádek do `~/.config/vibestretch/exercises.txt`. Vestavěných dvanáct se pak nepoužije. Prázdné řádky a řádky začínající znakem # se přeskočí."
+        },
+        {
+          "code": "custom_list"
+        },
+        {
+          "p": "Pokud chcete mít soubor jinde, nastavte `VIBESTRETCH_EXERCISES` na jinou cestu. Stejně fungují i seznamy pro jednotlivé projekty. Střídání prochází váš seznam popořadě. Pokud soubor neobsahuje nic použitelného, použije se vestavěný seznam."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Kolik cviků vibestretch obsahuje?",
+          "a": "Dvanáct: protažení, mini cvičení a přestávky pro oči. Střídají se, takže stejný nikdy nepřijde dvakrát za sebou."
+        },
+        {
+          "q": "Můžu přidat vlastní protahovací cviky?",
+          "a": "Ano. Napište je po jednom na řádek do ~/.config/vibestretch/exercises.txt. Uvozovky a zpětná lomítka můžete v textu bezpečně používat."
+        }
+      ]
+    },
+    "claude-code-break-reminder": {
+      "nav": "Claude Code",
+      "title": "Jak přidat připomínku přestávek do Claude Code | vibestretch",
+      "description": "Nainstalujte vibestretch do Claude Code a dostávejte připomínky protažení a přestávek pro oči při dlouhých bězích. Instalace, stavový řádek, VS Code.",
+      "h1": "Jak přidat připomínku přestávek do Claude Code",
+      "lead": "vibestretch je plugin pro Claude Code. Pomocí tří hooků pozná dlouhé běhy a připomene vám, abyste se pohnuli.",
+      "blocks": [
+        {
+          "h2": "Instalace"
+        },
+        {
+          "p": "Spusťte v Claude Code tyto dva příkazy:"
+        },
+        {
+          "code": "install_claude"
+        },
+        {
+          "p": "Žádné závislosti, žádný démon a žádná telemetrie. Nic dalšího se nenastavuje."
+        },
+        {
+          "h2": "Kde se připomínka zobrazí"
+        },
+        {
+          "ul": [
+            "Řádek v relaci.",
+            "Jemný přibalený zvuk.",
+            "Oznámení ve Warp, Ghostty, iTerm2, WezTerm a kitty. Ve VS Code vyžaduje rozšíření pro oznámení.",
+            "Váš stavový řádek, pokud si ho nastavíte."
+          ]
+        },
+        {
+          "h2": "Přidejte ji do stavového řádku"
+        },
+        {
+          "code": "statusline"
+        },
+        {
+          "p": "Tento příkaz zálohuje vaše nastavení a obalí váš stávající příkaz stavového řádku. Pokud žádný nemáte, nainstaluje jednoduchý. Po připomínce tam cvik zůstane 5 minut. Vrátíte to příkazem `/vibestretch:statusline off`. Před odinstalací pluginu spusťte `off`."
+        },
+        {
+          "h2": "VS Code"
+        },
+        {
+          "p": "V integrovaném terminálu funguje řádek, zvuk i stavový řádek. V panelu chatu rozšíření se k vám dostane jen zvuk. Oznámení na obou místech vyžaduje rozšíření pro oznámení. Ověřeno na Claude Code 2.1.234."
+        },
+        {
+          "h2": "Nastavení"
+        },
+        {
+          "p": "Všechna nastavení jsou volitelné proměnné prostředí. Časy jsou v sekundách."
+        },
+        {
+          "table": "settings"
+        },
+        {
+          "p": "Spouštíte Claude Code bez rozhraní přes `claude -p` ze skriptu? Nastavte tam `VIBESTRETCH_DISABLE=1`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Jak odstraním část stavového řádku?",
+          "a": "Spusťte /vibestretch:statusline off. Udělejte to před odinstalací pluginu, jinak část zůstane nastavená, ale zamrzlá."
+        },
+        {
+          "q": "Dostane se připomínka k modelu?",
+          "a": "Ne. Připomínka je systemMessage. Zobrazí se vám a do kontextu modelu se nikdy nepřidá."
+        },
+        {
+          "q": "Proč slyším dva zvuky?",
+          "a": "Některé terminály, například iTerm2, přehrávají u oznámení vlastní zvuk. Nastavte VIBESTRETCH_SOUND=0 a zůstane jen zvuk terminálu."
+        }
+      ]
+    },
+    "codex-cli-break-reminder": {
+      "nav": "Codex CLI",
+      "title": "Jak přidat připomínku přestávek do Codex CLI | vibestretch",
+      "description": "Nainstalujte vibestretch do OpenAI Codex CLI jako plugin nebo ručně. Během dlouhých běhů Codexu dostanete řádek s protažením a zvukový signál.",
+      "h1": "Jak přidat připomínku přestávek do Codex CLI",
+      "lead": "vibestretch se do OpenAI Codex CLI instaluje z tržiště pluginů. Během dlouhých běhů zobrazí řádek s protažením a přehraje zvuk.",
+      "blocks": [
+        {
+          "h2": "Instalace jako plugin"
+        },
+        {
+          "code": "install_codex"
+        },
+        {
+          "p": "Codex nespustí hooky pluginu, dokud je nezkontrolujete. Otevřete `/hooks` a označte tři položky vibestretch jako důvěryhodné. Do té doby je plugin nainstalovaný, ale mlčí."
+        },
+        {
+          "h2": "Ruční instalace"
+        },
+        {
+          "p": "Totéž zařídí klon repozitáře a konfigurační soubor:"
+        },
+        {
+          "code": "install_codex_manual"
+        },
+        {
+          "p": "Už máte `~/.codex/hooks.json`? Slučte do něj tři položky z našeho souboru. Svůj soubor nepřepisujte. Codex vás při prvním spuštění požádá, abyste nové konfiguraci hooků důvěřovali. To je v pořádku."
+        },
+        {
+          "p": "Vyberte si jeden způsob. Pokud máte zároveň plugin i ručně přidané položky, každý hook se spustí dvakrát. Pokud jste instalovali ručně před verzí 0.8.0, při přechodu na plugin odstraňte naše položky z `~/.codex/hooks.json`."
+        },
+        {
+          "h2": "Co dostanete v Codexu"
+        },
+        {
+          "p": "Dostanete řádek v relaci a zvuk. Oznámení nebude, protože Codex nemá ve výstupu hooku pole pro sekvenci terminálu. Nebude ani část stavového řádku. Tuto lištu v Codexu nelze skriptovat."
+        },
+        {
+          "p": "Počítadlo je sdílené s Claude Code a Gemini CLI. Hodina čekání se započítá jednou, ať vás v křesle držel kterýkoli agent. Adaptér byl vyzkoušen na skutečné instalaci Codex CLI 0.149.1 na macOS."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Nainstaloval jsem ho, ale nic se neděje. Proč?",
+          "a": "Codex spouští hooky pluginu, až když jim důvěřujete. Otevřete /hooks a označte tři položky vibestretch jako důvěryhodné."
+        },
+        {
+          "q": "Každý hook se spouští dvakrát. Proč?",
+          "a": "Nejspíš máte v ~/.codex/hooks.json plugin i ručně přidané položky. Ponechte jen jedno z toho."
+        },
+        {
+          "q": "Můžu ho používat s codex exec?",
+          "a": "V tom prostředí nastavte VIBESTRETCH_DISABLE=1. Běhy bez dozoru by se neměly počítat jako čas, který jste prosezeli."
+        }
+      ]
+    },
+    "gemini-cli-break-reminder": {
+      "nav": "Gemini CLI",
+      "title": "Jak přidat připomínku přestávek do Gemini CLI | vibestretch",
+      "description": "Přidejte vibestretch do Gemini CLI pomocí tří hooků. Během dlouhých běhů Gemini dostanete řádek s protažením a zvuk. Postup instalace a sloučení.",
+      "h1": "Jak přidat připomínku přestávek do Gemini CLI",
+      "lead": "Gemini CLI má hooky zapnuté od verze v0.26. vibestretch přidá tři z nich a během dlouhých běhů vám připomene protažení.",
+      "blocks": [
+        {
+          "h2": "Instalace"
+        },
+        {
+          "p": "Naklonujte repozitář:"
+        },
+        {
+          "code": "install_gemini_clone"
+        },
+        {
+          "p": "Pak zkopírujte objekt `hooks` z `~/.gemini/vibestretch/hooks/gemini-hooks.json` do `~/.gemini/settings.json`. Tento soubor obsahuje celou vaši konfiguraci Gemini, takže ho slučte. Nenahrazujte ho. S `jq` je to jeden řádek:"
+        },
+        {
+          "code": "install_gemini_merge"
+        },
+        {
+          "p": "Pokud už máte vlastní hooky v `BeforeAgent`, `AfterTool` nebo `AfterAgent`, tento příkaz je nahradí našimi. V tom případě přidejte naše tři položky do svých seznamů ručně."
+        },
+        {
+          "h2": "Které hooky používá"
+        },
+        {
+          "ul": [
+            "`BeforeAgent`: agent začíná pracovat na vašem zadání.",
+            "`AfterTool`: nástroj skončil. Přičte se čas čekání, a pokud je připomínka na řadě, zobrazí se.",
+            "`AfterAgent`: běh skončil. Počítání se uzavře."
+          ]
+        },
+        {
+          "h2": "Co dostanete v Gemini CLI"
+        },
+        {
+          "p": "Dostanete řádek v relaci a zvuk. Oznámení nebude. Gemini vyhrazuje standardní výstup hooku jen pro JSON, takže není kam vypsat řídicí sekvenci."
+        },
+        {
+          "p": "Adaptér byl vyzkoušen na skutečné instalaci Gemini CLI 0.56.0 na macOS. Počítadlo je sdílené s Claude Code a Codex CLI."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Jakou verzi Gemini CLI potřebuji?",
+          "a": "Hooky jsou zapnuté od Gemini CLI v0.26."
+        },
+        {
+          "q": "Přepíše sloučení moje nastavení?",
+          "a": "Ostatní nastavení zůstanou. Pokud už máte vlastní hooky v BeforeAgent, AfterTool nebo AfterAgent, jq tyto seznamy nahradí našimi. V tom případě přidejte naše tři položky ručně. Soubor si nejdřív zazálohujte."
+        },
+        {
+          "q": "Můžu ho používat s gemini -p?",
+          "a": "Když spouštíte Gemini ze skriptu, z cronu nebo z bota, nastavte VIBESTRETCH_DISABLE=1."
+        }
+      ]
+    }
+  },
+  "settings_rows": {
+    "VIBESTRETCH_MIN_TURN": "Aktuální běh musí trvat alespoň takto dlouho.",
+    "VIBESTRETCH_MIN_ACTIVE": "Potřebný čas agenta od poslední přestávky.",
+    "VIBESTRETCH_COOLDOWN": "Minimální odstup mezi připomínkami.",
+    "VIBESTRETCH_AWAY": "Když takto dlouho nepoužijete klávesnici ani myš, jste pryč. Jen macOS. 0 tuto ochranu vypne.",
+    "VIBESTRETCH_DISABLE": "Nastavte na cokoli a připomínky utichnou.",
+    "VIBESTRETCH_NOTIFY": "Nastavte na 0 a oznámení na ploše se nezobrazí.",
+    "VIBESTRETCH_SOUND": "Nastavte na 0 a zvuk se vypne.",
+    "VIBESTRETCH_EXERCISES": "Cesta k vašemu vlastnímu seznamu cviků."
+  },
+  "settings_head": [
+    "Proměnná",
+    "Výchozí",
+    "Význam"
+  ]
+}

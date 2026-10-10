@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="de" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vibestretch: Dehnübungen in der Wartezeit des Coding-Agents</title>
+<meta name="description" content="vibestretch ist eine kostenlose Pausen- und Dehn-Erinnerung für Entwickler. Sie meldet sich, während Claude Code, Codex CLI oder Gemini CLI lange arbeitet.">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/de/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="vibestretch: Dehnübungen in der Wartezeit des Coding-Agents">
+<meta property="og:description" content="vibestretch ist eine kostenlose Pausen- und Dehn-Erinnerung für Entwickler. Sie meldet sich, während Claude Code, Codex CLI oder Gemini CLI lange arbeitet.">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/de/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta property="og:locale:alternate" content="ms_MY">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch ist eine kostenlose Pausen- und Dehn-Erinnerung für Entwickler. Sie meldet sich, während Claude Code, Codex CLI oder Gemini CLI lange arbeitet.",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/de/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/de/",
+   "name": "vibestretch: Dehnübungen in der Wartezeit des Coding-Agents",
+   "description": "vibestretch ist eine kostenlose Pausen- und Dehn-Erinnerung für Entwickler. Sie meldet sich, während Claude Code, Codex CLI oder Gemini CLI lange arbeitet.",
+   "inLanguage": "de",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/de/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/de/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/de/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/de/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/de/",
+   "inLanguage": "de",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Was ist vibestretch?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "vibestretch ist ein Plugin für Coding-Agents. Es erinnert dich daran, dich zu dehnen, zu bewegen oder die Augen auszuruhen, während du auf einen langen Agent-Durchlauf wartest."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Welche Coding-Agents werden unterstützt?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Claude Code, OpenAI Codex CLI und Gemini CLI. Alle drei nutzen denselben Zähler. Eine Stunde Warten zählt also nur einmal, egal welcher Agent dich am Stuhl gehalten hat."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Ist das ein Pausen-Timer?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nein. Ein Timer läuft nach Zeitplan. vibestretch zählt nur die Zeit, in der du auf einen Agent-Durchlauf gewartet hast, und erinnert dich nur während dieser Wartezeit."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Sendet es irgendwohin Daten?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nein. Es baut keine Netzwerkverbindungen auf und sendet keine Telemetrie. Nichts verlässt deinen Rechner."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Was kostet es?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Es ist kostenlos. vibestretch ist Open Source unter der MIT-Lizenz, der Code liegt auf GitHub."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Wie schalte ich es stumm?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Setze VIBESTRETCH_DISABLE auf einen beliebigen Wert, um die Erinnerungen abzuschalten. VIBESTRETCH_SOUND=0 schaltet den Ton ab. VIBESTRETCH_NOTIFY=0 entfernt die Benachrichtigung."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../de/"><img src="../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>Sprache: Deutsch</summary><ul><li><a href="../" hreflang="en" lang="en">English</a></li><li><a href="../es/" hreflang="es" lang="es">Español</a></li><li><a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="../de/" hreflang="de" lang="de" aria-current="true">Deutsch</a></li><li><a href="../it/" hreflang="it" lang="it">Italiano</a></li><li><a href="../ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../uk/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../sv/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../da/" hreflang="da" lang="da">Dansk</a></li><li><a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../cs/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="../ro/" hreflang="ro" lang="ro">Română</a></li><li><a href="../hu/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../el/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../ko/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../th/" hreflang="th" lang="th">ไทย</a></li><li><a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a></li><li><a href="../ms/" hreflang="ms" lang="ms">Bahasa Melayu</a></li><li><a href="../hi/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../ar/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../he/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="Seiten"><ul><li><a href="../de/" aria-current="page">Überblick</a></li><li><a href="../de/stretch-breaks-ai-coding-agents/">Pausen während Agent-Läufen</a></li><li><a href="../de/20-20-20-eye-rule-developers/">20-20-20-Regel</a></li><li><a href="../de/desk-stretches-programmers/">Dehnübungen am Schreibtisch</a></li><li><a href="../de/claude-code-break-reminder/">Claude Code</a></li><li><a href="../de/codex-cli-break-reminder/">Codex CLI</a></li><li><a href="../de/gemini-cli-break-reminder/">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Brotkrümelnavigation"><ol><li><a href="../de/">vibestretch</a></li></ol></nav>
+<h1>Dehnen, während dein Coding-Agent arbeitet</h1>
+<p class="lead">vibestretch zeigt dir eine kurze Dehnübung, ein Mini-Workout oder eine Augenpause, während du auf einen langen Agent-Durchlauf wartest. Es funktioniert mit Claude Code, Codex CLI und Gemini CLI.</p>
+<pre><code>claude plugin marketplace add Eliasjunit/vibestretch &amp;&amp; claude plugin install vibestretch@vibestretch</code></pre>
+<p>Damit installierst du das Plugin in Claude Code. Die Seiten zu <a href="../de/codex-cli-break-reminder/">Codex CLI</a> und <a href="../de/gemini-cli-break-reminder/">Gemini CLI</a> zeigen die jeweiligen Installationsschritte.</p>
+<h2>So sieht eine Erinnerung aus</h2>
+<pre><code>🧘 Wrist circles, 10 each way. Your tendons will thank you. · vibestretch · 7 min of agent time</code></pre>
+<p>In der Sitzung erscheint eine Zeile. Ein leiser Ton erklingt. In Terminals, die das unterstützen, erscheint zusätzlich eine Benachrichtigung.</p>
+<h2>Wann es dich erinnert</h2>
+<p>vibestretch hat keinen Zeitplan. Es zählt nur eines: die Minuten, die du am Rechner auf einen Agent-Durchlauf gewartet hast. Eine Erinnerung kommt nur, wenn alle drei Bedingungen erfüllt sind:</p>
+<ol><li>Der aktuelle Durchlauf läuft seit 2 Minuten oder länger.</li><li>Deine Agent-Zeit seit der letzten Erinnerung summiert sich auf 5 Minuten oder mehr.</li><li>Die letzte Erinnerung liegt mindestens 15 Minuten zurück.</li></ol>
+<p>Kurze Durchläufe lösen nichts aus. Ein Tag mit lauter kurzen Durchläufen bleibt ganz still. Es gibt nichts zu verschieben, denn es meldet sich nur, wenn du ohnehin wartest. Mehr dazu unter <a href="../de/stretch-breaks-ai-coding-agents/">Dehnpausen während KI-Coding-Agents arbeiten</a>.</p>
+<h2>Was du bekommst</h2>
+<ul><li>Zwölf eingebaute Übungen: Dehnübungen, Mini-Workouts und Augenpausen wie <a href="../de/20-20-20-eye-rule-developers/">20-20-20</a>.</li><li>Eine Reihenfolge, die nie dieselbe Übung zweimal hintereinander bringt.</li><li>Auf Wunsch deine eigene Übungsliste. Siehe <a href="../de/desk-stretches-programmers/">Dehnübungen am Schreibtisch für Programmierer</a>.</li><li>Ein optionales Segment in der Statuszeile von Claude Code.</li></ul>
+<h2>Datenschutz</h2>
+<p>vibestretch besteht aus ein paar kleinen POSIX-Shell-Skripten und einem mitgelieferten Ton. Es baut keine Netzwerkverbindungen auf. Es sendet keine Telemetrie. Es zeigt keine Werbung und setzt keine Links in dein Terminal. Es fügt dem Kontext des Modells nichts hinzu. Sein Zustand liegt in <code>~/.cache/vibestretch/</code>.</p>
+<section class="faq" id="faq"><h2>Häufige Fragen</h2><dl><dt>Was ist vibestretch?</dt><dd>vibestretch ist ein Plugin für Coding-Agents. Es erinnert dich daran, dich zu dehnen, zu bewegen oder die Augen auszuruhen, während du auf einen langen Agent-Durchlauf wartest.</dd><dt>Welche Coding-Agents werden unterstützt?</dt><dd>Claude Code, OpenAI Codex CLI und Gemini CLI. Alle drei nutzen denselben Zähler. Eine Stunde Warten zählt also nur einmal, egal welcher Agent dich am Stuhl gehalten hat.</dd><dt>Ist das ein Pausen-Timer?</dt><dd>Nein. Ein Timer läuft nach Zeitplan. vibestretch zählt nur die Zeit, in der du auf einen Agent-Durchlauf gewartet hast, und erinnert dich nur während dieser Wartezeit.</dd><dt>Sendet es irgendwohin Daten?</dt><dd>Nein. Es baut keine Netzwerkverbindungen auf und sendet keine Telemetrie. Nichts verlässt deinen Rechner.</dd><dt>Was kostet es?</dt><dd>Es ist kostenlos. vibestretch ist Open Source unter der MIT-Lizenz, der Code liegt auf GitHub.</dd><dt>Wie schalte ich es stumm?</dt><dd>Setze VIBESTRETCH_DISABLE auf einen beliebigen Wert, um die Erinnerungen abzuschalten. VIBESTRETCH_SOUND=0 schaltet den Ton ab. VIBESTRETCH_NOTIFY=0 entfernt die Benachrichtigung.</dd></dl></section>
+<section class="related"><h2>Weiterlesen</h2><ul><li><a href="../de/stretch-breaks-ai-coding-agents/">Dehnpausen während KI-Coding-Agents arbeiten</a></li><li><a href="../de/20-20-20-eye-rule-developers/">Die 20-20-20-Augenregel für Entwickler</a></li><li><a href="../de/desk-stretches-programmers/">Dehnübungen am Schreibtisch für Programmierer</a></li><li><a href="../de/claude-code-break-reminder/">So richtest du eine Pausen-Erinnerung in Claude Code ein</a></li><li><a href="../de/codex-cli-break-reminder/">So richtest du eine Pausen-Erinnerung in Codex CLI ein</a></li><li><a href="../de/gemini-cli-break-reminder/">So richtest du eine Pausen-Erinnerung in Gemini CLI ein</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch ist Open Source unter der MIT-Lizenz. Entwickelt von Junit. <a href="https://github.com/Eliasjunit/vibestretch">Quellcode auf GitHub</a></p>
+</div></footer>
+</body>
+</html>

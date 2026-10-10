@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ms" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cara menambah peringatan rehat pada Claude Code | vibestretch</title>
+<meta name="description" content="Pasang vibestretch dalam Claude Code untuk peringatan regangan dan rehat mata semasa giliran panjang. Pemasangan, status line, nota VS Code dan tetapan.">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/ms/claude-code-break-reminder/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/claude-code-break-reminder/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/claude-code-break-reminder/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/claude-code-break-reminder/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/claude-code-break-reminder/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/claude-code-break-reminder/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/claude-code-break-reminder/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/claude-code-break-reminder/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/claude-code-break-reminder/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/claude-code-break-reminder/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/claude-code-break-reminder/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/claude-code-break-reminder/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/claude-code-break-reminder/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/claude-code-break-reminder/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/claude-code-break-reminder/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/claude-code-break-reminder/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/claude-code-break-reminder/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/claude-code-break-reminder/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/claude-code-break-reminder/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/claude-code-break-reminder/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/claude-code-break-reminder/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/claude-code-break-reminder/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/claude-code-break-reminder/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/claude-code-break-reminder/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/claude-code-break-reminder/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/claude-code-break-reminder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="Cara menambah peringatan rehat pada Claude Code | vibestretch">
+<meta property="og:description" content="Pasang vibestretch dalam Claude Code untuk peringatan regangan dan rehat mata semasa giliran panjang. Pemasangan, status line, nota VS Code dan tetapan.">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/ms/claude-code-break-reminder/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="ms_MY">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch ialah peringatan regangan dan rehat percuma untuk pembangun. Ia mengingatkan anda bergerak semasa Claude Code, Codex CLI atau Gemini CLI berjalan lama.",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/ms/claude-code-break-reminder/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/ms/claude-code-break-reminder/",
+   "name": "Cara menambah peringatan rehat pada Claude Code | vibestretch",
+   "description": "Pasang vibestretch dalam Claude Code untuk peringatan regangan dan rehat mata semasa giliran panjang. Pemasangan, status line, nota VS Code dan tetapan.",
+   "inLanguage": "ms",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/ms/claude-code-break-reminder/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/ms/claude-code-break-reminder/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/ms/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Cara menambah peringatan rehat pada Claude Code",
+     "item": "https://eliasjunit.github.io/vibestretch/ms/claude-code-break-reminder/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/ms/claude-code-break-reminder/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/ms/claude-code-break-reminder/",
+   "inLanguage": "ms",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Bagaimana mahu membuang segmen status line?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Jalankan /vibestretch:statusline off. Lakukan ini sebelum menyahpasang pemalam. Jika tidak, segmen itu kekal dalam konfigurasi tetapi beku."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Adakah peringatan sampai kepada model?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tidak. Peringatan ialah systemMessage. Ia dipaparkan kepada anda dan tidak pernah ditambah ke dalam konteks model."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Mengapa saya mendengar dua bunyi?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sesetengah terminal, seperti iTerm2, memainkan bunyi sendiri untuk pemberitahuan. Tetapkan VIBESTRETCH_SOUND=0 untuk mengekalkan bunyi terminal sahaja."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Langkau ke kandungan</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../../ms/"><img src="../../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>Bahasa: Bahasa Melayu</summary><ul><li><a href="../../claude-code-break-reminder/" hreflang="en" lang="en">English</a></li><li><a href="../../es/claude-code-break-reminder/" hreflang="es" lang="es">Español</a></li><li><a href="../../pt-BR/claude-code-break-reminder/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../../fr/claude-code-break-reminder/" hreflang="fr" lang="fr">Français</a></li><li><a href="../../de/claude-code-break-reminder/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../../it/claude-code-break-reminder/" hreflang="it" lang="it">Italiano</a></li><li><a href="../../ru/claude-code-break-reminder/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../../uk/claude-code-break-reminder/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../pl/claude-code-break-reminder/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../../tr/claude-code-break-reminder/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../../nl/claude-code-break-reminder/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../../sv/claude-code-break-reminder/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../../da/claude-code-break-reminder/" hreflang="da" lang="da">Dansk</a></li><li><a href="../../nb/claude-code-break-reminder/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../../fi/claude-code-break-reminder/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../../cs/claude-code-break-reminder/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="../../ro/claude-code-break-reminder/" hreflang="ro" lang="ro">Română</a></li><li><a href="../../hu/claude-code-break-reminder/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../../el/claude-code-break-reminder/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../../ja/claude-code-break-reminder/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../../ko/claude-code-break-reminder/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../../zh-Hans/claude-code-break-reminder/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="../../zh-Hant/claude-code-break-reminder/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../../id/claude-code-break-reminder/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../../th/claude-code-break-reminder/" hreflang="th" lang="th">ไทย</a></li><li><a href="../../vi/claude-code-break-reminder/" hreflang="vi" lang="vi">Tiếng Việt</a></li><li><a href="../../ms/claude-code-break-reminder/" hreflang="ms" lang="ms" aria-current="true">Bahasa Melayu</a></li><li><a href="../../hi/claude-code-break-reminder/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../../ar/claude-code-break-reminder/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../../he/claude-code-break-reminder/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="Halaman"><ul><li><a href="../../ms/">Gambaran keseluruhan</a></li><li><a href="../../ms/stretch-breaks-ai-coding-agents/">Rehat semasa ejen berjalan</a></li><li><a href="../../ms/20-20-20-eye-rule-developers/">Peraturan mata 20-20-20</a></li><li><a href="../../ms/desk-stretches-programmers/">Regangan di meja</a></li><li><a href="../../ms/claude-code-break-reminder/" aria-current="page">Claude Code</a></li><li><a href="../../ms/codex-cli-break-reminder/">Codex CLI</a></li><li><a href="../../ms/gemini-cli-break-reminder/">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Serbuk roti"><ol><li><a href="../../ms/">vibestretch</a></li><li aria-current="page">Cara menambah peringatan rehat pada Claude Code</li></ol></nav>
+<h1>Cara menambah peringatan rehat pada Claude Code</h1>
+<p class="lead">vibestretch ialah pemalam Claude Code. Ia menggunakan tiga hook untuk mengesan giliran panjang dan mengingatkan anda supaya bergerak.</p>
+<h2>Pemasangan</h2>
+<p>Jalankan dua arahan ini dalam Claude Code:</p>
+<pre><code>/plugin marketplace add Eliasjunit/vibestretch
+/plugin install vibestretch@vibestretch</code></pre>
+<p>Tiada kebergantungan, tiada daemon dan tiada telemetri. Tiada apa-apa lagi yang perlu dikonfigurasi.</p>
+<h2>Di mana peringatan dipaparkan</h2>
+<ul><li>Satu baris dalam sesi.</li><li>Bunyi loceng lembut yang disertakan.</li><li>Sepanduk pemberitahuan dalam Warp, Ghostty, iTerm2, WezTerm dan kitty. Dalam VS Code, ia memerlukan sambungan pemberitahuan.</li><li>Status line anda, jika anda menyediakannya.</li></ul>
+<h2>Tambahkan pada status line anda</h2>
+<pre><code>/vibestretch:statusline</code></pre>
+<p>Arahan ini menyandarkan tetapan anda dan membalut arahan status line sedia ada. Jika anda belum ada, ia memasang versi minimum. Selepas peringatan, senaman itu kekal di situ selama 5 minit. Batalkan dengan <code>/vibestretch:statusline off</code>. Jalankan <code>off</code> sebelum anda menyahpasang pemalam.</p>
+<h2>VS Code</h2>
+<p>Dalam terminal bersepadu, baris peringatan, bunyi loceng dan status line semuanya berfungsi. Dalam panel sembang sambungan itu, hanya bunyi loceng yang sampai kepada anda. Sepanduk memerlukan sambungan pemberitahuan di kedua-dua tempat. Perkara ini telah disemak pada Claude Code 2.1.234.</p>
+<h2>Tetapan</h2>
+<p>Semua tetapan ialah pemboleh ubah persekitaran pilihan. Masa dalam saat.</p>
+<div class="table"><table><thead><tr><th>Pemboleh ubah</th><th>Lalai</th><th>Maksud</th></tr></thead><tbody><tr><td><code>VIBESTRETCH_MIN_TURN</code></td><td><code>120</code></td><td>Giliran semasa mesti berjalan sekurang-kurangnya selama ini.</td></tr><tr><td><code>VIBESTRETCH_MIN_ACTIVE</code></td><td><code>300</code></td><td>Masa ejen yang diperlukan sejak rehat terakhir anda.</td></tr><tr><td><code>VIBESTRETCH_COOLDOWN</code></td><td><code>900</code></td><td>Sela minimum antara peringatan.</td></tr><tr><td><code>VIBESTRETCH_AWAY</code></td><td><code>300</code></td><td>Tiada aktiviti papan kekunci atau tetikus selama ini bermakna anda tiada di tempat. macOS sahaja. 0 mematikan kawalan ini.</td></tr><tr><td><code>VIBESTRETCH_DISABLE</code></td><td><code>unset</code></td><td>Tetapkan kepada sebarang nilai untuk menyenyapkan peringatan.</td></tr><tr><td><code>VIBESTRETCH_NOTIFY</code></td><td><code>1</code></td><td>Tetapkan kepada 0 untuk membuang pemberitahuan desktop.</td></tr><tr><td><code>VIBESTRETCH_SOUND</code></td><td><code>1</code></td><td>Tetapkan kepada 0 untuk mematikan bunyi.</td></tr><tr><td><code>VIBESTRETCH_EXERCISES</code></td><td><code>~/.config/vibestretch/exercises.txt</code></td><td>Laluan ke senarai senaman anda sendiri.</td></tr></tbody></table></div>
+<p>Menjalankan Claude Code secara headless dengan <code>claude -p</code> daripada skrip? Tetapkan <code>VIBESTRETCH_DISABLE=1</code> di situ.</p>
+<section class="faq" id="faq"><h2>Soalan lazim</h2><dl><dt>Bagaimana mahu membuang segmen status line?</dt><dd>Jalankan /vibestretch:statusline off. Lakukan ini sebelum menyahpasang pemalam. Jika tidak, segmen itu kekal dalam konfigurasi tetapi beku.</dd><dt>Adakah peringatan sampai kepada model?</dt><dd>Tidak. Peringatan ialah systemMessage. Ia dipaparkan kepada anda dan tidak pernah ditambah ke dalam konteks model.</dd><dt>Mengapa saya mendengar dua bunyi?</dt><dd>Sesetengah terminal, seperti iTerm2, memainkan bunyi sendiri untuk pemberitahuan. Tetapkan VIBESTRETCH_SOUND=0 untuk mengekalkan bunyi terminal sahaja.</dd></dl></section>
+<section class="related"><h2>Baca seterusnya</h2><ul><li><a href="../../ms/">Buat regangan sementara ejen pengekodan bekerja</a></li><li><a href="../../ms/stretch-breaks-ai-coding-agents/">Rehat regangan semasa ejen pengekodan AI berjalan</a></li><li><a href="../../ms/20-20-20-eye-rule-developers/">Peraturan mata 20-20-20 untuk pembangun</a></li><li><a href="../../ms/desk-stretches-programmers/">Regangan di meja untuk pengaturcara</a></li><li><a href="../../ms/codex-cli-break-reminder/">Cara menambah peringatan rehat pada Codex CLI</a></li><li><a href="../../ms/gemini-cli-break-reminder/">Cara menambah peringatan rehat pada Gemini CLI</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch ialah perisian sumber terbuka di bawah lesen MIT. Dihasilkan oleh Junit. <a href="https://github.com/Eliasjunit/vibestretch">Kod sumber di GitHub</a></p>
+</div></footer>
+</body>
+</html>

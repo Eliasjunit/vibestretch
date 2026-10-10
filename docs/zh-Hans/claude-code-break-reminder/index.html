@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code 休息提醒插件 | vibestretch</title>
+<meta name="description" content="在 Claude Code 中安装 vibestretch，在长时间运行的轮次中获得拉伸和护眼提醒。内容包括安装、状态栏、VS Code 说明和设置项。">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/zh-Hans/claude-code-break-reminder/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/claude-code-break-reminder/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/claude-code-break-reminder/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/claude-code-break-reminder/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/claude-code-break-reminder/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/claude-code-break-reminder/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/claude-code-break-reminder/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/claude-code-break-reminder/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/claude-code-break-reminder/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/claude-code-break-reminder/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/claude-code-break-reminder/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/claude-code-break-reminder/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/claude-code-break-reminder/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/claude-code-break-reminder/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/claude-code-break-reminder/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/claude-code-break-reminder/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/claude-code-break-reminder/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/claude-code-break-reminder/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/claude-code-break-reminder/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/claude-code-break-reminder/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/claude-code-break-reminder/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/claude-code-break-reminder/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/claude-code-break-reminder/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/claude-code-break-reminder/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/claude-code-break-reminder/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/claude-code-break-reminder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="Claude Code 休息提醒插件 | vibestretch">
+<meta property="og:description" content="在 Claude Code 中安装 vibestretch，在长时间运行的轮次中获得拉伸和护眼提醒。内容包括安装、状态栏、VS Code 说明和设置项。">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/zh-Hans/claude-code-break-reminder/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta property="og:locale:alternate" content="ms_MY">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch 是一款免费的开发者拉伸和休息提醒工具。Claude Code、Codex CLI 或 Gemini CLI 长时间运行时，它会提醒你起身活动。",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/claude-code-break-reminder/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/zh-Hans/claude-code-break-reminder/",
+   "name": "Claude Code 休息提醒插件 | vibestretch",
+   "description": "在 Claude Code 中安装 vibestretch，在长时间运行的轮次中获得拉伸和护眼提醒。内容包括安装、状态栏、VS Code 说明和设置项。",
+   "inLanguage": "zh-Hans",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/claude-code-break-reminder/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/claude-code-break-reminder/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/zh-Hans/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "如何为 Claude Code 添加休息提醒",
+     "item": "https://eliasjunit.github.io/vibestretch/zh-Hans/claude-code-break-reminder/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/claude-code-break-reminder/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/zh-Hans/claude-code-break-reminder/",
+   "inLanguage": "zh-Hans",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "如何移除状态栏片段？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "运行 /vibestretch:statusline off。请在卸载插件之前执行。否则该片段会留在配置中，但不再更新。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "提醒会发送给模型吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不会。提醒是一条 systemMessage。它只显示给你看，不会加入模型的上下文。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "为什么我听到两个声音？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "有些终端（例如 iTerm2）会为通知播放自己的声音。设置 VIBESTRETCH_SOUND=0，只保留终端的声音。"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../../zh-Hans/"><img src="../../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>语言: 简体中文</summary><ul><li><a href="../../claude-code-break-reminder/" hreflang="en" lang="en">English</a></li><li><a href="../../es/claude-code-break-reminder/" hreflang="es" lang="es">Español</a></li><li><a href="../../pt-BR/claude-code-break-reminder/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../../fr/claude-code-break-reminder/" hreflang="fr" lang="fr">Français</a></li><li><a href="../../de/claude-code-break-reminder/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../../it/claude-code-break-reminder/" hreflang="it" lang="it">Italiano</a></li><li><a href="../../ru/claude-code-break-reminder/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../../uk/claude-code-break-reminder/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../pl/claude-code-break-reminder/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../../tr/claude-code-break-reminder/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../../nl/claude-code-break-reminder/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../../sv/claude-code-break-reminder/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../../da/claude-code-break-reminder/" hreflang="da" lang="da">Dansk</a></li><li><a href="../../nb/claude-code-break-reminder/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../../fi/claude-code-break-reminder/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../../cs/claude-code-break-reminder/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="../../ro/claude-code-break-reminder/" hreflang="ro" lang="ro">Română</a></li><li><a href="../../hu/claude-code-break-reminder/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../../el/claude-code-break-reminder/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../../ja/claude-code-break-reminder/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../../ko/claude-code-break-reminder/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../../zh-Hans/claude-code-break-reminder/" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">简体中文</a></li><li><a href="../../zh-Hant/claude-code-break-reminder/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../../id/claude-code-break-reminder/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../../th/claude-code-break-reminder/" hreflang="th" lang="th">ไทย</a></li><li><a href="../../vi/claude-code-break-reminder/" hreflang="vi" lang="vi">Tiếng Việt</a></li><li><a href="../../ms/claude-code-break-reminder/" hreflang="ms" lang="ms">Bahasa Melayu</a></li><li><a href="../../hi/claude-code-break-reminder/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../../ar/claude-code-break-reminder/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../../he/claude-code-break-reminder/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="页面"><ul><li><a href="../../zh-Hans/">概览</a></li><li><a href="../../zh-Hans/stretch-breaks-ai-coding-agents/">智能体运行时的休息</a></li><li><a href="../../zh-Hans/20-20-20-eye-rule-developers/">20-20-20 护眼法则</a></li><li><a href="../../zh-Hans/desk-stretches-programmers/">办公桌拉伸</a></li><li><a href="../../zh-Hans/claude-code-break-reminder/" aria-current="page">Claude Code</a></li><li><a href="../../zh-Hans/codex-cli-break-reminder/">Codex CLI</a></li><li><a href="../../zh-Hans/gemini-cli-break-reminder/">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="面包屑导航"><ol><li><a href="../../zh-Hans/">vibestretch</a></li><li aria-current="page">如何为 Claude Code 添加休息提醒</li></ol></nav>
+<h1>如何为 Claude Code 添加休息提醒</h1>
+<p class="lead">vibestretch 是一个 Claude Code 插件。它通过三个钩子识别长时间运行的轮次，并提醒你起身活动。</p>
+<h2>安装</h2>
+<p>在 Claude Code 中运行以下两条命令：</p>
+<pre><code>/plugin marketplace add Eliasjunit/vibestretch
+/plugin install vibestretch@vibestretch</code></pre>
+<p>没有依赖，没有守护进程，也没有遥测。无需其他配置。</p>
+<h2>提醒显示在哪里</h2>
+<ul><li>会话中的一行提示。</li><li>一声内置的轻柔提示音。</li><li>在 Warp、Ghostty、iTerm2、WezTerm 和 kitty 中显示通知横幅。在 VS Code 中需要安装通知类扩展。</li><li>你的状态栏（如果你设置了的话）。</li></ul>
+<h2>添加到状态栏</h2>
+<pre><code>/vibestretch:statusline</code></pre>
+<p>这条命令会备份你的设置，并包装你现有的状态栏命令。如果你还没有状态栏，它会安装一个最简版本。提醒触发后，动作会在那里显示 5 分钟。用 <code>/vibestretch:statusline off</code> 撤销。卸载插件之前，请先运行 <code>off</code>。</p>
+<h2>VS Code</h2>
+<p>在集成终端中，提示行、提示音和状态栏都能正常工作。在扩展的聊天面板中，你只能听到提示音。在这两处，通知横幅都需要通知类扩展。以上已在 Claude Code 2.1.234 上验证。</p>
+<h2>设置</h2>
+<p>所有设置都是可选的环境变量。时间单位为秒。</p>
+<div class="table"><table><thead><tr><th>变量</th><th>默认值</th><th>说明</th></tr></thead><tbody><tr><td><code>VIBESTRETCH_MIN_TURN</code></td><td><code>120</code></td><td>当前轮次至少要运行这么久。</td></tr><tr><td><code>VIBESTRETCH_MIN_ACTIVE</code></td><td><code>300</code></td><td>自上次休息以来所需的智能体时间。</td></tr><tr><td><code>VIBESTRETCH_COOLDOWN</code></td><td><code>900</code></td><td>两次提醒之间的最短间隔。</td></tr><tr><td><code>VIBESTRETCH_AWAY</code></td><td><code>300</code></td><td>键盘和鼠标无操作达到这个时长，即视为你已离开。仅限 macOS。设为 0 关闭此判断。</td></tr><tr><td><code>VIBESTRETCH_DISABLE</code></td><td><code>unset</code></td><td>设为任意值即可关闭提醒。</td></tr><tr><td><code>VIBESTRETCH_NOTIFY</code></td><td><code>1</code></td><td>设为 0 关闭桌面通知。</td></tr><tr><td><code>VIBESTRETCH_SOUND</code></td><td><code>1</code></td><td>设为 0 关闭声音。</td></tr><tr><td><code>VIBESTRETCH_EXERCISES</code></td><td><code>~/.config/vibestretch/exercises.txt</code></td><td>你自己的动作列表的路径。</td></tr></tbody></table></div>
+<p>在脚本中用 <code>claude -p</code> 以无头模式运行 Claude Code？请在那里设置 <code>VIBESTRETCH_DISABLE=1</code>。</p>
+<section class="faq" id="faq"><h2>常见问题</h2><dl><dt>如何移除状态栏片段？</dt><dd>运行 /vibestretch:statusline off。请在卸载插件之前执行。否则该片段会留在配置中，但不再更新。</dd><dt>提醒会发送给模型吗？</dt><dd>不会。提醒是一条 systemMessage。它只显示给你看，不会加入模型的上下文。</dd><dt>为什么我听到两个声音？</dt><dd>有些终端（例如 iTerm2）会为通知播放自己的声音。设置 VIBESTRETCH_SOUND=0，只保留终端的声音。</dd></dl></section>
+<section class="related"><h2>延伸阅读</h2><ul><li><a href="../../zh-Hans/">编程智能体工作时，起来拉伸一下</a></li><li><a href="../../zh-Hans/stretch-breaks-ai-coding-agents/">AI 编程智能体运行时的拉伸休息</a></li><li><a href="../../zh-Hans/20-20-20-eye-rule-developers/">程序员的 20-20-20 护眼法则</a></li><li><a href="../../zh-Hans/desk-stretches-programmers/">程序员办公桌拉伸</a></li><li><a href="../../zh-Hans/codex-cli-break-reminder/">如何为 Codex CLI 添加休息提醒</a></li><li><a href="../../zh-Hans/gemini-cli-break-reminder/">如何为 Gemini CLI 添加休息提醒</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch 是开源软件，采用 MIT 许可证。 由 Junit 制作。 <a href="https://github.com/Eliasjunit/vibestretch">GitHub 上的源代码</a></p>
+</div></footer>
+</body>
+</html>

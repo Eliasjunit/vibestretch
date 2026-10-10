@@ -1,0 +1,474 @@
+{
+  "lang_name": "Polski",
+  "ui": {
+    "skip": "Przejdź do treści",
+    "nav_home": "Strona główna",
+    "nav_label": "Strony",
+    "languages": "Język",
+    "breadcrumb_home": "vibestretch",
+    "faq_title": "Najczęstsze pytania",
+    "related_title": "Czytaj dalej",
+    "source_link": "Kod źródłowy na GitHubie",
+    "footer_license": "vibestretch jest open source na licencji MIT.",
+    "footer_made": "Autor: Junit.",
+    "breadcrumb_label": "Ścieżka nawigacji"
+  },
+  "pages": {
+    "index": {
+      "nav": "Przegląd",
+      "title": "vibestretch: przypomnienie o rozciąganiu, gdy pracuje agent AI",
+      "description": "vibestretch to darmowe przypomnienie o przerwie i rozciąganiu dla programistów. Działa, gdy Claude Code, Codex CLI lub Gemini CLI długo pracuje.",
+      "h1": "Rozciągaj się, gdy agent AI pracuje",
+      "lead": "vibestretch pokazuje krótkie rozciąganie, mini trening albo przerwę dla oczu, gdy czekasz na długą odpowiedź agenta. Działa z Claude Code, Codex CLI i Gemini CLI.",
+      "blocks": [
+        {
+          "code": "install_claude_cli"
+        },
+        {
+          "p": "To polecenie instaluje wtyczkę w Claude Code. Kroki instalacji dla [Codex CLI](@codex-cli-break-reminder) i [Gemini CLI](@gemini-cli-break-reminder) są opisane na osobnych stronach."
+        },
+        {
+          "h2": "Jak wygląda przypomnienie"
+        },
+        {
+          "code": "nudge_example"
+        },
+        {
+          "p": "W sesji pojawia się jedna linia. Rozlega się cichy dźwięk. W terminalach, które to obsługują, pojawia się też baner powiadomienia."
+        },
+        {
+          "h2": "Kiedy pojawia się przypomnienie"
+        },
+        {
+          "p": "vibestretch nie ma harmonogramu. Liczy tylko jedno: ile minut czekałeś przy komputerze na odpowiedź agenta. Przypomnienie pojawia się tylko wtedy, gdy spełnione są wszystkie trzy warunki:"
+        },
+        {
+          "ol": [
+            "Bieżąca odpowiedź agenta trwa 2 minuty lub dłużej.",
+            "Od ostatniego przypomnienia czas pracy agenta wynosi łącznie 5 minut lub więcej.",
+            "Ostatnie przypomnienie było co najmniej 15 minut temu."
+          ]
+        },
+        {
+          "p": "Szybkie odpowiedzi go nie uruchamiają. Dzień krótkich odpowiedzi nie wywoła ani jednego przypomnienia. Nie ma czego odkładać na później, bo odzywa się tylko wtedy, gdy i tak czekasz. Więcej w artykule [przerwy na rozciąganie, gdy pracują agenci AI](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Co dostajesz"
+        },
+        {
+          "ul": [
+            "Dwanaście wbudowanych ćwiczeń: rozciąganie, mini treningi i przerwy dla oczu, na przykład [20-20-20](@20-20-20-eye-rule-developers).",
+            "Rotację, w której to samo ćwiczenie nigdy nie pojawia się dwa razy z rzędu.",
+            "Własną listę ćwiczeń, jeśli wolisz. Zobacz [ćwiczenia przy biurku dla programistów](@desk-stretches-programmers).",
+            "Opcjonalny segment w pasku stanu Claude Code."
+          ]
+        },
+        {
+          "h2": "Prywatność"
+        },
+        {
+          "p": "vibestretch to kilka małych skryptów powłoki POSIX i jeden dołączony dźwięk. Nie łączy się z siecią. Nie wysyła telemetrii. Nie wyświetla reklam ani nie wstawia linków do terminala. Nic nie dodaje do kontekstu modelu. Jego stan jest zapisany w `~/.cache/vibestretch/`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Czym jest vibestretch?",
+          "a": "vibestretch to wtyczka do agentów AI do kodowania. Przypomina o rozciąganiu, ruchu albo odpoczynku dla oczu, gdy czekasz na długą odpowiedź agenta."
+        },
+        {
+          "q": "Jakie agenty obsługuje?",
+          "a": "Claude Code, OpenAI Codex CLI i Gemini CLI. Wszystkie trzy korzystają z tego samego licznika, więc godzina czekania liczy się raz, niezależnie od tego, który agent trzymał cię na krześle."
+        },
+        {
+          "q": "Czy to timer przerw?",
+          "a": "Nie. Timer działa według harmonogramu. vibestretch liczy tylko czas, w którym czekałeś na odpowiedź agenta, i przypomina tylko podczas tego czekania."
+        },
+        {
+          "q": "Czy wysyła gdzieś dane?",
+          "a": "Nie. Nie łączy się z siecią i nie wysyła telemetrii. Nic nie opuszcza twojego komputera."
+        },
+        {
+          "q": "Ile to kosztuje?",
+          "a": "Jest darmowy. vibestretch to open source na licencji MIT, a kod jest na GitHubie."
+        },
+        {
+          "q": "Jak go wyciszyć?",
+          "a": "Ustaw VIBESTRETCH_DISABLE na dowolną wartość, aby wyciszyć przypomnienia. VIBESTRETCH_SOUND=0 wyłącza dźwięk. VIBESTRETCH_NOTIFY=0 wyłącza baner."
+        }
+      ]
+    },
+    "stretch-breaks-ai-coding-agents": {
+      "nav": "Przerwy podczas pracy agenta",
+      "title": "Przerwy na rozciąganie, gdy pracują agenci AI | vibestretch",
+      "description": "Wykorzystaj minuty czekania na agenta AI na krótkie rozciąganie. Jak vibestretch liczy czas czekania i kiedy przypomina o przerwie.",
+      "h1": "Przerwy na rozciąganie, gdy pracują agenci AI",
+      "lead": "Agent do kodowania potrafi pracować po kilka minut. Ty siedzisz i patrzysz. vibestretch zamienia to czekanie w krótką przerwę.",
+      "blocks": [
+        {
+          "h2": "Dlaczego czekanie to dobry moment"
+        },
+        {
+          "p": "Timery przerw działają według harmonogramu. Często trafiają w środek myśli i wiele osób w końcu je wyłącza. Czas, gdy agent jest zajęty, jest inny. I tak czekasz. Rozciąganie w tej przerwie nie kosztuje cię skupienia."
+        },
+        {
+          "h2": "Co liczy vibestretch"
+        },
+        {
+          "p": "Liczy czas agenta: minuty, w których agent pracował nad odpowiedzią, gdy ty byłeś przy komputerze. Sumuje je od ostatniego przypomnienia. To nie jest czas spędzony przy biurku. Godzina czytania i pisania z szybkimi odpowiedziami agenta w międzyczasie nie dodaje prawie nic."
+        },
+        {
+          "h2": "Kiedy pojawia się przypomnienie"
+        },
+        {
+          "p": "Muszą być spełnione wszystkie trzy warunki:"
+        },
+        {
+          "ol": [
+            "Bieżąca odpowiedź agenta trwa co najmniej 2 minuty.",
+            "Czas agenta od ostatniego przypomnienia wynosi co najmniej 5 minut. Liczy się jedno duże zadanie albo kilka średnich.",
+            "Ostatnie przypomnienie było co najmniej 15 minut temu."
+          ]
+        },
+        {
+          "p": "Każdą z tych liczb można zmienić zmienną środowiskową. Pełna lista jest na [stronie Claude Code](@claude-code-break-reminder)."
+        },
+        {
+          "h2": "Gdy odchodzisz od komputera"
+        },
+        {
+          "p": "Jeśli nie dotykasz klawiatury przez 45 minut lub dłużej, licznik się zeruje. Przerwę już miałeś. W macOS hooki odczytują systemowy licznik bezczynności klawiatury i myszy. Dzięki temu agent pracujący w nocy nie dodaje czasu i nie dzwoni do pustego krzesła. Linux nie ma przenośnego licznika bezczynności, więc tam działa tylko zerowanie po 45 minutach."
+        },
+        {
+          "h2": "Co proponuje przypomnienie"
+        },
+        {
+          "p": "Każde przypomnienie to jedno ćwiczenie z listy dwunastu. Są wśród nich rozciąganie, mini treningi i przerwy dla oczu. Całą listę znajdziesz w artykule [ćwiczenia przy biurku dla programistów](@desk-stretches-programmers)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Czy przypomni mi podczas krótkich odpowiedzi?",
+          "a": "Nie. Odpowiedź musi trwać co najmniej 2 minuty i musi się uzbierać dość czasu agenta, zanim pojawi się przypomnienie."
+        },
+        {
+          "q": "Czy szybki model oznacza mniej przypomnień?",
+          "a": "Tak. Szybkie modele kończą odpowiedź przed osiągnięciem progów, więc nie ma czego wyciszać."
+        },
+        {
+          "q": "A agenci uruchamiani ze skryptów lub przez cron?",
+          "a": "Ustaw VIBESTRETCH_DISABLE=1 w tym środowisku. W przeciwnym razie sesje bez twojego udziału liczą się jako czas, którego wcale nie przesiedziałeś."
+        }
+      ]
+    },
+    "20-20-20-eye-rule-developers": {
+      "nav": "Zasada 20-20-20",
+      "title": "Zasada 20-20-20 dla oczu programisty | vibestretch",
+      "description": "Przerwa dla oczu według zasady 20-20-20 i inne przerwy dla oczu w vibestretch, przypomnieniu, które działa, gdy pracuje twój agent AI.",
+      "h1": "Zasada 20-20-20 dla oczu programisty",
+      "lead": "Długie odpowiedzi agenta oznaczają długie wpatrywanie się w ekran. W rotacji vibestretch są przerwy dla oczu, a 20-20-20 jest jedną z nich.",
+      "blocks": [
+        {
+          "h2": "Przerwa 20-20-20 w vibestretch"
+        },
+        {
+          "p": "Tak wygląda przypomnienie:"
+        },
+        {
+          "code": "nudge_202020"
+        },
+        {
+          "p": "Spójrz na coś oddalonego o 20 stóp (około 6 m). Patrz przez 20 sekund. Potem wróć do agenta."
+        },
+        {
+          "h2": "Inne przerwy dla oczu na liście"
+        },
+        {
+          "ul": [
+            "Mrugnij powoli 20 razy.",
+            "Rozgrzej dłonie, pocierając je, a potem przyłóż je do zamkniętych oczu na 20 sekund.",
+            "Wstań i podejdź do okna."
+          ]
+        },
+        {
+          "h2": "Kiedy przypomina"
+        },
+        {
+          "p": "vibestretch nie działa według zegara. Przypomina, gdy czekasz na długą odpowiedź agenta, domyślnie nie częściej niż raz na 15 minut. Przerwy dla oczu pojawiają się w rotacji dwunastu ćwiczeń. Jak działa liczenie czasu, przeczytasz w artykule [przerwy na rozciąganie, gdy pracują agenci AI](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Chcesz tylko przerw dla oczu?"
+        },
+        {
+          "p": "Napisz własną listę tylko z tymi przerwami dla oczu, które lubisz. Jedno ćwiczenie w linii w `~/.config/vibestretch/exercises.txt`. Wtedy wbudowana lista nie jest używana. Przykład znajdziesz w artykule [ćwiczenia przy biurku dla programistów](@desk-stretches-programmers)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Czy vibestretch przypomina co 20 minut?",
+          "a": "Nie. Nie ma stałego harmonogramu. Przypomina tylko podczas długich odpowiedzi agenta, a domyślna przerwa między przypomnieniami to 15 minut."
+        },
+        {
+          "q": "Czy mogę dostawać tylko przerwy dla oczu?",
+          "a": "Tak. Wpisz własne ćwiczenia do ~/.config/vibestretch/exercises.txt, jedno w linii, a vibestretch użyje tej listy zamiast wbudowanej."
+        }
+      ]
+    },
+    "desk-stretches-programmers": {
+      "nav": "Ćwiczenia przy biurku",
+      "title": "Ćwiczenia przy biurku dla programistów: lista vibestretch",
+      "description": "Dwanaście krótkich ćwiczeń przy biurku, mini treningów i przerw dla oczu dla programistów oraz jak zastąpić je własną listą w vibestretch.",
+      "h1": "Ćwiczenia przy biurku dla programistów",
+      "lead": "vibestretch ma dwanaście krótkich ćwiczeń. Każde mieści się w czasie jednej odpowiedzi agenta. Zmieniają się po kolei, więc to samo nigdy nie wypada dwa razy z rzędu.",
+      "blocks": [
+        {
+          "h2": "Dwanaście wbudowanych ćwiczeń"
+        },
+        {
+          "ol": [
+            "20-20-20: patrz na coś oddalonego o 20 stóp przez 20 sekund.",
+            "Wstań, sięgnij do sufitu i wytrzymaj 15 sekund. Potem pochyl się do palców stóp na 15 sekund.",
+            "10 przysiadów.",
+            "Powolne krążenia głową, po 5 w każdą stronę.",
+            "Krążenia nadgarstkami, po 10 w każdą stronę.",
+            "Mrugnij powoli 20 razy.",
+            "Ściąganie łopatek, 10 razy: ściągnij, przytrzymaj 3 sekundy, rozluźnij.",
+            "Kontrola postawy: uszy nad barkami, barki nad biodrami. Utrzymaj tę pozycję.",
+            "Wstań i podejdź do okna. Otwórz je, jeśli możesz.",
+            "Rozgrzej dłonie, pocierając je, a potem przyłóż je do zamkniętych oczu na 20 sekund.",
+            "Krążenia biodrami, po 8 w każdą stronę.",
+            "Jeden oddech 4-7-8: wdech na 4, wstrzymanie na 7, wydech na 8."
+          ]
+        },
+        {
+          "p": "Krążenia nadgarstkami i kontrola postawy są dla osób, które myślą o RSI (urazach przeciążeniowych) i postawie podczas długich dni przy klawiaturze. vibestretch to przypomnienie. Niczego nie diagnozuje ani nie leczy."
+        },
+        {
+          "h2": "Własna lista"
+        },
+        {
+          "p": "Wpisz jedno ćwiczenie w linii do `~/.config/vibestretch/exercises.txt`. Wtedy wbudowane dwanaście nie jest używane. Puste linie i linie zaczynające się od # są pomijane."
+        },
+        {
+          "code": "custom_list"
+        },
+        {
+          "p": "Ustaw w `VIBESTRETCH_EXERCISES` inną ścieżkę, aby trzymać plik gdzie indziej. Tak samo działają listy dla poszczególnych projektów. Rotacja przechodzi przez twoją listę po kolei. Jeśli w pliku nie ma nic użytecznego, używana jest wbudowana lista."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Ile ćwiczeń ma vibestretch?",
+          "a": "Dwanaście: rozciąganie, mini treningi i przerwy dla oczu. Zmieniają się po kolei, więc to samo nigdy nie wypada dwa razy z rzędu."
+        },
+        {
+          "q": "Czy mogę dodać własne ćwiczenia?",
+          "a": "Tak. Wpisz je po jednym w linii do ~/.config/vibestretch/exercises.txt. Cudzysłowy i ukośniki wsteczne w tekście są bezpieczne."
+        }
+      ]
+    },
+    "claude-code-break-reminder": {
+      "nav": "Claude Code",
+      "title": "Jak dodać przypomnienie o przerwie do Claude Code | vibestretch",
+      "description": "Zainstaluj vibestretch w Claude Code, aby dostawać przypomnienia o rozciąganiu i przerwie dla oczu. Instalacja, pasek stanu, VS Code i ustawienia.",
+      "h1": "Jak dodać przypomnienie o przerwie do Claude Code",
+      "lead": "vibestretch to wtyczka do Claude Code. Używa trzech hooków, aby zauważać długie odpowiedzi i przypominać ci o ruchu.",
+      "blocks": [
+        {
+          "h2": "Instalacja"
+        },
+        {
+          "p": "Uruchom te dwa polecenia w Claude Code:"
+        },
+        {
+          "code": "install_claude"
+        },
+        {
+          "p": "Nie ma zależności, demona ani telemetrii. Nic więcej nie trzeba konfigurować."
+        },
+        {
+          "h2": "Gdzie pojawia się przypomnienie"
+        },
+        {
+          "ul": [
+            "Linia w sesji.",
+            "Cichy dołączony dźwięk.",
+            "Baner powiadomienia w Warp, Ghostty, iTerm2, WezTerm i kitty. W VS Code wymaga rozszerzenia do powiadomień.",
+            "Twój pasek stanu, jeśli go skonfigurujesz."
+          ]
+        },
+        {
+          "h2": "Dodaj go do paska stanu"
+        },
+        {
+          "code": "statusline"
+        },
+        {
+          "p": "To polecenie robi kopię zapasową ustawień i opakowuje twoje obecne polecenie paska stanu. Jeśli go nie masz, instaluje minimalne. Po przypomnieniu ćwiczenie zostaje tam przez 5 minut. Cofniesz to poleceniem `/vibestretch:statusline off`. Uruchom `off` przed odinstalowaniem wtyczki."
+        },
+        {
+          "h2": "VS Code"
+        },
+        {
+          "p": "W zintegrowanym terminalu działają linia, dźwięk i pasek stanu. W panelu czatu rozszerzenia dociera do ciebie tylko dźwięk. Baner w obu miejscach wymaga rozszerzenia do powiadomień. Sprawdzono na Claude Code 2.1.234."
+        },
+        {
+          "h2": "Ustawienia"
+        },
+        {
+          "p": "Wszystkie ustawienia to opcjonalne zmienne środowiskowe. Czas podaje się w sekundach."
+        },
+        {
+          "table": "settings"
+        },
+        {
+          "p": "Uruchamiasz Claude Code bez interfejsu przez `claude -p` ze skryptu? Ustaw tam `VIBESTRETCH_DISABLE=1`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Jak usunąć segment z paska stanu?",
+          "a": "Uruchom /vibestretch:statusline off. Zrób to przed odinstalowaniem wtyczki, inaczej segment zostanie w konfiguracji, ale przestanie się aktualizować."
+        },
+        {
+          "q": "Czy przypomnienie trafia do modelu?",
+          "a": "Nie. Przypomnienie to systemMessage. Widzisz je ty, a do kontekstu modelu nigdy nie trafia."
+        },
+        {
+          "q": "Dlaczego słyszę dwa dźwięki?",
+          "a": "Niektóre terminale, na przykład iTerm2, odtwarzają własny dźwięk powiadomień. Ustaw VIBESTRETCH_SOUND=0, aby zostawić tylko dźwięk terminala."
+        }
+      ]
+    },
+    "codex-cli-break-reminder": {
+      "nav": "Codex CLI",
+      "title": "Jak dodać przypomnienie o przerwie do Codex CLI | vibestretch",
+      "description": "Zainstaluj vibestretch w OpenAI Codex CLI jako wtyczkę lub ręcznie. Linia z ćwiczeniem i dźwięk podczas długich odpowiedzi Codex.",
+      "h1": "Jak dodać przypomnienie o przerwie do Codex CLI",
+      "lead": "vibestretch instaluje się w OpenAI Codex CLI z marketplace'u wtyczek. Podczas długich odpowiedzi pokazuje linię z ćwiczeniem i odtwarza dźwięk.",
+      "blocks": [
+        {
+          "h2": "Instalacja jako wtyczka"
+        },
+        {
+          "code": "install_codex"
+        },
+        {
+          "p": "Codex nie uruchamia hooków wtyczki, dopóki ich nie przejrzysz. Otwórz `/hooks` i oznacz trzy wpisy vibestretch jako zaufane. Do tego czasu wtyczka jest zainstalowana, ale milczy."
+        },
+        {
+          "h2": "Instalacja ręczna"
+        },
+        {
+          "p": "To samo robi klon repozytorium i plik konfiguracyjny:"
+        },
+        {
+          "code": "install_codex_manual"
+        },
+        {
+          "p": "Masz już `~/.codex/hooks.json`? Dopisz do niego trzy wpisy z naszego pliku. Nie nadpisuj swojego. Przy pierwszym uruchomieniu Codex poprosi o zaufanie nowej konfiguracji hooków. To normalne."
+        },
+        {
+          "p": "Wybierz jeden sposób. Jeśli masz jednocześnie wtyczkę i ręczne wpisy, każdy hook uruchamia się dwa razy. Jeśli instalowałeś ręcznie przed 0.8.0, usuń nasze wpisy z `~/.codex/hooks.json`, gdy przechodzisz na wtyczkę."
+        },
+        {
+          "h2": "Co działa w Codex"
+        },
+        {
+          "p": "Dostajesz linię w sesji i dźwięk. Nie ma banera powiadomienia, bo Codex nie ma w wyjściu hooka pola na sekwencję terminala. Nie ma też segmentu paska stanu. Tego paska w Codex nie da się oskryptować."
+        },
+        {
+          "p": "Licznik jest wspólny z Claude Code i Gemini CLI. Godzina czekania liczy się raz, niezależnie od tego, który agent trzymał cię na krześle. Adapter uruchomiono na działającej instalacji Codex CLI 0.149.1 w macOS."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Zainstalowałem, ale nic się nie dzieje. Dlaczego?",
+          "a": "Codex uruchamia hooki wtyczki dopiero po oznaczeniu ich jako zaufane. Otwórz /hooks i zaufaj trzem wpisom vibestretch."
+        },
+        {
+          "q": "Każdy hook uruchamia się dwa razy. Dlaczego?",
+          "a": "Prawdopodobnie masz i wtyczkę, i ręczne wpisy w ~/.codex/hooks.json. Zostaw jedno z nich."
+        },
+        {
+          "q": "Czy mogę używać go z codex exec?",
+          "a": "Ustaw VIBESTRETCH_DISABLE=1 w tym środowisku. Uruchomienia bez twojego udziału nie powinny liczyć się jako czas, który przesiedziałeś."
+        }
+      ]
+    },
+    "gemini-cli-break-reminder": {
+      "nav": "Gemini CLI",
+      "title": "Jak dodać przypomnienie o przerwie do Gemini CLI | vibestretch",
+      "description": "Dodaj vibestretch do Gemini CLI za pomocą trzech hooków. Linia z ćwiczeniem i dźwięk podczas długich odpowiedzi Gemini. Instalacja i scalanie.",
+      "h1": "Jak dodać przypomnienie o przerwie do Gemini CLI",
+      "lead": "Gemini CLI ma hooki włączone domyślnie od v0.26. vibestretch dodaje trzy z nich, aby przypominać o rozciąganiu podczas długich odpowiedzi.",
+      "blocks": [
+        {
+          "h2": "Instalacja"
+        },
+        {
+          "p": "Sklonuj repozytorium:"
+        },
+        {
+          "code": "install_gemini_clone"
+        },
+        {
+          "p": "Następnie skopiuj obiekt `hooks` z `~/.gemini/vibestretch/hooks/gemini-hooks.json` do `~/.gemini/settings.json`. Ten plik zawiera całą twoją konfigurację Gemini, więc scal dane. Nie zastępuj pliku. Z `jq` to jedna linia:"
+        },
+        {
+          "code": "install_gemini_merge"
+        },
+        {
+          "p": "Jeśli masz już własne hooki w `BeforeAgent`, `AfterTool` lub `AfterAgent`, to polecenie zastąpi je naszymi. Wtedy dopisz nasze trzy wpisy do swoich list ręcznie."
+        },
+        {
+          "h2": "Jakich hooków używa"
+        },
+        {
+          "ul": [
+            "`BeforeAgent`: agent zaczyna pracę nad twoim promptem.",
+            "`AfterTool`: narzędzie zakończyło pracę. Czas czekania jest dodawany i jeśli przyszła pora, pojawia się przypomnienie.",
+            "`AfterAgent`: odpowiedź się skończyła. Rozliczanie czasu jest zamykane."
+          ]
+        },
+        {
+          "h2": "Co działa w Gemini CLI"
+        },
+        {
+          "p": "Dostajesz linię w sesji i dźwięk. Nie ma banera powiadomienia. Gemini rezerwuje stdout hooka wyłącznie dla JSON, więc nie ma gdzie wypisać sekwencji sterującej."
+        },
+        {
+          "p": "Adapter uruchomiono na działającej instalacji Gemini CLI 0.56.0 w macOS. Licznik jest wspólny z Claude Code i Codex CLI."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Jakiej wersji Gemini CLI potrzebuję?",
+          "a": "Hooki są włączone domyślnie od Gemini CLI v0.26."
+        },
+        {
+          "q": "Czy scalanie nadpisze moje ustawienia?",
+          "a": "Pozostałe ustawienia zostają. Jeśli masz już własne hooki w BeforeAgent, AfterTool lub AfterAgent, jq zastąpi te listy naszymi. Wtedy dopisz nasze trzy wpisy ręcznie. Najpierw zrób kopię zapasową pliku."
+        },
+        {
+          "q": "Czy mogę używać go z gemini -p?",
+          "a": "Ustaw VIBESTRETCH_DISABLE=1, gdy uruchamiasz Gemini ze skryptu, przez cron albo z bota."
+        }
+      ]
+    }
+  },
+  "settings_rows": {
+    "VIBESTRETCH_MIN_TURN": "Minimalny czas trwania bieżącej odpowiedzi agenta.",
+    "VIBESTRETCH_MIN_ACTIVE": "Potrzebny czas agenta od ostatniej przerwy.",
+    "VIBESTRETCH_COOLDOWN": "Minimalny odstęp między przypomnieniami.",
+    "VIBESTRETCH_AWAY": "Brak użycia klawiatury i myszy przez tyle czasu oznacza, że cię nie ma. Tylko macOS. 0 wyłącza tę ochronę.",
+    "VIBESTRETCH_DISABLE": "Dowolna wartość wycisza przypomnienia.",
+    "VIBESTRETCH_NOTIFY": "0 wyłącza powiadomienie na pulpicie.",
+    "VIBESTRETCH_SOUND": "0 wycisza dźwięk.",
+    "VIBESTRETCH_EXERCISES": "Ścieżka do twojej własnej listy ćwiczeń."
+  },
+  "settings_head": [
+    "Zmienna",
+    "Domyślnie",
+    "Znaczenie"
+  ]
+}

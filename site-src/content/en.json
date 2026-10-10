@@ -1,0 +1,474 @@
+{
+  "lang_name": "English",
+  "ui": {
+    "skip": "Skip to content",
+    "nav_home": "Home",
+    "nav_label": "Pages",
+    "languages": "Language",
+    "breadcrumb_home": "vibestretch",
+    "faq_title": "FAQ",
+    "related_title": "Read next",
+    "source_link": "Source code on GitHub",
+    "footer_license": "vibestretch is open source under the MIT license.",
+    "footer_made": "Made by Junit.",
+    "breadcrumb_label": "Breadcrumb"
+  },
+  "pages": {
+    "index": {
+      "nav": "Overview",
+      "title": "vibestretch: stretch reminder for coding agent wait time",
+      "description": "vibestretch is a free stretch and break reminder for developers. It nudges you to move while Claude Code, Codex CLI or Gemini CLI runs a long turn.",
+      "h1": "Stretch while your coding agent works",
+      "lead": "vibestretch shows a short stretch, a micro-workout or an eye break while a long agent turn keeps you waiting. It works with Claude Code, Codex CLI and Gemini CLI.",
+      "blocks": [
+        {
+          "code": "install_claude_cli"
+        },
+        {
+          "p": "This installs the plugin in Claude Code. The pages for [Codex CLI](@codex-cli-break-reminder) and [Gemini CLI](@gemini-cli-break-reminder) show their install steps."
+        },
+        {
+          "h2": "What a nudge looks like"
+        },
+        {
+          "code": "nudge_example"
+        },
+        {
+          "p": "One line appears in the session. A soft chime plays. In terminals that support it, a notification banner shows up too."
+        },
+        {
+          "h2": "How it decides when to nudge"
+        },
+        {
+          "p": "vibestretch has no schedule. It counts one thing: the minutes an agent turn kept you waiting at the machine. A nudge fires only when all three are true:"
+        },
+        {
+          "ol": [
+            "The current turn has run for 2 minutes or more.",
+            "Your agent time since the last nudge adds up to 5 minutes or more.",
+            "The last nudge was at least 15 minutes ago."
+          ]
+        },
+        {
+          "p": "Quick turns never trigger it. A day of short turns says nothing at all. There is nothing to snooze, because it only speaks while you are already waiting. Read more in [stretch breaks while AI coding agents run](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "What you get"
+        },
+        {
+          "ul": [
+            "Twelve built-in exercises: stretches, micro-workouts and eye breaks such as [20-20-20](@20-20-20-eye-rule-developers).",
+            "A rotation that never repeats the same exercise twice in a row.",
+            "Your own exercise list, if you prefer it. See [desk stretches for programmers](@desk-stretches-programmers).",
+            "An optional status line segment in Claude Code."
+          ]
+        },
+        {
+          "h2": "Privacy"
+        },
+        {
+          "p": "vibestretch is a few small POSIX shell scripts and one bundled sound. It makes no network calls. It sends no telemetry. It shows no ads and puts no links in your terminal. It adds nothing to the model's context. Its state lives in `~/.cache/vibestretch/`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is vibestretch?",
+          "a": "vibestretch is a plugin for coding agents. It reminds you to stretch, move or rest your eyes while a long agent turn keeps you waiting."
+        },
+        {
+          "q": "Which coding agents does it support?",
+          "a": "Claude Code, OpenAI Codex CLI and Gemini CLI. All three use the same counter, so an hour of waiting counts once, whichever agent kept you in the chair."
+        },
+        {
+          "q": "Is it a break timer?",
+          "a": "No. A timer runs on a schedule. vibestretch counts only the time an agent turn kept you waiting, and it nudges only during that wait."
+        },
+        {
+          "q": "Does it send data anywhere?",
+          "a": "No. It makes no network calls and sends no telemetry. Nothing leaves your machine."
+        },
+        {
+          "q": "How much does it cost?",
+          "a": "It is free. vibestretch is open source under the MIT license, and the code is on GitHub."
+        },
+        {
+          "q": "How do I mute it?",
+          "a": "Set VIBESTRETCH_DISABLE to any value to mute nudges. VIBESTRETCH_SOUND=0 mutes the sound. VIBESTRETCH_NOTIFY=0 drops the banner."
+        }
+      ]
+    },
+    "stretch-breaks-ai-coding-agents": {
+      "nav": "Breaks during agent runs",
+      "title": "Stretch breaks while AI coding agents run | vibestretch",
+      "description": "Use the minutes a coding agent keeps you waiting for a short stretch. How vibestretch counts agent wait time and when it nudges you.",
+      "h1": "Stretch breaks while AI coding agents run",
+      "lead": "A coding agent can work for minutes at a time. You sit and watch. vibestretch turns that wait into a short break.",
+      "blocks": [
+        {
+          "h2": "Why the wait is a good moment"
+        },
+        {
+          "p": "Break timers fire on a schedule. They often land in the middle of a thought, and many people end up turning them off. The time an agent is busy is different. You are waiting anyway. A stretch in that gap costs you no focus."
+        },
+        {
+          "h2": "What vibestretch counts"
+        },
+        {
+          "p": "It counts agent time: the minutes an agent turn was running while you were at the machine. It adds them up since your last nudge. This is not how long you have been at your desk. An hour of reading and typing with quick turns in between adds almost nothing."
+        },
+        {
+          "h2": "When a nudge fires"
+        },
+        {
+          "p": "All three conditions must be true:"
+        },
+        {
+          "ol": [
+            "The current turn has run for at least 2 minutes.",
+            "Agent time since the last nudge is at least 5 minutes. One big task or several medium ones both count.",
+            "The last nudge was at least 15 minutes ago."
+          ]
+        },
+        {
+          "p": "You can change each number with an environment variable. See the [Claude Code page](@claude-code-break-reminder) for the full list."
+        },
+        {
+          "h2": "When you step away"
+        },
+        {
+          "p": "If you are away from the keyboard for 45 minutes or more, the count resets. You already had your break. On macOS the hooks read the system keyboard and mouse idle clock. So an agent working overnight adds no agent time and never chimes at an empty chair. Linux has no portable idle clock, so there only the 45-minute reset applies."
+        },
+        {
+          "h2": "What the nudge asks you to do"
+        },
+        {
+          "p": "Each nudge is one exercise from a list of twelve. They cover stretches, micro-workouts and eye breaks. See [desk stretches for programmers](@desk-stretches-programmers) for the whole list."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Will it nudge me during short turns?",
+          "a": "No. A turn must run for at least 2 minutes, and enough agent time must build up, before a nudge can fire."
+        },
+        {
+          "q": "Does a fast model mean fewer nudges?",
+          "a": "Yes. Fast models finish turns before the thresholds are reached, so there is nothing to mute."
+        },
+        {
+          "q": "What about agents run from scripts or cron?",
+          "a": "Set VIBESTRETCH_DISABLE=1 in that environment. Otherwise unattended sessions count as time you never sat through."
+        }
+      ]
+    },
+    "20-20-20-eye-rule-developers": {
+      "nav": "20-20-20 eye rule",
+      "title": "20-20-20 eye rule for developers | vibestretch",
+      "description": "The 20-20-20 eye break and other eye breaks built into vibestretch, a reminder that runs while your coding agent works.",
+      "h1": "The 20-20-20 eye rule for developers",
+      "lead": "Long agent turns mean long stretches of staring at a screen. vibestretch includes eye breaks in its rotation, and 20-20-20 is one of them.",
+      "blocks": [
+        {
+          "h2": "The 20-20-20 break in vibestretch"
+        },
+        {
+          "p": "This is how the nudge reads:"
+        },
+        {
+          "code": "nudge_202020"
+        },
+        {
+          "p": "Look at something 20 feet (about 6 m) away. Keep looking for 20 seconds. Then go back to your agent."
+        },
+        {
+          "h2": "Other eye breaks in the list"
+        },
+        {
+          "ul": [
+            "Blink 20 times, slowly.",
+            "Rub your palms warm, then cup them over your closed eyes for 20 seconds.",
+            "Stand up and walk to a window."
+          ]
+        },
+        {
+          "h2": "When it reminds you"
+        },
+        {
+          "p": "vibestretch does not run on a clock. It reminds you while a long agent turn keeps you waiting, at most once every 15 minutes by default. Eye breaks come up as part of the rotation of twelve exercises. Read how the timing works in [stretch breaks while AI coding agents run](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Only want eye breaks?"
+        },
+        {
+          "p": "Write your own list with only the eye breaks you like. One exercise per line in `~/.config/vibestretch/exercises.txt`. The built-in list then steps aside. See [desk stretches for programmers](@desk-stretches-programmers) for an example."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Does vibestretch remind me every 20 minutes?",
+          "a": "No. It has no fixed schedule. It reminds you only during long agent turns, and the default cooldown between nudges is 15 minutes."
+        },
+        {
+          "q": "Can I get only eye breaks?",
+          "a": "Yes. Put your own exercises in ~/.config/vibestretch/exercises.txt, one per line, and vibestretch uses that list instead of the built-in one."
+        }
+      ]
+    },
+    "desk-stretches-programmers": {
+      "nav": "Desk stretches",
+      "title": "Desk stretches for programmers: the vibestretch list",
+      "description": "Twelve short desk stretches, micro-workouts and eye breaks for programmers, and how to replace them with your own list in vibestretch.",
+      "h1": "Desk stretches for programmers",
+      "lead": "vibestretch ships twelve short exercises. Each one fits into the time an agent turn takes. They rotate, so you never get the same one twice in a row.",
+      "blocks": [
+        {
+          "h2": "The twelve built-in exercises"
+        },
+        {
+          "ol": [
+            "20-20-20: look at something 20 feet away for 20 seconds.",
+            "Stand up, reach for the ceiling and hold for 15 seconds. Then fold to your toes for 15 seconds.",
+            "10 squats.",
+            "Slow neck rolls, 5 in each direction.",
+            "Wrist circles, 10 each way.",
+            "Blink 20 times, slowly.",
+            "Shoulder blade squeezes, 10 times: pinch, hold 3 seconds, release.",
+            "Posture check: ears over shoulders, shoulders over hips. Hold it.",
+            "Stand up and walk to a window. Open it if you can.",
+            "Rub your palms warm, then cup them over closed eyes for 20 seconds.",
+            "Hip circles, 8 each way.",
+            "One 4-7-8 breath: in for 4, hold for 7, out for 8."
+          ]
+        },
+        {
+          "p": "Wrist circles and the posture check are there for people who think about RSI and posture during long days at the keyboard. vibestretch is a reminder. It does not diagnose or treat anything."
+        },
+        {
+          "h2": "Use your own list"
+        },
+        {
+          "p": "Put one exercise per line in `~/.config/vibestretch/exercises.txt`. The built-in twelve then step aside. Blank lines and lines starting with # are skipped."
+        },
+        {
+          "code": "custom_list"
+        },
+        {
+          "p": "Set `VIBESTRETCH_EXERCISES` to another path to keep the file somewhere else. Per-project lists work that way too. The rotation goes through your list in order. A file with nothing usable in it falls back to the built-in list."
+        }
+      ],
+      "faq": [
+        {
+          "q": "How many exercises does vibestretch include?",
+          "a": "Twelve: stretches, micro-workouts and eye breaks. They rotate so the same one never comes twice in a row."
+        },
+        {
+          "q": "Can I add my own stretches?",
+          "a": "Yes. Write one per line in ~/.config/vibestretch/exercises.txt. Quotes and backslashes in your text are safe to use."
+        }
+      ]
+    },
+    "claude-code-break-reminder": {
+      "nav": "Claude Code",
+      "title": "How to add a break reminder to Claude Code | vibestretch",
+      "description": "Install vibestretch in Claude Code to get stretch and eye break reminders during long turns. Install, status line, VS Code notes and settings.",
+      "h1": "How to add a break reminder to Claude Code",
+      "lead": "vibestretch is a Claude Code plugin. It uses three hooks to notice long turns and nudge you to move.",
+      "blocks": [
+        {
+          "h2": "Install"
+        },
+        {
+          "p": "Run these two commands inside Claude Code:"
+        },
+        {
+          "code": "install_claude"
+        },
+        {
+          "p": "There are no dependencies, no daemon and no telemetry. Nothing else to configure."
+        },
+        {
+          "h2": "Where the nudge shows up"
+        },
+        {
+          "ul": [
+            "A line in the session.",
+            "A soft bundled chime.",
+            "A notification banner in Warp, Ghostty, iTerm2, WezTerm and kitty. In VS Code it needs a notifier extension.",
+            "Your status line, if you set it up."
+          ]
+        },
+        {
+          "h2": "Add it to your status line"
+        },
+        {
+          "code": "statusline"
+        },
+        {
+          "p": "This command backs up your settings and wraps your existing status line command. If you have none, it installs a minimal one. After a nudge, the exercise stays there for 5 minutes. Undo it with `/vibestretch:statusline off`. Run `off` before you uninstall the plugin."
+        },
+        {
+          "h2": "VS Code"
+        },
+        {
+          "p": "In the integrated terminal the line, the chime and the status line all work. In the extension's chat panel only the chime reaches you. The banner needs a notifier extension in both places. This was checked on Claude Code 2.1.234."
+        },
+        {
+          "h2": "Settings"
+        },
+        {
+          "p": "All settings are optional environment variables. Times are in seconds."
+        },
+        {
+          "table": "settings"
+        },
+        {
+          "p": "Running Claude Code headless with `claude -p` from a script? Set `VIBESTRETCH_DISABLE=1` there."
+        }
+      ],
+      "faq": [
+        {
+          "q": "How do I remove the status line segment?",
+          "a": "Run /vibestretch:statusline off. Do this before you uninstall the plugin, or the segment stays configured but frozen."
+        },
+        {
+          "q": "Does the nudge reach the model?",
+          "a": "No. The nudge is a systemMessage. It is shown to you and never added to the model's context."
+        },
+        {
+          "q": "Why do I hear two sounds?",
+          "a": "Some terminals, such as iTerm2, play their own sound for notifications. Set VIBESTRETCH_SOUND=0 to keep only the terminal's sound."
+        }
+      ]
+    },
+    "codex-cli-break-reminder": {
+      "nav": "Codex CLI",
+      "title": "How to add a break reminder to Codex CLI | vibestretch",
+      "description": "Install vibestretch in OpenAI Codex CLI as a plugin or by hand. Get a stretch line and a chime while long Codex turns run.",
+      "h1": "How to add a break reminder to Codex CLI",
+      "lead": "vibestretch installs in OpenAI Codex CLI from the plugin marketplace. It shows a stretch line and plays a chime during long turns.",
+      "blocks": [
+        {
+          "h2": "Install as a plugin"
+        },
+        {
+          "code": "install_codex"
+        },
+        {
+          "p": "Codex does not run a plugin's hooks until you review them. Open `/hooks` and trust the three vibestretch entries. Until then the plugin is installed but silent."
+        },
+        {
+          "h2": "Install by hand"
+        },
+        {
+          "p": "A clone and a config file do the same job:"
+        },
+        {
+          "code": "install_codex_manual"
+        },
+        {
+          "p": "Already have a `~/.codex/hooks.json`? Merge the three entries from ours into it. Do not overwrite yours. Codex asks you to trust a new hook config the first time it runs. That prompt is expected."
+        },
+        {
+          "p": "Pick one way. With the plugin and the hand-made entries both in place, every hook runs twice. If you installed by hand before 0.8.0, remove our entries from `~/.codex/hooks.json` when you switch to the plugin."
+        },
+        {
+          "h2": "What you get in Codex"
+        },
+        {
+          "p": "You get the line in the session and the chime. There is no notification banner, because Codex has no hook output field for a terminal sequence. There is no status line segment either. That bar is not scriptable in Codex."
+        },
+        {
+          "p": "The counter is shared with Claude Code and Gemini CLI. An hour of waiting counts once, whichever agent kept you in the chair. The adapter was run on a live install of Codex CLI 0.149.1 on macOS."
+        }
+      ],
+      "faq": [
+        {
+          "q": "I installed it, but nothing happens. Why?",
+          "a": "Codex runs a plugin's hooks only after you trust them. Open /hooks and trust the three vibestretch entries."
+        },
+        {
+          "q": "Every hook runs twice. Why?",
+          "a": "You probably have both the plugin and hand-made entries in ~/.codex/hooks.json. Keep one of the two."
+        },
+        {
+          "q": "Can I use it with codex exec?",
+          "a": "Set VIBESTRETCH_DISABLE=1 in that environment. Unattended runs should not count as time you sat through."
+        }
+      ]
+    },
+    "gemini-cli-break-reminder": {
+      "nav": "Gemini CLI",
+      "title": "How to add a break reminder to Gemini CLI | vibestretch",
+      "description": "Add vibestretch to Gemini CLI with three hooks. Get a stretch line and a chime during long Gemini turns. Install and merge steps.",
+      "h1": "How to add a break reminder to Gemini CLI",
+      "lead": "Gemini CLI has shipped hooks enabled since v0.26. vibestretch adds three of them to remind you to stretch during long turns.",
+      "blocks": [
+        {
+          "h2": "Install"
+        },
+        {
+          "p": "Clone the repository:"
+        },
+        {
+          "code": "install_gemini_clone"
+        },
+        {
+          "p": "Then copy the `hooks` object from `~/.gemini/vibestretch/hooks/gemini-hooks.json` into `~/.gemini/settings.json`. That file holds your whole Gemini configuration, so merge it. Do not replace it. With `jq` it is one line:"
+        },
+        {
+          "code": "install_gemini_merge"
+        },
+        {
+          "p": "If you already have your own `BeforeAgent`, `AfterTool` or `AfterAgent` hooks, this command replaces them with ours. In that case add our three entries to your lists by hand."
+        },
+        {
+          "h2": "Which hooks it uses"
+        },
+        {
+          "ul": [
+            "`BeforeAgent`: the agent starts working on your prompt.",
+            "`AfterTool`: a tool finished. Wait time is added, and a nudge fires if one is due.",
+            "`AfterAgent`: the turn is over. The accounting closes."
+          ]
+        },
+        {
+          "h2": "What you get in Gemini CLI"
+        },
+        {
+          "p": "You get the line in the session and the chime. There is no notification banner. Gemini reserves a hook's stdout for JSON alone, so there is nowhere to print an escape sequence."
+        },
+        {
+          "p": "The adapter was run on a live install of Gemini CLI 0.56.0 on macOS. The counter is shared with Claude Code and Codex CLI."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Which Gemini CLI version do I need?",
+          "a": "Hooks ship enabled since Gemini CLI v0.26."
+        },
+        {
+          "q": "Will the merge overwrite my settings?",
+          "a": "It keeps your other settings. If you already have your own BeforeAgent, AfterTool or AfterAgent hooks, jq replaces those lists with ours. In that case add our three entries by hand. Back up the file first."
+        },
+        {
+          "q": "Can I use it with gemini -p?",
+          "a": "Set VIBESTRETCH_DISABLE=1 when you run Gemini from a script, cron or a bot."
+        }
+      ]
+    }
+  },
+  "settings_rows": {
+    "VIBESTRETCH_MIN_TURN": "The current turn must run at least this long.",
+    "VIBESTRETCH_MIN_ACTIVE": "Agent time needed since your last break.",
+    "VIBESTRETCH_COOLDOWN": "Minimum gap between nudges.",
+    "VIBESTRETCH_AWAY": "No keyboard or mouse for this long means you are away. macOS only. 0 turns the guard off.",
+    "VIBESTRETCH_DISABLE": "Set to anything to mute nudges.",
+    "VIBESTRETCH_NOTIFY": "Set to 0 to drop the desktop notification.",
+    "VIBESTRETCH_SOUND": "Set to 0 to mute the sound.",
+    "VIBESTRETCH_EXERCISES": "Path to your own exercise list."
+  },
+  "settings_head": [
+    "Variable",
+    "Default",
+    "Meaning"
+  ]
+}

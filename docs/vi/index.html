@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="vi" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vibestretch: nhắc giãn cơ khi chờ coding agent làm việc</title>
+<meta name="description" content="vibestretch là công cụ nhắc giãn cơ và nghỉ giải lao miễn phí cho lập trình viên. Nó nhắc bạn vận động khi Claude Code, Codex CLI hay Gemini CLI chạy lâu.">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/vi/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="vibestretch: nhắc giãn cơ khi chờ coding agent làm việc">
+<meta property="og:description" content="vibestretch là công cụ nhắc giãn cơ và nghỉ giải lao miễn phí cho lập trình viên. Nó nhắc bạn vận động khi Claude Code, Codex CLI hay Gemini CLI chạy lâu.">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/vi/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="ms_MY">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch là công cụ nhắc giãn cơ và nghỉ giải lao miễn phí cho lập trình viên. Nó nhắc bạn vận động khi Claude Code, Codex CLI hay Gemini CLI chạy lâu.",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/vi/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/vi/",
+   "name": "vibestretch: nhắc giãn cơ khi chờ coding agent làm việc",
+   "description": "vibestretch là công cụ nhắc giãn cơ và nghỉ giải lao miễn phí cho lập trình viên. Nó nhắc bạn vận động khi Claude Code, Codex CLI hay Gemini CLI chạy lâu.",
+   "inLanguage": "vi",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/vi/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/vi/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/vi/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/vi/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/vi/",
+   "inLanguage": "vi",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "vibestretch là gì?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "vibestretch là plugin cho coding agent. Nó nhắc bạn giãn cơ, vận động hoặc cho mắt nghỉ khi một lượt chạy dài của agent khiến bạn phải chờ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Nó hỗ trợ những coding agent nào?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Claude Code, OpenAI Codex CLI và Gemini CLI. Cả ba dùng chung một bộ đếm, nên một giờ chờ chỉ được tính một lần, dù agent nào giữ bạn ngồi trên ghế."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Đây có phải là bộ hẹn giờ nghỉ giải lao?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Không. Bộ hẹn giờ chạy theo lịch. vibestretch chỉ đếm thời gian một lượt chạy của agent khiến bạn phải chờ, và chỉ nhắc trong lúc chờ đó."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Nó có gửi dữ liệu đi đâu không?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Không. Nó không gọi mạng và không gửi telemetry. Không có gì rời khỏi máy của bạn."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Giá bao nhiêu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Miễn phí. vibestretch là phần mềm mã nguồn mở theo giấy phép MIT, mã nguồn có trên GitHub."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Làm sao để tắt nó?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Đặt VIBESTRETCH_DISABLE với giá trị bất kỳ để tắt lời nhắc. VIBESTRETCH_SOUND=0 tắt âm thanh. VIBESTRETCH_NOTIFY=0 bỏ banner."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Chuyển đến nội dung</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../vi/"><img src="../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>Ngôn ngữ: Tiếng Việt</summary><ul><li><a href="../" hreflang="en" lang="en">English</a></li><li><a href="../es/" hreflang="es" lang="es">Español</a></li><li><a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../it/" hreflang="it" lang="it">Italiano</a></li><li><a href="../ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../uk/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../sv/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../da/" hreflang="da" lang="da">Dansk</a></li><li><a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../cs/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="../ro/" hreflang="ro" lang="ro">Română</a></li><li><a href="../hu/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../el/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../ko/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../th/" hreflang="th" lang="th">ไทย</a></li><li><a href="../vi/" hreflang="vi" lang="vi" aria-current="true">Tiếng Việt</a></li><li><a href="../ms/" hreflang="ms" lang="ms">Bahasa Melayu</a></li><li><a href="../hi/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../ar/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../he/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="Các trang"><ul><li><a href="../vi/" aria-current="page">Tổng quan</a></li><li><a href="../vi/stretch-breaks-ai-coding-agents/">Nghỉ khi agent chạy</a></li><li><a href="../vi/20-20-20-eye-rule-developers/">Quy tắc 20-20-20</a></li><li><a href="../vi/desk-stretches-programmers/">Giãn cơ tại bàn</a></li><li><a href="../vi/claude-code-break-reminder/">Claude Code</a></li><li><a href="../vi/codex-cli-break-reminder/">Codex CLI</a></li><li><a href="../vi/gemini-cli-break-reminder/">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Đường dẫn"><ol><li><a href="../vi/">vibestretch</a></li></ol></nav>
+<h1>Giãn cơ trong lúc coding agent làm việc</h1>
+<p class="lead">vibestretch hiển thị một động tác giãn cơ ngắn, một bài tập nhỏ hoặc một lần nghỉ mắt khi một lượt chạy dài của agent khiến bạn phải chờ. Công cụ dùng được với Claude Code, Codex CLI và Gemini CLI.</p>
+<pre><code>claude plugin marketplace add Eliasjunit/vibestretch &amp;&amp; claude plugin install vibestretch@vibestretch</code></pre>
+<p>Lệnh này cài plugin vào Claude Code. Trang <a href="../vi/codex-cli-break-reminder/">Codex CLI</a> và <a href="../vi/gemini-cli-break-reminder/">Gemini CLI</a> có hướng dẫn cài đặt riêng.</p>
+<h2>Lời nhắc trông như thế nào</h2>
+<pre><code>🧘 Wrist circles, 10 each way. Your tendons will thank you. · vibestretch · 7 min of agent time</code></pre>
+<p>Một dòng xuất hiện trong phiên làm việc. Một tiếng chuông nhẹ vang lên. Ở các terminal có hỗ trợ, một banner thông báo cũng hiện ra.</p>
+<h2>Khi nào lời nhắc xuất hiện</h2>
+<p>vibestretch không có lịch cố định. Nó chỉ đếm một thứ: số phút một lượt chạy của agent khiến bạn phải ngồi chờ trước máy. Lời nhắc chỉ xuất hiện khi cả ba điều kiện sau đều đúng:</p>
+<ol><li>Lượt hiện tại đã chạy từ 2 phút trở lên.</li><li>Tổng thời gian agent kể từ lời nhắc trước đạt từ 5 phút trở lên.</li><li>Lời nhắc trước đã cách đây ít nhất 15 phút.</li></ol>
+<p>Các lượt nhanh không bao giờ kích hoạt nó. Cả một ngày chỉ có lượt ngắn thì không có lời nhắc nào. Không cần tạm hoãn gì cả, vì nó chỉ lên tiếng khi bạn đang chờ sẵn. Đọc thêm tại <a href="../vi/stretch-breaks-ai-coding-agents/">nghỉ giãn cơ khi AI coding agent đang chạy</a>.</p>
+<h2>Bạn nhận được gì</h2>
+<ul><li>Mười hai bài tập có sẵn: giãn cơ, bài tập nhỏ và nghỉ mắt như <a href="../vi/20-20-20-eye-rule-developers/">20-20-20</a>.</li><li>Cơ chế xoay vòng không bao giờ lặp lại cùng một bài hai lần liên tiếp.</li><li>Danh sách bài tập của riêng bạn, nếu bạn muốn. Xem <a href="../vi/desk-stretches-programmers/">bài tập giãn cơ tại bàn cho lập trình viên</a>.</li><li>Một phần hiển thị tùy chọn trên status line của Claude Code.</li></ul>
+<h2>Quyền riêng tư</h2>
+<p>vibestretch gồm vài script shell POSIX nhỏ và một file âm thanh đi kèm. Nó không gọi mạng. Nó không gửi dữ liệu telemetry. Nó không hiển thị quảng cáo và không chèn liên kết vào terminal của bạn. Nó không thêm gì vào ngữ cảnh của model. Trạng thái của nó nằm trong <code>~/.cache/vibestretch/</code>.</p>
+<section class="faq" id="faq"><h2>Câu hỏi thường gặp</h2><dl><dt>vibestretch là gì?</dt><dd>vibestretch là plugin cho coding agent. Nó nhắc bạn giãn cơ, vận động hoặc cho mắt nghỉ khi một lượt chạy dài của agent khiến bạn phải chờ.</dd><dt>Nó hỗ trợ những coding agent nào?</dt><dd>Claude Code, OpenAI Codex CLI và Gemini CLI. Cả ba dùng chung một bộ đếm, nên một giờ chờ chỉ được tính một lần, dù agent nào giữ bạn ngồi trên ghế.</dd><dt>Đây có phải là bộ hẹn giờ nghỉ giải lao?</dt><dd>Không. Bộ hẹn giờ chạy theo lịch. vibestretch chỉ đếm thời gian một lượt chạy của agent khiến bạn phải chờ, và chỉ nhắc trong lúc chờ đó.</dd><dt>Nó có gửi dữ liệu đi đâu không?</dt><dd>Không. Nó không gọi mạng và không gửi telemetry. Không có gì rời khỏi máy của bạn.</dd><dt>Giá bao nhiêu?</dt><dd>Miễn phí. vibestretch là phần mềm mã nguồn mở theo giấy phép MIT, mã nguồn có trên GitHub.</dd><dt>Làm sao để tắt nó?</dt><dd>Đặt VIBESTRETCH_DISABLE với giá trị bất kỳ để tắt lời nhắc. VIBESTRETCH_SOUND=0 tắt âm thanh. VIBESTRETCH_NOTIFY=0 bỏ banner.</dd></dl></section>
+<section class="related"><h2>Đọc tiếp</h2><ul><li><a href="../vi/stretch-breaks-ai-coding-agents/">Nghỉ giãn cơ khi AI coding agent đang chạy</a></li><li><a href="../vi/20-20-20-eye-rule-developers/">Quy tắc 20-20-20 cho mắt của lập trình viên</a></li><li><a href="../vi/desk-stretches-programmers/">Bài tập giãn cơ tại bàn cho lập trình viên</a></li><li><a href="../vi/claude-code-break-reminder/">Cách thêm lời nhắc nghỉ giải lao vào Claude Code</a></li><li><a href="../vi/codex-cli-break-reminder/">Cách thêm lời nhắc nghỉ giải lao vào Codex CLI</a></li><li><a href="../vi/gemini-cli-break-reminder/">Cách thêm lời nhắc nghỉ giải lao vào Gemini CLI</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch là phần mềm mã nguồn mở theo giấy phép MIT. Do Junit thực hiện. <a href="https://github.com/Eliasjunit/vibestretch">Mã nguồn trên GitHub</a></p>
+</div></footer>
+</body>
+</html>

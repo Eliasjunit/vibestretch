@@ -1,0 +1,474 @@
+{
+  "lang_name": "Bahasa Melayu",
+  "ui": {
+    "skip": "Langkau ke kandungan",
+    "nav_home": "Laman utama",
+    "nav_label": "Halaman",
+    "languages": "Bahasa",
+    "breadcrumb_home": "vibestretch",
+    "faq_title": "Soalan lazim",
+    "related_title": "Baca seterusnya",
+    "source_link": "Kod sumber di GitHub",
+    "footer_license": "vibestretch ialah perisian sumber terbuka di bawah lesen MIT.",
+    "footer_made": "Dihasilkan oleh Junit.",
+    "breadcrumb_label": "Serbuk roti"
+  },
+  "pages": {
+    "index": {
+      "nav": "Gambaran keseluruhan",
+      "title": "vibestretch: peringatan regangan semasa menunggu ejen pengekodan",
+      "description": "vibestretch ialah peringatan regangan dan rehat percuma untuk pembangun. Ia mengingatkan anda bergerak semasa Claude Code, Codex CLI atau Gemini CLI berjalan lama.",
+      "h1": "Buat regangan sementara ejen pengekodan bekerja",
+      "lead": "vibestretch memaparkan regangan ringkas, senaman mikro atau rehat mata apabila giliran ejen yang panjang membuatkan anda menunggu. Ia berfungsi dengan Claude Code, Codex CLI dan Gemini CLI.",
+      "blocks": [
+        {
+          "code": "install_claude_cli"
+        },
+        {
+          "p": "Arahan ini memasang pemalam dalam Claude Code. Halaman [Codex CLI](@codex-cli-break-reminder) dan [Gemini CLI](@gemini-cli-break-reminder) menerangkan langkah pemasangannya."
+        },
+        {
+          "h2": "Rupa peringatan"
+        },
+        {
+          "code": "nudge_example"
+        },
+        {
+          "p": "Satu baris muncul dalam sesi. Bunyi loceng yang lembut kedengaran. Dalam terminal yang menyokongnya, sepanduk pemberitahuan juga dipaparkan."
+        },
+        {
+          "h2": "Bila peringatan dipaparkan"
+        },
+        {
+          "p": "vibestretch tidak mempunyai jadual. Ia mengira satu perkara sahaja: berapa minit giliran ejen membuatkan anda menunggu di depan komputer. Peringatan hanya dipaparkan apabila ketiga-tiga syarat ini dipenuhi:"
+        },
+        {
+          "ol": [
+            "Giliran semasa telah berjalan selama 2 minit atau lebih.",
+            "Jumlah masa ejen sejak peringatan terakhir mencecah 5 minit atau lebih.",
+            "Peringatan terakhir sekurang-kurangnya 15 minit yang lalu."
+          ]
+        },
+        {
+          "p": "Giliran yang cepat tidak akan mencetuskannya. Sehari penuh dengan giliran pendek tidak menghasilkan sebarang peringatan. Tiada apa yang perlu ditangguhkan, kerana ia hanya bersuara ketika anda memang sedang menunggu. Baca lanjut di [rehat regangan semasa ejen pengekodan AI berjalan](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Apa yang anda dapat"
+        },
+        {
+          "ul": [
+            "Dua belas senaman terbina dalam: regangan, senaman mikro dan rehat mata seperti [20-20-20](@20-20-20-eye-rule-developers).",
+            "Putaran yang tidak pernah mengulang senaman yang sama dua kali berturut-turut.",
+            "Senarai senaman anda sendiri, jika anda mahu. Lihat [regangan di meja untuk pengaturcara](@desk-stretches-programmers).",
+            "Segmen status line pilihan dalam Claude Code."
+          ]
+        },
+        {
+          "h2": "Privasi"
+        },
+        {
+          "p": "vibestretch terdiri daripada beberapa skrip shell POSIX yang kecil dan satu fail bunyi. Ia tidak membuat sebarang panggilan rangkaian. Ia tidak menghantar telemetri. Ia tidak memaparkan iklan dan tidak meletakkan pautan dalam terminal anda. Ia tidak menambah apa-apa ke dalam konteks model. Keadaannya disimpan dalam `~/.cache/vibestretch/`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Apakah vibestretch?",
+          "a": "vibestretch ialah pemalam untuk ejen pengekodan. Ia mengingatkan anda untuk meregangkan badan, bergerak atau merehatkan mata apabila giliran ejen yang panjang membuatkan anda menunggu."
+        },
+        {
+          "q": "Ejen pengekodan mana yang disokong?",
+          "a": "Claude Code, OpenAI Codex CLI dan Gemini CLI. Ketiga-tiganya menggunakan pembilang yang sama, jadi sejam menunggu dikira sekali sahaja, tidak kira ejen mana yang membuatkan anda terus duduk."
+        },
+        {
+          "q": "Adakah ini pemasa rehat?",
+          "a": "Tidak. Pemasa berjalan mengikut jadual. vibestretch hanya mengira masa giliran ejen membuatkan anda menunggu, dan ia hanya memberi peringatan semasa menunggu itu."
+        },
+        {
+          "q": "Adakah ia menghantar data ke mana-mana?",
+          "a": "Tidak. Ia tidak membuat panggilan rangkaian dan tidak menghantar telemetri. Tiada apa yang keluar dari komputer anda."
+        },
+        {
+          "q": "Berapakah harganya?",
+          "a": "Percuma. vibestretch ialah perisian sumber terbuka di bawah lesen MIT, dan kodnya ada di GitHub."
+        },
+        {
+          "q": "Bagaimana mahu menyenyapkannya?",
+          "a": "Tetapkan VIBESTRETCH_DISABLE kepada sebarang nilai untuk menyenyapkan peringatan. VIBESTRETCH_SOUND=0 mematikan bunyi. VIBESTRETCH_NOTIFY=0 membuang sepanduk."
+        }
+      ]
+    },
+    "stretch-breaks-ai-coding-agents": {
+      "nav": "Rehat semasa ejen berjalan",
+      "title": "Rehat regangan semasa ejen pengekodan AI berjalan | vibestretch",
+      "description": "Gunakan minit-minit menunggu ejen pengekodan untuk regangan ringkas. Cara vibestretch mengira masa menunggu ejen dan bila ia mengingatkan anda.",
+      "h1": "Rehat regangan semasa ejen pengekodan AI berjalan",
+      "lead": "Ejen pengekodan boleh bekerja selama beberapa minit sekali gus. Anda duduk dan memerhati. vibestretch menjadikan masa menunggu itu rehat yang singkat.",
+      "blocks": [
+        {
+          "h2": "Mengapa masa menunggu ialah saat yang sesuai"
+        },
+        {
+          "p": "Pemasa rehat berbunyi mengikut jadual. Ia sering muncul ketika anda sedang berfikir, dan ramai orang akhirnya mematikannya. Masa ejen sedang sibuk adalah berbeza. Anda memang sedang menunggu. Regangan dalam ruang itu tidak menjejaskan tumpuan anda."
+        },
+        {
+          "h2": "Apa yang dikira oleh vibestretch"
+        },
+        {
+          "p": "Ia mengira masa ejen: berapa minit giliran ejen berjalan semasa anda berada di depan komputer. Masa itu dijumlahkan sejak peringatan terakhir. Ini berbeza daripada tempoh anda duduk di meja. Sejam membaca dan menaip dengan giliran pantas di celah-celahnya hampir tidak menambah apa-apa."
+        },
+        {
+          "h2": "Bila peringatan dipaparkan"
+        },
+        {
+          "p": "Ketiga-tiga syarat mesti dipenuhi:"
+        },
+        {
+          "ol": [
+            "Giliran semasa telah berjalan sekurang-kurangnya 2 minit.",
+            "Masa ejen sejak peringatan terakhir sekurang-kurangnya 5 minit. Satu tugasan besar atau beberapa tugasan sederhana sama-sama dikira.",
+            "Peringatan terakhir sekurang-kurangnya 15 minit yang lalu."
+          ]
+        },
+        {
+          "p": "Anda boleh menukar setiap nombor dengan pemboleh ubah persekitaran. Lihat [halaman Claude Code](@claude-code-break-reminder) untuk senarai penuh."
+        },
+        {
+          "h2": "Apabila anda meninggalkan komputer"
+        },
+        {
+          "p": "Jika anda jauh dari papan kekunci selama 45 minit atau lebih, kiraan ditetapkan semula. Anda sudah pun berehat. Pada macOS, hook membaca jam melahu papan kekunci dan tetikus daripada sistem. Jadi ejen yang bekerja sepanjang malam tidak menambah masa ejen dan tidak akan berbunyi di depan kerusi kosong. Linux tidak mempunyai jam melahu yang mudah alih, jadi di sana hanya penetapan semula 45 minit yang terpakai."
+        },
+        {
+          "h2": "Apa yang diminta oleh peringatan"
+        },
+        {
+          "p": "Setiap peringatan ialah satu senaman daripada senarai dua belas. Senarai ini merangkumi regangan, senaman mikro dan rehat mata. Lihat [regangan di meja untuk pengaturcara](@desk-stretches-programmers) untuk senarai penuh."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Adakah ia akan mengingatkan saya semasa giliran pendek?",
+          "a": "Tidak. Giliran mesti berjalan sekurang-kurangnya 2 minit, dan masa ejen yang mencukupi mesti terkumpul, sebelum peringatan boleh dipaparkan."
+        },
+        {
+          "q": "Adakah model yang pantas bermakna kurang peringatan?",
+          "a": "Ya. Model yang pantas menyiapkan giliran sebelum ambang dicapai, jadi tiada apa yang perlu disenyapkan."
+        },
+        {
+          "q": "Bagaimana dengan ejen yang dijalankan daripada skrip atau cron?",
+          "a": "Tetapkan VIBESTRETCH_DISABLE=1 dalam persekitaran itu. Jika tidak, sesi tanpa pengawasan akan dikira sebagai masa yang tidak pernah anda lalui."
+        }
+      ]
+    },
+    "20-20-20-eye-rule-developers": {
+      "nav": "Peraturan mata 20-20-20",
+      "title": "Peraturan mata 20-20-20 untuk pembangun | vibestretch",
+      "description": "Rehat mata 20-20-20 dan rehat mata lain yang terbina dalam vibestretch, peringatan yang berjalan semasa ejen pengekodan anda bekerja.",
+      "h1": "Peraturan mata 20-20-20 untuk pembangun",
+      "lead": "Giliran ejen yang panjang bermakna merenung skrin dalam tempoh yang lama. vibestretch memasukkan rehat mata dalam putarannya, dan 20-20-20 ialah salah satu daripadanya.",
+      "blocks": [
+        {
+          "h2": "Rehat 20-20-20 dalam vibestretch"
+        },
+        {
+          "p": "Beginilah bunyi peringatannya:"
+        },
+        {
+          "code": "nudge_202020"
+        },
+        {
+          "p": "Pandang sesuatu yang berada 20 kaki (kira-kira 6 meter) jauhnya. Terus pandang selama 20 saat. Kemudian kembali kepada ejen anda."
+        },
+        {
+          "h2": "Rehat mata lain dalam senarai"
+        },
+        {
+          "ul": [
+            "Kelipkan mata 20 kali, perlahan-lahan.",
+            "Gosok tapak tangan sehingga hangat, kemudian tekupkan pada mata yang tertutup selama 20 saat.",
+            "Bangun dan berjalan ke tingkap."
+          ]
+        },
+        {
+          "h2": "Bila ia mengingatkan anda"
+        },
+        {
+          "p": "vibestretch tidak berjalan mengikut jam. Ia mengingatkan anda apabila giliran ejen yang panjang membuatkan anda menunggu, secara lalai paling kerap sekali setiap 15 minit. Rehat mata muncul sebagai sebahagian daripada putaran dua belas senaman. Baca cara pemasaannya berfungsi di [rehat regangan semasa ejen pengekodan AI berjalan](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Mahu rehat mata sahaja?"
+        },
+        {
+          "p": "Tulis senarai anda sendiri yang hanya mengandungi rehat mata yang anda suka. Satu senaman bagi setiap baris dalam `~/.config/vibestretch/exercises.txt`. Senarai terbina dalam kemudiannya tidak digunakan. Lihat [regangan di meja untuk pengaturcara](@desk-stretches-programmers) untuk contoh."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Adakah vibestretch mengingatkan saya setiap 20 minit?",
+          "a": "Tidak. Ia tiada jadual tetap. Ia hanya mengingatkan anda semasa giliran ejen yang panjang, dan sela lalai antara peringatan ialah 15 minit."
+        },
+        {
+          "q": "Bolehkah saya dapat rehat mata sahaja?",
+          "a": "Boleh. Letakkan senaman anda sendiri dalam ~/.config/vibestretch/exercises.txt, satu bagi setiap baris, dan vibestretch akan menggunakan senarai itu menggantikan senarai terbina dalam."
+        }
+      ]
+    },
+    "desk-stretches-programmers": {
+      "nav": "Regangan di meja",
+      "title": "Regangan di meja untuk pengaturcara: senarai vibestretch",
+      "description": "Dua belas regangan di meja, senaman mikro dan rehat mata yang ringkas untuk pengaturcara, serta cara menggantikannya dengan senarai anda sendiri dalam vibestretch.",
+      "h1": "Regangan di meja untuk pengaturcara",
+      "lead": "vibestretch disertakan dengan dua belas senaman ringkas. Setiap satu muat dalam tempoh satu giliran ejen. Senaman ini berputar, jadi anda tidak akan mendapat senaman yang sama dua kali berturut-turut.",
+      "blocks": [
+        {
+          "h2": "Dua belas senaman terbina dalam"
+        },
+        {
+          "ol": [
+            "20-20-20: pandang sesuatu yang berada 20 kaki jauhnya selama 20 saat.",
+            "Bangun, capai siling dan tahan selama 15 saat. Kemudian bongkokkan badan ke arah jari kaki selama 15 saat.",
+            "10 kali squat.",
+            "Putar leher perlahan-lahan, 5 kali ke setiap arah.",
+            "Putar pergelangan tangan, 10 kali ke setiap arah.",
+            "Kelipkan mata 20 kali, perlahan-lahan.",
+            "Kepit bilah bahu 10 kali: rapatkan, tahan 3 saat, lepaskan.",
+            "Semak postur: telinga sejajar dengan bahu, bahu sejajar dengan pinggul. Kekalkan.",
+            "Bangun dan berjalan ke tingkap. Bukalah jika boleh.",
+            "Gosok tapak tangan sehingga hangat, kemudian tekupkan pada mata yang tertutup selama 20 saat.",
+            "Putar pinggul, 8 kali ke setiap arah.",
+            "Satu pernafasan 4-7-8: tarik nafas selama 4, tahan selama 7, hembus selama 8."
+          ]
+        },
+        {
+          "p": "Putaran pergelangan tangan dan semakan postur disediakan untuk mereka yang memikirkan RSI (kecederaan tekanan berulang) dan postur sepanjang hari yang panjang di papan kekunci. vibestretch ialah alat peringatan. Ia tidak mendiagnosis atau merawat apa-apa."
+        },
+        {
+          "h2": "Gunakan senarai anda sendiri"
+        },
+        {
+          "p": "Tulis satu senaman bagi setiap baris dalam `~/.config/vibestretch/exercises.txt`. Dua belas senaman terbina dalam kemudiannya tidak digunakan. Baris kosong dan baris yang bermula dengan # akan dilangkau."
+        },
+        {
+          "code": "custom_list"
+        },
+        {
+          "p": "Tetapkan `VIBESTRETCH_EXERCISES` kepada laluan lain untuk menyimpan fail di tempat lain. Senarai bagi setiap projek juga berfungsi dengan cara itu. Putaran melalui senarai anda mengikut urutan. Fail yang tidak mengandungi apa-apa yang boleh digunakan akan kembali kepada senarai terbina dalam."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Berapa banyak senaman dalam vibestretch?",
+          "a": "Dua belas: regangan, senaman mikro dan rehat mata. Senaman ini berputar supaya yang sama tidak muncul dua kali berturut-turut."
+        },
+        {
+          "q": "Bolehkah saya menambah regangan sendiri?",
+          "a": "Boleh. Tulis satu bagi setiap baris dalam ~/.config/vibestretch/exercises.txt. Tanda petikan dan garis condong terbalik dalam teks anda selamat digunakan."
+        }
+      ]
+    },
+    "claude-code-break-reminder": {
+      "nav": "Claude Code",
+      "title": "Cara menambah peringatan rehat pada Claude Code | vibestretch",
+      "description": "Pasang vibestretch dalam Claude Code untuk peringatan regangan dan rehat mata semasa giliran panjang. Pemasangan, status line, nota VS Code dan tetapan.",
+      "h1": "Cara menambah peringatan rehat pada Claude Code",
+      "lead": "vibestretch ialah pemalam Claude Code. Ia menggunakan tiga hook untuk mengesan giliran panjang dan mengingatkan anda supaya bergerak.",
+      "blocks": [
+        {
+          "h2": "Pemasangan"
+        },
+        {
+          "p": "Jalankan dua arahan ini dalam Claude Code:"
+        },
+        {
+          "code": "install_claude"
+        },
+        {
+          "p": "Tiada kebergantungan, tiada daemon dan tiada telemetri. Tiada apa-apa lagi yang perlu dikonfigurasi."
+        },
+        {
+          "h2": "Di mana peringatan dipaparkan"
+        },
+        {
+          "ul": [
+            "Satu baris dalam sesi.",
+            "Bunyi loceng lembut yang disertakan.",
+            "Sepanduk pemberitahuan dalam Warp, Ghostty, iTerm2, WezTerm dan kitty. Dalam VS Code, ia memerlukan sambungan pemberitahuan.",
+            "Status line anda, jika anda menyediakannya."
+          ]
+        },
+        {
+          "h2": "Tambahkan pada status line anda"
+        },
+        {
+          "code": "statusline"
+        },
+        {
+          "p": "Arahan ini menyandarkan tetapan anda dan membalut arahan status line sedia ada. Jika anda belum ada, ia memasang versi minimum. Selepas peringatan, senaman itu kekal di situ selama 5 minit. Batalkan dengan `/vibestretch:statusline off`. Jalankan `off` sebelum anda menyahpasang pemalam."
+        },
+        {
+          "h2": "VS Code"
+        },
+        {
+          "p": "Dalam terminal bersepadu, baris peringatan, bunyi loceng dan status line semuanya berfungsi. Dalam panel sembang sambungan itu, hanya bunyi loceng yang sampai kepada anda. Sepanduk memerlukan sambungan pemberitahuan di kedua-dua tempat. Perkara ini telah disemak pada Claude Code 2.1.234."
+        },
+        {
+          "h2": "Tetapan"
+        },
+        {
+          "p": "Semua tetapan ialah pemboleh ubah persekitaran pilihan. Masa dalam saat."
+        },
+        {
+          "table": "settings"
+        },
+        {
+          "p": "Menjalankan Claude Code secara headless dengan `claude -p` daripada skrip? Tetapkan `VIBESTRETCH_DISABLE=1` di situ."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Bagaimana mahu membuang segmen status line?",
+          "a": "Jalankan /vibestretch:statusline off. Lakukan ini sebelum menyahpasang pemalam. Jika tidak, segmen itu kekal dalam konfigurasi tetapi beku."
+        },
+        {
+          "q": "Adakah peringatan sampai kepada model?",
+          "a": "Tidak. Peringatan ialah systemMessage. Ia dipaparkan kepada anda dan tidak pernah ditambah ke dalam konteks model."
+        },
+        {
+          "q": "Mengapa saya mendengar dua bunyi?",
+          "a": "Sesetengah terminal, seperti iTerm2, memainkan bunyi sendiri untuk pemberitahuan. Tetapkan VIBESTRETCH_SOUND=0 untuk mengekalkan bunyi terminal sahaja."
+        }
+      ]
+    },
+    "codex-cli-break-reminder": {
+      "nav": "Codex CLI",
+      "title": "Cara menambah peringatan rehat pada Codex CLI | vibestretch",
+      "description": "Pasang vibestretch dalam OpenAI Codex CLI sebagai pemalam atau secara manual. Dapatkan baris regangan dan bunyi loceng semasa giliran Codex yang panjang.",
+      "h1": "Cara menambah peringatan rehat pada Codex CLI",
+      "lead": "vibestretch dipasang dalam OpenAI Codex CLI daripada pasaran pemalam. Ia memaparkan baris regangan dan memainkan bunyi loceng semasa giliran panjang.",
+      "blocks": [
+        {
+          "h2": "Pasang sebagai pemalam"
+        },
+        {
+          "code": "install_codex"
+        },
+        {
+          "p": "Codex tidak menjalankan hook pemalam sehingga anda menyemaknya. Buka `/hooks` dan percayai tiga entri vibestretch. Sebelum itu, pemalam sudah dipasang tetapi senyap."
+        },
+        {
+          "h2": "Pasang secara manual"
+        },
+        {
+          "p": "Satu klon dan satu fail konfigurasi melakukan tugas yang sama:"
+        },
+        {
+          "code": "install_codex_manual"
+        },
+        {
+          "p": "Sudah ada `~/.codex/hooks.json`? Gabungkan tiga entri daripada fail kami ke dalamnya. Jangan tulis ganti fail anda. Codex akan meminta anda mempercayai konfigurasi hook baharu kali pertama ia berjalan. Gesaan itu memang dijangka."
+        },
+        {
+          "p": "Pilih satu cara. Jika pemalam dan entri manual kedua-duanya ada, setiap hook berjalan dua kali. Jika anda memasang secara manual sebelum 0.8.0, buang entri kami daripada `~/.codex/hooks.json` apabila anda beralih kepada pemalam."
+        },
+        {
+          "h2": "Apa yang anda dapat dalam Codex"
+        },
+        {
+          "p": "Anda mendapat baris dalam sesi dan bunyi loceng. Tiada sepanduk pemberitahuan, kerana Codex tiada medan output hook untuk jujukan terminal. Tiada segmen status line juga. Bar itu tidak boleh diskrip dalam Codex."
+        },
+        {
+          "p": "Pembilang dikongsi dengan Claude Code dan Gemini CLI. Sejam menunggu dikira sekali sahaja, tidak kira ejen mana yang membuatkan anda terus duduk. Penyesuai ini telah dijalankan pada pemasangan sebenar Codex CLI 0.149.1 di macOS."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Saya sudah memasangnya, tetapi tiada apa yang berlaku. Mengapa?",
+          "a": "Codex hanya menjalankan hook pemalam selepas anda mempercayainya. Buka /hooks dan percayai tiga entri vibestretch."
+        },
+        {
+          "q": "Setiap hook berjalan dua kali. Mengapa?",
+          "a": "Kemungkinan anda mempunyai pemalam dan juga entri manual dalam ~/.codex/hooks.json. Kekalkan salah satu sahaja."
+        },
+        {
+          "q": "Bolehkah saya menggunakannya dengan codex exec?",
+          "a": "Tetapkan VIBESTRETCH_DISABLE=1 dalam persekitaran itu. Larian tanpa pengawasan tidak sepatutnya dikira sebagai masa yang anda lalui."
+        }
+      ]
+    },
+    "gemini-cli-break-reminder": {
+      "nav": "Gemini CLI",
+      "title": "Cara menambah peringatan rehat pada Gemini CLI | vibestretch",
+      "description": "Tambah vibestretch pada Gemini CLI dengan tiga hook. Dapatkan baris regangan dan bunyi loceng semasa giliran Gemini yang panjang. Langkah pasang dan gabung.",
+      "h1": "Cara menambah peringatan rehat pada Gemini CLI",
+      "lead": "Gemini CLI telah mendayakan hook secara lalai sejak v0.26. vibestretch menambah tiga daripadanya untuk mengingatkan anda membuat regangan semasa giliran panjang.",
+      "blocks": [
+        {
+          "h2": "Pemasangan"
+        },
+        {
+          "p": "Klon repositori:"
+        },
+        {
+          "code": "install_gemini_clone"
+        },
+        {
+          "p": "Kemudian salin objek `hooks` daripada `~/.gemini/vibestretch/hooks/gemini-hooks.json` ke dalam `~/.gemini/settings.json`. Fail itu menyimpan keseluruhan konfigurasi Gemini anda, jadi gabungkannya. Jangan gantikannya. Dengan `jq`, cukup satu baris:"
+        },
+        {
+          "code": "install_gemini_merge"
+        },
+        {
+          "p": "Jika anda sudah ada hook sendiri dalam `BeforeAgent`, `AfterTool` atau `AfterAgent`, arahan ini menggantikannya dengan hook kami. Dalam keadaan itu, tambah tiga entri kami ke dalam senarai anda secara manual."
+        },
+        {
+          "h2": "Hook yang digunakan"
+        },
+        {
+          "ul": [
+            "`BeforeAgent`: ejen mula mengerjakan prompt anda.",
+            "`AfterTool`: satu alat telah selesai. Masa menunggu ditambah, dan peringatan dipaparkan jika sudah tiba masanya.",
+            "`AfterAgent`: giliran tamat. Pengiraan ditutup."
+          ]
+        },
+        {
+          "h2": "Apa yang anda dapat dalam Gemini CLI"
+        },
+        {
+          "p": "Anda mendapat baris dalam sesi dan bunyi loceng. Tiada sepanduk pemberitahuan. Gemini mengkhaskan stdout hook untuk JSON sahaja, jadi tiada tempat untuk mencetak jujukan escape."
+        },
+        {
+          "p": "Penyesuai ini telah dijalankan pada pemasangan sebenar Gemini CLI 0.56.0 di macOS. Pembilang dikongsi dengan Claude Code dan Codex CLI."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Versi Gemini CLI yang mana saya perlukan?",
+          "a": "Hook didayakan secara lalai sejak Gemini CLI v0.26."
+        },
+        {
+          "q": "Adakah penggabungan akan menulis ganti tetapan saya?",
+          "a": "Tetapan lain anda kekal. Jika anda sudah ada hook sendiri dalam BeforeAgent, AfterTool atau AfterAgent, jq menggantikan senarai itu dengan senarai kami. Dalam keadaan itu, tambah tiga entri kami secara manual. Sandarkan fail itu dahulu."
+        },
+        {
+          "q": "Bolehkah saya menggunakannya dengan gemini -p?",
+          "a": "Tetapkan VIBESTRETCH_DISABLE=1 apabila anda menjalankan Gemini daripada skrip, cron atau bot."
+        }
+      ]
+    }
+  },
+  "settings_rows": {
+    "VIBESTRETCH_MIN_TURN": "Giliran semasa mesti berjalan sekurang-kurangnya selama ini.",
+    "VIBESTRETCH_MIN_ACTIVE": "Masa ejen yang diperlukan sejak rehat terakhir anda.",
+    "VIBESTRETCH_COOLDOWN": "Sela minimum antara peringatan.",
+    "VIBESTRETCH_AWAY": "Tiada aktiviti papan kekunci atau tetikus selama ini bermakna anda tiada di tempat. macOS sahaja. 0 mematikan kawalan ini.",
+    "VIBESTRETCH_DISABLE": "Tetapkan kepada sebarang nilai untuk menyenyapkan peringatan.",
+    "VIBESTRETCH_NOTIFY": "Tetapkan kepada 0 untuk membuang pemberitahuan desktop.",
+    "VIBESTRETCH_SOUND": "Tetapkan kepada 0 untuk mematikan bunyi.",
+    "VIBESTRETCH_EXERCISES": "Laluan ke senarai senaman anda sendiri."
+  },
+  "settings_head": [
+    "Pemboleh ubah",
+    "Lalai",
+    "Maksud"
+  ]
+}

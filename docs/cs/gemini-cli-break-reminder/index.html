@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="cs" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jak přidat připomínku přestávek do Gemini CLI | vibestretch</title>
+<meta name="description" content="Přidejte vibestretch do Gemini CLI pomocí tří hooků. Během dlouhých běhů Gemini dostanete řádek s protažením a zvuk. Postup instalace a sloučení.">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/cs/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/gemini-cli-break-reminder/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/gemini-cli-break-reminder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="Jak přidat připomínku přestávek do Gemini CLI | vibestretch">
+<meta property="og:description" content="Přidejte vibestretch do Gemini CLI pomocí tří hooků. Během dlouhých běhů Gemini dostanete řádek s protažením a zvuk. Postup instalace a sloučení.">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/cs/gemini-cli-break-reminder/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta property="og:locale:alternate" content="ms_MY">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch je bezplatná připomínka přestávek a protažení pro vývojáře. Připomene vám pohyb, když Claude Code, Codex CLI nebo Gemini CLI běží dlouho.",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/cs/gemini-cli-break-reminder/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/cs/gemini-cli-break-reminder/",
+   "name": "Jak přidat připomínku přestávek do Gemini CLI | vibestretch",
+   "description": "Přidejte vibestretch do Gemini CLI pomocí tří hooků. Během dlouhých běhů Gemini dostanete řádek s protažením a zvuk. Postup instalace a sloučení.",
+   "inLanguage": "cs",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/cs/gemini-cli-break-reminder/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/cs/gemini-cli-break-reminder/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/cs/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Jak přidat připomínku přestávek do Gemini CLI",
+     "item": "https://eliasjunit.github.io/vibestretch/cs/gemini-cli-break-reminder/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/cs/gemini-cli-break-reminder/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/cs/gemini-cli-break-reminder/",
+   "inLanguage": "cs",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Jakou verzi Gemini CLI potřebuji?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Hooky jsou zapnuté od Gemini CLI v0.26."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Přepíše sloučení moje nastavení?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ostatní nastavení zůstanou. Pokud už máte vlastní hooky v BeforeAgent, AfterTool nebo AfterAgent, jq tyto seznamy nahradí našimi. V tom případě přidejte naše tři položky ručně. Soubor si nejdřív zazálohujte."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Můžu ho používat s gemini -p?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Když spouštíte Gemini ze skriptu, z cronu nebo z bota, nastavte VIBESTRETCH_DISABLE=1."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Přejít na obsah</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../../cs/"><img src="../../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>Jazyk: Čeština</summary><ul><li><a href="../../gemini-cli-break-reminder/" hreflang="en" lang="en">English</a></li><li><a href="../../es/gemini-cli-break-reminder/" hreflang="es" lang="es">Español</a></li><li><a href="../../pt-BR/gemini-cli-break-reminder/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../../fr/gemini-cli-break-reminder/" hreflang="fr" lang="fr">Français</a></li><li><a href="../../de/gemini-cli-break-reminder/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../../it/gemini-cli-break-reminder/" hreflang="it" lang="it">Italiano</a></li><li><a href="../../ru/gemini-cli-break-reminder/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../../uk/gemini-cli-break-reminder/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../pl/gemini-cli-break-reminder/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../../tr/gemini-cli-break-reminder/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../../nl/gemini-cli-break-reminder/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../../sv/gemini-cli-break-reminder/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../../da/gemini-cli-break-reminder/" hreflang="da" lang="da">Dansk</a></li><li><a href="../../nb/gemini-cli-break-reminder/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../../fi/gemini-cli-break-reminder/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../../cs/gemini-cli-break-reminder/" hreflang="cs" lang="cs" aria-current="true">Čeština</a></li><li><a href="../../ro/gemini-cli-break-reminder/" hreflang="ro" lang="ro">Română</a></li><li><a href="../../hu/gemini-cli-break-reminder/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../../el/gemini-cli-break-reminder/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../../ja/gemini-cli-break-reminder/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../../ko/gemini-cli-break-reminder/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../../zh-Hans/gemini-cli-break-reminder/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="../../zh-Hant/gemini-cli-break-reminder/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../../id/gemini-cli-break-reminder/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../../th/gemini-cli-break-reminder/" hreflang="th" lang="th">ไทย</a></li><li><a href="../../vi/gemini-cli-break-reminder/" hreflang="vi" lang="vi">Tiếng Việt</a></li><li><a href="../../ms/gemini-cli-break-reminder/" hreflang="ms" lang="ms">Bahasa Melayu</a></li><li><a href="../../hi/gemini-cli-break-reminder/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../../ar/gemini-cli-break-reminder/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../../he/gemini-cli-break-reminder/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="Stránky"><ul><li><a href="../../cs/">Přehled</a></li><li><a href="../../cs/stretch-breaks-ai-coding-agents/">Přestávky během běhu agenta</a></li><li><a href="../../cs/20-20-20-eye-rule-developers/">Pravidlo 20-20-20</a></li><li><a href="../../cs/desk-stretches-programmers/">Cviky u stolu</a></li><li><a href="../../cs/claude-code-break-reminder/">Claude Code</a></li><li><a href="../../cs/codex-cli-break-reminder/">Codex CLI</a></li><li><a href="../../cs/gemini-cli-break-reminder/" aria-current="page">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Drobečková navigace"><ol><li><a href="../../cs/">vibestretch</a></li><li aria-current="page">Jak přidat připomínku přestávek do Gemini CLI</li></ol></nav>
+<h1>Jak přidat připomínku přestávek do Gemini CLI</h1>
+<p class="lead">Gemini CLI má hooky zapnuté od verze v0.26. vibestretch přidá tři z nich a během dlouhých běhů vám připomene protažení.</p>
+<h2>Instalace</h2>
+<p>Naklonujte repozitář:</p>
+<pre><code>git clone https://github.com/Eliasjunit/vibestretch ~/.gemini/vibestretch</code></pre>
+<p>Pak zkopírujte objekt <code>hooks</code> z <code>~/.gemini/vibestretch/hooks/gemini-hooks.json</code> do <code>~/.gemini/settings.json</code>. Tento soubor obsahuje celou vaši konfiguraci Gemini, takže ho slučte. Nenahrazujte ho. S <code>jq</code> je to jeden řádek:</p>
+<pre><code>jq -s '.[0] * .[1]' ~/.gemini/settings.json ~/.gemini/vibestretch/hooks/gemini-hooks.json &gt; /tmp/s.json &amp;&amp; mv /tmp/s.json ~/.gemini/settings.json</code></pre>
+<p>Pokud už máte vlastní hooky v <code>BeforeAgent</code>, <code>AfterTool</code> nebo <code>AfterAgent</code>, tento příkaz je nahradí našimi. V tom případě přidejte naše tři položky do svých seznamů ručně.</p>
+<h2>Které hooky používá</h2>
+<ul><li><code>BeforeAgent</code>: agent začíná pracovat na vašem zadání.</li><li><code>AfterTool</code>: nástroj skončil. Přičte se čas čekání, a pokud je připomínka na řadě, zobrazí se.</li><li><code>AfterAgent</code>: běh skončil. Počítání se uzavře.</li></ul>
+<h2>Co dostanete v Gemini CLI</h2>
+<p>Dostanete řádek v relaci a zvuk. Oznámení nebude. Gemini vyhrazuje standardní výstup hooku jen pro JSON, takže není kam vypsat řídicí sekvenci.</p>
+<p>Adaptér byl vyzkoušen na skutečné instalaci Gemini CLI 0.56.0 na macOS. Počítadlo je sdílené s Claude Code a Codex CLI.</p>
+<section class="faq" id="faq"><h2>Časté dotazy</h2><dl><dt>Jakou verzi Gemini CLI potřebuji?</dt><dd>Hooky jsou zapnuté od Gemini CLI v0.26.</dd><dt>Přepíše sloučení moje nastavení?</dt><dd>Ostatní nastavení zůstanou. Pokud už máte vlastní hooky v BeforeAgent, AfterTool nebo AfterAgent, jq tyto seznamy nahradí našimi. V tom případě přidejte naše tři položky ručně. Soubor si nejdřív zazálohujte.</dd><dt>Můžu ho používat s gemini -p?</dt><dd>Když spouštíte Gemini ze skriptu, z cronu nebo z bota, nastavte VIBESTRETCH_DISABLE=1.</dd></dl></section>
+<section class="related"><h2>Čtěte dál</h2><ul><li><a href="../../cs/">Protáhněte se, zatímco váš AI agent pracuje</a></li><li><a href="../../cs/stretch-breaks-ai-coding-agents/">Přestávky na protažení během běhu AI agentů</a></li><li><a href="../../cs/20-20-20-eye-rule-developers/">Pravidlo 20-20-20 pro oči vývojářů</a></li><li><a href="../../cs/desk-stretches-programmers/">Cviky u stolu pro programátory</a></li><li><a href="../../cs/claude-code-break-reminder/">Jak přidat připomínku přestávek do Claude Code</a></li><li><a href="../../cs/codex-cli-break-reminder/">Jak přidat připomínku přestávek do Codex CLI</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch je open source pod licencí MIT. Vytvořil Junit. <a href="https://github.com/Eliasjunit/vibestretch">Zdrojový kód na GitHubu</a></p>
+</div></footer>
+</body>
+</html>

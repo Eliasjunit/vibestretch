@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vibestretch: 코딩 에이전트 대기 시간 스트레칭 알림</title>
+<meta name="description" content="vibestretch는 개발자를 위한 무료 스트레칭 및 휴식 알림입니다. Claude Code, Codex CLI, Gemini CLI가 긴 턴을 실행하는 동안 몸을 움직이도록 알려 줍니다.">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/ko/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="vibestretch: 코딩 에이전트 대기 시간 스트레칭 알림">
+<meta property="og:description" content="vibestretch는 개발자를 위한 무료 스트레칭 및 휴식 알림입니다. Claude Code, Codex CLI, Gemini CLI가 긴 턴을 실행하는 동안 몸을 움직이도록 알려 줍니다.">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/ko/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta property="og:locale:alternate" content="ms_MY">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch는 개발자를 위한 무료 스트레칭 및 휴식 알림입니다. Claude Code, Codex CLI, Gemini CLI가 긴 턴을 실행하는 동안 몸을 움직이도록 알려 줍니다.",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/ko/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/ko/",
+   "name": "vibestretch: 코딩 에이전트 대기 시간 스트레칭 알림",
+   "description": "vibestretch는 개발자를 위한 무료 스트레칭 및 휴식 알림입니다. Claude Code, Codex CLI, Gemini CLI가 긴 턴을 실행하는 동안 몸을 움직이도록 알려 줍니다.",
+   "inLanguage": "ko",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/ko/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/ko/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/ko/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/ko/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/ko/",
+   "inLanguage": "ko",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "vibestretch는 무엇인가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "vibestretch는 코딩 에이전트용 플러그인입니다. 에이전트의 긴 턴을 기다리는 동안 스트레칭을 하거나 몸을 움직이거나 눈을 쉬도록 알려 줍니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "어떤 코딩 에이전트를 지원하나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Claude Code, OpenAI Codex CLI, Gemini CLI를 지원합니다. 세 가지 모두 같은 카운터를 쓰므로, 어떤 에이전트를 기다렸든 1시간의 대기 시간은 한 번만 계산됩니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "휴식 타이머인가요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "아닙니다. 타이머는 일정에 따라 동작합니다. vibestretch는 에이전트 턴 때문에 기다린 시간만 세고, 그 대기 시간 동안에만 알립니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "데이터를 어딘가로 보내나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "아니요. 네트워크 요청도 텔레메트리 전송도 하지 않습니다. 컴퓨터 밖으로 나가는 데이터는 없습니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "비용이 드나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "무료입니다. vibestretch는 MIT 라이선스의 오픈 소스이며, 코드는 GitHub에 있습니다."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "알림을 끄려면 어떻게 하나요?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "VIBESTRETCH_DISABLE에 아무 값이나 설정하면 알림이 꺼집니다. VIBESTRETCH_SOUND=0은 소리를 끕니다. VIBESTRETCH_NOTIFY=0은 배너를 표시하지 않습니다."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../ko/"><img src="../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>언어: 한국어</summary><ul><li><a href="../" hreflang="en" lang="en">English</a></li><li><a href="../es/" hreflang="es" lang="es">Español</a></li><li><a href="../pt-BR/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li><li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../it/" hreflang="it" lang="it">Italiano</a></li><li><a href="../ru/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../uk/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../pl/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../nl/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../sv/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../da/" hreflang="da" lang="da">Dansk</a></li><li><a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../fi/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../cs/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="../ro/" hreflang="ro" lang="ro">Română</a></li><li><a href="../hu/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../el/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../ko/" hreflang="ko" lang="ko" aria-current="true">한국어</a></li><li><a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../th/" hreflang="th" lang="th">ไทย</a></li><li><a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a></li><li><a href="../ms/" hreflang="ms" lang="ms">Bahasa Melayu</a></li><li><a href="../hi/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../ar/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../he/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="페이지"><ul><li><a href="../ko/" aria-current="page">개요</a></li><li><a href="../ko/stretch-breaks-ai-coding-agents/">에이전트 실행 중 휴식</a></li><li><a href="../ko/20-20-20-eye-rule-developers/">20-20-20 규칙</a></li><li><a href="../ko/desk-stretches-programmers/">책상 스트레칭</a></li><li><a href="../ko/claude-code-break-reminder/">Claude Code</a></li><li><a href="../ko/codex-cli-break-reminder/">Codex CLI</a></li><li><a href="../ko/gemini-cli-break-reminder/">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="이동 경로"><ol><li><a href="../ko/">vibestretch</a></li></ol></nav>
+<h1>코딩 에이전트가 일하는 동안 스트레칭하세요</h1>
+<p class="lead">vibestretch는 에이전트의 긴 턴을 기다리는 동안 짧은 스트레칭, 가벼운 운동, 눈 휴식을 보여 줍니다. Claude Code, Codex CLI, Gemini CLI에서 사용할 수 있습니다.</p>
+<pre><code>claude plugin marketplace add Eliasjunit/vibestretch &amp;&amp; claude plugin install vibestretch@vibestretch</code></pre>
+<p>이 명령으로 Claude Code에 플러그인이 설치됩니다. <a href="../ko/codex-cli-break-reminder/">Codex CLI</a>와 <a href="../ko/gemini-cli-break-reminder/">Gemini CLI</a> 설치 방법은 각 페이지에 있습니다.</p>
+<h2>알림은 이렇게 표시됩니다</h2>
+<pre><code>🧘 Wrist circles, 10 each way. Your tendons will thank you. · vibestretch · 7 min of agent time</code></pre>
+<p>세션에 한 줄이 표시되고 부드러운 차임이 울립니다. 지원하는 터미널에서는 알림 배너도 나타납니다.</p>
+<h2>알림 시점을 정하는 방법</h2>
+<p>vibestretch에는 정해진 일정이 없습니다. 세는 것은 하나뿐입니다. 에이전트 턴 때문에 컴퓨터 앞에서 기다린 시간입니다. 다음 세 가지 조건이 모두 맞을 때만 알림이 나옵니다.</p>
+<ol><li>현재 턴이 2분 이상 실행되었습니다.</li><li>마지막 알림 이후 에이전트 시간의 합이 5분 이상입니다.</li><li>마지막 알림 후 15분 이상 지났습니다.</li></ol>
+<p>짧은 턴에서는 알림이 나오지 않습니다. 짧은 턴만 있었던 날에는 알림이 한 번도 나오지 않습니다. 이미 기다리고 있을 때만 알리기 때문에 다시 알림(스누즈) 기능도 없습니다. 자세한 내용은 <a href="../ko/stretch-breaks-ai-coding-agents/">AI 코딩 에이전트 실행 중 스트레칭 휴식</a>을 참고하세요.</p>
+<h2>주요 기능</h2>
+<ul><li>기본 운동 12가지. 스트레칭, 가벼운 운동, <a href="../ko/20-20-20-eye-rule-developers/">20-20-20</a> 같은 눈 휴식이 있습니다.</li><li>같은 운동이 두 번 연속 나오지 않는 순환 방식.</li><li>원하면 나만의 운동 목록을 쓸 수 있습니다. <a href="../ko/desk-stretches-programmers/">개발자를 위한 책상 스트레칭</a>을 참고하세요.</li><li>Claude Code 상태 표시줄 항목(선택 사항).</li></ul>
+<h2>개인정보</h2>
+<p>vibestretch는 작은 POSIX 셸 스크립트 몇 개와 사운드 파일 하나로 이루어져 있습니다. 네트워크 요청을 보내지 않습니다. 텔레메트리도 보내지 않습니다. 광고를 보여 주지 않고 터미널에 링크도 넣지 않습니다. 모델 컨텍스트에도 아무것도 추가하지 않습니다. 상태 정보는 <code>~/.cache/vibestretch/</code>에 저장됩니다.</p>
+<section class="faq" id="faq"><h2>자주 묻는 질문</h2><dl><dt>vibestretch는 무엇인가요?</dt><dd>vibestretch는 코딩 에이전트용 플러그인입니다. 에이전트의 긴 턴을 기다리는 동안 스트레칭을 하거나 몸을 움직이거나 눈을 쉬도록 알려 줍니다.</dd><dt>어떤 코딩 에이전트를 지원하나요?</dt><dd>Claude Code, OpenAI Codex CLI, Gemini CLI를 지원합니다. 세 가지 모두 같은 카운터를 쓰므로, 어떤 에이전트를 기다렸든 1시간의 대기 시간은 한 번만 계산됩니다.</dd><dt>휴식 타이머인가요?</dt><dd>아닙니다. 타이머는 일정에 따라 동작합니다. vibestretch는 에이전트 턴 때문에 기다린 시간만 세고, 그 대기 시간 동안에만 알립니다.</dd><dt>데이터를 어딘가로 보내나요?</dt><dd>아니요. 네트워크 요청도 텔레메트리 전송도 하지 않습니다. 컴퓨터 밖으로 나가는 데이터는 없습니다.</dd><dt>비용이 드나요?</dt><dd>무료입니다. vibestretch는 MIT 라이선스의 오픈 소스이며, 코드는 GitHub에 있습니다.</dd><dt>알림을 끄려면 어떻게 하나요?</dt><dd>VIBESTRETCH_DISABLE에 아무 값이나 설정하면 알림이 꺼집니다. VIBESTRETCH_SOUND=0은 소리를 끕니다. VIBESTRETCH_NOTIFY=0은 배너를 표시하지 않습니다.</dd></dl></section>
+<section class="related"><h2>다음 글</h2><ul><li><a href="../ko/stretch-breaks-ai-coding-agents/">AI 코딩 에이전트 실행 중 스트레칭 휴식</a></li><li><a href="../ko/20-20-20-eye-rule-developers/">개발자를 위한 20-20-20 눈 규칙</a></li><li><a href="../ko/desk-stretches-programmers/">개발자를 위한 책상 스트레칭</a></li><li><a href="../ko/claude-code-break-reminder/">Claude Code에 휴식 알림 추가하는 방법</a></li><li><a href="../ko/codex-cli-break-reminder/">Codex CLI에 휴식 알림 추가하는 방법</a></li><li><a href="../ko/gemini-cli-break-reminder/">Gemini CLI에 휴식 알림 추가하는 방법</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch는 MIT 라이선스의 오픈 소스입니다. 만든 사람: Junit <a href="https://github.com/Eliasjunit/vibestretch">GitHub 소스 코드</a></p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,474 @@
+{
+  "lang_name": "Türkçe",
+  "ui": {
+    "skip": "İçeriğe geç",
+    "nav_home": "Ana sayfa",
+    "nav_label": "Sayfalar",
+    "languages": "Dil",
+    "breadcrumb_home": "vibestretch",
+    "faq_title": "SSS",
+    "related_title": "Devamını okuyun",
+    "source_link": "GitHub'da kaynak kod",
+    "footer_license": "vibestretch, MIT lisansı altında açık kaynaklıdır.",
+    "footer_made": "Junit tarafından yapıldı.",
+    "breadcrumb_label": "Gezinti yolu"
+  },
+  "pages": {
+    "index": {
+      "nav": "Genel bakış",
+      "title": "vibestretch: kodlama ajanı beklerken esneme hatırlatıcısı",
+      "description": "vibestretch geliştiriciler için ücretsiz bir esneme ve mola hatırlatıcısı. Claude Code, Codex CLI veya Gemini CLI uzun bir tur çalıştırırken sizi harekete davet eder.",
+      "h1": "Kodlama ajanınız çalışırken esneyin",
+      "lead": "vibestretch, uzun bir ajan turu sizi beklettiğinde kısa bir esneme, mini egzersiz ya da göz molası gösterir. Claude Code, Codex CLI ve Gemini CLI ile çalışır.",
+      "blocks": [
+        {
+          "code": "install_claude_cli"
+        },
+        {
+          "p": "Bu komut eklentiyi Claude Code'a kurar. [Codex CLI](@codex-cli-break-reminder) ve [Gemini CLI](@gemini-cli-break-reminder) sayfalarında kendi kurulum adımları var."
+        },
+        {
+          "h2": "Bir hatırlatma nasıl görünür"
+        },
+        {
+          "code": "nudge_example"
+        },
+        {
+          "p": "Oturumda tek bir satır belirir. Yumuşak bir zil sesi çalar. Destekleyen terminallerde bir bildirim de çıkar."
+        },
+        {
+          "h2": "Ne zaman hatırlatacağına nasıl karar verir"
+        },
+        {
+          "p": "vibestretch'in bir programı yoktur. Tek bir şeyi sayar: bir ajan turunun sizi bilgisayar başında beklettiği dakikaları. Hatırlatma yalnızca şu üç koşul birlikte sağlandığında gelir:"
+        },
+        {
+          "ol": [
+            "Mevcut tur 2 dakika veya daha uzun süredir çalışıyor.",
+            "Son hatırlatmadan bu yana toplam ajan süreniz 5 dakika veya daha fazla.",
+            "Son hatırlatmanın üzerinden en az 15 dakika geçti."
+          ]
+        },
+        {
+          "p": "Kısa turlar onu hiç tetiklemez. Kısa turlarla geçen bir gün boyunca hiç ses çıkarmaz. Ertelenecek bir şey yoktur, çünkü yalnızca zaten beklerken konuşur. Ayrıntılar için [yapay zeka kodlama ajanları çalışırken esneme molaları](@stretch-breaks-ai-coding-agents) sayfasına bakın."
+        },
+        {
+          "h2": "Neler sunar"
+        },
+        {
+          "ul": [
+            "On iki yerleşik egzersiz: esnemeler, mini egzersizler ve [20-20-20](@20-20-20-eye-rule-developers) gibi göz molaları.",
+            "Aynı egzersizi asla art arda iki kez göstermeyen bir sıra.",
+            "İsterseniz kendi egzersiz listeniz. [Programcılar için masa başı esneme hareketleri](@desk-stretches-programmers) sayfasına bakın.",
+            "Claude Code'da isteğe bağlı bir durum satırı bölümü."
+          ]
+        },
+        {
+          "h2": "Gizlilik"
+        },
+        {
+          "p": "vibestretch birkaç küçük POSIX kabuk betiği ve bir ses dosyasından oluşur. Ağ çağrısı yapmaz. Telemetri göndermez. Reklam göstermez, terminalinize bağlantı koymaz. Modelin bağlamına hiçbir şey eklemez. Durum bilgisi `~/.cache/vibestretch/` içinde tutulur."
+        }
+      ],
+      "faq": [
+        {
+          "q": "vibestretch nedir?",
+          "a": "vibestretch, kodlama ajanları için bir eklentidir. Uzun bir ajan turu sizi beklettiğinde esnemenizi, hareket etmenizi veya gözlerinizi dinlendirmenizi hatırlatır."
+        },
+        {
+          "q": "Hangi kodlama ajanlarını destekler?",
+          "a": "Claude Code, OpenAI Codex CLI ve Gemini CLI. Üçü aynı sayacı kullanır. Böylece bir saatlik bekleme, sizi sandalyede hangi ajan tutmuş olursa olsun bir kez sayılır."
+        },
+        {
+          "q": "Bir mola zamanlayıcısı mı?",
+          "a": "Hayır. Zamanlayıcı bir programa göre çalışır. vibestretch yalnızca bir ajan turunun sizi beklettiği süreyi sayar ve yalnızca bu bekleme sırasında hatırlatır."
+        },
+        {
+          "q": "Bir yere veri gönderiyor mu?",
+          "a": "Hayır. Ağ çağrısı yapmaz, telemetri göndermez. Bilgisayarınızdan hiçbir şey çıkmaz."
+        },
+        {
+          "q": "Ücreti ne kadar?",
+          "a": "Ücretsizdir. vibestretch MIT lisansı altında açık kaynaklıdır ve kodu GitHub'dadır."
+        },
+        {
+          "q": "Nasıl sessize alırım?",
+          "a": "Hatırlatmaları kapatmak için VIBESTRETCH_DISABLE değişkenine herhangi bir değer verin. VIBESTRETCH_SOUND=0 sesi kapatır. VIBESTRETCH_NOTIFY=0 bildirimi kaldırır."
+        }
+      ]
+    },
+    "stretch-breaks-ai-coding-agents": {
+      "nav": "Ajan çalışırken molalar",
+      "title": "Kodlama ajanı çalışırken esneme molaları | vibestretch",
+      "description": "Kodlama ajanının sizi beklettiği dakikaları kısa bir esneme için kullanın. vibestretch ajan bekleme süresini nasıl sayar ve ne zaman hatırlatır?",
+      "h1": "Yapay zeka kodlama ajanları çalışırken esneme molaları",
+      "lead": "Bir kodlama ajanı dakikalarca çalışabilir. Siz de oturup izlersiniz. vibestretch bu beklemeyi kısa bir molaya çevirir.",
+      "blocks": [
+        {
+          "h2": "Bekleme neden iyi bir an"
+        },
+        {
+          "p": "Mola zamanlayıcıları bir programa göre çalışır. Çoğu zaman bir düşüncenin ortasına denk gelirler ve birçok kişi sonunda onları kapatır. Ajanın meşgul olduğu süre farklıdır. Zaten bekliyorsunuz. Bu arada yapılan bir esneme odağınızdan bir şey götürmez."
+        },
+        {
+          "h2": "vibestretch neyi sayar"
+        },
+        {
+          "p": "Ajan süresini sayar: siz bilgisayar başındayken bir ajan turunun çalıştığı dakikaları. Bunları son hatırlatmanızdan itibaren toplar. Bu, masanızda ne kadar süredir oturduğunuz anlamına gelmez. Arada kısa turlarla geçen bir saatlik okuma ve yazma neredeyse hiçbir şey eklemez."
+        },
+        {
+          "h2": "Hatırlatma ne zaman gelir"
+        },
+        {
+          "p": "Üç koşulun hepsi sağlanmalıdır:"
+        },
+        {
+          "ol": [
+            "Mevcut tur en az 2 dakikadır çalışıyor.",
+            "Son hatırlatmadan bu yana ajan süresi en az 5 dakika. Tek bir büyük görev de birkaç orta boy görev de sayılır.",
+            "Son hatırlatmanın üzerinden en az 15 dakika geçti."
+          ]
+        },
+        {
+          "p": "Her sayıyı bir ortam değişkeniyle değiştirebilirsiniz. Tam liste için [Claude Code sayfasına](@claude-code-break-reminder) bakın."
+        },
+        {
+          "h2": "Bilgisayardan uzaklaştığınızda"
+        },
+        {
+          "p": "45 dakika veya daha uzun süre klavyeden uzak kalırsanız birikmiş süre sıfırlanır. Molanızı zaten vermişsinizdir. macOS'ta hook'lar sistemin klavye ve fare boşta kalma saatini okur. Böylece gece boyunca çalışan bir ajan süreye hiçbir şey eklemez ve boş bir sandalyeye asla zil çalmaz. Linux'ta taşınabilir bir boşta kalma saati yoktur, bu yüzden orada yalnızca 45 dakikalık sıfırlama geçerlidir."
+        },
+        {
+          "h2": "Hatırlatma sizden ne ister"
+        },
+        {
+          "p": "Her hatırlatma on iki egzersizlik bir listeden bir egzersizdir. Liste esnemeleri, mini egzersizleri ve göz molalarını kapsar. Listenin tamamı için [programcılar için masa başı esneme hareketleri](@desk-stretches-programmers) sayfasına bakın."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Kısa turlarda da hatırlatır mı?",
+          "a": "Hayır. Bir hatırlatmanın gelebilmesi için turun en az 2 dakika sürmesi ve yeterli ajan süresinin birikmesi gerekir."
+        },
+        {
+          "q": "Hızlı bir model daha az hatırlatma anlamına mı gelir?",
+          "a": "Evet. Hızlı modeller turları eşiklere ulaşılmadan bitirir, bu yüzden sessize alınacak bir şey kalmaz."
+        },
+        {
+          "q": "Betiklerden veya cron ile çalışan ajanlar ne olacak?",
+          "a": "O ortamda VIBESTRETCH_DISABLE=1 ayarlayın. Aksi halde gözetimsiz oturumlar, hiç oturup beklemediğiniz bir süre olarak sayılır."
+        }
+      ]
+    },
+    "20-20-20-eye-rule-developers": {
+      "nav": "20-20-20 göz kuralı",
+      "title": "Yazılımcılar için 20-20-20 göz kuralı | vibestretch",
+      "description": "vibestretch'teki 20-20-20 göz molası ve diğer göz molaları. Kodlama ajanınız çalışırken devreye giren bir mola hatırlatıcısı.",
+      "h1": "Yazılımcılar için 20-20-20 göz kuralı",
+      "lead": "Uzun ajan turları, ekrana uzun süre bakmak demektir. vibestretch sırasına göz molaları da ekler ve 20-20-20 bunlardan biridir.",
+      "blocks": [
+        {
+          "h2": "vibestretch'te 20-20-20 molası"
+        },
+        {
+          "p": "Hatırlatma şöyle görünür:"
+        },
+        {
+          "code": "nudge_202020"
+        },
+        {
+          "p": "20 fit (yaklaşık 6 m) uzaklıktaki bir şeye bakın. 20 saniye boyunca bakmaya devam edin. Sonra ajanınıza dönün."
+        },
+        {
+          "h2": "Listedeki diğer göz molaları"
+        },
+        {
+          "ul": [
+            "Yavaşça 20 kez göz kırpın.",
+            "Avuçlarınızı ovuşturup ısıtın, sonra 20 saniye boyunca kapalı gözlerinizin üzerine kapatın.",
+            "Ayağa kalkın ve bir pencereye yürüyün."
+          ]
+        },
+        {
+          "h2": "Ne zaman hatırlatır"
+        },
+        {
+          "p": "vibestretch bir saate göre çalışmaz. Uzun bir ajan turu sizi beklettiğinde hatırlatır, varsayılan olarak en fazla 15 dakikada bir. Göz molaları on iki egzersizlik sıranın bir parçası olarak gelir. Zamanlamanın nasıl işlediğini [yapay zeka kodlama ajanları çalışırken esneme molaları](@stretch-breaks-ai-coding-agents) sayfasında okuyun."
+        },
+        {
+          "h2": "Yalnızca göz molası mı istiyorsunuz?"
+        },
+        {
+          "p": "Yalnızca sevdiğiniz göz molalarıyla kendi listenizi yazın. `~/.config/vibestretch/exercises.txt` dosyasında her satıra bir egzersiz. Bu durumda yerleşik liste devre dışı kalır. Örnek için [programcılar için masa başı esneme hareketleri](@desk-stretches-programmers) sayfasına bakın."
+        }
+      ],
+      "faq": [
+        {
+          "q": "vibestretch her 20 dakikada bir hatırlatır mı?",
+          "a": "Hayır. Sabit bir programı yoktur. Yalnızca uzun ajan turlarında hatırlatır ve hatırlatmalar arasındaki varsayılan bekleme süresi 15 dakikadır."
+        },
+        {
+          "q": "Yalnızca göz molası alabilir miyim?",
+          "a": "Evet. Kendi egzersizlerinizi her satıra bir tane olacak şekilde ~/.config/vibestretch/exercises.txt dosyasına yazın. vibestretch yerleşik liste yerine bu listeyi kullanır."
+        }
+      ]
+    },
+    "desk-stretches-programmers": {
+      "nav": "Masa başı esneme",
+      "title": "Programcılar için masa başı esneme hareketleri | vibestretch",
+      "description": "Programcılar için on iki kısa masa başı esneme hareketi, mini egzersiz ve göz molası. vibestretch'te bunları kendi listenizle nasıl değiştirirsiniz?",
+      "h1": "Programcılar için masa başı esneme hareketleri",
+      "lead": "vibestretch on iki kısa egzersizle gelir. Her biri bir ajan turunun süresine sığar. Sırayla gelirler, bu yüzden aynısı asla art arda iki kez çıkmaz.",
+      "blocks": [
+        {
+          "h2": "On iki yerleşik egzersiz"
+        },
+        {
+          "ol": [
+            "20-20-20: 20 fit uzaklıktaki bir şeye 20 saniye bakın.",
+            "Ayağa kalkın, tavana uzanın ve 15 saniye tutun. Sonra 15 saniye boyunca ayak parmaklarınıza doğru eğilin.",
+            "10 squat yapın.",
+            "Boynunuzu yavaşça çevirin, her yöne 5 kez.",
+            "Bileklerinizi çevirin, her yöne 10 kez.",
+            "Yavaşça 20 kez göz kırpın.",
+            "Kürek kemiklerinizi 10 kez sıkın: birbirine yaklaştırın, 3 saniye tutun, bırakın.",
+            "Duruş kontrolü: kulaklar omuzların, omuzlar kalçaların üzerinde. Bu duruşu koruyun.",
+            "Ayağa kalkın ve bir pencereye yürüyün. Açabiliyorsanız açın.",
+            "Avuçlarınızı ovuşturup ısıtın, sonra 20 saniye boyunca kapalı gözlerinizin üzerine kapatın.",
+            "Kalçanızı çevirin, her yöne 8 kez.",
+            "Bir kez 4-7-8 nefesi: 4 sayıda alın, 7 sayı tutun, 8 sayıda verin."
+          ]
+        },
+        {
+          "p": "Bilek çevirme ve duruş kontrolü, klavye başında geçen uzun günlerde tekrarlayan zorlanma sendromunu (RSI) ve duruşlarını düşünen kişiler için listede. vibestretch bir hatırlatıcıdır. Hiçbir şeyi teşhis etmez veya tedavi etmez."
+        },
+        {
+          "h2": "Kendi listenizi kullanın"
+        },
+        {
+          "p": "`~/.config/vibestretch/exercises.txt` dosyasında her satıra bir egzersiz yazın. Bu durumda yerleşik on iki egzersiz devre dışı kalır. Boş satırlar ve # ile başlayan satırlar atlanır."
+        },
+        {
+          "code": "custom_list"
+        },
+        {
+          "p": "Dosyayı başka bir yerde tutmak için `VIBESTRETCH_EXERCISES` değişkenine başka bir yol verin. Projeye özel listeler de bu şekilde çalışır. Sıra, listenizi baştan sona izler. İçinde kullanılabilir bir şey olmayan bir dosyada yerleşik listeye geri dönülür."
+        }
+      ],
+      "faq": [
+        {
+          "q": "vibestretch kaç egzersiz içerir?",
+          "a": "On iki: esnemeler, mini egzersizler ve göz molaları. Sırayla gelirler, bu yüzden aynısı asla art arda iki kez çıkmaz."
+        },
+        {
+          "q": "Kendi esneme hareketlerimi ekleyebilir miyim?",
+          "a": "Evet. ~/.config/vibestretch/exercises.txt dosyasına her satıra bir tane yazın. Metninizde tırnak işareti ve ters eğik çizgi kullanmak güvenlidir."
+        }
+      ]
+    },
+    "claude-code-break-reminder": {
+      "nav": "Claude Code",
+      "title": "Claude Code'a mola hatırlatıcısı nasıl eklenir | vibestretch",
+      "description": "Uzun turlarda esneme ve göz molası hatırlatmaları için vibestretch'i Claude Code'a kurun. Kurulum, durum satırı, VS Code notları ve ayarlar.",
+      "h1": "Claude Code'a mola hatırlatıcısı nasıl eklenir",
+      "lead": "vibestretch bir Claude Code eklentisidir. Uzun turları fark etmek ve sizi harekete davet etmek için üç hook kullanır.",
+      "blocks": [
+        {
+          "h2": "Kurulum"
+        },
+        {
+          "p": "Bu iki komutu Claude Code içinde çalıştırın:"
+        },
+        {
+          "code": "install_claude"
+        },
+        {
+          "p": "Bağımlılık, arka plan servisi (daemon) veya telemetri yoktur. Yapılandırılacak başka bir şey yok."
+        },
+        {
+          "h2": "Hatırlatma nerede görünür"
+        },
+        {
+          "ul": [
+            "Oturumda bir satır.",
+            "Pakete dahil yumuşak bir zil sesi.",
+            "Warp, Ghostty, iTerm2, WezTerm ve kitty'de bir bildirim. VS Code'da bunun için bir bildirim eklentisi gerekir.",
+            "Kurduysanız durum satırınız."
+          ]
+        },
+        {
+          "h2": "Durum satırınıza ekleyin"
+        },
+        {
+          "code": "statusline"
+        },
+        {
+          "p": "Bu komut ayarlarınızı yedekler ve mevcut durum satırı komutunuzu sarar. Hiç yoksa minimal bir tane kurar. Bir hatırlatmadan sonra egzersiz 5 dakika orada kalır. Geri almak için `/vibestretch:statusline off` çalıştırın. Eklentiyi kaldırmadan önce `off` komutunu çalıştırın."
+        },
+        {
+          "h2": "VS Code"
+        },
+        {
+          "p": "Entegre terminalde satır, zil sesi ve durum satırı çalışır. Eklentinin sohbet panelinde size yalnızca zil sesi ulaşır. Bildirim için iki yerde de bir bildirim eklentisi gerekir. Bu, Claude Code 2.1.234 üzerinde denendi."
+        },
+        {
+          "h2": "Ayarlar"
+        },
+        {
+          "p": "Tüm ayarlar isteğe bağlı ortam değişkenleridir. Süreler saniye cinsindendir."
+        },
+        {
+          "table": "settings"
+        },
+        {
+          "p": "Claude Code'u bir betikten `claude -p` ile arayüzsüz mü çalıştırıyorsunuz? Orada `VIBESTRETCH_DISABLE=1` ayarlayın."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Durum satırı bölümünü nasıl kaldırırım?",
+          "a": "/vibestretch:statusline off komutunu çalıştırın. Bunu eklentiyi kaldırmadan önce yapın. Aksi halde bölüm yapılandırılmış ama donmuş halde kalır."
+        },
+        {
+          "q": "Hatırlatma modele ulaşır mı?",
+          "a": "Hayır. Hatırlatma bir systemMessage'dır. Size gösterilir ve modelin bağlamına asla eklenmez."
+        },
+        {
+          "q": "Neden iki ses duyuyorum?",
+          "a": "iTerm2 gibi bazı terminaller bildirimler için kendi sesini çalar. Yalnızca terminalin sesini duymak için VIBESTRETCH_SOUND=0 ayarlayın."
+        }
+      ]
+    },
+    "codex-cli-break-reminder": {
+      "nav": "Codex CLI",
+      "title": "Codex CLI'ya mola hatırlatıcısı nasıl eklenir | vibestretch",
+      "description": "vibestretch'i OpenAI Codex CLI'ya eklenti olarak veya elle kurun. Uzun Codex turları sürerken bir esneme satırı ve zil sesi alın.",
+      "h1": "Codex CLI'ya mola hatırlatıcısı nasıl eklenir",
+      "lead": "vibestretch, OpenAI Codex CLI'ya eklenti pazarından kurulur. Uzun turlarda bir esneme satırı gösterir ve zil sesi çalar.",
+      "blocks": [
+        {
+          "h2": "Eklenti olarak kurulum"
+        },
+        {
+          "code": "install_codex"
+        },
+        {
+          "p": "Codex, bir eklentinin hook'larını siz onları incelemeden çalıştırmaz. `/hooks` menüsünü açın ve üç vibestretch girdisini güvenilir olarak işaretleyin. O zamana kadar eklenti kuruludur ama sessizdir."
+        },
+        {
+          "h2": "Elle kurulum"
+        },
+        {
+          "p": "Bir klon ve bir yapılandırma dosyası aynı işi görür:"
+        },
+        {
+          "code": "install_codex_manual"
+        },
+        {
+          "p": "Zaten bir `~/.codex/hooks.json` dosyanız mı var? Bizimkindeki üç girdiyi onunla birleştirin. Kendi dosyanızın üzerine yazmayın. Codex yeni bir hook yapılandırması ilk kez çalıştığında ona güvenmenizi ister. Bu istem normaldir."
+        },
+        {
+          "p": "Tek bir yol seçin. Eklenti ve elle eklenen girdiler birlikte varsa her hook iki kez çalışır. 0.8.0 öncesinde elle kurduysanız, eklentiye geçerken bizim girdilerimizi `~/.codex/hooks.json` dosyasından kaldırın."
+        },
+        {
+          "h2": "Codex'te neler alırsınız"
+        },
+        {
+          "p": "Oturumda satırı ve zil sesini alırsınız. Bildirim yoktur, çünkü Codex'te terminal dizisi için bir hook çıktı alanı yoktur. Durum satırı bölümü de yoktur. Codex'te o çubuk betiklerle yönetilemez."
+        },
+        {
+          "p": "Sayaç Claude Code ve Gemini CLI ile ortaktır. Bir saatlik bekleme, sizi sandalyede hangi ajan tutmuş olursa olsun bir kez sayılır. Adaptör, macOS üzerinde Codex CLI 0.149.1'in gerçek bir kurulumunda çalıştırıldı."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Kurdum ama hiçbir şey olmuyor. Neden?",
+          "a": "Codex bir eklentinin hook'larını ancak siz onlara güvendikten sonra çalıştırır. /hooks menüsünü açın ve üç vibestretch girdisini güvenilir olarak işaretleyin."
+        },
+        {
+          "q": "Her hook iki kez çalışıyor. Neden?",
+          "a": "Muhtemelen hem eklenti hem de ~/.codex/hooks.json içinde elle eklenmiş girdiler var. İkisinden yalnızca birini tutun."
+        },
+        {
+          "q": "codex exec ile kullanabilir miyim?",
+          "a": "O ortamda VIBESTRETCH_DISABLE=1 ayarlayın. Gözetimsiz çalıştırmalar, oturup beklediğiniz süre olarak sayılmamalıdır."
+        }
+      ]
+    },
+    "gemini-cli-break-reminder": {
+      "nav": "Gemini CLI",
+      "title": "Gemini CLI'ya mola hatırlatıcısı nasıl eklenir | vibestretch",
+      "description": "vibestretch'i üç hook ile Gemini CLI'ya ekleyin. Uzun Gemini turlarında bir esneme satırı ve zil sesi alın. Kurulum ve birleştirme adımları.",
+      "h1": "Gemini CLI'ya mola hatırlatıcısı nasıl eklenir",
+      "lead": "Gemini CLI, v0.26'dan beri hook'lar etkin olarak geliyor. vibestretch, uzun turlarda esnemenizi hatırlatmak için bunlardan üçünü ekler.",
+      "blocks": [
+        {
+          "h2": "Kurulum"
+        },
+        {
+          "p": "Depoyu klonlayın:"
+        },
+        {
+          "code": "install_gemini_clone"
+        },
+        {
+          "p": "Sonra `~/.gemini/vibestretch/hooks/gemini-hooks.json` içindeki `hooks` nesnesini `~/.gemini/settings.json` dosyasına kopyalayın. Bu dosya Gemini yapılandırmanızın tamamını tutar, bu yüzden içerikleri birleştirin. Dosyanın yerine yenisini koymayın. `jq` ile tek satırdır:"
+        },
+        {
+          "code": "install_gemini_merge"
+        },
+        {
+          "p": "`BeforeAgent`, `AfterTool` veya `AfterAgent` altında kendi hook'larınız varsa bu komut onları bizimkilerle değiştirir. Bu durumda üç girdimizi listelerinize elle ekleyin."
+        },
+        {
+          "h2": "Hangi hook'ları kullanır"
+        },
+        {
+          "ul": [
+            "`BeforeAgent`: ajan isteminiz üzerinde çalışmaya başlar.",
+            "`AfterTool`: bir araç işini bitirdi. Bekleme süresi eklenir ve zamanı geldiyse bir hatırlatma gelir.",
+            "`AfterAgent`: tur bitti. Hesap kapanır."
+          ]
+        },
+        {
+          "h2": "Gemini CLI'da neler alırsınız"
+        },
+        {
+          "p": "Oturumda satırı ve zil sesini alırsınız. Bildirim yoktur. Gemini bir hook'un stdout çıktısını yalnızca JSON için ayırır, bu yüzden bir kaçış dizisi yazdırılacak yer yoktur."
+        },
+        {
+          "p": "Adaptör, macOS üzerinde Gemini CLI 0.56.0'ın gerçek bir kurulumunda çalıştırıldı. Sayaç Claude Code ve Codex CLI ile ortaktır."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Hangi Gemini CLI sürümü gerekiyor?",
+          "a": "Hook'lar Gemini CLI v0.26'dan beri etkin olarak geliyor."
+        },
+        {
+          "q": "Birleştirme ayarlarımın üzerine yazar mı?",
+          "a": "Diğer ayarlarınız korunur. BeforeAgent, AfterTool veya AfterAgent altında kendi hook'larınız varsa jq bu listeleri bizimkilerle değiştirir. Bu durumda üç girdimizi elle ekleyin. Önce dosyayı yedekleyin."
+        },
+        {
+          "q": "gemini -p ile kullanabilir miyim?",
+          "a": "Gemini'yi bir betikten, cron'dan veya bir bottan çalıştırdığınızda VIBESTRETCH_DISABLE=1 ayarlayın."
+        }
+      ]
+    }
+  },
+  "settings_rows": {
+    "VIBESTRETCH_MIN_TURN": "Mevcut tur en az bu kadar sürmelidir.",
+    "VIBESTRETCH_MIN_ACTIVE": "Son molanızdan bu yana gereken ajan süresi.",
+    "VIBESTRETCH_COOLDOWN": "Hatırlatmalar arasındaki en kısa süre.",
+    "VIBESTRETCH_AWAY": "Bu süre boyunca klavye veya fare kullanılmazsa uzakta sayılırsınız. Yalnızca macOS. 0 bu korumayı kapatır.",
+    "VIBESTRETCH_DISABLE": "Hatırlatmaları kapatmak için herhangi bir değer verin.",
+    "VIBESTRETCH_NOTIFY": "Masaüstü bildirimini kaldırmak için 0 yapın.",
+    "VIBESTRETCH_SOUND": "Sesi kapatmak için 0 yapın.",
+    "VIBESTRETCH_EXERCISES": "Kendi egzersiz listenizin yolu."
+  },
+  "settings_head": [
+    "Değişken",
+    "Varsayılan",
+    "Anlamı"
+  ]
+}

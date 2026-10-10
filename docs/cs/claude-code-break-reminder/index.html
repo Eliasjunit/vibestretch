@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="cs" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jak přidat připomínku přestávek do Claude Code | vibestretch</title>
+<meta name="description" content="Nainstalujte vibestretch do Claude Code a dostávejte připomínky protažení a přestávek pro oči při dlouhých bězích. Instalace, stavový řádek, VS Code.">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/cs/claude-code-break-reminder/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/claude-code-break-reminder/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/claude-code-break-reminder/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/claude-code-break-reminder/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/claude-code-break-reminder/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/claude-code-break-reminder/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/claude-code-break-reminder/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/claude-code-break-reminder/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/claude-code-break-reminder/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/claude-code-break-reminder/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/claude-code-break-reminder/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/claude-code-break-reminder/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/claude-code-break-reminder/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/claude-code-break-reminder/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/claude-code-break-reminder/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/claude-code-break-reminder/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/claude-code-break-reminder/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/claude-code-break-reminder/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/claude-code-break-reminder/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/claude-code-break-reminder/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/claude-code-break-reminder/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/claude-code-break-reminder/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/claude-code-break-reminder/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/claude-code-break-reminder/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/claude-code-break-reminder/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/claude-code-break-reminder/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/claude-code-break-reminder/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="Jak přidat připomínku přestávek do Claude Code | vibestretch">
+<meta property="og:description" content="Nainstalujte vibestretch do Claude Code a dostávejte připomínky protažení a přestávek pro oči při dlouhých bězích. Instalace, stavový řádek, VS Code.">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/cs/claude-code-break-reminder/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta property="og:locale:alternate" content="ms_MY">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch je bezplatná připomínka přestávek a protažení pro vývojáře. Připomene vám pohyb, když Claude Code, Codex CLI nebo Gemini CLI běží dlouho.",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/cs/claude-code-break-reminder/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/cs/claude-code-break-reminder/",
+   "name": "Jak přidat připomínku přestávek do Claude Code | vibestretch",
+   "description": "Nainstalujte vibestretch do Claude Code a dostávejte připomínky protažení a přestávek pro oči při dlouhých bězích. Instalace, stavový řádek, VS Code.",
+   "inLanguage": "cs",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/cs/claude-code-break-reminder/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/cs/claude-code-break-reminder/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/cs/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Jak přidat připomínku přestávek do Claude Code",
+     "item": "https://eliasjunit.github.io/vibestretch/cs/claude-code-break-reminder/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/cs/claude-code-break-reminder/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/cs/claude-code-break-reminder/",
+   "inLanguage": "cs",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Jak odstraním část stavového řádku?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Spusťte /vibestretch:statusline off. Udělejte to před odinstalací pluginu, jinak část zůstane nastavená, ale zamrzlá."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Dostane se připomínka k modelu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ne. Připomínka je systemMessage. Zobrazí se vám a do kontextu modelu se nikdy nepřidá."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Proč slyším dva zvuky?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Některé terminály, například iTerm2, přehrávají u oznámení vlastní zvuk. Nastavte VIBESTRETCH_SOUND=0 a zůstane jen zvuk terminálu."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Přejít na obsah</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../../cs/"><img src="../../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>Jazyk: Čeština</summary><ul><li><a href="../../claude-code-break-reminder/" hreflang="en" lang="en">English</a></li><li><a href="../../es/claude-code-break-reminder/" hreflang="es" lang="es">Español</a></li><li><a href="../../pt-BR/claude-code-break-reminder/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../../fr/claude-code-break-reminder/" hreflang="fr" lang="fr">Français</a></li><li><a href="../../de/claude-code-break-reminder/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../../it/claude-code-break-reminder/" hreflang="it" lang="it">Italiano</a></li><li><a href="../../ru/claude-code-break-reminder/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../../uk/claude-code-break-reminder/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../pl/claude-code-break-reminder/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../../tr/claude-code-break-reminder/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../../nl/claude-code-break-reminder/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../../sv/claude-code-break-reminder/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../../da/claude-code-break-reminder/" hreflang="da" lang="da">Dansk</a></li><li><a href="../../nb/claude-code-break-reminder/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../../fi/claude-code-break-reminder/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../../cs/claude-code-break-reminder/" hreflang="cs" lang="cs" aria-current="true">Čeština</a></li><li><a href="../../ro/claude-code-break-reminder/" hreflang="ro" lang="ro">Română</a></li><li><a href="../../hu/claude-code-break-reminder/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../../el/claude-code-break-reminder/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../../ja/claude-code-break-reminder/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../../ko/claude-code-break-reminder/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../../zh-Hans/claude-code-break-reminder/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li><li><a href="../../zh-Hant/claude-code-break-reminder/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../../id/claude-code-break-reminder/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../../th/claude-code-break-reminder/" hreflang="th" lang="th">ไทย</a></li><li><a href="../../vi/claude-code-break-reminder/" hreflang="vi" lang="vi">Tiếng Việt</a></li><li><a href="../../ms/claude-code-break-reminder/" hreflang="ms" lang="ms">Bahasa Melayu</a></li><li><a href="../../hi/claude-code-break-reminder/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../../ar/claude-code-break-reminder/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../../he/claude-code-break-reminder/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="Stránky"><ul><li><a href="../../cs/">Přehled</a></li><li><a href="../../cs/stretch-breaks-ai-coding-agents/">Přestávky během běhu agenta</a></li><li><a href="../../cs/20-20-20-eye-rule-developers/">Pravidlo 20-20-20</a></li><li><a href="../../cs/desk-stretches-programmers/">Cviky u stolu</a></li><li><a href="../../cs/claude-code-break-reminder/" aria-current="page">Claude Code</a></li><li><a href="../../cs/codex-cli-break-reminder/">Codex CLI</a></li><li><a href="../../cs/gemini-cli-break-reminder/">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Drobečková navigace"><ol><li><a href="../../cs/">vibestretch</a></li><li aria-current="page">Jak přidat připomínku přestávek do Claude Code</li></ol></nav>
+<h1>Jak přidat připomínku přestávek do Claude Code</h1>
+<p class="lead">vibestretch je plugin pro Claude Code. Pomocí tří hooků pozná dlouhé běhy a připomene vám, abyste se pohnuli.</p>
+<h2>Instalace</h2>
+<p>Spusťte v Claude Code tyto dva příkazy:</p>
+<pre><code>/plugin marketplace add Eliasjunit/vibestretch
+/plugin install vibestretch@vibestretch</code></pre>
+<p>Žádné závislosti, žádný démon a žádná telemetrie. Nic dalšího se nenastavuje.</p>
+<h2>Kde se připomínka zobrazí</h2>
+<ul><li>Řádek v relaci.</li><li>Jemný přibalený zvuk.</li><li>Oznámení ve Warp, Ghostty, iTerm2, WezTerm a kitty. Ve VS Code vyžaduje rozšíření pro oznámení.</li><li>Váš stavový řádek, pokud si ho nastavíte.</li></ul>
+<h2>Přidejte ji do stavového řádku</h2>
+<pre><code>/vibestretch:statusline</code></pre>
+<p>Tento příkaz zálohuje vaše nastavení a obalí váš stávající příkaz stavového řádku. Pokud žádný nemáte, nainstaluje jednoduchý. Po připomínce tam cvik zůstane 5 minut. Vrátíte to příkazem <code>/vibestretch:statusline off</code>. Před odinstalací pluginu spusťte <code>off</code>.</p>
+<h2>VS Code</h2>
+<p>V integrovaném terminálu funguje řádek, zvuk i stavový řádek. V panelu chatu rozšíření se k vám dostane jen zvuk. Oznámení na obou místech vyžaduje rozšíření pro oznámení. Ověřeno na Claude Code 2.1.234.</p>
+<h2>Nastavení</h2>
+<p>Všechna nastavení jsou volitelné proměnné prostředí. Časy jsou v sekundách.</p>
+<div class="table"><table><thead><tr><th>Proměnná</th><th>Výchozí</th><th>Význam</th></tr></thead><tbody><tr><td><code>VIBESTRETCH_MIN_TURN</code></td><td><code>120</code></td><td>Aktuální běh musí trvat alespoň takto dlouho.</td></tr><tr><td><code>VIBESTRETCH_MIN_ACTIVE</code></td><td><code>300</code></td><td>Potřebný čas agenta od poslední přestávky.</td></tr><tr><td><code>VIBESTRETCH_COOLDOWN</code></td><td><code>900</code></td><td>Minimální odstup mezi připomínkami.</td></tr><tr><td><code>VIBESTRETCH_AWAY</code></td><td><code>300</code></td><td>Když takto dlouho nepoužijete klávesnici ani myš, jste pryč. Jen macOS. 0 tuto ochranu vypne.</td></tr><tr><td><code>VIBESTRETCH_DISABLE</code></td><td><code>unset</code></td><td>Nastavte na cokoli a připomínky utichnou.</td></tr><tr><td><code>VIBESTRETCH_NOTIFY</code></td><td><code>1</code></td><td>Nastavte na 0 a oznámení na ploše se nezobrazí.</td></tr><tr><td><code>VIBESTRETCH_SOUND</code></td><td><code>1</code></td><td>Nastavte na 0 a zvuk se vypne.</td></tr><tr><td><code>VIBESTRETCH_EXERCISES</code></td><td><code>~/.config/vibestretch/exercises.txt</code></td><td>Cesta k vašemu vlastnímu seznamu cviků.</td></tr></tbody></table></div>
+<p>Spouštíte Claude Code bez rozhraní přes <code>claude -p</code> ze skriptu? Nastavte tam <code>VIBESTRETCH_DISABLE=1</code>.</p>
+<section class="faq" id="faq"><h2>Časté dotazy</h2><dl><dt>Jak odstraním část stavového řádku?</dt><dd>Spusťte /vibestretch:statusline off. Udělejte to před odinstalací pluginu, jinak část zůstane nastavená, ale zamrzlá.</dd><dt>Dostane se připomínka k modelu?</dt><dd>Ne. Připomínka je systemMessage. Zobrazí se vám a do kontextu modelu se nikdy nepřidá.</dd><dt>Proč slyším dva zvuky?</dt><dd>Některé terminály, například iTerm2, přehrávají u oznámení vlastní zvuk. Nastavte VIBESTRETCH_SOUND=0 a zůstane jen zvuk terminálu.</dd></dl></section>
+<section class="related"><h2>Čtěte dál</h2><ul><li><a href="../../cs/">Protáhněte se, zatímco váš AI agent pracuje</a></li><li><a href="../../cs/stretch-breaks-ai-coding-agents/">Přestávky na protažení během běhu AI agentů</a></li><li><a href="../../cs/20-20-20-eye-rule-developers/">Pravidlo 20-20-20 pro oči vývojářů</a></li><li><a href="../../cs/desk-stretches-programmers/">Cviky u stolu pro programátory</a></li><li><a href="../../cs/codex-cli-break-reminder/">Jak přidat připomínku přestávek do Codex CLI</a></li><li><a href="../../cs/gemini-cli-break-reminder/">Jak přidat připomínku přestávek do Gemini CLI</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch je open source pod licencí MIT. Vytvořil Junit. <a href="https://github.com/Eliasjunit/vibestretch">Zdrojový kód na GitHubu</a></p>
+</div></footer>
+</body>
+</html>

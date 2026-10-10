@@ -1,0 +1,474 @@
+{
+  "lang_name": "Nederlands",
+  "ui": {
+    "skip": "Naar de inhoud",
+    "nav_home": "Home",
+    "nav_label": "Pagina's",
+    "languages": "Taal",
+    "breadcrumb_home": "vibestretch",
+    "faq_title": "Veelgestelde vragen",
+    "related_title": "Lees verder",
+    "source_link": "Broncode op GitHub",
+    "footer_license": "vibestretch is open source onder de MIT-licentie.",
+    "footer_made": "Gemaakt door Junit.",
+    "breadcrumb_label": "Kruimelpad"
+  },
+  "pages": {
+    "index": {
+      "nav": "Overzicht",
+      "title": "vibestretch: rekoefeningen terwijl je coding agent werkt",
+      "description": "vibestretch is een gratis pauze- en rekherinnering voor ontwikkelaars. Een seintje om te bewegen terwijl Claude Code, Codex CLI of Gemini CLI lang bezig is.",
+      "h1": "Rek je uit terwijl je coding agent werkt",
+      "lead": "vibestretch toont een korte rekoefening, een mini-workout of een oogpauze terwijl je wacht op een lange beurt van je agent. Het werkt met Claude Code, Codex CLI en Gemini CLI.",
+      "blocks": [
+        {
+          "code": "install_claude_cli"
+        },
+        {
+          "p": "Hiermee installeer je de plugin in Claude Code. De pagina's over [Codex CLI](@codex-cli-break-reminder) en [Gemini CLI](@gemini-cli-break-reminder) laten de installatiestappen daarvoor zien."
+        },
+        {
+          "h2": "Zo ziet een seintje eruit"
+        },
+        {
+          "code": "nudge_example"
+        },
+        {
+          "p": "Er verschijnt één regel in de sessie. Er klinkt een zacht belletje. In terminals die het ondersteunen verschijnt ook een melding."
+        },
+        {
+          "h2": "Wanneer je een seintje krijgt"
+        },
+        {
+          "p": "vibestretch werkt zonder schema. Het telt één ding: de minuten dat je achter je computer op een beurt van de agent wachtte. Je krijgt alleen een seintje als alle drie de voorwaarden kloppen:"
+        },
+        {
+          "ol": [
+            "De huidige beurt loopt 2 minuten of langer.",
+            "Je agenttijd sinds het vorige seintje komt samen op 5 minuten of meer.",
+            "Het vorige seintje is minstens 15 minuten geleden."
+          ]
+        },
+        {
+          "p": "Snelle beurten zetten het nooit in gang. Een dag vol korte beurten blijft helemaal stil. Er valt niets uit te stellen, want het meldt zich alleen als je toch al wacht. Lees meer over [rekpauzes terwijl AI coding agents werken](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Wat je krijgt"
+        },
+        {
+          "ul": [
+            "Twaalf ingebouwde oefeningen: rekoefeningen, mini-workouts en oogpauzes zoals [20-20-20](@20-20-20-eye-rule-developers).",
+            "Een volgorde die nooit twee keer achter elkaar dezelfde oefening geeft.",
+            "Je eigen lijst met oefeningen, als je dat liever hebt. Zie [rekoefeningen aan je bureau voor programmeurs](@desk-stretches-programmers).",
+            "Een optioneel onderdeel in de statusregel van Claude Code."
+          ]
+        },
+        {
+          "h2": "Privacy"
+        },
+        {
+          "p": "vibestretch bestaat uit een paar kleine POSIX-shellscripts en één meegeleverd geluid. Het maakt geen netwerkverbindingen. Het verstuurt geen telemetrie. Het toont geen advertenties en zet geen links in je terminal. Het voegt niets toe aan de context van het model. De status staat in `~/.cache/vibestretch/`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Wat is vibestretch?",
+          "a": "vibestretch is een plugin voor coding agents. Het herinnert je eraan om je uit te rekken, te bewegen of je ogen rust te geven terwijl je wacht op een lange beurt van de agent."
+        },
+        {
+          "q": "Welke coding agents worden ondersteund?",
+          "a": "Claude Code, OpenAI Codex CLI en Gemini CLI. Alle drie gebruiken dezelfde teller. Een uur wachten telt dus één keer, welke agent je ook in je stoel hield."
+        },
+        {
+          "q": "Is het een pauzetimer?",
+          "a": "Nee. Een timer werkt volgens een schema. vibestretch telt alleen de tijd dat je op een beurt van de agent wachtte, en geeft alleen tijdens dat wachten een seintje."
+        },
+        {
+          "q": "Stuurt het ergens gegevens heen?",
+          "a": "Nee. Het maakt geen netwerkverbindingen en verstuurt geen telemetrie. Er gaat niets van je computer af."
+        },
+        {
+          "q": "Wat kost het?",
+          "a": "Het is gratis. vibestretch is open source onder de MIT-licentie en de code staat op GitHub."
+        },
+        {
+          "q": "Hoe zet ik het uit?",
+          "a": "Geef VIBESTRETCH_DISABLE een willekeurige waarde om de seintjes uit te zetten. VIBESTRETCH_SOUND=0 zet het geluid uit. VIBESTRETCH_NOTIFY=0 schakelt de melding uit."
+        }
+      ]
+    },
+    "stretch-breaks-ai-coding-agents": {
+      "nav": "Pauzes tijdens agentbeurten",
+      "title": "Rekpauzes terwijl AI coding agents werken | vibestretch",
+      "description": "Gebruik de minuten dat je op je coding agent wacht voor een korte rekpauze. Zo telt vibestretch de wachttijd en zo bepaalt het wanneer je een seintje krijgt.",
+      "h1": "Rekpauzes terwijl AI coding agents werken",
+      "lead": "Een coding agent kan minutenlang bezig zijn. Jij zit erbij en kijkt toe. vibestretch maakt van dat wachten een korte pauze.",
+      "blocks": [
+        {
+          "h2": "Waarom het wachten een goed moment is"
+        },
+        {
+          "p": "Pauzetimers gaan af volgens een schema. Vaak komen ze midden in een gedachte, en veel mensen zetten ze uiteindelijk uit. De tijd dat een agent bezig is, is anders. Je zit toch al te wachten. Een rekoefening in die tussenruimte kost je geen focus."
+        },
+        {
+          "h2": "Wat vibestretch telt"
+        },
+        {
+          "p": "Het telt agenttijd: de minuten dat een beurt van de agent liep terwijl jij achter je computer zat. Die tijd telt het op sinds je vorige seintje. Dat is iets anders dan hoe lang je al aan je bureau zit. Een uur lezen en typen met snelle beurten ertussen levert bijna niets op."
+        },
+        {
+          "h2": "Wanneer je een seintje krijgt"
+        },
+        {
+          "p": "Alle drie de voorwaarden moeten kloppen:"
+        },
+        {
+          "ol": [
+            "De huidige beurt loopt minstens 2 minuten.",
+            "De agenttijd sinds het vorige seintje is minstens 5 minuten. Eén grote taak telt net zo goed als een paar middelgrote.",
+            "Het vorige seintje is minstens 15 minuten geleden."
+          ]
+        },
+        {
+          "p": "Elk getal kun je aanpassen met een omgevingsvariabele. De volledige lijst staat op de [pagina over Claude Code](@claude-code-break-reminder)."
+        },
+        {
+          "h2": "Als je wegloopt"
+        },
+        {
+          "p": "Ben je 45 minuten of langer niet aan het toetsenbord, dan wordt de teller op nul gezet. Je pauze heb je dan al gehad. Op macOS lezen de hooks de inactiviteitstijd van toetsenbord en muis uit het systeem. Een agent die 's nachts doorwerkt, telt dus geen agenttijd op en laat nooit een belletje horen bij een lege stoel. Linux heeft geen standaardmanier om inactiviteit te meten, dus daar geldt alleen de reset na 45 minuten."
+        },
+        {
+          "h2": "Wat het seintje je vraagt"
+        },
+        {
+          "p": "Elk seintje is één oefening uit een lijst van twaalf. Daarin zitten rekoefeningen, mini-workouts en oogpauzes. De hele lijst staat bij [rekoefeningen aan je bureau voor programmeurs](@desk-stretches-programmers)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Krijg ik ook een seintje bij korte beurten?",
+          "a": "Nee. Een beurt moet minstens 2 minuten lopen, en er moet genoeg agenttijd zijn opgebouwd, voordat er een seintje kan komen."
+        },
+        {
+          "q": "Betekent een snel model minder seintjes?",
+          "a": "Ja. Snelle modellen ronden hun beurten af voordat de drempels zijn bereikt. Er valt dus niets uit te zetten."
+        },
+        {
+          "q": "En agents die vanuit scripts of cron draaien?",
+          "a": "Zet VIBESTRETCH_DISABLE=1 in die omgeving. Anders tellen sessies zonder toezicht als tijd die je nooit hebt uitgezeten."
+        }
+      ]
+    },
+    "20-20-20-eye-rule-developers": {
+      "nav": "20-20-20-regel",
+      "title": "De 20-20-20-regel voor je ogen als ontwikkelaar | vibestretch",
+      "description": "De 20-20-20-oogpauze en andere oogpauzes in vibestretch, een herinnering die loopt terwijl je coding agent aan het werk is.",
+      "h1": "De 20-20-20-oogregel voor ontwikkelaars",
+      "lead": "Lange beurten van de agent betekenen lang naar een scherm staren. vibestretch heeft oogpauzes in de rotatie, en 20-20-20 is daar één van.",
+      "blocks": [
+        {
+          "h2": "De 20-20-20-pauze in vibestretch"
+        },
+        {
+          "p": "Zo luidt het seintje:"
+        },
+        {
+          "code": "nudge_202020"
+        },
+        {
+          "p": "Kijk naar iets op 20 voet (ongeveer 6 meter) afstand. Blijf 20 seconden kijken. Ga dan terug naar je agent."
+        },
+        {
+          "h2": "Andere oogpauzes in de lijst"
+        },
+        {
+          "ul": [
+            "Knipper 20 keer, langzaam.",
+            "Wrijf je handpalmen warm en leg ze 20 seconden als een kommetje over je gesloten ogen.",
+            "Sta op en loop naar een raam."
+          ]
+        },
+        {
+          "h2": "Wanneer je een herinnering krijgt"
+        },
+        {
+          "p": "vibestretch werkt niet met een klok. Het herinnert je terwijl je wacht op een lange beurt van de agent, standaard hooguit één keer per 15 minuten. Oogpauzes komen langs als onderdeel van de rotatie van twaalf oefeningen. Hoe de timing werkt, lees je bij [rekpauzes terwijl AI coding agents werken](@stretch-breaks-ai-coding-agents)."
+        },
+        {
+          "h2": "Alleen oogpauzes?"
+        },
+        {
+          "p": "Maak je eigen lijst met alleen de oogpauzes die je fijn vindt. Eén oefening per regel in `~/.config/vibestretch/exercises.txt`. De ingebouwde lijst gaat dan opzij. Een voorbeeld staat bij [rekoefeningen aan je bureau voor programmeurs](@desk-stretches-programmers)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Herinnert vibestretch me elke 20 minuten?",
+          "a": "Nee. Er is geen vast schema. Je krijgt alleen een herinnering tijdens lange beurten van de agent, en de standaard wachttijd tussen seintjes is 15 minuten."
+        },
+        {
+          "q": "Kan ik alleen oogpauzes krijgen?",
+          "a": "Ja. Zet je eigen oefeningen in ~/.config/vibestretch/exercises.txt, één per regel. vibestretch gebruikt dan die lijst in plaats van de ingebouwde."
+        }
+      ]
+    },
+    "desk-stretches-programmers": {
+      "nav": "Rekoefeningen aan je bureau",
+      "title": "Rekoefeningen aan je bureau voor programmeurs | vibestretch",
+      "description": "Twaalf korte rekoefeningen, mini-workouts en oogpauzes voor programmeurs aan het bureau, en hoe je ze in vibestretch vervangt door je eigen lijst.",
+      "h1": "Rekoefeningen aan je bureau voor programmeurs",
+      "lead": "vibestretch heeft twaalf korte oefeningen. Elke oefening past in de tijd van een beurt van de agent. Ze wisselen elkaar af, dus je krijgt nooit twee keer achter elkaar dezelfde.",
+      "blocks": [
+        {
+          "h2": "De twaalf ingebouwde oefeningen"
+        },
+        {
+          "ol": [
+            "20-20-20: kijk 20 seconden naar iets op 20 voet afstand.",
+            "Sta op, reik naar het plafond en houd 15 seconden vast. Buig dan 15 seconden voorover naar je tenen.",
+            "10 squats.",
+            "Rol je hoofd langzaam rond, 5 keer naar elke kant.",
+            "Draai rondjes met je polsen, 10 keer elke kant op.",
+            "Knipper 20 keer, langzaam.",
+            "Knijp je schouderbladen 10 keer samen: samentrekken, 3 seconden vasthouden, loslaten.",
+            "Houdingscheck: oren boven je schouders, schouders boven je heupen. Houd dat vast.",
+            "Sta op en loop naar een raam. Zet het open als dat kan.",
+            "Wrijf je handpalmen warm en leg ze 20 seconden als een kommetje over je gesloten ogen.",
+            "Draai rondjes met je heupen, 8 keer elke kant op.",
+            "Eén 4-7-8-ademhaling: 4 tellen in, 7 vasthouden, 8 uit."
+          ]
+        },
+        {
+          "p": "De polsrondjes en de houdingscheck zijn er voor mensen die op lange dagen achter het toetsenbord aan RSI (muisarm) en hun houding denken. vibestretch is een herinnering. Het stelt geen diagnose en behandelt niets."
+        },
+        {
+          "h2": "Je eigen lijst gebruiken"
+        },
+        {
+          "p": "Zet één oefening per regel in `~/.config/vibestretch/exercises.txt`. De twaalf ingebouwde oefeningen gaan dan opzij. Lege regels en regels die met # beginnen, worden overgeslagen."
+        },
+        {
+          "code": "custom_list"
+        },
+        {
+          "p": "Geef `VIBESTRETCH_EXERCISES` een ander pad als je het bestand ergens anders wilt bewaren. Zo werken ook lijsten per project. De rotatie loopt je lijst op volgorde door. Staat er niets bruikbaars in het bestand, dan valt vibestretch terug op de ingebouwde lijst."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Hoeveel oefeningen zitten er in vibestretch?",
+          "a": "Twaalf: rekoefeningen, mini-workouts en oogpauzes. Ze wisselen elkaar af, zodat je nooit twee keer achter elkaar dezelfde krijgt."
+        },
+        {
+          "q": "Kan ik mijn eigen rekoefeningen toevoegen?",
+          "a": "Ja. Zet er één per regel in ~/.config/vibestretch/exercises.txt. Aanhalingstekens en backslashes in je tekst zijn geen probleem."
+        }
+      ]
+    },
+    "claude-code-break-reminder": {
+      "nav": "Claude Code",
+      "title": "Zo voeg je een pauzeherinnering toe aan Claude Code | vibestretch",
+      "description": "Installeer vibestretch in Claude Code voor rek- en oogpauzes tijdens lange beurten. Installatie, statusregel, opmerkingen over VS Code en instellingen.",
+      "h1": "Zo voeg je een pauzeherinnering toe aan Claude Code",
+      "lead": "vibestretch is een plugin voor Claude Code. Het gebruikt drie hooks om lange beurten op te merken en je een seintje te geven om te bewegen.",
+      "blocks": [
+        {
+          "h2": "Installeren"
+        },
+        {
+          "p": "Voer deze twee commando's uit in Claude Code:"
+        },
+        {
+          "code": "install_claude"
+        },
+        {
+          "p": "Er zijn geen afhankelijkheden, geen daemon en geen telemetrie. Verder hoef je niets in te stellen."
+        },
+        {
+          "h2": "Waar het seintje verschijnt"
+        },
+        {
+          "ul": [
+            "Een regel in de sessie.",
+            "Een zacht, meegeleverd belletje.",
+            "Een melding in Warp, Ghostty, iTerm2, WezTerm en kitty. In VS Code heb je daarvoor een notificatie-extensie nodig.",
+            "Je statusregel, als je die instelt."
+          ]
+        },
+        {
+          "h2": "Toevoegen aan je statusregel"
+        },
+        {
+          "code": "statusline"
+        },
+        {
+          "p": "Dit commando maakt een back-up van je instellingen en bouwt je bestaande statusregelcommando erin in. Heb je er geen, dan installeert het een minimale versie. Na een seintje blijft de oefening daar 5 minuten staan. Ongedaan maken doe je met `/vibestretch:statusline off`. Voer `off` uit voordat je de plugin verwijdert."
+        },
+        {
+          "h2": "VS Code"
+        },
+        {
+          "p": "In de geïntegreerde terminal werken de regel, het belletje en de statusregel. In het chatpaneel van de extensie bereikt alleen het belletje je. Voor de melding heb je op beide plekken een notificatie-extensie nodig. Gecontroleerd met Claude Code 2.1.234."
+        },
+        {
+          "h2": "Instellingen"
+        },
+        {
+          "p": "Alle instellingen zijn optionele omgevingsvariabelen. Tijden zijn in seconden."
+        },
+        {
+          "table": "settings"
+        },
+        {
+          "p": "Draai je Claude Code headless met `claude -p` vanuit een script? Zet daar `VIBESTRETCH_DISABLE=1`."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Hoe verwijder ik het onderdeel uit de statusregel?",
+          "a": "Voer /vibestretch:statusline off uit. Doe dit voordat je de plugin verwijdert. Anders blijft het onderdeel ingesteld, maar wordt het niet meer bijgewerkt."
+        },
+        {
+          "q": "Komt het seintje bij het model terecht?",
+          "a": "Nee. Het seintje is een systemMessage. Het wordt aan jou getoond en nooit aan de context van het model toegevoegd."
+        },
+        {
+          "q": "Waarom hoor ik twee geluiden?",
+          "a": "Sommige terminals, zoals iTerm2, spelen een eigen geluid af bij meldingen. Zet VIBESTRETCH_SOUND=0 om alleen het geluid van de terminal te houden."
+        }
+      ]
+    },
+    "codex-cli-break-reminder": {
+      "nav": "Codex CLI",
+      "title": "Zo voeg je een pauzeherinnering toe aan Codex CLI | vibestretch",
+      "description": "Installeer vibestretch in OpenAI Codex CLI als plugin of met de hand. Je krijgt een rekregel en een belletje terwijl lange beurten van Codex lopen.",
+      "h1": "Zo voeg je een pauzeherinnering toe aan Codex CLI",
+      "lead": "vibestretch installeer je in OpenAI Codex CLI via de pluginmarketplace. Tijdens lange beurten toont het een rekregel en klinkt er een belletje.",
+      "blocks": [
+        {
+          "h2": "Installeren als plugin"
+        },
+        {
+          "code": "install_codex"
+        },
+        {
+          "p": "Codex voert de hooks van een plugin pas uit als je ze hebt bekeken. Open `/hooks` en vertrouw de drie items van vibestretch. Tot die tijd is de plugin geïnstalleerd, maar blijft hij stil."
+        },
+        {
+          "h2": "Met de hand installeren"
+        },
+        {
+          "p": "Een kloon en een configuratiebestand doen hetzelfde:"
+        },
+        {
+          "code": "install_codex_manual"
+        },
+        {
+          "p": "Heb je al een `~/.codex/hooks.json`? Voeg de drie items uit ons bestand samen met het jouwe. Overschrijf je eigen bestand niet. Codex vraagt bij de eerste start of je een nieuwe hookconfiguratie vertrouwt. Die vraag is normaal."
+        },
+        {
+          "p": "Kies één manier. Staan de plugin en de handmatige items er allebei, dan draait elke hook twee keer. Heb je vóór 0.8.0 met de hand geïnstalleerd, haal dan onze items uit `~/.codex/hooks.json` als je overstapt op de plugin."
+        },
+        {
+          "h2": "Wat je krijgt in Codex"
+        },
+        {
+          "p": "Je krijgt de regel in de sessie en het belletje. Er is geen melding, omdat Codex geen hook-uitvoerveld heeft voor een terminalreeks. Er is ook geen onderdeel in de statusregel. Die balk is in Codex niet met scripts aan te sturen."
+        },
+        {
+          "p": "De teller wordt gedeeld met Claude Code en Gemini CLI. Een uur wachten telt één keer, welke agent je ook in je stoel hield. De adapter is getest op een echte installatie van Codex CLI 0.149.1 op macOS."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Ik heb het geïnstalleerd, maar er gebeurt niets. Waarom?",
+          "a": "Codex voert de hooks van een plugin pas uit als je ze vertrouwt. Open /hooks en vertrouw de drie items van vibestretch."
+        },
+        {
+          "q": "Elke hook draait twee keer. Waarom?",
+          "a": "Waarschijnlijk heb je zowel de plugin als handmatige items in ~/.codex/hooks.json. Houd er één van de twee over."
+        },
+        {
+          "q": "Kan ik het gebruiken met codex exec?",
+          "a": "Zet VIBESTRETCH_DISABLE=1 in die omgeving. Runs zonder toezicht horen niet mee te tellen als tijd die je hebt uitgezeten."
+        }
+      ]
+    },
+    "gemini-cli-break-reminder": {
+      "nav": "Gemini CLI",
+      "title": "Zo voeg je een pauzeherinnering toe aan Gemini CLI | vibestretch",
+      "description": "Voeg vibestretch met drie hooks toe aan Gemini CLI. Je krijgt een rekregel en een belletje tijdens lange beurten van Gemini. Installeren en samenvoegen.",
+      "h1": "Zo voeg je een pauzeherinnering toe aan Gemini CLI",
+      "lead": "Gemini CLI heeft hooks sinds v0.26 standaard ingeschakeld. vibestretch voegt er drie toe om je tijdens lange beurten aan rekken te herinneren.",
+      "blocks": [
+        {
+          "h2": "Installeren"
+        },
+        {
+          "p": "Kloon de repository:"
+        },
+        {
+          "code": "install_gemini_clone"
+        },
+        {
+          "p": "Kopieer daarna het object `hooks` uit `~/.gemini/vibestretch/hooks/gemini-hooks.json` naar `~/.gemini/settings.json`. Dat bestand bevat je hele Gemini-configuratie, dus voeg samen. Vervang het niet. Met `jq` kan het in één regel:"
+        },
+        {
+          "code": "install_gemini_merge"
+        },
+        {
+          "p": "Heb je al eigen hooks onder `BeforeAgent`, `AfterTool` of `AfterAgent`, dan vervangt dit commando ze door de onze. Voeg onze drie items dan met de hand aan je lijsten toe."
+        },
+        {
+          "h2": "Welke hooks het gebruikt"
+        },
+        {
+          "ul": [
+            "`BeforeAgent`: de agent begint aan je prompt.",
+            "`AfterTool`: een tool is klaar. De wachttijd wordt opgeteld, en als er een seintje nodig is, komt het.",
+            "`AfterAgent`: de beurt is voorbij. De telling wordt afgesloten."
+          ]
+        },
+        {
+          "h2": "Wat je krijgt in Gemini CLI"
+        },
+        {
+          "p": "Je krijgt de regel in de sessie en het belletje. Er is geen melding. Gemini reserveert de stdout van een hook alleen voor JSON, dus er is geen plek om een escapereeks te tonen."
+        },
+        {
+          "p": "De adapter is getest op een echte installatie van Gemini CLI 0.56.0 op macOS. De teller wordt gedeeld met Claude Code en Codex CLI."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Welke versie van Gemini CLI heb ik nodig?",
+          "a": "Hooks staan standaard aan sinds Gemini CLI v0.26."
+        },
+        {
+          "q": "Overschrijft het samenvoegen mijn instellingen?",
+          "a": "Je andere instellingen blijven staan. Heb je al eigen hooks onder BeforeAgent, AfterTool of AfterAgent, dan vervangt jq die lijsten door de onze. Voeg onze drie items dan met de hand toe. Maak eerst een back-up van het bestand."
+        },
+        {
+          "q": "Kan ik het gebruiken met gemini -p?",
+          "a": "Zet VIBESTRETCH_DISABLE=1 als je Gemini vanuit een script, cron of een bot start."
+        }
+      ]
+    }
+  },
+  "settings_rows": {
+    "VIBESTRETCH_MIN_TURN": "Zo lang moet de huidige beurt minstens lopen.",
+    "VIBESTRETCH_MIN_ACTIVE": "Benodigde agenttijd sinds je vorige pauze.",
+    "VIBESTRETCH_COOLDOWN": "Minimale tijd tussen seintjes.",
+    "VIBESTRETCH_AWAY": "Zo lang geen toetsenbord of muis betekent dat je weg bent. Alleen macOS. 0 zet deze controle uit.",
+    "VIBESTRETCH_DISABLE": "Geef een willekeurige waarde om seintjes uit te zetten.",
+    "VIBESTRETCH_NOTIFY": "Zet op 0 om de bureaubladmelding uit te zetten.",
+    "VIBESTRETCH_SOUND": "Zet op 0 om het geluid uit te zetten.",
+    "VIBESTRETCH_EXERCISES": "Pad naar je eigen lijst met oefeningen."
+  },
+  "settings_head": [
+    "Variabele",
+    "Standaard",
+    "Betekenis"
+  ]
+}

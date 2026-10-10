@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 编程智能体运行时的拉伸休息 | vibestretch</title>
+<meta name="description" content="利用编程智能体让你等待的几分钟，做一次简短的拉伸。本文介绍 vibestretch 如何统计智能体的等待时间，以及它在什么时候提醒你休息。">
+<link rel="canonical" href="https://eliasjunit.github.io/vibestretch/zh-Hans/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="en" href="https://eliasjunit.github.io/vibestretch/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="es" href="https://eliasjunit.github.io/vibestretch/es/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="pt-BR" href="https://eliasjunit.github.io/vibestretch/pt-BR/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="fr" href="https://eliasjunit.github.io/vibestretch/fr/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="de" href="https://eliasjunit.github.io/vibestretch/de/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="it" href="https://eliasjunit.github.io/vibestretch/it/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="ru" href="https://eliasjunit.github.io/vibestretch/ru/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="uk" href="https://eliasjunit.github.io/vibestretch/uk/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="pl" href="https://eliasjunit.github.io/vibestretch/pl/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="tr" href="https://eliasjunit.github.io/vibestretch/tr/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="nl" href="https://eliasjunit.github.io/vibestretch/nl/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="sv" href="https://eliasjunit.github.io/vibestretch/sv/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="da" href="https://eliasjunit.github.io/vibestretch/da/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="nb" href="https://eliasjunit.github.io/vibestretch/nb/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="fi" href="https://eliasjunit.github.io/vibestretch/fi/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="cs" href="https://eliasjunit.github.io/vibestretch/cs/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="ro" href="https://eliasjunit.github.io/vibestretch/ro/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="hu" href="https://eliasjunit.github.io/vibestretch/hu/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="el" href="https://eliasjunit.github.io/vibestretch/el/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="ja" href="https://eliasjunit.github.io/vibestretch/ja/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="ko" href="https://eliasjunit.github.io/vibestretch/ko/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="zh-Hans" href="https://eliasjunit.github.io/vibestretch/zh-Hans/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="zh-Hant" href="https://eliasjunit.github.io/vibestretch/zh-Hant/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="id" href="https://eliasjunit.github.io/vibestretch/id/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="th" href="https://eliasjunit.github.io/vibestretch/th/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="vi" href="https://eliasjunit.github.io/vibestretch/vi/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="ms" href="https://eliasjunit.github.io/vibestretch/ms/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="hi" href="https://eliasjunit.github.io/vibestretch/hi/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="ar" href="https://eliasjunit.github.io/vibestretch/ar/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="he" href="https://eliasjunit.github.io/vibestretch/he/stretch-breaks-ai-coding-agents/">
+<link rel="alternate" hreflang="x-default" href="https://eliasjunit.github.io/vibestretch/stretch-breaks-ai-coding-agents/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="vibestretch">
+<meta property="og:title" content="AI 编程智能体运行时的拉伸休息 | vibestretch">
+<meta property="og:description" content="利用编程智能体让你等待的几分钟，做一次简短的拉伸。本文介绍 vibestretch 如何统计智能体的等待时间，以及它在什么时候提醒你休息。">
+<meta property="og:url" content="https://eliasjunit.github.io/vibestretch/zh-Hans/stretch-breaks-ai-coding-agents/">
+<meta property="og:image" content="https://eliasjunit.github.io/vibestretch/assets/social-preview.png">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="nl_NL">
+<meta property="og:locale:alternate" content="sv_SE">
+<meta property="og:locale:alternate" content="da_DK">
+<meta property="og:locale:alternate" content="nb_NO">
+<meta property="og:locale:alternate" content="fi_FI">
+<meta property="og:locale:alternate" content="cs_CZ">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:locale:alternate" content="hu_HU">
+<meta property="og:locale:alternate" content="el_GR">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:locale:alternate" content="th_TH">
+<meta property="og:locale:alternate" content="vi_VN">
+<meta property="og:locale:alternate" content="ms_MY">
+<meta property="og:locale:alternate" content="hi_IN">
+<meta property="og:locale:alternate" content="ar_AR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/icon.png" type="image/png">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="sitemap" type="application/xml" href="https://eliasjunit.github.io/vibestretch/sitemap.xml">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://eliasjunit.github.io/vibestretch/#org",
+   "name": "Junit",
+   "url": "https://github.com/Eliasjunit"
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://eliasjunit.github.io/vibestretch/#app",
+   "name": "vibestretch",
+   "applicationCategory": "DeveloperApplication",
+   "operatingSystem": "macOS, Linux",
+   "softwareVersion": "0.8.0",
+   "license": "https://opensource.org/licenses/MIT",
+   "url": "https://github.com/Eliasjunit/vibestretch",
+   "downloadUrl": "https://github.com/Eliasjunit/vibestretch",
+   "description": "vibestretch 是一款免费的开发者拉伸和休息提醒工具。Claude Code、Codex CLI 或 Gemini CLI 长时间运行时，它会提醒你起身活动。",
+   "author": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#org"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/stretch-breaks-ai-coding-agents/#webpage",
+   "url": "https://eliasjunit.github.io/vibestretch/zh-Hans/stretch-breaks-ai-coding-agents/",
+   "name": "AI 编程智能体运行时的拉伸休息 | vibestretch",
+   "description": "利用编程智能体让你等待的几分钟，做一次简短的拉伸。本文介绍 vibestretch 如何统计智能体的等待时间，以及它在什么时候提醒你休息。",
+   "inLanguage": "zh-Hans",
+   "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://eliasjunit.github.io/vibestretch/#website",
+    "name": "vibestretch",
+    "url": "https://eliasjunit.github.io/vibestretch/",
+    "publisher": {
+     "@id": "https://eliasjunit.github.io/vibestretch/#org"
+    }
+   },
+   "about": {
+    "@id": "https://eliasjunit.github.io/vibestretch/#app"
+   },
+   "breadcrumb": {
+    "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/stretch-breaks-ai-coding-agents/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://eliasjunit.github.io/vibestretch/assets/social-preview.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/stretch-breaks-ai-coding-agents/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "vibestretch",
+     "item": "https://eliasjunit.github.io/vibestretch/zh-Hans/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "AI 编程智能体运行时的拉伸休息",
+     "item": "https://eliasjunit.github.io/vibestretch/zh-Hans/stretch-breaks-ai-coding-agents/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://eliasjunit.github.io/vibestretch/zh-Hans/stretch-breaks-ai-coding-agents/#faq",
+   "url": "https://eliasjunit.github.io/vibestretch/zh-Hans/stretch-breaks-ai-coding-agents/",
+   "inLanguage": "zh-Hans",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "短轮次时它会提醒我吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "不会。一轮任务必须运行至少 2 分钟，并且累计了足够的智能体时间，才可能触发提醒。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "模型越快，提醒就越少吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "是的。快速模型在达到阈值之前就完成了轮次，所以没有什么需要静音的。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "通过脚本或 cron 运行的智能体怎么办？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "在那个环境中设置 VIBESTRETCH_DISABLE=1。否则，无人值守的会话也会被计入，尽管你并没有坐在那里等。"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="../../zh-Hans/"><img src="../../assets/icon.png" alt="" width="28" height="28">vibestretch</a>
+<details class="lang"><summary>语言: 简体中文</summary><ul><li><a href="../../stretch-breaks-ai-coding-agents/" hreflang="en" lang="en">English</a></li><li><a href="../../es/stretch-breaks-ai-coding-agents/" hreflang="es" lang="es">Español</a></li><li><a href="../../pt-BR/stretch-breaks-ai-coding-agents/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../../fr/stretch-breaks-ai-coding-agents/" hreflang="fr" lang="fr">Français</a></li><li><a href="../../de/stretch-breaks-ai-coding-agents/" hreflang="de" lang="de">Deutsch</a></li><li><a href="../../it/stretch-breaks-ai-coding-agents/" hreflang="it" lang="it">Italiano</a></li><li><a href="../../ru/stretch-breaks-ai-coding-agents/" hreflang="ru" lang="ru">Русский</a></li><li><a href="../../uk/stretch-breaks-ai-coding-agents/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../../pl/stretch-breaks-ai-coding-agents/" hreflang="pl" lang="pl">Polski</a></li><li><a href="../../tr/stretch-breaks-ai-coding-agents/" hreflang="tr" lang="tr">Türkçe</a></li><li><a href="../../nl/stretch-breaks-ai-coding-agents/" hreflang="nl" lang="nl">Nederlands</a></li><li><a href="../../sv/stretch-breaks-ai-coding-agents/" hreflang="sv" lang="sv">Svenska</a></li><li><a href="../../da/stretch-breaks-ai-coding-agents/" hreflang="da" lang="da">Dansk</a></li><li><a href="../../nb/stretch-breaks-ai-coding-agents/" hreflang="nb" lang="nb">Norsk bokmål</a></li><li><a href="../../fi/stretch-breaks-ai-coding-agents/" hreflang="fi" lang="fi">Suomi</a></li><li><a href="../../cs/stretch-breaks-ai-coding-agents/" hreflang="cs" lang="cs">Čeština</a></li><li><a href="../../ro/stretch-breaks-ai-coding-agents/" hreflang="ro" lang="ro">Română</a></li><li><a href="../../hu/stretch-breaks-ai-coding-agents/" hreflang="hu" lang="hu">Magyar</a></li><li><a href="../../el/stretch-breaks-ai-coding-agents/" hreflang="el" lang="el">Ελληνικά</a></li><li><a href="../../ja/stretch-breaks-ai-coding-agents/" hreflang="ja" lang="ja">日本語</a></li><li><a href="../../ko/stretch-breaks-ai-coding-agents/" hreflang="ko" lang="ko">한국어</a></li><li><a href="../../zh-Hans/stretch-breaks-ai-coding-agents/" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">简体中文</a></li><li><a href="../../zh-Hant/stretch-breaks-ai-coding-agents/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li><li><a href="../../id/stretch-breaks-ai-coding-agents/" hreflang="id" lang="id">Bahasa Indonesia</a></li><li><a href="../../th/stretch-breaks-ai-coding-agents/" hreflang="th" lang="th">ไทย</a></li><li><a href="../../vi/stretch-breaks-ai-coding-agents/" hreflang="vi" lang="vi">Tiếng Việt</a></li><li><a href="../../ms/stretch-breaks-ai-coding-agents/" hreflang="ms" lang="ms">Bahasa Melayu</a></li><li><a href="../../hi/stretch-breaks-ai-coding-agents/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../../ar/stretch-breaks-ai-coding-agents/" hreflang="ar" lang="ar">العربية</a></li><li><a href="../../he/stretch-breaks-ai-coding-agents/" hreflang="he" lang="he">עברית</a></li></ul></details>
+</div>
+<nav class="pages wrap" aria-label="页面"><ul><li><a href="../../zh-Hans/">概览</a></li><li><a href="../../zh-Hans/stretch-breaks-ai-coding-agents/" aria-current="page">智能体运行时的休息</a></li><li><a href="../../zh-Hans/20-20-20-eye-rule-developers/">20-20-20 护眼法则</a></li><li><a href="../../zh-Hans/desk-stretches-programmers/">办公桌拉伸</a></li><li><a href="../../zh-Hans/claude-code-break-reminder/">Claude Code</a></li><li><a href="../../zh-Hans/codex-cli-break-reminder/">Codex CLI</a></li><li><a href="../../zh-Hans/gemini-cli-break-reminder/">Gemini CLI</a></li></ul></nav>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="面包屑导航"><ol><li><a href="../../zh-Hans/">vibestretch</a></li><li aria-current="page">AI 编程智能体运行时的拉伸休息</li></ol></nav>
+<h1>AI 编程智能体运行时的拉伸休息</h1>
+<p class="lead">编程智能体一次可能要工作好几分钟。你只能坐着看。vibestretch 把这段等待变成一次短暂的休息。</p>
+<h2>为什么等待是休息的好时机</h2>
+<p>休息计时器按固定时间表响起。它们常常打断你的思路，很多人最后干脆把它关掉。智能体忙碌的时间不一样。你反正都在等。在这个空档拉伸一下，不会影响你的专注。</p>
+<h2>vibestretch 统计什么</h2>
+<p>它统计智能体时间：你在电脑前时，智能体任务运行的分钟数。它从上次提醒开始累加。这与你在桌前坐了多久无关。一小时里你在阅读和打字，中间穿插几次很快的轮次，几乎不会累加时间。</p>
+<h2>何时触发提醒</h2>
+<p>必须同时满足三个条件：</p>
+<ol><li>当前这一轮已运行至少 2 分钟。</li><li>自上次提醒以来，智能体时间至少 5 分钟。一个大任务或几个中等任务都算。</li><li>距上次提醒至少过了 15 分钟。</li></ol>
+<p>每个数值都可以通过环境变量修改。完整列表见 <a href="../../zh-Hans/claude-code-break-reminder/">Claude Code 页面</a>。</p>
+<h2>当你离开电脑时</h2>
+<p>如果你离开键盘 45 分钟或更久，累计时间会清零。你已经休息过了。在 macOS 上，钩子会读取系统的键盘和鼠标空闲时间。因此，智能体通宵工作不会累加智能体时间，也不会对着空椅子响铃。Linux 没有通用的空闲时间接口，所以在 Linux 上只适用 45 分钟清零规则。</p>
+<h2>提醒会让你做什么</h2>
+<p>每次提醒是 12 个动作中的一个，涵盖拉伸、微运动和护眼休息。完整列表见<a href="../../zh-Hans/desk-stretches-programmers/">程序员办公桌拉伸</a>。</p>
+<section class="faq" id="faq"><h2>常见问题</h2><dl><dt>短轮次时它会提醒我吗？</dt><dd>不会。一轮任务必须运行至少 2 分钟，并且累计了足够的智能体时间，才可能触发提醒。</dd><dt>模型越快，提醒就越少吗？</dt><dd>是的。快速模型在达到阈值之前就完成了轮次，所以没有什么需要静音的。</dd><dt>通过脚本或 cron 运行的智能体怎么办？</dt><dd>在那个环境中设置 VIBESTRETCH_DISABLE=1。否则，无人值守的会话也会被计入，尽管你并没有坐在那里等。</dd></dl></section>
+<section class="related"><h2>延伸阅读</h2><ul><li><a href="../../zh-Hans/">编程智能体工作时，起来拉伸一下</a></li><li><a href="../../zh-Hans/20-20-20-eye-rule-developers/">程序员的 20-20-20 护眼法则</a></li><li><a href="../../zh-Hans/desk-stretches-programmers/">程序员办公桌拉伸</a></li><li><a href="../../zh-Hans/claude-code-break-reminder/">如何为 Claude Code 添加休息提醒</a></li><li><a href="../../zh-Hans/codex-cli-break-reminder/">如何为 Codex CLI 添加休息提醒</a></li><li><a href="../../zh-Hans/gemini-cli-break-reminder/">如何为 Gemini CLI 添加休息提醒</a></li></ul></section>
+</main>
+<footer class="site"><div class="wrap">
+<p>vibestretch 是开源软件，采用 MIT 许可证。 由 Junit 制作。 <a href="https://github.com/Eliasjunit/vibestretch">GitHub 上的源代码</a></p>
+</div></footer>
+</body>
+</html>
